@@ -56,15 +56,151 @@
 		F4587CF42A0F609E00F56BCD /* Baemin_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F4587CF52A0F609E00F56BCD /* AppDelegate.swift */,
-				F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */,
-				F4587CF92A0F609E00F56BCD /* ViewController.swift */,
+				F4587D0D2A12B17000F56BCD /* Application */,
+				F4587D0B2A12B15900F56BCD /* Global */,
+				F4587D0A2A12B14F00F56BCD /* Network */,
+				F4587D0E2A12B1A600F56BCD /* Presentation */,
+				F4587D092A12B12300F56BCD /* Resources */,
+			);
+			path = Baemin_iOS;
+			sourceTree = "<group>";
+		};
+		F4587D092A12B12300F56BCD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				F4587CFB2A0F609E00F56BCD /* Main.storyboard */,
 				F4587CFE2A0F60A000F56BCD /* Assets.xcassets */,
 				F4587D002A0F60A000F56BCD /* LaunchScreen.storyboard */,
 				F4587D032A0F60A000F56BCD /* Info.plist */,
 			);
-			path = Baemin_iOS;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4587D0A2A12B14F00F56BCD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D142A12B2A700F56BCD /* API */,
+				F4587D152A12B2AD00F56BCD /* Base */,
+				F4587D162A12B2B500F56BCD /* DataModel */,
+				F4587D172A12B2BC00F56BCD /* Servjce */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F4587D0B2A12B15900F56BCD /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D0C2A12B16700F56BCD /* Extensions */,
+				F4587D122A12B28300F56BCD /* Literals */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		F4587D0C2A12B16700F56BCD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D132A12B29A00F56BCD /* UI */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4587D0D2A12B17000F56BCD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F4587CF52A0F609E00F56BCD /* AppDelegate.swift */,
+				F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F4587D0E2A12B1A600F56BCD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D0F2A12B1FC00F56BCD /* Scene */,
+				F4587D102A12B21F00F56BCD /* Common */,
+				F4587D112A12B22400F56BCD /* TabBar */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F4587D0F2A12B1FC00F56BCD /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D182A12B2CB00F56BCD /* VC */,
+				F4587D192A12B2DB00F56BCD /* Views */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		F4587D102A12B21F00F56BCD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F4587D112A12B22400F56BCD /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		F4587D122A12B28300F56BCD /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		F4587D132A12B29A00F56BCD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F4587D142A12B2A700F56BCD /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F4587D152A12B2AD00F56BCD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F4587D162A12B2B500F56BCD /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		F4587D172A12B2BC00F56BCD /* Servjce */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Servjce;
+			sourceTree = "<group>";
+		};
+		F4587D182A12B2CB00F56BCD /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F4587CF92A0F609E00F56BCD /* ViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F4587D192A12B2DB00F56BCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
