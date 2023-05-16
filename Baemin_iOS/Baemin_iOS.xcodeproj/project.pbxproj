@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4587CF22A0F609E00F56BCD /* Baemin_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baemin_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4587CF52A0F609E00F56BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		F4587CFC2A0F609E00F56BCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4587CFE2A0F60A000F56BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4587D012A0F60A000F56BCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F4587D032A0F60A000F56BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4587D1C2A12B46E00F56BCD /* view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
 		F4587D1E2A12B48900F56BCD /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		F4587D202A12B49200F56BCD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 		F4587CF42A0F609E00F56BCD /* Baemin_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F4587D382A12BD1000F56BCD /* .swiftlint.yml */,
 				F4587D0D2A12B17000F56BCD /* Application */,
 				F4587D0B2A12B15900F56BCD /* Global */,
 				F4587D0A2A12B14F00F56BCD /* Network */,
@@ -95,10 +96,10 @@
 		F4587D092A12B12300F56BCD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F413BD772A13DA0C0084B2F9 /* Info.plist */,
 				F4587CFB2A0F609E00F56BCD /* Main.storyboard */,
 				F4587CFE2A0F60A000F56BCD /* Assets.xcassets */,
 				F4587D002A0F60A000F56BCD /* LaunchScreen.storyboard */,
-				F4587D032A0F60A000F56BCD /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
