@@ -88,6 +88,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		F413BD902A16611E0084B2F9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		F4587CE92A0F609E00F56BCD = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +159,7 @@
 		F4587D0C2A12B16700F56BCD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F413BD902A16611E0084B2F9 /* Images */,
 				F4587D132A12B29A00F56BCD /* UI */,
 			);
 			path = Extensions;
