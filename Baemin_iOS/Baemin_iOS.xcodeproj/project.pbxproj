@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F413BD802A162AAE0084B2F9 /* Tag.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD7F2A162AAE0084B2F9 /* Tag.xcassets */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
-		F413BD842A162B480084B2F9 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD832A162B480084B2F9 /* Icon.xcassets */; };
 		F413BD862A162B520084B2F9 /* Button.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD852A162B520084B2F9 /* Button.xcassets */; };
 		F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD872A162B5C0084B2F9 /* Option.xcassets */; };
+		F413BD8A2A16503E0084B2F9 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD892A16503E0084B2F9 /* Icon.xcassets */; };
+		F413BD8C2A1650460084B2F9 /* Tag.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD8B2A1650460084B2F9 /* Tag.xcassets */; };
 		F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587CF52A0F609E00F56BCD /* AppDelegate.swift */; };
 		F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */; };
 		F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587CF92A0F609E00F56BCD /* ViewController.swift */; };
@@ -35,11 +35,11 @@
 
 /* Begin PBXFileReference section */
 		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F413BD7F2A162AAE0084B2F9 /* Tag.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tag.xcassets; sourceTree = "<group>"; };
 		F413BD812A162B410084B2F9 /* Skeleton.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Skeleton.xcassets; sourceTree = "<group>"; };
-		F413BD832A162B480084B2F9 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		F413BD852A162B520084B2F9 /* Button.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Button.xcassets; sourceTree = "<group>"; };
 		F413BD872A162B5C0084B2F9 /* Option.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Option.xcassets; sourceTree = "<group>"; };
+		F413BD892A16503E0084B2F9 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		F413BD8B2A1650460084B2F9 /* Tag.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tag.xcassets; sourceTree = "<group>"; };
 		F4587CF22A0F609E00F56BCD /* Baemin_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baemin_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4587CF52A0F609E00F56BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +76,11 @@
 		F413BD792A1626D10084B2F9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				F413BD7F2A162AAE0084B2F9 /* Tag.xcassets */,
 				F413BD812A162B410084B2F9 /* Skeleton.xcassets */,
-				F413BD832A162B480084B2F9 /* Icon.xcassets */,
 				F413BD852A162B520084B2F9 /* Button.xcassets */,
 				F413BD872A162B5C0084B2F9 /* Option.xcassets */,
+				F413BD892A16503E0084B2F9 /* Icon.xcassets */,
+				F413BD8B2A1650460084B2F9 /* Tag.xcassets */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -334,12 +334,12 @@
 			files = (
 				F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */,
 				F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */,
+				F413BD8A2A16503E0084B2F9 /* Icon.xcassets in Resources */,
 				F4587D392A12BD1000F56BCD /* .swiftlint.yml in Resources */,
-				F413BD802A162AAE0084B2F9 /* Tag.xcassets in Resources */,
 				F4587D022A0F60A000F56BCD /* LaunchScreen.storyboard in Resources */,
 				F4587CFF2A0F60A000F56BCD /* Assets.xcassets in Resources */,
 				F4587CFD2A0F609E00F56BCD /* Main.storyboard in Resources */,
-				F413BD842A162B480084B2F9 /* Icon.xcassets in Resources */,
+				F413BD8C2A1650460084B2F9 /* Tag.xcassets in Resources */,
 				F413BD862A162B520084B2F9 /* Button.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
