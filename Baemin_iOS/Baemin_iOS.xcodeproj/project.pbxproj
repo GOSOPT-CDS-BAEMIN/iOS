@@ -66,8 +66,48 @@
 		F413BD792A1626D10084B2F9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F413BD7E2A1629AC0084B2F9 /* Tag */,
+				F413BD7D2A1628BA0084B2F9 /* Skeleton */,
+				F413BD7C2A1628B30084B2F9 /* Option */,
+				F413BD7B2A16289A0084B2F9 /* Button */,
+				F413BD7A2A16283A0084B2F9 /* Icon */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		F413BD7A2A16283A0084B2F9 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
+		F413BD7B2A16289A0084B2F9 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		F413BD7C2A1628B30084B2F9 /* Option */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Option;
+			sourceTree = "<group>";
+		};
+		F413BD7D2A1628BA0084B2F9 /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		F413BD7E2A1629AC0084B2F9 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 		F4587CE92A0F609E00F56BCD = {
