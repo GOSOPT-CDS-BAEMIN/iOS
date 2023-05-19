@@ -8,7 +8,9 @@
 import UIKit
 
 extension UIImage {
-    //Icon
+    
+    /// Icon
+    
     static let arrow_back = UIImage(named: "arrow_back")
     static let arrow_down = UIImage(named: "arrow_down")
     static let arrow_up_down = UIImage(named: "arrow-up-down")
@@ -35,9 +37,8 @@ extension UIImage {
     static let x = UIImage(named: "x")
     static let yellow_star = UIImage(named: "yellow_star")
 
+    /// Button
     
-    
-    // Button
     static let add_more = UIImage(named: "add_more")
     static let box_goto_add = UIImage(named: "box_goto_add")
     static let checked = UIImage(named: "checked")
@@ -50,28 +51,28 @@ extension UIImage {
     static let radio_delivery = UIImage(named: "radio-delivery")
     static let radio_pickup = UIImage(named: "radio-pickup")
     
+    /// Option
     
-    // Option
     static let clean_review = UIImage(named: "clean_review")
     static let coupon = UIImage(named: "coupon")
     static let delivery_man = UIImage(named: "delivery_man")
     static let recommend = UIImage(named: "recommend")
     
+    /// Tag
     
-    // Tag
     static let coupon_tag = UIImage(named: "coupon_tag")
     static let new = UIImage(named: "new")
     static let signiture = UIImage(named: "signiture")
     
+    /// TabBar
     
-    // TabBar
     static let empty_heart = UIImage(named: "empty_heart")
     static let order_list = UIImage(named: "order_list")
     static let search = UIImage(named: "search")
     static let smile = UIImage(named: "smile")
     
+    /// Skeleton
     
-    // Skeleton
     static let empty_1 = UIImage(named: "empty_1")
     static let empty_2 = UIImage(named: "empty_2")
     static let empty_3 = UIImage(named: "empty_3")
