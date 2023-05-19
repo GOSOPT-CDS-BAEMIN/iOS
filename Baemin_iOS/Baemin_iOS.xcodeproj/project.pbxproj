@@ -18,7 +18,7 @@
 		093DB05B2A17516100ECA5F6 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */; };
 		093DB05E2A17516100ECA5F6 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */; };
 		093DB0602A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */; };
-		09B06DCD2A17570D0062A6F7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DCC2A17570D0062A6F7 /* UIFont+.swift */; };
+		09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DCC2A17570D0062A6F7 /* UIFont+.swift */; };
 		8D10FA482A13EC2700F40F2A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D10FA472A13EC2700F40F2A /* Color.xcassets */; };
 		8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
@@ -487,7 +487,7 @@
 				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
 				093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */,
-				09B06DCD2A17570D0062A6F7 /* UIFont+.swift in Sources */,
+				09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */,
 				F4587D272A12B4AF00F56BCD /* Base.swift in Sources */,
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
 				8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */,

@@ -9,17 +9,17 @@ import UIKit
 
 extension UIFont {
     
-    // MARK: - Pretendard Font
+    // MARK: - AppleSDGothicNeo Font
     
-    public enum PretendardType: String {
-        case bold = "B"
-        case semiBold = "SB"
-        case extraBold = "EB"
-        case regular = "R"
-        case medium = "M"
+    public enum AppleSDGothicNeoType: String {
+        case bold = "B00"
+        case semiBold = "SB00"
+        case extraBold = "EB00"
+        case regular = "R00"
+        case medium = "M00"
     }
     
-    static func Pretendard(_ type: PretendardType, size: CGFloat) -> UIFont {
+    static func AppleSDGothicNeo(_ type: AppleSDGothicNeoType, size: CGFloat) -> UIFont {
         return UIFont(name: "AppleSDGothicNeo\(type.rawValue)", size: size)!
     }
 }
