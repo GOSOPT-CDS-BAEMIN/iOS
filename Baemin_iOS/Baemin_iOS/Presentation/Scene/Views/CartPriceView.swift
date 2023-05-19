@@ -10,12 +10,25 @@ import SnapKit
 
 class CartPriceView: UIView {
 
-    //private let totalPriceStackView: UIStackView = {
-    //}
-    private let totalPayStackView = UIStackView()
+    private let totalPriceStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        return stackView
+    }()
     
-    private let deliveryTipLabel: UILabel = {
+    private let totalPayStackView = UIStackView()
+        
+    private let totalPriceLabel: UILabel = {
         let label = UILabel()
+        label.text = I18N.Cart.totalPrice
+        return label
+    }()
+    
+    private let totalPayLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Cart.totalPay
         return label
     }()
     
@@ -25,8 +38,14 @@ class CartPriceView: UIView {
         return label
     }()
     
-    var totalPriceLabel = UILabel()
-    var totalPayLabel = UILabel()
+    private let deliveryTipLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Cart.deliveryTip
+        return label
+    }()
+    
+    var totalPriceValueLabel = UILabel()
+    var totalPayValueLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -42,18 +61,14 @@ class CartPriceView: UIView {
 extension CartPriceView {
     
     func setStyle() {
-        
+        addSubview(totalPriceStackView)
+        addSubview(totalPayStackView)
     }
     
     func setLayout() {
-        
-        [totalPriceLabel, totalPayLabel].forEach {
-            addSubview($0)
-        }
-
-        
+        totalPayStackView.addArrangedSubviews(totalPayLabel, totalPayValueLabel)
+        totalPriceStackView.addArrangedSubviews(totalPriceLabel, totalPriceValueLabel)
     }
     
-
-
+    
 }
