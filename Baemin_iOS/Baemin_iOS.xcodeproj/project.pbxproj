@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0402A17489B00ECA5F6 /* UiCollectionView+.swift */; };
+		093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0422A1748B400ECA5F6 /* NSObject+.swift */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
 		F413BD862A162B520084B2F9 /* Button.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD852A162B520084B2F9 /* Button.xcassets */; };
 		F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD872A162B5C0084B2F9 /* Option.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093DB0402A17489B00ECA5F6 /* UiCollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiCollectionView+.swift"; sourceTree = "<group>"; };
+		093DB0422A1748B400ECA5F6 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F413BD812A162B410084B2F9 /* Skeleton.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Skeleton.xcassets; sourceTree = "<group>"; };
 		F413BD852A162B520084B2F9 /* Button.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Button.xcassets; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 			children = (
 				F413BD902A16611E0084B2F9 /* Images */,
 				F4587D132A12B29A00F56BCD /* UI */,
+				093DB0402A17489B00ECA5F6 /* UiCollectionView+.swift */,
+				093DB0422A1748B400ECA5F6 /* NSObject+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */,
 				F413BD922A1661840084B2F9 /* UIImage+.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* Service.swift in Sources */,
@@ -413,6 +420,7 @@
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
+				093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */,
 				F4587D272A12B4AF00F56BCD /* Base.swift in Sources */,
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
 				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
