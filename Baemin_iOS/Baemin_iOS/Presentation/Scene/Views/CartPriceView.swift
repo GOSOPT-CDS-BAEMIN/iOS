@@ -68,7 +68,19 @@ extension CartPriceView {
     func setLayout() {
         totalPayStackView.addArrangedSubviews(totalPayLabel, totalPayValueLabel)
         totalPriceStackView.addArrangedSubviews(totalPriceLabel, totalPriceValueLabel)
+        noticeLabel.addSubviews()
+        
+        totalPriceStackView.snp.makeConstraints{
+            $0.top.equalToSuperview()
+        }
+        totalPayStackView.snp.makeConstraints{
+            $0.top.equalTo(totalPriceStackView)
+        }
+        noticeLabel.snp.makeConstraints{
+            $0.top.equalTo(totalPayStackView)
+        }
     }
+    
     
     
 }
