@@ -12,6 +12,7 @@
 		093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0442A17497600ECA5F6 /* UIStackView+.swift */; };
 		093DB0472A1749A300ECA5F6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0462A1749A300ECA5F6 /* UIView+.swift */; };
 		093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0482A1749D800ECA5F6 /* UILabel+.swift */; };
+		093DB04B2A174A1300ECA5F6 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB04A2A174A1300ECA5F6 /* UIImage+.swift */; };
 		8D10FA482A13EC2700F40F2A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D10FA472A13EC2700F40F2A /* Color.xcassets */; };
 		8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
@@ -48,6 +49,7 @@
 		093DB0442A17497600ECA5F6 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		093DB0462A1749A300ECA5F6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		093DB0482A1749D800ECA5F6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		093DB04A2A174A1300ECA5F6 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		8D10FA472A13EC2700F40F2A /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				093DB0442A17497600ECA5F6 /* UIStackView+.swift */,
 				093DB0462A1749A300ECA5F6 /* UIView+.swift */,
 				093DB0482A1749D800ECA5F6 /* UILabel+.swift */,
+				093DB04A2A174A1300ECA5F6 /* UIImage+.swift */,
 				093DB0422A1748B400ECA5F6 /* NSObject+.swift */,
 			);
 			path = Extensions;
@@ -459,6 +462,7 @@
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
 				8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */,
 				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
+				093DB04B2A174A1300ECA5F6 /* UIImage+.swift in Sources */,
 				093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */,
 				F4587D252A12B4A600F56BCD /* Model.swift in Sources */,
 			);
