@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093DB0572A17516100ECA5F6 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB04E2A17516100ECA5F6 /* AppleSDGothicNeoEB.ttf */; };
+		093DB0592A17516100ECA5F6 /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0502A17516100ECA5F6 /* AppleSDGothicNeoM.ttf */; };
+		093DB05B2A17516100ECA5F6 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */; };
+		093DB05E2A17516100ECA5F6 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */; };
+		093DB0602A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
 		F413BD862A162B520084B2F9 /* Button.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD852A162B520084B2F9 /* Button.xcassets */; };
 		F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD872A162B5C0084B2F9 /* Option.xcassets */; };
@@ -36,6 +41,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093DB04E2A17516100ECA5F6 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
+		093DB0502A17516100ECA5F6 /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
+		093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
+		093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
+		093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F413BD812A162B410084B2F9 /* Skeleton.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Skeleton.xcassets; sourceTree = "<group>"; };
 		F413BD852A162B520084B2F9 /* Button.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Button.xcassets; sourceTree = "<group>"; };
@@ -77,6 +87,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093DB04C2A17515400ECA5F6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */,
+				093DB04E2A17516100ECA5F6 /* AppleSDGothicNeoEB.ttf */,
+				093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */,
+				093DB0502A17516100ECA5F6 /* AppleSDGothicNeoM.ttf */,
+				093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		F413BD792A1626D10084B2F9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +152,7 @@
 		F4587D092A12B12300F56BCD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				093DB04C2A17515400ECA5F6 /* Font */,
 				F413BD792A1626D10084B2F9 /* Images */,
 				F413BD772A13DA0C0084B2F9 /* Info.plist */,
 				F4587CFB2A0F609E00F56BCD /* Main.storyboard */,
@@ -346,7 +369,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093DB0602A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf in Resources */,
 				F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */,
+				093DB0592A17516100ECA5F6 /* AppleSDGothicNeoM.ttf in Resources */,
 				F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */,
 				F413BD8A2A16503E0084B2F9 /* Icon.xcassets in Resources */,
 				F4587D392A12BD1000F56BCD /* .swiftlint.yml in Resources */,
@@ -354,7 +379,10 @@
 				F4587CFF2A0F60A000F56BCD /* Assets.xcassets in Resources */,
 				F4587CFD2A0F609E00F56BCD /* Main.storyboard in Resources */,
 				F413BD8E2A16554D0084B2F9 /* TabBar.xcassets in Resources */,
+				093DB05B2A17516100ECA5F6 /* AppleSDGothicNeoR.ttf in Resources */,
 				F413BD8C2A1650460084B2F9 /* Tag.xcassets in Resources */,
+				093DB0572A17516100ECA5F6 /* AppleSDGothicNeoEB.ttf in Resources */,
+				093DB05E2A17516100ECA5F6 /* AppleSDGothicNeoB.ttf in Resources */,
 				F413BD862A162B520084B2F9 /* Button.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
