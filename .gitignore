@@ -135,6 +135,7 @@ Dependencies/
 
 ### Xcode Patch ###
 *.xcodeproj/*
+*.xcuserstate
 !*.xcodeproj/project.xcworkspace/xcuserdata/
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
