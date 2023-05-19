@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
+		F413BD862A162B520084B2F9 /* Button.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD852A162B520084B2F9 /* Button.xcassets */; };
+		F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD872A162B5C0084B2F9 /* Option.xcassets */; };
+		F413BD8A2A16503E0084B2F9 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD892A16503E0084B2F9 /* Icon.xcassets */; };
+		F413BD8C2A1650460084B2F9 /* Tag.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD8B2A1650460084B2F9 /* Tag.xcassets */; };
+		F413BD8E2A16554D0084B2F9 /* TabBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD8D2A16554D0084B2F9 /* TabBar.xcassets */; };
+		F413BD922A1661840084B2F9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
 		F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587CF52A0F609E00F56BCD /* AppDelegate.swift */; };
 		F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */; };
 		F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587CF92A0F609E00F56BCD /* ViewController.swift */; };
@@ -30,6 +37,13 @@
 
 /* Begin PBXFileReference section */
 		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F413BD812A162B410084B2F9 /* Skeleton.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Skeleton.xcassets; sourceTree = "<group>"; };
+		F413BD852A162B520084B2F9 /* Button.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Button.xcassets; sourceTree = "<group>"; };
+		F413BD872A162B5C0084B2F9 /* Option.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Option.xcassets; sourceTree = "<group>"; };
+		F413BD892A16503E0084B2F9 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		F413BD8B2A1650460084B2F9 /* Tag.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tag.xcassets; sourceTree = "<group>"; };
+		F413BD8D2A16554D0084B2F9 /* TabBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBar.xcassets; sourceTree = "<group>"; };
+		F413BD912A1661840084B2F9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		F4587CF22A0F609E00F56BCD /* Baemin_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baemin_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4587CF52A0F609E00F56BCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4587CF72A0F609E00F56BCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +77,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F413BD792A1626D10084B2F9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F413BD812A162B410084B2F9 /* Skeleton.xcassets */,
+				F413BD852A162B520084B2F9 /* Button.xcassets */,
+				F413BD872A162B5C0084B2F9 /* Option.xcassets */,
+				F413BD892A16503E0084B2F9 /* Icon.xcassets */,
+				F413BD8B2A1650460084B2F9 /* Tag.xcassets */,
+				F413BD8D2A16554D0084B2F9 /* TabBar.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F413BD902A16611E0084B2F9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F413BD912A1661840084B2F9 /* UIImage+.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		F4587CE92A0F609E00F56BCD = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +118,6 @@
 		F4587CF42A0F609E00F56BCD /* Baemin_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F4587D382A12BD1000F56BCD /* .swiftlint.yml */,
 				F4587D0D2A12B17000F56BCD /* Application */,
 				F4587D0B2A12B15900F56BCD /* Global */,
 				F4587D0A2A12B14F00F56BCD /* Network */,
@@ -96,6 +130,7 @@
 		F4587D092A12B12300F56BCD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F413BD792A1626D10084B2F9 /* Images */,
 				F413BD772A13DA0C0084B2F9 /* Info.plist */,
 				F4587CFB2A0F609E00F56BCD /* Main.storyboard */,
 				F4587CFE2A0F60A000F56BCD /* Assets.xcassets */,
@@ -127,6 +162,7 @@
 		F4587D0C2A12B16700F56BCD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F413BD902A16611E0084B2F9 /* Images */,
 				F4587D132A12B29A00F56BCD /* UI */,
 			);
 			path = Extensions;
@@ -310,10 +346,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */,
+				F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */,
+				F413BD8A2A16503E0084B2F9 /* Icon.xcassets in Resources */,
 				F4587D392A12BD1000F56BCD /* .swiftlint.yml in Resources */,
 				F4587D022A0F60A000F56BCD /* LaunchScreen.storyboard in Resources */,
 				F4587CFF2A0F60A000F56BCD /* Assets.xcassets in Resources */,
 				F4587CFD2A0F609E00F56BCD /* Main.storyboard in Resources */,
+				F413BD8E2A16554D0084B2F9 /* TabBar.xcassets in Resources */,
+				F413BD8C2A1650460084B2F9 /* Tag.xcassets in Resources */,
+				F413BD862A162B520084B2F9 /* Button.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F413BD922A1661840084B2F9 /* UIImage+.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* Service.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
