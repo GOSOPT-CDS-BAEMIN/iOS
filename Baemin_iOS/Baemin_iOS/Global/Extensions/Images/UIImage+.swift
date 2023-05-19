@@ -75,4 +75,7 @@ extension UIImage {
     static let empty_1 = UIImage(named: "empty_1")
     static let empty_2 = UIImage(named: "empty_2")
     static let empty_3 = UIImage(named: "empty_3")
+    
+    // dummy test image
+    static let dummy = UIImage(named: "dummy")
 }
