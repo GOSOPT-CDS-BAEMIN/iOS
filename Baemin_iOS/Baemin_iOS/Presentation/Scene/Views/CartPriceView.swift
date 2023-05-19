@@ -97,12 +97,11 @@ extension CartPriceView {
     
     func setStyle() {
         addSubviews(totalPriceStackView, totalPayStackView, noticeLabel)
- 
     }
     
     func setLayout() {
         totalPriceStackView.addArrangedSubviews(totalPriceLabel,emptyView_1, totalPriceValueLabel)
-        totalPayStackView.addArrangedSubviews(totalPayLabel,deliveryTipLabel, emptyView_2,totalPayValueLabel)
+        totalPayStackView.addArrangedSubviews(totalPayLabel,deliveryTipLabel, emptyView_2, totalPayValueLabel)
         
 
         totalPriceStackView.snp.makeConstraints {
