@@ -101,14 +101,13 @@ extension CartPriceView {
     
     func setLayout() {
         totalPriceStackView.addArrangedSubviews(totalPriceLabel,emptyView_1, totalPriceValueLabel)
-        totalPayStackView.addArrangedSubviews(totalPayLabel,deliveryTipLabel, emptyView_2, totalPayValueLabel)
+        totalPayStackView.addArrangedSubviews(totalPayLabel, deliveryTipLabel,  emptyView_2, totalPayValueLabel)
         
-
         totalPriceStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(71)
         }
-        totalPriceLabel.snp.makeConstraints { // 이게 맞는 코드인지 모르겠어 stackview 이렇게 구성하는게 맞는건가
+        totalPriceLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
