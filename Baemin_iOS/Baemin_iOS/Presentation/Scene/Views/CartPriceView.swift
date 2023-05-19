@@ -10,10 +10,21 @@ import SnapKit
 
 class CartPriceView: UIView {
 
-    private let totalPriceStackView = UIStackView()
+    //private let totalPriceStackView: UIStackView = {
+    //}
     private let totalPayStackView = UIStackView()
-    private let deliveryTipLabel = UILabel()
-    private let noticeLabel = UILabel()
+    
+    private let deliveryTipLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    private let noticeLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Cart.notice
+        return label
+    }()
+    
     var totalPriceLabel = UILabel()
     var totalPayLabel = UILabel()
     
@@ -35,6 +46,11 @@ extension CartPriceView {
     }
     
     func setLayout() {
+        
+        [totalPriceLabel, totalPayLabel].forEach {
+            addSubview($0)
+        }
+
         
     }
     
