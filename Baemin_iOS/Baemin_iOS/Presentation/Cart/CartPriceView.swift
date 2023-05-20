@@ -35,6 +35,14 @@ class CartPriceView: UIView {
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         return label
     }()
+    
+    // 중간 선
+    
+    private let middleLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray_3
+        return view
+    }()
 
     // 2. 결제 예상 금액 StackView
     
@@ -69,7 +77,7 @@ class CartPriceView: UIView {
         label.backgroundColor = .gray_2
         label.clipsToBounds = true
         label.layer.cornerRadius = 4
-        return label 
+        return label
     }()
     
     // 3. 주의사항 Label
@@ -97,13 +105,14 @@ class CartPriceView: UIView {
 extension CartPriceView {
     
     func setStyle() {
-        addSubviews(totalPriceStackView, totalPayStackView, noticeLabel)
+        addSubviews(totalPriceStackView, middleLineView, totalPayStackView, noticeLabel)
     }
     
     func setLayout() {
-        totalPriceStackView.addArrangedSubviews(totalPriceLabel,emptyView_1, totalPriceValueLabel)
-        totalPayStackView.addArrangedSubviews(totalPayLabel, deliveryTipLabel,  emptyView_2, totalPayValueLabel)
+        totalPriceStackView.addArrangedSubviews(totalPriceLabel, emptyView_1, totalPriceValueLabel)
+        totalPayStackView.addArrangedSubviews(totalPayLabel, deliveryTipLabel, emptyView_2, totalPayValueLabel)
         
+        // 총 주문 금액 배치
         totalPriceStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(71)
@@ -122,8 +131,16 @@ extension CartPriceView {
             $0.centerY.equalToSuperview()
         }
         
-        totalPayStackView.snp.makeConstraints {
+        // 중간 선
+        middleLineView.snp.makeConstraints {
             $0.top.equalTo(totalPriceStackView.snp.bottom)
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalToSuperview().offset(14)
+        }
+        
+        // 결제 예상 금액 배치
+        totalPayStackView.snp.makeConstraints {
+            $0.top.equalTo(middleLineView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(59)
         }
@@ -132,11 +149,9 @@ extension CartPriceView {
             $0.centerY.equalToSuperview()
         }
         deliveryTipLabel.snp.makeConstraints {
-            $0.leading.equalTo(totalPayLabel.snp.trailing)
+            $0.leading.equalTo(totalPayLabel.snp.trailing).offset(8)
             $0.centerY.equalToSuperview()
             $0.height.equalTo(20)
-//            $0.top.equalTo(totalPayStackView.snp.top).offset(21)
-//            $0.bottom.equalTo(totalPayStackView.snp.bottom).offset(21)
         }
         emptyView_2.snp.makeConstraints {
             $0.leading.equalTo(deliveryTipLabel.snp.trailing)
@@ -148,6 +163,7 @@ extension CartPriceView {
             $0.centerY.equalToSuperview()
         }
 
+        // 주의사항 배치
         noticeLabel.snp.makeConstraints {
             $0.top.equalTo(totalPayStackView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
