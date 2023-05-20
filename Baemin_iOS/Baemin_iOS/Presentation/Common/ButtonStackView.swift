@@ -21,19 +21,23 @@ class ButtonStackView: UIStackView {
         return stackView
     }()
     
-    private let leftButton: UIButton = {
+    var leftButton: UIButton = {
         let button = UIButton()
         return button
     }()
     
-    private let rightButton: UIButton = {
+    var rightButton: UIButton = {
         let button = UIButton()
         return button
     }()
     
     // MARK: - Life Cycle
     
-     init(leftIcon: UIImage,rightIcon: UIImage) {
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+    }
+    
+     init(leftIcon: UIImage, rightIcon: UIImage) {
         super.init(frame: .zero)
         setStyle(leftIcon: leftIcon, rightIcon: rightIcon)
         setLayout()

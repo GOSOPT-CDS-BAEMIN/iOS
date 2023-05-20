@@ -15,17 +15,25 @@ class CustomNavigaionView: UIView {
     
     // MARK: - UI Components
     
-    private lazy var backButton: UIButton = {
-      let button = UIButton()
-        button.setImage(.arrow_back, for: .normal)
-        return button
+    private lazy var backButton: ButtonStackView = {
+        let back = ButtonStackView()
+        back.rightButton.setImage(UIImage.arrow_back, for: .normal) 
+        return back
+    }()
+    private let title: UILabel = {
+       let title = UILabel()
+        return title
+    }()
+    private lazy var iconButton: ButtonStackView = {
+        let icon =  ButtonStackView()
+        return icon
     }()
     
     // MARK: - Life Cycle
     
-    override init(frame: CGRect) {
+    init(type: NaviType) {
         super.init(frame: .zero)
-        setStyle()
+        setStyle(type: type)
         setLayout()
     }
     
@@ -38,16 +46,27 @@ class CustomNavigaionView: UIView {
 
 extension CustomNavigaionView {
     
-    private func setStyle() {
-        
+    private func setStyle(type: NaviType) {
+        backButton.rightButton.setImage(type.rightIcon, for: .normal)
+        title.text = type.title
     }
     private func setLayout() {
-        addSubview(backButton)
+        addSubviews(backButton, title, iconButton)
         
         backButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(18)
-            $0.size.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+            $0.size.equalTo(CGSizeMake(55, 20))
         }
         
+        title.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        iconButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(15)
+            $0.size.equalTo(CGSizeMake(55, 20))
+        }
     }
 }

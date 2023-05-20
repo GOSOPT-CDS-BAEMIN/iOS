@@ -19,7 +19,7 @@ enum NaviType {
     var title: String {
         switch self {
         case .cart: return "장바구니"
-        case .main, .menu: reutrn ""
+        case .main, .menu: return ""
         }
     }
 }
