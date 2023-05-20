@@ -42,7 +42,7 @@ class CartPriceView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fill
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.backgroundColor = .white
         return stackView
     }()
@@ -62,14 +62,14 @@ class CartPriceView: UIView {
         return label
     }()
         
-    private let deliveryTipLabel: UILabel = {
-        let label = UILabel()
+    private let deliveryTipLabel: PaddingLabel = {
+        let label = PaddingLabel()
         label.text = I18N.Cart.deliveryTip
         label.font = .AppleSDGothicNeo(.regular, size: 10)
         label.backgroundColor = .gray_2
-        label.textAlignment = .center
-        label.makeCornerRound(radius: 4)
-        return label
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 4
+        return label 
     }()
     
     // 3. 주의사항 Label
@@ -79,6 +79,7 @@ class CartPriceView: UIView {
         label.numberOfLines = 0
         label.text = I18N.Cart.notice
         label.font = .AppleSDGothicNeo(.regular, size: 12)
+        label.textColor = .gray_5
         return label
     }()
     
@@ -108,17 +109,17 @@ extension CartPriceView {
             $0.height.equalTo(71)
         }
         totalPriceLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.centerY.equalToSuperview()
-        }
-        totalPriceValueLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(14)
             $0.centerY.equalToSuperview()
         }
         emptyView_1.snp.makeConstraints {
             $0.leading.equalTo(totalPriceLabel.snp.trailing)
             $0.trailing.equalTo(totalPriceValueLabel.snp.leading)
             $0.directionalVerticalEdges.equalToSuperview()
+        }
+        totalPriceValueLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(14)
+            $0.centerY.equalToSuperview()
         }
         
         totalPayStackView.snp.makeConstraints {
@@ -127,12 +128,15 @@ extension CartPriceView {
             $0.height.equalTo(59)
         }
         totalPayLabel.snp.makeConstraints {
-            $0.leading.equalTo(totalPayStackView.snp.leading)
-            $0.centerY.equalTo(totalPayStackView.snp.centerY)
+            $0.leading.equalToSuperview().offset(14)
+            $0.centerY.equalToSuperview()
         }
         deliveryTipLabel.snp.makeConstraints {
             $0.leading.equalTo(totalPayLabel.snp.trailing)
-            $0.centerY.equalTo(totalPayStackView.snp.centerY)
+            $0.centerY.equalToSuperview()
+            $0.height.equalTo(20)
+//            $0.top.equalTo(totalPayStackView.snp.top).offset(21)
+//            $0.bottom.equalTo(totalPayStackView.snp.bottom).offset(21)
         }
         emptyView_2.snp.makeConstraints {
             $0.leading.equalTo(deliveryTipLabel.snp.trailing)
@@ -140,8 +144,8 @@ extension CartPriceView {
             $0.directionalVerticalEdges.equalToSuperview()
         }
         totalPayValueLabel.snp.makeConstraints {
-            $0.trailing.equalTo(totalPayStackView)
-            $0.centerY.equalTo(totalPayStackView.snp.centerY)
+            $0.trailing.equalToSuperview().offset(14)
+            $0.centerY.equalToSuperview()
         }
 
         noticeLabel.snp.makeConstraints {
