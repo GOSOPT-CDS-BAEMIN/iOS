@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class CustomNavigaionView: UIView {
+final class CustomNavigaionView: UIView {
     
     // MARK: - Properties
     
@@ -17,11 +17,11 @@ class CustomNavigaionView: UIView {
     
     private lazy var backButton: ButtonStackView = {
         let back = ButtonStackView()
-        back.rightButton.setImage(UIImage.arrow_back, for: .normal) 
         return back
     }()
     private let title: UILabel = {
-       let title = UILabel()
+        let title = UILabel()
+        title.font = .AppleSDGothicNeo(.bold, size: 18)
         return title
     }()
     private lazy var iconButton: ButtonStackView = {
@@ -31,9 +31,9 @@ class CustomNavigaionView: UIView {
     
     // MARK: - Life Cycle
     
-    init(type: NaviType) {
+    init(type1: NaviType, type2: NaviType) {
         super.init(frame: .zero)
-        setStyle(type: type)
+        setStyle(type1: type1, type2: type2)
         setLayout()
     }
     
@@ -44,13 +44,32 @@ class CustomNavigaionView: UIView {
 
 // MARK: - Methods
 
-extension CustomNavigaionView {
+private extension CustomNavigaionView {
     
-    private func setStyle(type: NaviType) {
-        backButton.rightButton.setImage(type.rightIcon, for: .normal)
-        title.text = type.title
+    func setStyle(type1: NaviType, type2: NaviType) {
+        switch (type1, type2) {
+        case (.main(let subItem1), .main(let subItem2)):
+            backButton.leftButton.setImage(subItem1.leftIcon, for: .normal)
+            backButton.rightButton.setImage(subItem1.rightIcon, for: .normal)
+            iconButton.leftButton.setImage(subItem2.leftIcon, for: .normal)
+            iconButton.rightButton.setImage(subItem2.rightIcon, for: .normal)
+        case (.cart(let subItem1), .cart(let subItem2)):
+            backButton.leftButton.setImage(subItem1.leftIcon, for: .normal)
+            backButton.rightButton.setImage(subItem1.rightIcon, for: .normal)
+            iconButton.leftButton.setImage(subItem2.leftIcon, for: .normal)
+            iconButton.rightButton.setImage(subItem2.rightIcon, for: .normal)
+        case (.menu(let subItem1), .menu(let subItem2)):
+            backButton.leftButton.setImage(subItem1.leftIcon, for: .normal)
+            backButton.rightButton.setImage(subItem1.rightIcon, for: .normal)
+            iconButton.leftButton.setImage(subItem2.leftIcon, for: .normal)
+            iconButton.rightButton.setImage(subItem2.rightIcon, for: .normal)
+        case (_, _): break
+        }
+        
+        title.text = type1.title
     }
-    private func setLayout() {
+    
+    func setLayout() {
         addSubviews(backButton, title, iconButton)
         
         backButton.snp.makeConstraints {
