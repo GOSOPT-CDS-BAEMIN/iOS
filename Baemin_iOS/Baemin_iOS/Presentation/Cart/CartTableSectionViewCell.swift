@@ -7,11 +7,13 @@
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
+class CartTableSectionViewCell: UITableViewCell {
     
     static let idf = NSObject.identifier
     
-    private let storeStackView: UIStackView = {
+    // 메뉴 Stackview 구성
+    
+    private let menuStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fill
@@ -22,6 +24,7 @@ class CartTableViewCell: UITableViewCell {
     
     var menuImageView: UIImageView = {
         let imageview = UIImageView()
+        imageview.image = .dummy
         return imageview
     }()
     
@@ -38,6 +41,19 @@ class CartTableViewCell: UITableViewCell {
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         return label
     }()
+        
+    let menuCheckButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
+    // 메뉴 StackView - 메뉴 수량 버튼
+    
+    let menuCountView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
     
     var menuCountLabel: UILabel = {
         let label = UILabel()
@@ -45,12 +61,7 @@ class CartTableViewCell: UITableViewCell {
         label.font = .AppleSDGothicNeo(.medium, size: 14)
         return label
     }()
-    
-    let menuCheckButton: UIButton = {
-        let button = UIButton()
-        return button
-    }()
-    
+
     let minusButton: UIButton = {
         let button = UIButton()
         return button
@@ -63,11 +74,33 @@ class CartTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setStyle()
+        setLayout()
     }
     
     @available(*, unavailable)
         required init?(coder: NSCoder) {
             super.init(coder: coder)
         }
+}
 
+private extension CartTableSectionViewCell {
+    func setStyle() {
+        self.backgroundColor = .white
+        
+    }
+    func setLayout() {
+        contentView.addSubview(menuStackView)
+        
+    }
+    /*
+    func changeButton() {
+        if (menuCountLabel.text == "1") {
+            minusButton.backgroundImage(for: .normal) = UIImage(systemName: "heart")
+        }
+        else {
+            minusButton.backgroundImage(for: .normal) = UIImage(systemName: "star")
+        }
+    }
+     */
 }
