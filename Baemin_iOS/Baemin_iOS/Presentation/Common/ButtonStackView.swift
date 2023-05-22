@@ -9,14 +9,14 @@ import UIKit
 
 import SnapKit
 
-class ButtonStackView: UIStackView {
+final class ButtonStackView: UIStackView {
     
     // MARK: - UI Components
     
     private let horizontalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 20
+        stackView.spacing = 10
         stackView.distribution = .fill
         return stackView
     }()
@@ -35,11 +35,6 @@ class ButtonStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-    }
-    
-     init(leftIcon: UIImage, rightIcon: UIImage) {
-        super.init(frame: .zero)
-        setStyle(leftIcon: leftIcon, rightIcon: rightIcon)
         setLayout()
     }
     
@@ -50,19 +45,16 @@ class ButtonStackView: UIStackView {
 
 // MARK: - Methods
 
-extension ButtonStackView {
-    private func setStyle(leftIcon: UIImage,rightIcon: UIImage) {
-        leftButton.setImage(leftIcon, for: .normal)
-        rightButton.setImage(rightIcon, for: .normal)
-    }
-    private func setLayout() {
+private extension ButtonStackView {
+    
+    func setLayout() {
         addArrangedSubviews(leftButton, rightButton)
         
         leftButton.snp.makeConstraints {
-            $0.size.equalTo(17)
+            $0.size.equalTo(25)
         }
         rightButton.snp.makeConstraints {
-            $0.size.equalTo(17)
+            $0.size.equalTo(50)
         }
     }
 }
