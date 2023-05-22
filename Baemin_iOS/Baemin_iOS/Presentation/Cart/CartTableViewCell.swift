@@ -27,16 +27,22 @@ class CartTableViewCell: UITableViewCell {
     
     var menuNameLabel: UILabel = {
         let label = UILabel()
+        label.text = "test 메뉴이름"
+        label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
     
     var menuPriceLabel: UILabel = {
         let label = UILabel()
+        label.text = "test 메뉴가격"
+        label.font = .AppleSDGothicNeo(.regular, size: 16)
         return label
     }()
     
     var menuCountLabel: UILabel = {
         let label = UILabel()
+        label.text = "0"
+        label.font = .AppleSDGothicNeo(.medium, size: 14)
         return label
     }()
     
