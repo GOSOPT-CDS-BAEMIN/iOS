@@ -10,6 +10,9 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
+    
+    let cartView = CartPriceView()
+    
     private let navi1 = CustomNavigaionView(type: .main)
     private let navi2 = CustomNavigaionView(type: .menu)
     private let navi3 = CustomNavigaionView(type: .cart)
