@@ -75,7 +75,7 @@ private extension CustomNavigaionView {
         backButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
-            $0.size.equalTo(CGSizeMake(55, 20))
+            $0.size.equalTo(CGSize(width: 55, height: 20))
         }
         
         title.snp.makeConstraints {
@@ -85,7 +85,7 @@ private extension CustomNavigaionView {
         iconButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(15)
-            $0.size.equalTo(CGSizeMake(55, 20))
+            $0.size.equalTo(CGSize(width: 55, height: 20))
         }
     }
 }
