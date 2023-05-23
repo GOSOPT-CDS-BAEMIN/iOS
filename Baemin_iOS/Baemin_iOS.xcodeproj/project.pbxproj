@@ -55,6 +55,17 @@
 		F4587D362A12B8BC00F56BCD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4587D352A12B8BC00F56BCD /* SnapKit */; };
 		F4587D392A12BD1000F56BCD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F4587D382A12BD1000F56BCD /* .swiftlint.yml */; };
 		F4ED99192A175AA7006AACA2 /* StoreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ED99182A175AA7006AACA2 /* StoreDetailVC.swift */; };
+		F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DA82A1D56A20001F9A6 /* DeliveryInfoBaseView.swift */; };
+		F4FC4DAC2A1D58540001F9A6 /* OrderInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DAB2A1D58540001F9A6 /* OrderInfoCell.swift */; };
+		F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DAD2A1D58590001F9A6 /* StoreInfoCell.swift */; };
+		F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */; };
+		F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */; };
+		F4FC4DB42A1D59290001F9A6 /* OrderMethodSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */; };
+		F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DB52A1D592E0001F9A6 /* StoreRateView.swift */; };
+		F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DB72A1D59300001F9A6 /* StoreInfoView.swift */; };
+		F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */; };
+		F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */; };
+		F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +115,17 @@
 		F4587D2C2A12B4CD00F56BCD /* Literals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literals.swift; sourceTree = "<group>"; };
 		F4587D382A12BD1000F56BCD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F4ED99182A175AA7006AACA2 /* StoreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailVC.swift; sourceTree = "<group>"; };
+		F4FC4DA82A1D56A20001F9A6 /* DeliveryInfoBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryInfoBaseView.swift; sourceTree = "<group>"; };
+		F4FC4DAB2A1D58540001F9A6 /* OrderInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderInfoCell.swift; sourceTree = "<group>"; };
+		F4FC4DAD2A1D58590001F9A6 /* StoreInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreInfoCell.swift; sourceTree = "<group>"; };
+		F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
+		F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpView.swift; sourceTree = "<group>"; };
+		F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMethodSelectView.swift; sourceTree = "<group>"; };
+		F4FC4DB52A1D592E0001F9A6 /* StoreRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRateView.swift; sourceTree = "<group>"; };
+		F4FC4DB72A1D59300001F9A6 /* StoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoView.swift; sourceTree = "<group>"; };
+		F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCommentView.swift; sourceTree = "<group>"; };
+		F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSelectView.swift; sourceTree = "<group>"; };
+		F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +303,7 @@
 		F4587D0F2A12B1FC00F56BCD /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				F4FC4DAA2A1D58360001F9A6 /* Cells */,
 				F4587D182A12B2CB00F56BCD /* VC */,
 				F4587D192A12B2DB00F56BCD /* Views */,
 			);
@@ -295,6 +318,7 @@
 				09B06DD42A1894ED0062A6F7 /* Navitype.swift */,
 				09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */,
 				09B06DD22A1776120062A6F7 /* ButtonStackView.swift */,
+				F4FC4DA82A1D56A20001F9A6 /* DeliveryInfoBaseView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -367,9 +391,26 @@
 		F4587D192A12B2DB00F56BCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */,
+				F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */,
+				F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */,
+				F4FC4DB52A1D592E0001F9A6 /* StoreRateView.swift */,
+				F4FC4DB72A1D59300001F9A6 /* StoreInfoView.swift */,
+				F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */,
+				F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */,
+				F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */,
 				F4587D1C2A12B46E00F56BCD /* view.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F4FC4DAA2A1D58360001F9A6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F4FC4DAD2A1D58590001F9A6 /* StoreInfoCell.swift */,
+				F4FC4DAB2A1D58540001F9A6 /* OrderInfoCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,17 +550,24 @@
 				093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */,
 				09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */,
 				F4ED99192A175AA7006AACA2 /* StoreDetailVC.swift in Sources */,
+				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* Service.swift in Sources */,
 				09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */,
+				F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */,
+				F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
 				093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */,
 				F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */,
 				093DB0472A1749A300ECA5F6 /* UIView+.swift in Sources */,
+				F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */,
 				09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */,
 				F4587D292A12B4B900F56BCD /* API.swift in Sources */,
+				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
+				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
+				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
 				8D5530C92A189B21005BC008 /* PaddingLabel.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
 				093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */,
@@ -529,11 +577,15 @@
 				8D702F2C2A1753C300CD7D64 /* CartPriceView.swift in Sources */,
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
 				8D5530C72A188867005BC008 /* CartTableViewCell.swift in Sources */,
+				F4FC4DB42A1D59290001F9A6 /* OrderMethodSelectView.swift in Sources */,
+				F4FC4DAC2A1D58540001F9A6 /* OrderInfoCell.swift in Sources */,
 				8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */,
 				8D702F2A2A17530600CD7D64 /* CartViewController.swift in Sources */,
+				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
 				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
 				8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */,
 				093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */,
+				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
 				F4587D252A12B4A600F56BCD /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
