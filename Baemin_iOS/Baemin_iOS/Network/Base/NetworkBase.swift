@@ -11,18 +11,16 @@ import Alamofire
 
 struct NetworkBase {
     
-    public func disposeNetwork<T: Codable>(_ result: AFDataResponse<Data>, dataModel: T.Type, completion: @escaping (NetworkResult<Any>) -> Void){
+    public func disposeNetwork<T: Codable>(_ result: AFDataResponse<Data>, dataModel: T.Type, completion: @escaping (NetworkResult<Any>) -> Void) {
         switch result.result {
         case .success:
             guard let statusCode = result.response?.statusCode else { return }
             guard let data = result.data else { return }
             
-            
             let networkResult = self.judgeStatus(by: statusCode, data, dataModel.self)
             completion(networkResult)
             
         case .failure(let error):
-            print("여기서 에러나는 경우는 무슨경우?")
             print(error)
         }
     }
