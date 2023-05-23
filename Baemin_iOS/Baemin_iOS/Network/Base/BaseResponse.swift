@@ -12,4 +12,3 @@ struct BaseResponse<T: Codable>: Codable {
     var success: Bool?
     var message: String?
 }
-
