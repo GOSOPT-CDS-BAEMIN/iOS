@@ -11,6 +11,8 @@ import SnapKit
 
 class CustomButton: UIView {
     
+    // MARK: - UI Components
+    
     lazy var reviewButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .AppleSDGothicNeo(.bold, size: 18)
@@ -31,6 +33,8 @@ class CustomButton: UIView {
         return button
     }()
     
+    // MARK: - initialization
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setLayout()
@@ -40,6 +44,8 @@ class CustomButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: - Methods
 
 extension CustomButton {
     func updateUI(isTapped: Bool) {

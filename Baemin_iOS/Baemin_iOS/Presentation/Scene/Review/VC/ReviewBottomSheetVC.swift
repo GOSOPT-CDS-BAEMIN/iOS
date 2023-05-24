@@ -10,10 +10,16 @@ import UIKit
 import SnapKit
 
 class ReviewBottomSheetVC: UIViewController {
+    
+    // MARK: - Properties
+    
     private var item: [Item] = Item.dummy()
     private var selectedIndices: Set<Int> = []
-
+    
     private var isTapped: Bool = false
+    
+    // MARK: - UI Components
+    
     private let dimmedView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -35,9 +41,11 @@ class ReviewBottomSheetVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = true
-
+        
         return collectionView
     }()
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +55,14 @@ class ReviewBottomSheetVC: UIViewController {
     }
 }
 
+// MARK: - Methods
+
 extension ReviewBottomSheetVC {
+    
     private func register() {
         collectionView.register(cell: ReviewCell.self)
     }
+    
     private func setStyle() {
         view.backgroundColor = .white
     }
@@ -73,12 +85,21 @@ extension ReviewBottomSheetVC {
             $0.bottom.equalTo(bottomButton.snp.top)
         }
     }
+    
     private func layout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: view.bounds.width-32, height: 22)
         return layout
     }
+    
+    private func updateButtonState() {
+        let isButtonActive = !selectedIndices.isEmpty
+        bottomButton.updateUI(isTapped: isButtonActive)
+    }
 }
+
+// MARK: - CollectionView Delegate, CollectionViewDataSource
+
 extension ReviewBottomSheetVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return item.count
@@ -109,14 +130,4 @@ extension ReviewBottomSheetVC: UICollectionViewDelegate, UICollectionViewDataSou
         selectedIndices.remove(indexPath.item)
         updateButtonState()
     }
-    
-    private func updateButtonState() {
-        let isButtonActive = !selectedIndices.isEmpty
-        bottomButton.updateUI(isTapped: isButtonActive)
-    }
 }
-
-
-
-   
-

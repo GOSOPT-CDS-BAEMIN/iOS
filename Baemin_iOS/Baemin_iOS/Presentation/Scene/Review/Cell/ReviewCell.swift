@@ -11,11 +11,15 @@ import SnapKit
 
 class ReviewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     var isTapped: Bool = false {
         didSet {
             updateUI(isTapped: isTapped)
         }
     }
+    
+    // MARK: - UI Components
     
     private let horizontalStackView: UIStackView = {
         let stack = UIStackView()
@@ -37,10 +41,13 @@ class ReviewCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: - Initialization
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         updateUI(isTapped: false)
     }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setStyle()
@@ -52,10 +59,14 @@ class ReviewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Methods
+
 extension ReviewCell {
+    
     private func setStyle() {
         contentView.backgroundColor = .white
     }
+    
     private func setLayout() {
         contentView.addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubviews(iconImage, menuLabel)
@@ -77,13 +88,14 @@ extension ReviewCell {
     }
 }
 
+// dummy 값 API 연결 후 삭제하겠습니다
 struct Item {
     var menu: String
     
-   static func dummy() -> [Item] {
-        var items: [Item] = [Item(menu: "육회비빔밥"),
-                            Item(menu: "육회비빔밥"),
-                            Item(menu: "육회비빔밥")
+    static func dummy() -> [Item] {
+        let items: [Item] = [Item(menu: "육회비빔밥"),
+                             Item(menu: "육회비빔밥"),
+                             Item(menu: "육회비빔밥")
         ]
         return items
     }
