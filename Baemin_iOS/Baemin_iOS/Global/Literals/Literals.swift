@@ -25,4 +25,10 @@ struct I18N {
         static let delivery = "배달주문"
         static let pickUp = "포장/방문주문"
     }
+    
+    struct Main {
+        static let minimum = "최소주문"
+        static let delivery = "배달"
+        static let packing = "포장가능"
+    }
 }
