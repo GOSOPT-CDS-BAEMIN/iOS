@@ -17,11 +17,13 @@ class MenuDetailVC: UIViewController {
 
     // MARK: - UI Components
     
-    private let  naviView = CustomNavigaionView(type1: .menu(.leftButton), type2: .menu(.rightButton))
-    
-    private let verticalStackView: UIStackView = {
-      let stackView = UIStackView()
-        return stackView
+    private let menuView =  MenuDetailView()
+    private let naviView = CustomNavigaionView(type1: .menu(.leftButton), type2: .menu(.rightButton))
+    private let menuImage: UIImageView = {
+        let image = UIImageView()
+        image.image = .empty_2
+        image.contentMode = .scaleAspectFill
+        return image
     }()
     
     // MARK: - Life Cycle
@@ -38,11 +40,10 @@ class MenuDetailVC: UIViewController {
 extension MenuDetailVC {
     private func setStyle() {
         view.backgroundColor = .white
-        
     }
     
     private func setLayout() {
-        view.addSubviews(naviView)
+        view.addSubviews(menuImage, menuView, naviView)
         
         naviView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
@@ -50,5 +51,16 @@ extension MenuDetailVC {
             $0.height.equalTo(44)
         }
         
+        menuImage.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.directionalHorizontalEdges.equalTo(safeArea)
+            $0.height.equalTo(264)
+        }
+        
+        menuView.snp.makeConstraints {
+            $0.top.equalTo(menuImage.snp.bottom)
+            $0.directionalHorizontalEdges.equalTo(safeArea)
+            $0.height.equalTo(250)
+        }
     }
 }
