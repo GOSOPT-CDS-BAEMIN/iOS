@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let window = UIWindow(windowScene: windowScene)
                     window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
                     
-                    let rootVC = CartViewController()
+                    let rootVC = StoreDetailVC()
                     let navigationController = UINavigationController(rootViewController: rootVC)
                     
                     window.rootViewController = navigationController
@@ -56,7 +56,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
