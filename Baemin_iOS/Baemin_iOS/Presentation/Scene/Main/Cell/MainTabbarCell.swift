@@ -22,16 +22,15 @@ class MainTabbarCell: UICollectionViewCell {
             }, completion: nil)
         }
     }
-    
+
     override var isSelected: Bool {
         didSet {
             underLineView.backgroundColor = isSelected ? .black : .clear
-            UIView.animate(withDuration: 0.3,
-                           delay: 0,
-                           options: .curveEaseOut,
-                           animations: {
-                self.underLineView.layoutIfNeeded()
-            }, completion: nil)
+            
+            underLineView.snp.remakeConstraints { make in
+                make.leading.trailing.bottom.equalToSuperview().inset(2)
+                make.height.equalTo(isSelected ? 3 : 0)
+            }
         }
     }
     
@@ -44,20 +43,19 @@ class MainTabbarCell: UICollectionViewCell {
     }()
     
     private var underLineView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .black
         return view
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setStyle()
-    }
     override func prepareForReuse() {
         super.prepareForReuse()
-        tabBarLabel.text = ""
-        underLineView.backgroundColor = .clear
+        setStyle()
+        underLineView.snp.removeConstraints()
+        setUnderLineViewConstraints()
+        
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
@@ -74,6 +72,8 @@ class MainTabbarCell: UICollectionViewCell {
 extension MainTabbarCell {
     
     private func setStyle() {
+        tabBarLabel.text = ""
+        underLineView.backgroundColor = .clear
         backgroundColor = .clear
     }
     
@@ -83,10 +83,13 @@ extension MainTabbarCell {
         tabBarLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-        
+        setUnderLineViewConstraints()
+    }
+    
+    private func setUnderLineViewConstraints() {
         underLineView.snp.makeConstraints {
-            $0.directionalHorizontalEdges.bottom.equalToSuperview().inset(2)
-            $0.height.equalTo(2)
+            $0.leading.trailing.bottom.equalToSuperview().inset(2)
+            $0.height.equalTo(0)
         }
     }
     
