@@ -84,16 +84,15 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainTabbarCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.dataBind(item: tabBarItems[indexPath.row])
+        let item = tabBarItems[indexPath.row]
+        cell.dataBind(item: item)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          let cell: MainTabbarCell = collectionView.dequeueReusableCell(for: indexPath)
-//               cell.tabBarLabel.text = tabBarItems[indexPath.row].name
-//               cell.tabBarLabel.sizeToFit()
-//               let cellWidth = cell.tabBarLabel.frame.width + 16
-//               return CGSize(width: cellWidth, height: 40)
-        cell.contentView.layoutIfNeeded()
-
+               cell.tabBarLabel.text = tabBarItems[indexPath.row].name
+               cell.tabBarLabel.sizeToFit()
+               let cellWidth = cell.tabBarLabel.frame.width
+               return CGSize(width: cellWidth, height: 40)
             }
 }
