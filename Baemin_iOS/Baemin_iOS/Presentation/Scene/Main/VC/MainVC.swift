@@ -145,20 +145,16 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         return UICollectionViewCell()
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCellIndex = indexPath.item
         if collectionView == tabBarcollectionView {
-            let middleIndex = collectionView.bounds.width / 2
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            let desiredOffsetX = CGFloat(selectedCellIndex) * collectionView.bounds.width - middleIndex
-            
-            let pageIndexPath = IndexPath(item: selectedCellIndex, section: 0)
+    
+            let pageIndexPath = IndexPath(item: indexPath.item, section: 0)
             pageCollectionView.scrollToItem(at: pageIndexPath, at: .centeredHorizontally, animated: true)
             
         } else if collectionView == pageCollectionView {
             let middleIndex = collectionView.bounds.width / 2
-            let desiredOffsetX = CGFloat(selectedCellIndex) * collectionView.bounds.width - middleIndex
+            let desiredOffsetX = CGFloat(indexPath.item) * collectionView.bounds.width - middleIndex
             let targetOffset = CGPoint(x: desiredOffsetX, y: 0)
             collectionView.setContentOffset(targetOffset, animated: true)
         }

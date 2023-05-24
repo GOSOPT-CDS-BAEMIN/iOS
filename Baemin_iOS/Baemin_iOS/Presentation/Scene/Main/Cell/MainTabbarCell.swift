@@ -79,10 +79,10 @@ extension MainTabbarCell {
     private func updateSelectionAppearance() {
         underLineView.isHidden = !isSelected
         if isSelected {
-                tabBarLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            tabBarLabel.font = .AppleSDGothicNeo(.bold, size: 16)
                 tabBarLabel.textColor = .black
             } else {
-                tabBarLabel.font = UIFont.systemFont(ofSize: 16)
+                tabBarLabel.font = .AppleSDGothicNeo(.regular, size: 16)
                 tabBarLabel.textColor = .gray
             }
     }

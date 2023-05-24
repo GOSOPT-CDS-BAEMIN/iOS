@@ -11,7 +11,7 @@ struct TabBarItem {
     var name: String
     
    static func tabBar() -> [TabBarItem] {
-       var items: [TabBarItem] =
+       let items: [TabBarItem] =
         [TabBarItem(name: "전체"),
                 TabBarItem(name: "족발∙보쌈"),
                 TabBarItem(name: "찜∙탕∙찌개"),
@@ -36,7 +36,7 @@ struct PagingItem {
     var title: String
 }
 extension PagingItem {
-    static var titles : [PagingItem] =  [PagingItem(title: "전체"),
+    static var titles: [PagingItem] =  [PagingItem(title: "전체"),
                                          PagingItem(title: "족발∙보쌈"),
                                          PagingItem(title: "찜∙탕∙찌개"),
                                          PagingItem(title: "돈까스∙회∙일식"),

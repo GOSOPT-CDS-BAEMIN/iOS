@@ -39,11 +39,11 @@ class MainPageCell: UICollectionViewCell {
 
 extension MainPageCell {
     
-    private func setStyle(){
-        backgroundColor = .systemPink
+    private func setStyle() {
+        backgroundColor = .gray
     }
     
-    private func setLayout(){
+    private func setLayout() {
         contentView.addSubview(label)
         
         label.snp.makeConstraints {
@@ -51,7 +51,7 @@ extension MainPageCell {
         }
     }
     
-    func bind(_ item: PagingItem){
+    func bind(_ item: PagingItem) {
         label.text = item.title
     }
 }
