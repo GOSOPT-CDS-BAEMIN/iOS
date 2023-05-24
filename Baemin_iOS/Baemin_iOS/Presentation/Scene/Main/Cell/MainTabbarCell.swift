@@ -11,34 +11,13 @@ import SnapKit
 
 class MainTabbarCell: UICollectionViewCell {
     
-    override var isHighlighted: Bool {
-        didSet {
-            underLineView.backgroundColor = isSelected ? .black : .clear
-            UIView.animate(withDuration: 0.3,
-                           delay: 0,
-                           options: .curveEaseOut,
-                           animations: {
-                self.underLineView.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-
-    override var isSelected: Bool {
-        didSet {
-            underLineView.backgroundColor = isSelected ? .black : .clear
-            
-            underLineView.snp.remakeConstraints { make in
-                make.leading.trailing.bottom.equalToSuperview().inset(2)
-                make.height.equalTo(isSelected ? 3 : 0)
-            }
-        }
-    }
+    // MARK: - UI Components
     
     var tabBarLabel: UILabel = {
         let label = UILabel()
-        label.font = .AppleSDGothicNeo(.regular, size: 16)
-        label.textColor = .gray_5
-        label.sizeToFit()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .gray
+        label.textAlignment = .center
         return label
     }()
     
@@ -48,12 +27,17 @@ class MainTabbarCell: UICollectionViewCell {
         return view
     }()
     
+    override var isSelected: Bool {
+        didSet {
+            updateSelectionAppearance()
+        }
+    }
+    
+    // MARK: - Initialization
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         setStyle()
-        underLineView.snp.removeConstraints()
-        setUnderLineViewConstraints()
-        
     }
     
     override init(frame: CGRect) {
@@ -72,28 +56,38 @@ class MainTabbarCell: UICollectionViewCell {
 extension MainTabbarCell {
     
     private func setStyle() {
-        tabBarLabel.text = ""
-        underLineView.backgroundColor = .clear
         backgroundColor = .clear
+        tabBarLabel.text = nil
+        tabBarLabel.textColor = .gray
+        underLineView.isHidden = true
     }
     
     private func setLayout() {
         contentView.addSubviews(tabBarLabel, underLineView)
         
         tabBarLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
-        setUnderLineViewConstraints()
-    }
-    
-    private func setUnderLineViewConstraints() {
+        
         underLineView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview().inset(2)
-            $0.height.equalTo(0)
+            $0.bottom.equalToSuperview()
+            $0.directionalHorizontalEdges.equalToSuperview().inset(8)
+            $0.height.equalTo(3)
         }
     }
     
-    func dataBind(item: TabBarItem) {
+    private func updateSelectionAppearance() {
+        underLineView.isHidden = !isSelected
+        if isSelected {
+                tabBarLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+                tabBarLabel.textColor = .black
+            } else {
+                tabBarLabel.font = UIFont.systemFont(ofSize: 16)
+                tabBarLabel.textColor = .gray
+            }
+    }
+    
+    func bind(_ item: TabBarItem) {
         tabBarLabel.text = item.name
     }
 }
