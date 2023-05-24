@@ -9,23 +9,12 @@ import UIKit
 import SnapKit
 
 class ReviewCommentView: UIView {
-    
-    // 0. init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setLayOut()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setLayOut()
-    }
      
     // 1. 최근 리뷰 label
     private let recentReview: UILabel = {
         let review = UILabel()
         review.textColor = .black
-        review.text = "최근리뷰"
+        review.text = I18N.StoreDetail.recentReview
         review.translatesAutoresizingMaskIntoConstraints = false
         review.font = UIFont.AppleSDGothicNeo(.regular, size: 16.0)
         review.sizeToFit()
@@ -49,7 +38,7 @@ class ReviewCommentView: UIView {
     private let recentComment: UILabel = {
         let review = UILabel()
         review.textColor = .black
-        review.text = "최근사장님댓글"
+        review.text = I18N.StoreDetail.ownerComment
         review.translatesAutoresizingMaskIntoConstraints = false
         review.font = UIFont.AppleSDGothicNeo(.regular, size: 16.0)
         review.sizeToFit()
@@ -76,6 +65,17 @@ class ReviewCommentView: UIView {
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
+    
+    // 0. init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayOut()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setLayOut()
+    }
     
     private func setLayOut() {
         [recentReview, reviewNum, divider, recentComment, commentNum].forEach {

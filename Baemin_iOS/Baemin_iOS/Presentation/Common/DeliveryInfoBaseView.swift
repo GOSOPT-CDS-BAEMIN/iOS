@@ -6,29 +6,12 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class DeliveryInfoBaseView: UIView {
     
-    // 왼쪽에 쌓일 라벨
-    var leftView: UILabel = {
-        let label = UILabel()
-        label.sizeToFit()
-        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    // 오른쪽에 쌓일 라벨
-    var rightView: UILabel = {
-        let label = UILabel()
-        label.sizeToFit()
-        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    // 0. init
+    // init
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeStackView()
@@ -38,12 +21,27 @@ class DeliveryInfoBaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // 왼쪽에 쌓일 라벨
+    var leftView: UILabel = {
+        let label = UILabel()
+        label.sizeToFit()
+        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
+        return label
+    }()
+    
+    // 오른쪽에 쌓일 라벨
+    var rightView: UILabel = {
+        let label = UILabel()
+        label.sizeToFit()
+        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
+        return label
+    }()
+    
     // 1. horizontal stack view
     private let deliveryInfoStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.backgroundColor = .clear
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.sizeToFit()
         return stackView
     }()
@@ -51,9 +49,7 @@ class DeliveryInfoBaseView: UIView {
     private func makeStackView() {
         backgroundColor = .clear
         
-        [leftView, rightView].forEach {
-            deliveryInfoStack.addArrangedSubview($0)
-        }
+        deliveryInfoStack.addArrangedSubviews(leftView, rightView)
         
         addSubview(deliveryInfoStack)
         

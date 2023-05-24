@@ -23,7 +23,6 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         stackView.axis = .vertical
         stackView.backgroundColor = .clear
         stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.sizeToFit()
         return stackView
     }()
@@ -33,14 +32,13 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         stackView.axis = .vertical
         stackView.backgroundColor = .clear
         stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.sizeToFit()
         return stackView
     }()
     
     private var delivery: UIButton = {
         let deliver = UIButton()
-        deliver.setTitle("배달주문", for: .normal)
+        deliver.setTitle(I18N.StoreDetail.delivery, for: .normal)
         deliver.titleLabel?.font = UIFont.AppleSDGothicNeo(.bold, size: 16)
         deliver.setTitleColor(.black, for: .normal)
         deliver.sizeToFit()
@@ -50,7 +48,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     private var pickUp: UIButton = {
         let pickUp = UIButton()
-        pickUp.setTitle("포장/방문주문", for: .normal)
+        pickUp.setTitle(I18N.StoreDetail.pickUp, for: .normal)
         pickUp.titleLabel?.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
         pickUp.setTitleColor(.black, for: .normal)
         pickUp.sizeToFit()
@@ -97,30 +95,20 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.backgroundColor = .clear
         stackView.sizeToFit()
         return stackView
     }()
     
     func configureContents() {
+    
+        delivery_stack.addArrangedSubviews(delivery, delivery_line)
         
-        [delivery, delivery_line].forEach {
-            delivery_stack.addArrangedSubview($0)
-        }
+        pickUp_stack.addArrangedSubviews(pickUp, pickUp_line)
         
-        [pickUp, pickUp_line].forEach {
-            pickUp_stack.addArrangedSubview($0)
-        }
+        totalStack.addArrangedSubview(delivery_stack)
         
-        [delivery_stack].forEach {
-            totalStack.addArrangedSubview($0)
-        }
-        
-        [pickUp_stack, totalStack, gray_divider].forEach {
-            contentView.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+        addSubviewsInHeaderFooterView(pickUp_stack, totalStack, gray_divider)
         
         totalStack.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -177,10 +165,8 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .white
         configureContents()
-        
-        pickUp_line.isHidden = true
+        setStyle()
         
         delivery.addTarget(self, action: #selector(deliveryTouched), for: .touchUpInside)
         pickUp.addTarget(self, action: #selector(pickUpTouched), for: .touchUpInside)
@@ -188,6 +174,11 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setStyle() {
+        pickUp_line.isHidden = true
+        contentView.backgroundColor = .white
     }
     
     @objc

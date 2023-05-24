@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class StoreInfoCell: UITableViewCell {
@@ -14,21 +15,11 @@ class StoreInfoCell: UITableViewCell {
     private let reiviewCommentView = ReviewCommentView()
     private let optionSelectView = OptionSelectView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setLayOut()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: 2. 가게이름 - API 항목 storeName 추후 반영필요
     private let storeName: UILabel = {
         let name = UILabel()
         name.textColor = .black
         name.text = "산시 도삭면"
-        name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.AppleSDGothicNeo(.bold, size: 20.0)
         name.sizeToFit()
         return name
@@ -40,7 +31,6 @@ class StoreInfoCell: UITableViewCell {
         rate.image = .five_star.resized(toWidth: 137)
         rate.sizeToFit()
         rate.contentMode = .scaleAspectFit
-        rate.translatesAutoresizingMaskIntoConstraints = false
         return rate
     }()
 
@@ -49,7 +39,6 @@ class StoreInfoCell: UITableViewCell {
         let number = UILabel()
         number.text = "4.7"
         number.font = UIFont.AppleSDGothicNeo(.regular, size: 14.0)
-        number.translatesAutoresizingMaskIntoConstraints = false
         number.sizeToFit()
         return number
     }()
@@ -58,16 +47,22 @@ class StoreInfoCell: UITableViewCell {
     private let couponBtn: UIButton = {
         let coupon = UIButton()
         coupon.setImage(UIImage.get_coupon.resized(toWidth: 342), for: .normal)
-        coupon.translatesAutoresizingMaskIntoConstraints = false
         coupon.sizeToFit()
         return coupon
     }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setLayOut()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     private func setLayOut() {
         
-        [storeInfoView, storeName, storeRateImage, storeRate, reiviewCommentView, optionSelectView, couponBtn].forEach {
-            contentView.addSubview($0)
-        }
+        addSubviewsInContentView(storeInfoView, storeName, storeRateImage, storeRate, reiviewCommentView, optionSelectView, couponBtn)
         
         storeInfoView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()

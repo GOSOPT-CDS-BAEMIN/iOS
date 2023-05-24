@@ -30,7 +30,6 @@ class StoreInfoView: UIView {
         storeImage.contentMode = .scaleAspectFill
         storeImage.sizeToFit()
         storeImage.image = .dummy.resized(toWidth: UIScreen.main.bounds.width+5)
-        storeImage.translatesAutoresizingMaskIntoConstraints = false
         storeImage.insetsLayoutMarginsFromSafeArea = false
         
         addSubview(storeImage)

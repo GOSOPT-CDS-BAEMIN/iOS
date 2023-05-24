@@ -16,7 +16,6 @@ class DeliveryView: UIView {
         let tag = UIButton()
         tag.setImage(UIImage.detail.resized(toWidth: 44), for: .normal)
         tag.sizeToFit()
-        tag.translatesAutoresizingMaskIntoConstraints = false
         return tag
     }()
     
@@ -43,10 +42,10 @@ class DeliveryView: UIView {
     }
     
     func setLayOut() {
+        
         backgroundColor = .clear
-        [firstView, secondView, thirdView, fourthView, detailTag].forEach {
-            addSubview($0)
-        }
+        
+        addSubviews(firstView, secondView, thirdView, fourthView, detailTag)
         
         firstView.snp.makeConstraints {
             $0.top.equalToSuperview()
