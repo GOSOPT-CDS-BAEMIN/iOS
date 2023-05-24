@@ -28,7 +28,7 @@ class ReviewBottomSheetVC: UIViewController {
     
     private let menuLabel: UILabel = {
         let label = UILabel()
-        label.text = "음식을 선택해주세요"
+        label.text = I18N.Review.title
         label.font = .AppleSDGothicNeo(.bold, size: 18)
         label.textColor = .black
         return label

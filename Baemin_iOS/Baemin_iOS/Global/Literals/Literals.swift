@@ -32,6 +32,7 @@ struct I18N {
     struct Review {
         static let refresh = "옵션 재설정"
         static let showReview = "리뷰보기"
+        static let title = "음식을 선택해주세요"
     }
     
 }
