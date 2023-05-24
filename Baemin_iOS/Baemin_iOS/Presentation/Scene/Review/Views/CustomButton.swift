@@ -19,6 +19,7 @@ class CustomButton: UIView {
         button.setTitle(I18N.Review.showReview, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .gray_4
+        button.makeCornerRound(radius: 4)
         
         return button
     }()
