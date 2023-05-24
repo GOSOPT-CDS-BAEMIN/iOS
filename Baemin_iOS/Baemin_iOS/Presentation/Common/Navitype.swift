@@ -23,15 +23,15 @@ enum SubMainItem {
     
     var leftIcon: UIImage {
         switch self {
-        case .leftButton: return UIImage.arrow_back!
-        case .rightButton: return UIImage.home!
+        case .leftButton: return UIImage.arrow_back
+        case .rightButton: return UIImage.home
         }
     }
     
     var rightIcon: UIImage {
         switch self {
-        case .leftButton: return UIImage.delivery!
-        case .rightButton: return UIImage.cart!
+        case .leftButton: return UIImage.delivery
+        case .rightButton: return UIImage.cart
         }
     }
 }
@@ -42,14 +42,14 @@ enum SubCartItem {
     
     var leftIcon: UIImage {
         switch self {
-        case .leftButton: return UIImage.arrow_back!
-        case .rightButton: return UIImage.home!
+        case .leftButton: return UIImage.arrow_back
+        case .rightButton: return UIImage.home
         }
     }
     
     var rightIcon: UIImage? {
         switch self {
-        case .rightButton: return UIImage.people!
+        case .rightButton: return UIImage.people
         case .leftButton: return nil
         }
     }
@@ -61,14 +61,14 @@ enum SubMenuItem {
     
     var leftIcon: UIImage {
         switch self {
-        case .leftButton: return UIImage.arrow_back!
-        case .rightButton: return UIImage.home!
+        case .leftButton: return UIImage.arrow_back
+        case .rightButton: return UIImage.home
         }
     }
     
     var rightIcon: UIImage? {
         switch self {
-        case .rightButton: return UIImage.cart!
+        case .rightButton: return UIImage.cart
         case .leftButton: return nil
         }
     }

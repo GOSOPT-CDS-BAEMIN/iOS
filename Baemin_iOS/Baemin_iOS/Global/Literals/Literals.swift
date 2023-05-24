@@ -15,4 +15,14 @@ struct I18N {
         static let deliveryTip = "배달팁 포함"
 
     }
+    
+    struct StoreDetail {
+        static let orderTogether = "함께주문"
+        static let share = "공유"
+        static let call = "전화"
+        static let ownerComment = "최근사장님댓글"
+        static let recentReview = "최근리뷰"
+        static let delivery = "배달주문"
+        static let pickUp = "포장/방문주문"
+    }
 }
