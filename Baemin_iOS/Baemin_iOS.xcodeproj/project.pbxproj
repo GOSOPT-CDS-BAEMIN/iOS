@@ -20,6 +20,7 @@
 		09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DCC2A17570D0062A6F7 /* UIFont+.swift */; };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< HEAD
@@ -27,6 +28,8 @@
 =======
 
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 		09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */; };
 		09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD22A1776120062A6F7 /* ButtonStackView.swift */; };
 		09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD42A1894ED0062A6F7 /* Navitype.swift */; };
@@ -60,10 +63,13 @@
 		09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4E2A1D1F4A00BAE541 /* FoodService.swift */; };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 <<<<<<< HEAD
 =======
 >>>>>>> 8a1112a (#21 [Add] API 연결 파일, 폴더 추가)
@@ -74,7 +80,12 @@
 =======
 		
 >>>>>>> 5798377 (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+=======
+>>>>>>> c8c622c (#22 [Fix] 코드리뷰 반영하여 코드 수정)
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 		8D10FA482A13EC2700F40F2A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D10FA472A13EC2700F40F2A /* Color.xcassets */; };
 		8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */; };
 		8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
@@ -118,6 +129,8 @@
 		F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */; };
 		F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */; };
 		F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */; };
+		F4FC4DC42A1E5BDF0001F9A6 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC32A1E5BDF0001F9A6 /* UITableViewCell+.swift */; };
+		F4FC4DC62A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +226,8 @@
 		F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCommentView.swift; sourceTree = "<group>"; };
 		F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSelectView.swift; sourceTree = "<group>"; };
 		F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
+		F4FC4DC32A1E5BDF0001F9A6 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -517,6 +532,8 @@
 				093DB0442A17497600ECA5F6 /* UIStackView+.swift */,
 				093DB0482A1749D800ECA5F6 /* UILabel+.swift */,
 				093DB0422A1748B400ECA5F6 /* NSObject+.swift */,
+				F4FC4DC32A1E5BDF0001F9A6 /* UITableViewCell+.swift */,
+				F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -612,45 +629,6 @@
 			isa = PBXGroup;
 			children = (
 >>>>>>> 8be0d51 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
-				F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */,
-				F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */,
-				F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */,
-			);
-			path = Section2;
-			sourceTree = "<group>";
-		};
-		F4FC4DC02A1D5E540001F9A6 /* Section1 */ = {
-			isa = PBXGroup;
-			children = (
-				F4FC4DB52A1D592E0001F9A6 /* StoreRateView.swift */,
-				F4FC4DB72A1D59300001F9A6 /* StoreInfoView.swift */,
-				F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */,
-				F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */,
-			);
-			path = Section1;
-			sourceTree = "<group>";
-		};
-		F4FC4DC12A1D5E5D0001F9A6 /* Section3 */ = {
-			isa = PBXGroup;
-			children = (
-				F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */,
-			);
-			path = Section3;
-			sourceTree = "<group>";
-		};
-		F4FC4DC22A1D5E740001F9A6 /* StoreDetail */ = {
-			isa = PBXGroup;
-			children = (
-				F4FC4DC02A1D5E540001F9A6 /* Section1 */,
-				F4FC4DBF2A1D5E2E0001F9A6 /* Section2 */,
-				F4FC4DC12A1D5E5D0001F9A6 /* Section3 */,
-			);
-			path = StoreDetail;
-			sourceTree = "<group>";
-		};
-		F4FC4DBF2A1D5E2E0001F9A6 /* Section2 */ = {
-			isa = PBXGroup;
-			children = (
 				F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */,
 				F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */,
 				F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */,
@@ -864,10 +842,12 @@
 				093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */,
 				09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */,
 				F4ED99192A175AA7006AACA2 /* StoreDetailVC.swift in Sources */,
-				
 				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 <<<<<<< HEAD
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
@@ -875,6 +855,9 @@
 >>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				F4587D232A12B49C00F56BCD /* Service.swift in Sources */,
+=======
+				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
+>>>>>>> c8c622c (#22 [Fix] 코드리뷰 반영하여 코드 수정)
 				09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */,
 				F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */,
 				F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */,
@@ -896,7 +879,6 @@
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 =======
 				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
-				
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
@@ -906,12 +888,15 @@
 				093DB0472A1749A300ECA5F6 /* UIView+.swift in Sources */,
 				F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */,
 				09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */,
+<<<<<<< HEAD
 				F4587D292A12B4B900F56BCD /* API.swift in Sources */,
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
 				09C29F392A1D1E1700BAE541 /* FoodAPI.swift in Sources */,
 				09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */,
 				09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */,
+=======
+>>>>>>> c8c622c (#22 [Fix] 코드리뷰 반영하여 코드 수정)
 				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
@@ -927,8 +912,11 @@
 =======
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
+<<<<<<< HEAD
 				
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */,
 				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
@@ -943,8 +931,11 @@
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 =======
 				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
+<<<<<<< HEAD
 				
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				8D5530C92A189B21005BC008 /* PaddingLabel.swift in Sources */,
 				09C29F2B2A1D0DB500BAE541 /* BaseTargetType.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
@@ -969,14 +960,27 @@
 =======
 				F4FC4DB42A1D59290001F9A6 /* OrderMethodSelectView.swift in Sources */,
 				F4FC4DAC2A1D58540001F9A6 /* OrderInfoCell.swift in Sources */,
+<<<<<<< HEAD
 
 >>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */,
 				09C29F3B2A1D1E1C00BAE541 /* CartAPI.swift in Sources */,
 				09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */,
 				8D702F2A2A17530600CD7D64 /* CartViewController.swift in Sources */,
+<<<<<<< HEAD
 				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
 				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
+=======
+<<<<<<< HEAD
+				09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */,
+				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
+=======
+				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
+				F4FC4DC42A1E5BDF0001F9A6 /* UITableViewCell+.swift in Sources */,
+>>>>>>> c8c622c (#22 [Fix] 코드리뷰 반영하여 코드 수정)
+>>>>>>> c9cc133 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */,
 				093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */,
 				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
@@ -988,15 +992,15 @@
 				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
 				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
 				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* Model.swift in Sources */,
+				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */,
 				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
 				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
+				F4FC4DC62A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift in Sources */,
 				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
-				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
 				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* Model.swift in Sources */,
+				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

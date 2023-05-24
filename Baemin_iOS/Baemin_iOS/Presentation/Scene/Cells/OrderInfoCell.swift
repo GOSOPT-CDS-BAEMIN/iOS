@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class OrderInfoCell: UITableViewCell {
@@ -16,11 +17,9 @@ class OrderInfoCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .white
         setLayOut()
-        pickUpView.isHidden = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("orderIndex"), object: nil)
+        setStyle()
+        setNotificationCenter()
     }
     
     required init?(coder: NSCoder) {
@@ -32,16 +31,22 @@ class OrderInfoCell: UITableViewCell {
         stack.axis = .vertical
         stack.backgroundColor = .white
         stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.sizeToFit()
         return stack
     }()
     
+    func setStyle() {
+        contentView.backgroundColor = .white
+        pickUpView.isHidden = true
+    }
+    
+    func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("orderIndex"), object: nil)
+    }
+    
     func setLayOut() {
         
-        [deliveryView, pickUpView].forEach {
-            stackView.addArrangedSubview($0)
-        }
+        stackView.addArrangedSubviews(deliveryView, pickUpView)
         
         contentView.addSubview(stackView)
         

@@ -9,23 +9,10 @@ import UIKit
 import SnapKit
 
 class StoreRateView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-        setLayOut()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        backgroundColor = .clear
-        setLayOut()
-    }
 
     // 0. UI Component 전체를 담을 StackView 선언
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.backgroundColor = .clear
         stack.axis = .horizontal
         stack.alignment = .center
@@ -39,7 +26,6 @@ class StoreRateView: UIView {
         rate.image = .five_star.resized(toWidth: 137)
         rate.sizeToFit()
         rate.contentMode = .scaleAspectFit
-        rate.translatesAutoresizingMaskIntoConstraints = false
         return rate
     }()
 
@@ -47,16 +33,29 @@ class StoreRateView: UIView {
     private let storeRate: UILabel = {
         let number = UILabel()
         number.text = "4.7"
-        number.font = UIFont(name: "AppleSDGothicNeoR", size: 14)
-        number.translatesAutoresizingMaskIntoConstraints = false
+        number.font = .AppleSDGothicNeo(.regular, size: 14)
         number.sizeToFit()
         return number
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+        setLayOut()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        backgroundColor = .clear
+        setLayOut()
+    }
+    
     private func setLayOut() {
-        [storeRateImage, storeRate].forEach {
-            addSubview($0)
-        }
+//        [storeRateImage, storeRate].forEach {
+//            addSubview($0)
+//        }
+        
+        addSubviews(storeRateImage, storeRate)
         
         storeRateImage.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(102)

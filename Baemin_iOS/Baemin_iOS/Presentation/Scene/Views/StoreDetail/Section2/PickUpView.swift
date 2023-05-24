@@ -14,7 +14,6 @@ class PickUpView: UIView {
         let empty = UIImageView()
         empty.image = UIImage.empty_1.resized(toWidth: UIScreen.main.bounds.width)
         empty.sizeToFit()
-        empty.translatesAutoresizingMaskIntoConstraints = false
         empty.contentMode = .scaleAspectFill
         return empty
     }()

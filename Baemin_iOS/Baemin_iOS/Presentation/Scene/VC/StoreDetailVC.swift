@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class StoreDetailVC: UIViewController {
@@ -19,7 +20,6 @@ class StoreDetailVC: UIViewController {
         table.backgroundColor = .clear
         table.showsHorizontalScrollIndicator = false
         table.showsVerticalScrollIndicator = false
-        table.translatesAutoresizingMaskIntoConstraints = false
         table.sectionHeaderHeight = UITableView.automaticDimension
         table.sectionFooterHeight = UITableView.automaticDimension
         table.rowHeight = UITableView.automaticDimension
@@ -30,16 +30,13 @@ class StoreDetailVC: UIViewController {
     // 2. viewDidLoad 함수
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-
+        setStyle()
         setLayOut()
-
-        tableView.register(StoreInfoCell.self, forCellReuseIdentifier: StoreInfoCell.identifier)
-        tableView.register(OrderMethodSelectView.self, forHeaderFooterViewReuseIdentifier: OrderMethodSelectView.identifier)
-        tableView.register(OrderInfoCell.self, forCellReuseIdentifier: OrderInfoCell.identifier)
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+        register()
+    }
+    
+    private func setStyle() {
+        view.backgroundColor = .white
     }
     
     // 레이아웃 세팅
@@ -50,6 +47,15 @@ class StoreDetailVC: UIViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    private func register() {
+        tableView.register(StoreInfoCell.self, forCellReuseIdentifier: StoreInfoCell.identifier)
+        tableView.register(OrderMethodSelectView.self, forHeaderFooterViewReuseIdentifier: OrderMethodSelectView.identifier)
+        tableView.register(OrderInfoCell.self, forCellReuseIdentifier: OrderInfoCell.identifier)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
 }
