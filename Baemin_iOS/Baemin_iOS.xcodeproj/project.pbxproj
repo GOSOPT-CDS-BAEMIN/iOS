@@ -23,6 +23,7 @@
 		09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD22A1776120062A6F7 /* ButtonStackView.swift */; };
 		09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD42A1894ED0062A6F7 /* Navitype.swift */; };
 		09B06DD62A1896B20062A6F7 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
+
 		09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F242A1D0AB100BAE541 /* NetworkResult.swift */; };
 		09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F262A1D0AED00BAE541 /* APIContants.swift */; };
 		09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */; };
@@ -38,7 +39,7 @@
 		09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4A2A1D1F3100BAE541 /* MainService.swift */; };
 		09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4C2A1D1F3800BAE541 /* StoreService.swift */; };
 		09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4E2A1D1F4A00BAE541 /* FoodService.swift */; };
-		
+
 		8D10FA482A13EC2700F40F2A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D10FA472A13EC2700F40F2A /* Color.xcassets */; };
 		8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */; };
 		8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
@@ -96,9 +97,11 @@
 		093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
 		093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		09B06DCC2A17570D0062A6F7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+
 		09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigaionView.swift; sourceTree = "<group>"; };
 		09B06DD22A1776120062A6F7 /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
 		09B06DD42A1894ED0062A6F7 /* Navitype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navitype.swift; sourceTree = "<group>"; };
+
 		09C29F242A1D0AB100BAE541 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		09C29F262A1D0AED00BAE541 /* APIContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContants.swift; sourceTree = "<group>"; };
 		09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
@@ -764,6 +767,8 @@
 				09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */,
 				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
 				
+				09C29F372A1D1E0D00BAE541 /* StoreAPI.swift in Sources */,
+				09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
