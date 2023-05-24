@@ -27,6 +27,7 @@
 		8D702F2C2A1753C300CD7D64 /* CartPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D702F2B2A1753C300CD7D64 /* CartPriceView.swift */; };
 		8D8BBD812A1B22B50031D370 /* CartTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8BBD802A1B22B50031D370 /* CartTableSectionHeaderView.swift */; };
 		8D8BBD832A1B22C70031D370 /* CartTableSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8BBD822A1B22C70031D370 /* CartTableSectionFooterView.swift */; };
+		8D96F3682A1C62E5004034F9 /* CartTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D96F3672A1C62E5004034F9 /* CartTabView.swift */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
 		F413BD862A162B520084B2F9 /* Button.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD852A162B520084B2F9 /* Button.xcassets */; };
 		F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD872A162B5C0084B2F9 /* Option.xcassets */; };
@@ -75,6 +76,7 @@
 		8D702F2B2A1753C300CD7D64 /* CartPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPriceView.swift; sourceTree = "<group>"; };
 		8D8BBD802A1B22B50031D370 /* CartTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		8D8BBD822A1B22C70031D370 /* CartTableSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableSectionFooterView.swift; sourceTree = "<group>"; };
+		8D96F3672A1C62E5004034F9 /* CartTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTabView.swift; sourceTree = "<group>"; };
 		F413BD772A13DA0C0084B2F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F413BD812A162B410084B2F9 /* Skeleton.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Skeleton.xcassets; sourceTree = "<group>"; };
 		F413BD852A162B520084B2F9 /* Button.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Button.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				8D5530C62A188867005BC008 /* CartTableSectionViewCell.swift */,
 				8D8BBD802A1B22B50031D370 /* CartTableSectionHeaderView.swift */,
 				8D8BBD822A1B22C70031D370 /* CartTableSectionFooterView.swift */,
+				8D96F3672A1C62E5004034F9 /* CartTabView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				F4ED99192A175AA7006AACA2 /* StoreDetailVC.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* Service.swift in Sources */,
+				8D96F3682A1C62E5004034F9 /* CartTabView.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
 				093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */,
 				8D8BBD812A1B22B50031D370 /* CartTableSectionHeaderView.swift in Sources */,

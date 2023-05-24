@@ -30,7 +30,7 @@ extension UIColor {
     static let sub_12 = UIColor(named: "sub/_color_12")
     static let sub_13 = UIColor(named: "sub/_color_13")
     
-    static let primary_2 = UIColor(named: "primary/_color_2")
+    static let primary_2 = UIColor(named: "primary/primary_color_2")
     
     static let background = UIColor(named: "backgroundColor")
     

@@ -83,9 +83,9 @@ class CartPriceView: UIView {
     // 3. 주의사항 Label
     private let noticeLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
         label.text = I18N.Cart.notice
         label.font = .AppleSDGothicNeo(.regular, size: 12)
+        label.numberOfLines = 0
         label.textColor = .gray_5
         return label
     }()
@@ -169,7 +169,7 @@ private extension CartPriceView {
         // 주의사항 배치
         noticeLabel.snp.makeConstraints {
             $0.top.equalTo(totalPayStackView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().offset(16)
             $0.height.equalTo(86)
         }
     }
