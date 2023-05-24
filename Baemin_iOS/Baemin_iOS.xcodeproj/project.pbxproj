@@ -22,7 +22,6 @@
 		09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD22A1776120062A6F7 /* ButtonStackView.swift */; };
 		09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD42A1894ED0062A6F7 /* Navitype.swift */; };
 		09B06DD62A1896B20062A6F7 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
-
 		09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F242A1D0AB100BAE541 /* NetworkResult.swift */; };
 		09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F262A1D0AED00BAE541 /* APIContants.swift */; };
 		09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */; };
@@ -61,11 +60,8 @@
 		F4587CFF2A0F60A000F56BCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4587CFE2A0F60A000F56BCD /* Assets.xcassets */; };
 		F4587D022A0F60A000F56BCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4587D002A0F60A000F56BCD /* LaunchScreen.storyboard */; };
 		F4587D1D2A12B46E00F56BCD /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D1C2A12B46E00F56BCD /* view.swift */; };
-		F4587D212A12B49200F56BCD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D202A12B49200F56BCD /* TabBar.swift */; };
-		F4587D1F2A12B48900F56BCD /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D1E2A12B48900F56BCD /* Common.swift */; };
 		F4587D232A12B49C00F56BCD /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D222A12B49C00F56BCD /* CartService.swift */; };
 		F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D242A12B4A600F56BCD /* FoodResponseDTO.swift */; };
-		F4587D272A12B4AF00F56BCD /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D282A12B4B900F56BCD /* MainAPI.swift */; };
 		F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D2C2A12B4CD00F56BCD /* Literals.swift */; };
 		F4587D302A12B89D00F56BCD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4587D2F2A12B89D00F56BCD /* Kingfisher */; };
@@ -104,7 +100,6 @@
 		09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigaionView.swift; sourceTree = "<group>"; };
 		09B06DD22A1776120062A6F7 /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
 		09B06DD42A1894ED0062A6F7 /* Navitype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navitype.swift; sourceTree = "<group>"; };
-
 		09C29F242A1D0AB100BAE541 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		09C29F262A1D0AED00BAE541 /* APIContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContants.swift; sourceTree = "<group>"; };
 		09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
@@ -145,7 +140,6 @@
 		F4587CFE2A0F60A000F56BCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4587D1C2A12B46E00F56BCD /* view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
 		F4587D202A12B49200F56BCD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		F4587D1E2A12B48900F56BCD /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		F4587D222A12B49C00F56BCD /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		F4587D242A12B4A600F56BCD /* FoodResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResponseDTO.swift; sourceTree = "<group>"; };
 		F4587D282A12B4B900F56BCD /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
@@ -192,6 +186,14 @@
 				093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		09C18F822A1EB77D00AA0F2F /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D202A12B49200F56BCD /* TabBar.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		09C29F322A1D1C2200BAE541 /* Main */ = {
@@ -371,6 +373,7 @@
 				F4587D382A12BD1000F56BCD /* .swiftlint.yml */,
 				F4587CF42A0F609E00F56BCD /* Baemin_iOS */,
 				F4587CF32A0F609E00F56BCD /* Products */,
+				09C18F822A1EB77D00AA0F2F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -633,7 +636,6 @@
 				F4587CEE2A0F609E00F56BCD /* Sources */,
 				F4587CEF2A0F609E00F56BCD /* Frameworks */,
 				F4587CF02A0F609E00F56BCD /* Resources */,
-				F4587D372A12BC2000F56BCD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -716,6 +718,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		093DB02A2A13E16A00ECA5F6 /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -731,23 +734,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		F4587D372A12BC2000F56BCD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nif test -d \"$HOME/.mint/bin\"; then\n  PATH=\"$HOME/.mint/bin:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, run setup.sh (or download from https://github.com/realm/SwiftLint)\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -793,7 +779,6 @@
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */,
-				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
 				09C29F542A1D488D00BAE541 /* ReviewBottomSheetVC.swift in Sources */,
 				09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */,
 				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
@@ -803,7 +788,6 @@
 				093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */,
 				09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */,
 				09B06DD62A1896B20062A6F7 /* UIImage+.swift in Sources */,
-				F4587D272A12B4AF00F56BCD /* (null) in Sources */,
 				8D702F2C2A1753C300CD7D64 /* CartPriceView.swift in Sources */,
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
 				8D5530C72A188867005BC008 /* CartTableViewCell.swift in Sources */,
@@ -823,8 +807,7 @@
 				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
 				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
-				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* Model.swift in Sources */,
+				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */,
 				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
 				F4FC4DC42A1E5BDF0001F9A6 /* UITableViewCell+.swift in Sources */,
