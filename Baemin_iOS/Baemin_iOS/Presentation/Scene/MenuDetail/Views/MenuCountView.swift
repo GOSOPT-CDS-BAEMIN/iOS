@@ -89,6 +89,10 @@ extension MenuCountView {
         print("plus")
         count += 1
         numberLabel.text = "\(count)개"
+        if count < 0 {
+            count = 1
+            numberLabel.text = "\(count)개"
+        }
     }
     
     @objc
