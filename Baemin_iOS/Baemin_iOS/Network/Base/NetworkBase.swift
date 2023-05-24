@@ -1,0 +1,59 @@
+//
+//  NetworkBase.swift
+//  Baemin_iOS
+//
+//  Created by JEONGEUN KIM on 2023/05/24.
+//
+
+import Foundation
+
+import Alamofire
+
+class BaseAPI {
+    
+    let AFManager: Session = {
+            var session = AF
+            let configuration = URLSessionConfiguration.af.default
+            let eventLogger = AlamofireLogger()
+            session = Session(configuration: configuration, eventMonitors: [eventLogger])
+            return session
+        }()
+    
+    public func disposeNetwork<T: Codable>(_ result: AFDataResponse<Data>, dataModel: T.Type, completion: @escaping (NetworkResult<Any>) -> Void) {
+        switch result.result {
+        case .success:
+            guard let statusCode = result.response?.statusCode else { return }
+            guard let data = result.data else { return }
+            
+            let networkResult = self.judgeStatus(by: statusCode, data, dataModel.self)
+            completion(networkResult)
+            
+        case .failure(let error):
+            print(error)
+        }
+    }
+    
+    private func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(BaseResponse<T>.self, from: data)
+        else {
+            return .pathErr
+        }
+        
+        guard let realData = try? decoder.decode(object.self, from: data) else {
+            return .decodedErr
+        }
+        
+        print(realData)
+        switch statusCode {
+        case 200..<205:
+            return .success(realData as Any)
+        case 400..<500:
+            return .requestErr(decodedData.message ?? "요청에러")
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+}
