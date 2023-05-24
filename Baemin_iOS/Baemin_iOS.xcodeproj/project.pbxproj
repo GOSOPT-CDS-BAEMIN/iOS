@@ -281,6 +281,7 @@
 		09C29F522A1D487700BAE541 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09C29F5A2A1DABB600BAE541 /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -439,7 +440,6 @@
 		F4587D102A12B21F00F56BCD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				09C29F5A2A1DABB600BAE541 /* CustomButton.swift */,
 				8D5530C82A189B21005BC008 /* PaddingLabel.swift */,
 				09B06DD42A1894ED0062A6F7 /* Navitype.swift */,
 				09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */,
