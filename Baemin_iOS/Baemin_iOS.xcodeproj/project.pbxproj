@@ -19,14 +19,19 @@
 		093DB0602A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */; };
 		09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DCC2A17570D0062A6F7 /* UIFont+.swift */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< HEAD
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 		09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */; };
 		09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD22A1776120062A6F7 /* ButtonStackView.swift */; };
 		09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD42A1894ED0062A6F7 /* Navitype.swift */; };
 		09B06DD62A1896B20062A6F7 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -35,6 +40,9 @@
 =======
 >>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 		09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F242A1D0AB100BAE541 /* NetworkResult.swift */; };
 		09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F262A1D0AED00BAE541 /* APIContants.swift */; };
 		09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */; };
@@ -51,13 +59,22 @@
 		09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4C2A1D1F3800BAE541 /* StoreService.swift */; };
 		09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4E2A1D1F4A00BAE541 /* FoodService.swift */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 <<<<<<< HEAD
 =======
 >>>>>>> 8a1112a (#21 [Add] API 연결 파일, 폴더 추가)
 >>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+=======
+		
+>>>>>>> 5798377 (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 		8D10FA482A13EC2700F40F2A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D10FA472A13EC2700F40F2A /* Color.xcassets */; };
 		8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */; };
 		8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413BD912A1661840084B2F9 /* UIImage+.swift */; };
@@ -116,6 +133,7 @@
 		093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		09B06DCC2A17570D0062A6F7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigaionView.swift; sourceTree = "<group>"; };
 		09B06DD22A1776120062A6F7 /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
@@ -131,6 +149,12 @@
 =======
 >>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+		09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigaionView.swift; sourceTree = "<group>"; };
+		09B06DD22A1776120062A6F7 /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
+		09B06DD42A1894ED0062A6F7 /* Navitype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navitype.swift; sourceTree = "<group>"; };
+
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 		09C29F242A1D0AB100BAE541 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		09C29F262A1D0AED00BAE541 /* APIContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContants.swift; sourceTree = "<group>"; };
 		09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
@@ -146,10 +170,7 @@
 		09C29F4A2A1D1F3100BAE541 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		09C29F4C2A1D1F3800BAE541 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		09C29F4E2A1D1F4A00BAE541 /* FoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodService.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
->>>>>>> 8a1112a (#21 [Add] API 연결 파일, 폴더 추가)
->>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+
 		8D10FA472A13EC2700F40F2A /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		8D5530C62A188867005BC008 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -561,7 +582,18 @@
 			children = (
 				F4FC4DC22A1D5E740001F9A6 /* StoreDetail */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+				F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */,
+				F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */,
+				F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */,
+				F4FC4DB52A1D592E0001F9A6 /* StoreRateView.swift */,
+				F4FC4DB72A1D59300001F9A6 /* StoreInfoView.swift */,
+				F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */,
+				F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */,
+				F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */,
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				F4587D1C2A12B46E00F56BCD /* view.swift */,
 			);
 			path = Views;
@@ -849,6 +881,7 @@
 				09C29F372A1D1E0D00BAE541 /* StoreAPI.swift in Sources */,
 				09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
 				
 				09C29F372A1D1E0D00BAE541 /* StoreAPI.swift in Sources */,
@@ -861,6 +894,12 @@
 				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
 
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
+				
+				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
+				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
 				093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */,
 				F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */,
@@ -883,7 +922,13 @@
 				09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */,
 				09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */,
 				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
+<<<<<<< HEAD
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
+				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
+				
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */,
 				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
@@ -894,7 +939,12 @@
 
 =======
 				09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */,
+<<<<<<< HEAD
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
+				
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				8D5530C92A189B21005BC008 /* PaddingLabel.swift in Sources */,
 				09C29F2B2A1D0DB500BAE541 /* BaseTargetType.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
@@ -914,7 +964,13 @@
 
 =======
 				09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */,
+<<<<<<< HEAD
 >>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
+=======
+				F4FC4DB42A1D59290001F9A6 /* OrderMethodSelectView.swift in Sources */,
+				F4FC4DAC2A1D58540001F9A6 /* OrderInfoCell.swift in Sources */,
+
+>>>>>>> 6947d50 (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 				8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */,
 				09C29F3B2A1D1E1C00BAE541 /* CartAPI.swift in Sources */,
 				09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */,
@@ -937,6 +993,10 @@
 				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
 				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
+				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
+				F4587D2B2A12B4C500F56BCD /* UI+.swift in Sources */,
+				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
+				F4587D252A12B4A600F56BCD /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
