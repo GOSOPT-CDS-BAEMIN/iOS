@@ -19,6 +19,8 @@ class MainVC: UIViewController {
     
     // MARK: - UI Components
     
+    private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
+    
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -90,10 +92,16 @@ extension MainVC {
     }
     
     private func setLayout() {
-        view.addSubviews(tabBarcollectionView, pageCollectionView)
+        view.addSubviews(naviView, tabBarcollectionView, pageCollectionView)
+        
+        naviView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(44)
+            $0.directionalHorizontalEdges.equalTo(safeArea)
+            $0.height.equalTo(44)
+        }
         
         tabBarcollectionView.snp.makeConstraints {
-            $0.top.equalTo(safeArea).offset(52)
+            $0.top.equalTo(naviView.snp.bottom)
             $0.directionalHorizontalEdges.equalTo(safeArea)
             $0.height.equalTo(44)
         }
