@@ -34,7 +34,11 @@ class ReviewBottomSheetVC: UIViewController {
         return label
     }()
     
-    private lazy var bottomButton = CustomButton()
+    private lazy var bottomButton: CustomButton = {
+        let button = CustomButton()
+        button.resetting.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
@@ -65,6 +69,7 @@ extension ReviewBottomSheetVC {
     
     private func setStyle() {
         view.backgroundColor = .white
+    
     }
     
     private func setLayout() {
@@ -96,6 +101,13 @@ extension ReviewBottomSheetVC {
         let isButtonActive = !selectedIndices.isEmpty
         bottomButton.updateUI(isTapped: isButtonActive)
     }
+    
+    @objc
+    private func resetButtonTapped() {
+            selectedIndices.removeAll()
+            collectionView.reloadData()
+            updateButtonState()
+        }
 }
 
 // MARK: - CollectionView Delegate, CollectionViewDataSource
