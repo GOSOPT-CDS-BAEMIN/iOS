@@ -8,6 +8,8 @@
 import Foundation
 
 struct I18N {
+    
+    /// cart
     struct Cart {
         static let totalPrice = "총 주문금액"
         static let totalPay = "결제예정금액"
@@ -15,4 +17,11 @@ struct I18N {
         static let deliveryTip = "배달팁 포함"
 
     }
+    
+    /// review
+    struct Review {
+        static let refresh = "옵션 재설정"
+        static let showReview = "리뷰보기"
+    }
+    
 }

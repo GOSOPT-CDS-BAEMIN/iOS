@@ -16,7 +16,7 @@ class CustomButton: UIView {
     lazy var reviewButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .AppleSDGothicNeo(.bold, size: 18)
-        button.setTitle("리뷰보기", for: .normal)
+        button.setTitle(I18N.Review.showReview, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .gray_4
         
@@ -27,7 +27,7 @@ class CustomButton: UIView {
         let button = UIButton(configuration: .plain())
         button.configuration?.baseForegroundColor = .black
         button.configuration?.image = .refresh
-        let attributedTitle = NSAttributedString(string: "옵션 재설정",
+        let attributedTitle = NSAttributedString(string: I18N.Review.refresh,
                                                  attributes: [.font: UIFont.AppleSDGothicNeo(.regular, size: 12)])
         button.setAttributedTitle(attributedTitle, for: .normal)
         return button
