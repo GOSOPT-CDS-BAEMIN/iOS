@@ -25,7 +25,11 @@ enum Config {
         }
     }
     
+<<<<<<< HEAD
 >>>>>>> 8a1112a (#21 [Add] API 연결 파일, 폴더 추가)
+=======
+>>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+>>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
     private static let infoDictionary: [String: Any] = {
         guard let dict = Bundle.main.infoDictionary else {
             fatalError("plist cannot found.")
@@ -39,7 +43,11 @@ extension Config {
 
 =======
     
+<<<<<<< HEAD
 >>>>>>> 8a1112a (#21 [Add] API 연결 파일, 폴더 추가)
+=======
+>>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+>>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
     static let baseURL: String = {
         guard let key = Config.infoDictionary[Keys.Plist.baseURL] as? String else {
             fatalError("Base URL is not set in plist for this configuration.")
@@ -55,5 +63,9 @@ extension Config {
         }
         return key
     }()
+<<<<<<< HEAD
 >>>>>>> 8a1112a (#21 [Add] API 연결 파일, 폴더 추가)
+=======
+>>>>>>> 8f897ce (#22 [Merge] 로컬 feat/#22와 원격 feat/#22 브랜치 사이의 충돌 해결)
+>>>>>>> 026436f (#22 [Merge] develop 브랜치와 로컬 feat/#22 브랜치 병합)
 }
