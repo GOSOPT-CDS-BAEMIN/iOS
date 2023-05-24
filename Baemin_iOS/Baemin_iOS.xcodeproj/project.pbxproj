@@ -527,6 +527,14 @@
 			isa = PBXGroup;
 			children = (
 				F4FC4DC22A1D5E740001F9A6 /* StoreDetail */,
+				F4FC4DAF2A1D59130001F9A6 /* DeliveryView.swift */,
+				F4FC4DB12A1D59260001F9A6 /* PickUpView.swift */,
+				F4FC4DB32A1D59290001F9A6 /* OrderMethodSelectView.swift */,
+				F4FC4DB52A1D592E0001F9A6 /* StoreRateView.swift */,
+				F4FC4DB72A1D59300001F9A6 /* StoreInfoView.swift */,
+				F4FC4DB92A1D59330001F9A6 /* ReviewCommentView.swift */,
+				F4FC4DBB2A1D59350001F9A6 /* OptionSelectView.swift */,
+				F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */,
 				F4587D1C2A12B46E00F56BCD /* view.swift */,
 			);
 			path = Views;
@@ -771,6 +779,7 @@
 				09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
+				F4587D232A12B49C00F56BCD /* Service.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
 				093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */,
 				F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */,
@@ -786,14 +795,14 @@
 				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
-				
+
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */,
 				F4587D212A12B49200F56BCD /* TabBar.swift in Sources */,
 				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
 				09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */,
 				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
-				
+
 				8D5530C92A189B21005BC008 /* PaddingLabel.swift in Sources */,
 				09C29F2B2A1D0DB500BAE541 /* BaseTargetType.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
