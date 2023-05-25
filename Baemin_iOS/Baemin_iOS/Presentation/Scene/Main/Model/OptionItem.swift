@@ -6,23 +6,88 @@
 //
 
 import UIKit
+
 enum Status {
     case on, off
 }
 
+enum Option {
+    case INITIAL, COUPON, ONE, DELIVERY, RATE, MINIMUM, OTHER
+    
+    var title: String {
+        switch self {
+        case .INITIAL:
+            return "초기화"
+        case .COUPON:
+            return "쿠폰"
+        case .ONE:
+            return "1인분"
+        case .DELIVERY:
+            return "배달비"
+        case .RATE:
+            return "별점"
+        case .MINIMUM:
+            return "최소주문"
+        case .OTHER:
+            return "기타"
+        }
+    }
+}
+
 struct OptionItem {
-    var option: String
+    var option: Option
     var status: Status
     var leftIcon: UIImage?
     var rightIcon: UIImage?
-}
-extension OptionItem {
-    static var item: [OptionItem] = [OptionItem(option: "초기화", status: .on, leftIcon: UIImage.refresh),
-                                     OptionItem(option: "쿠폰", status: .on, leftIcon: UIImage.icon_coupon),
-                                     OptionItem(option: "1인분", status: .on, leftIcon: UIImage.one_serving),
-                                     OptionItem(option: "배민비", status: .on, rightIcon: UIImage.arrow_down),
-                                     OptionItem(option: "별점", status: .on, leftIcon: UIImage.star, rightIcon: UIImage.arrow_down),
-                                     OptionItem(option: "최소주문", status: .on, rightIcon: UIImage.arrow_down),
-                                     OptionItem(option: "기타", status: .on, leftIcon: UIImage.filter)
-    ]
+    
+    static var item: [OptionItem] = [OptionItem(option: .INITIAL, status: .off, leftIcon: UIImage.refresh),
+                                     OptionItem(option: .COUPON, status: .off, leftIcon: UIImage.icon_coupon),
+                                     OptionItem(option: .ONE, status: .off, leftIcon: UIImage.one_serving),
+                                     OptionItem(option: .DELIVERY, status: .off, rightIcon: UIImage.arrow_down),
+                                     OptionItem(option: .RATE, status: .off, leftIcon: UIImage.star, rightIcon: UIImage.arrow_down),
+                                     OptionItem(option: .MINIMUM, status: .off, rightIcon: UIImage.arrow_down),
+                                     OptionItem(option: .ONE, status: .off, leftIcon: UIImage.filter)
+        ]
+
+    public func isSelected() -> Self {
+        switch self.status {
+
+        case .off:
+            switch self.option {
+
+            case .INITIAL:
+                return OptionItem(option: option, status: status, leftIcon: .refresh, rightIcon: UIImage(named: ""))
+            case .COUPON:
+                return OptionItem(option: option, status: status, leftIcon: .icon_coupon, rightIcon: UIImage(named: ""))
+            case .ONE:
+                return OptionItem(option: option, status: status, leftIcon: .one_serving, rightIcon: UIImage(named: ""))
+            case .DELIVERY:
+                return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down)
+            case .RATE:
+                return OptionItem(option: option, status: status, leftIcon: .star, rightIcon: .arrow_down)
+            case .MINIMUM:
+                return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down)
+            case .OTHER:
+                return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down)
+            }
+            
+        case .on:
+            switch self.option {
+            case .INITIAL:
+                return OptionItem(option: option, status: status, leftIcon: .refresh_white, rightIcon: nil)
+            case .COUPON:
+                return OptionItem(option: option, status: status, leftIcon: .icon_coupon_white, rightIcon: nil)
+            case .ONE:
+                return OptionItem(option: option, status: status, leftIcon: .one_serving_white, rightIcon: nil)
+            case .DELIVERY:
+                return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down_white)
+            case .RATE:
+                return OptionItem(option: option, status: status, leftIcon: .star_white, rightIcon: nil)
+            case .MINIMUM:
+                return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down_white)
+            case .OTHER:
+                return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down_white)
+            }
+        }
+    }
 }
