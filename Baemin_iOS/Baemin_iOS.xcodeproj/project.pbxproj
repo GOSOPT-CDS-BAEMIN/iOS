@@ -83,6 +83,7 @@
 		F4FC4DC42A1E5BDF0001F9A6 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC32A1E5BDF0001F9A6 /* UITableViewCell+.swift */; };
 		F4FC4DC62A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */; };
 		F4FC4DCA2A1E86C40001F9A6 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC92A1E86C40001F9A6 /* Base.swift */; };
+		F4FC4DD22A1EA6A20001F9A6 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,7 @@
 		F4FC4DC32A1E5BDF0001F9A6 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+.swift"; sourceTree = "<group>"; };
 		F4FC4DC92A1E86C40001F9A6 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */,
+				F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */,
 			);
 			path = Section3;
 			sourceTree = "<group>";

@@ -83,7 +83,7 @@ class StickyHeaderView: UITableViewHeaderFooterView {
     
     func setSegment() {
         self.segmentControl.setTitleAttributes(
-            [NS]
+            [
         )
     }
     
