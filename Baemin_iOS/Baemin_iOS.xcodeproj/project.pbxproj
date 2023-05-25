@@ -10,6 +10,8 @@
 		0918E00F2A1BEA02005B6542 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E00E2A1BEA02005B6542 /* MainVC.swift */; };
 		0918E0122A1BEA90005B6542 /* MainTabbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E0112A1BEA90005B6542 /* MainTabbarCell.swift */; };
 		0918E0142A1BEF8B005B6542 /* MainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E0132A1BEF8A005B6542 /* MainItem.swift */; };
+		091B10442A1EDBF600BF19E5 /* MainResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B10432A1EDBF600BF19E5 /* MainResponseDTO.swift */; };
+		091B10462A1EDCFD00BF19E5 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B10452A1EDCFD00BF19E5 /* BaseResponse.swift */; };
 		093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0402A17489B00ECA5F6 /* UiCollectionView+.swift */; };
 		093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0422A1748B400ECA5F6 /* NSObject+.swift */; };
 		093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DB0442A17497600ECA5F6 /* UIStackView+.swift */; };
@@ -30,18 +32,11 @@
 		09C18F842A1EC1DE00AA0F2F /* MainFirstPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C18F832A1EC1DE00AA0F2F /* MainFirstPageCell.swift */; };
 		09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F242A1D0AB100BAE541 /* NetworkResult.swift */; };
 		09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F262A1D0AED00BAE541 /* APIContants.swift */; };
-		09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */; };
 		09C29F2B2A1D0DB500BAE541 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F2A2A1D0DB500BAE541 /* BaseTargetType.swift */; };
 		09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F2E2A1D110900BAE541 /* NetworkBase.swift */; };
 		09C29F312A1D16C000BAE541 /* AlamofireLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F302A1D16C000BAE541 /* AlamofireLogger.swift */; };
-		09C29F372A1D1E0D00BAE541 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F362A1D1E0D00BAE541 /* StoreAPI.swift */; };
-		09C29F392A1D1E1700BAE541 /* FoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F382A1D1E1700BAE541 /* FoodAPI.swift */; };
 		09C29F3B2A1D1E1C00BAE541 /* CartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F3A2A1D1E1C00BAE541 /* CartAPI.swift */; };
-		09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F3D2A1D1E4900BAE541 /* CartResponseDTO.swift */; };
 		09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F412A1D1E8500BAE541 /* StoreResponseDTO.swift */; };
-		09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F442A1D1EAE00BAE541 /* MainResponseDTO.swift */; };
-		09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4A2A1D1F3100BAE541 /* MainService.swift */; };
-		09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4C2A1D1F3800BAE541 /* StoreService.swift */; };
 		09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C29F4E2A1D1F4A00BAE541 /* FoodService.swift */; };
 		8D10FA482A13EC2700F40F2A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D10FA472A13EC2700F40F2A /* Color.xcassets */; };
 		8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10FA4A2A13ED4100F40F2A /* UIColor+.swift */; };
@@ -64,9 +59,6 @@
 		F4587D022A0F60A000F56BCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4587D002A0F60A000F56BCD /* LaunchScreen.storyboard */; };
 		F4587D1D2A12B46E00F56BCD /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D1C2A12B46E00F56BCD /* view.swift */; };
 		F4587D1F2A12B48900F56BCD /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D1E2A12B48900F56BCD /* Common.swift */; };
-		F4587D232A12B49C00F56BCD /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D222A12B49C00F56BCD /* CartService.swift */; };
-		F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D242A12B4A600F56BCD /* FoodResponseDTO.swift */; };
-		F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D282A12B4B900F56BCD /* MainAPI.swift */; };
 		F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4587D2C2A12B4CD00F56BCD /* Literals.swift */; };
 		F4587D302A12B89D00F56BCD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4587D2F2A12B89D00F56BCD /* Kingfisher */; };
 		F4587D332A12B8AD00F56BCD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F4587D322A12B8AD00F56BCD /* Alamofire */; };
@@ -93,6 +85,8 @@
 		0918E00E2A1BEA02005B6542 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		0918E0112A1BEA90005B6542 /* MainTabbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCell.swift; sourceTree = "<group>"; };
 		0918E0132A1BEF8A005B6542 /* MainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItem.swift; sourceTree = "<group>"; };
+		091B10432A1EDBF600BF19E5 /* MainResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponseDTO.swift; sourceTree = "<group>"; };
+		091B10452A1EDCFD00BF19E5 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		093DB0402A17489B00ECA5F6 /* UiCollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiCollectionView+.swift"; sourceTree = "<group>"; };
 		093DB0422A1748B400ECA5F6 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		093DB0442A17497600ECA5F6 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
@@ -112,7 +106,6 @@
 		09C18F832A1EC1DE00AA0F2F /* MainFirstPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFirstPageCell.swift; sourceTree = "<group>"; };
 		09C29F242A1D0AB100BAE541 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		09C29F262A1D0AED00BAE541 /* APIContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContants.swift; sourceTree = "<group>"; };
-		09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		09C29F2A2A1D0DB500BAE541 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		09C29F2E2A1D110900BAE541 /* NetworkBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBase.swift; sourceTree = "<group>"; };
 		09C29F302A1D16C000BAE541 /* AlamofireLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireLogger.swift; sourceTree = "<group>"; };
@@ -121,7 +114,6 @@
 		09C29F3A2A1D1E1C00BAE541 /* CartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAPI.swift; sourceTree = "<group>"; };
 		09C29F3D2A1D1E4900BAE541 /* CartResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponseDTO.swift; sourceTree = "<group>"; };
 		09C29F412A1D1E8500BAE541 /* StoreResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreResponseDTO.swift; sourceTree = "<group>"; };
-		09C29F442A1D1EAE00BAE541 /* MainResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponseDTO.swift; sourceTree = "<group>"; };
 		09C29F4A2A1D1F3100BAE541 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		09C29F4C2A1D1F3800BAE541 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		09C29F4E2A1D1F4A00BAE541 /* FoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodService.swift; sourceTree = "<group>"; };
@@ -298,7 +290,7 @@
 		09C29F432A1D1E9000BAE541 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				09C29F442A1D1EAE00BAE541 /* MainResponseDTO.swift */,
+				091B10432A1EDBF600BF19E5 /* MainResponseDTO.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -536,8 +528,8 @@
 		F4587D152A12B2AD00F56BCD /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				09C29F282A1D0CBE00BAE541 /* BaseResponse.swift */,
 				09C29F2E2A1D110900BAE541 /* NetworkBase.swift */,
+				091B10452A1EDCFD00BF19E5 /* BaseResponse.swift */,
 				09C29F302A1D16C000BAE541 /* AlamofireLogger.swift */,
 				09C29F242A1D0AB100BAE541 /* NetworkResult.swift */,
 				09C29F262A1D0AED00BAE541 /* APIContants.swift */,
@@ -729,6 +721,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		093DB02A2A13E16A00ECA5F6 /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -773,19 +766,13 @@
 				093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */,
 				09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */,
 				F4ED99192A175AA7006AACA2 /* StoreDetailVC.swift in Sources */,
-				09C29F372A1D1E0D00BAE541 /* StoreAPI.swift in Sources */,
-				09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */,
 				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				0918E0122A1BEA90005B6542 /* MainTabbarCell.swift in Sources */,
-				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
-				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
 				09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */,
 				F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */,
 				F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */,
-				09C29F372A1D1E0D00BAE541 /* StoreAPI.swift in Sources */,
 				F4FC4DCA2A1E86C40001F9A6 /* Base.swift in Sources */,
-				09C29F3E2A1D1E4900BAE541 /* CartResponseDTO.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
 				093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */,
 				F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */,
@@ -793,24 +780,14 @@
 				F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */,
 				09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */,
 				0918E0142A1BEF8B005B6542 /* MainItem.swift in Sources */,
-				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
-				09C29F392A1D1E1700BAE541 /* FoodAPI.swift in Sources */,
-				09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */,
-				09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */,
-				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
-				09C29F392A1D1E1700BAE541 /* FoodAPI.swift in Sources */,
 				09C18F842A1EC1DE00AA0F2F /* MainFirstPageCell.swift in Sources */,
-				09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */,
-				09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */,
-				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
 				09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */,
-				09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */,
+				091B10462A1EDCFD00BF19E5 /* BaseResponse.swift in Sources */,
 				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
-				09C29F292A1D0CBE00BAE541 /* BaseResponse.swift in Sources */,
 				8D5530C92A189B21005BC008 /* PaddingLabel.swift in Sources */,
 				09C29F2B2A1D0DB500BAE541 /* BaseTargetType.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* Common.swift in Sources */,
@@ -831,22 +808,16 @@
 				09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */,
 				8D702F2A2A17530600CD7D64 /* CartViewController.swift in Sources */,
 				09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */,
-				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
 				8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */,
 				093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				0918E00F2A1BEA02005B6542 /* MainVC.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
 				F4FC4DB02A1D59130001F9A6 /* DeliveryView.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */,
-				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
+				091B10442A1EDBF600BF19E5 /* MainResponseDTO.swift in Sources */,
 				F4FC4DC42A1E5BDF0001F9A6 /* UITableViewCell+.swift in Sources */,
 				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
-				F4587D252A12B4A600F56BCD /* FoodResponseDTO.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
-				09C29F452A1D1EAE00BAE541 /* MainResponseDTO.swift in Sources */,
 				F4FC4DC62A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
