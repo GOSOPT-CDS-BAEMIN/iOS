@@ -11,8 +11,22 @@ import SnapKit
 
 class MainPageCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
+    var firstItems: [MainResponseDTO] = MainResponseDTO.item
+
     // MARK: - UI Components
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 18
+        let collectionViw = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionViw.showsVerticalScrollIndicator = false
+        collectionViw.delegate = self
+        collectionViw.dataSource = self
+        return collectionViw
+    }()
     private lazy var label: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -40,18 +54,33 @@ class MainPageCell: UICollectionViewCell {
 extension MainPageCell {
     
     private func setStyle() {
-        backgroundColor = .gray
+        backgroundColor = .clear
     }
     
     private func setLayout() {
-        contentView.addSubview(label)
+        contentView.addSubview(collectionView)
+        collectionView.register(cell: MainFirstPageCell.self)
         
-        label.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+        collectionView.snp.makeConstraints {
+            $0.directionalHorizontalEdges.equalToSuperview().inset(14)
+            $0.directionalVerticalEdges.equalToSuperview()
         }
     }
+}
+extension MainPageCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func bind(_ item: PagingItem) {
-        label.text = item.title
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return firstItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: MainFirstPageCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.bind(firstItems[indexPath.row])
+        return cell
+    }
+}
+extension MainPageCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 270)
     }
 }
