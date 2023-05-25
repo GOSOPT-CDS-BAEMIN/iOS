@@ -13,6 +13,7 @@ extension UIImage {
     
     static let arrow_back = UIImage(named: "arrow_back")!
     static let arrow_down = UIImage(named: "arrow_down")!
+    static let arrow_down_white = UIImage(named: "arrow_down_white")!
     static let arrow_up_down = UIImage(named: "arrow-up-down")!
     static let bold_arrow_down = UIImage(named: "bold_arrow_down")!
     static let bold_x = UIImage(named: "bold_x")!
@@ -20,9 +21,11 @@ extension UIImage {
     static let delivery = UIImage(named: "delivery")!
     static let download = UIImage(named: "download")!
     static let filter = UIImage(named: "filter")!
+    static let filter_white = UIImage(named: "filter_white")!
     static let home = UIImage(named: "home")!
     static let minus = UIImage(named: "minus")!
     static let one_serving = UIImage(named: "one_serving")!
+    static let one_serving_white = UIImage(named: "one_serving_white")!
     static let person_add = UIImage(named: "person_add")!
     static let people = UIImage(named: "people")!
     static let pick_up = UIImage(named: "pick_up")!
@@ -30,17 +33,22 @@ extension UIImage {
     static let popular = UIImage(named: "popular")!
     static let rate_star = UIImage(named: "rate_star")!
     static let refresh = UIImage(named: "refresh")!
+    static let refresh_white = UIImage(named: "refresh_white")!
     static let review_filter = UIImage(named: "review_filter")!
     
     static let share = UIImage(named: "sharing")!
     static let speaker = UIImage(named: "speaker")!
     static let star = UIImage(named: "star")!
+    static let star_white = UIImage(named: "star_white")!
     static let trashbin = UIImage(named: "trashbin")!
     static let x = UIImage(named: "x")!
     static let yellow_star = UIImage(named: "yellow_star")!
     static let full_star = UIImage(named: "full_star")!
     static let five_star = UIImage(named: "five_star")!
     static let like_heart = UIImage(named: "like_heart")!
+    
+    static let icon_coupon = UIImage(named: "icon_coupon")!
+    static let icon_coupon_white = UIImage(named: "icon_coupon_white")!
 
     /// Button
     
