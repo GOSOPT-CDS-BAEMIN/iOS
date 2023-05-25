@@ -13,7 +13,7 @@ class MainOptionView: UIView {
     
     // MARK: - Properties
     
-    private let item: [OptionItem] = OptionItem.item
+    private var item: [OptionItem] = OptionItem.item
     
     // MARK: - UI Components
     
@@ -91,17 +91,20 @@ extension MainOptionView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainOptionCell = collectionView.dequeueReusableCell(for: indexPath)
         let item = item[indexPath.row]
-        cell.bind(item)
+        cell.bind(item: item, index: indexPath.item)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCell = collectionView.cellForItem(at: indexPath) as? MainOptionCell
-        guard let cell = selectedCell else { return }
-        let item = self.item[indexPath.row]
-        cell.isTapped.toggle()
-        cell.updateUI(item)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+
+        if self.item[indexPath.item].status == .off {
+            self.item[indexPath.item].status = .on
+        } else {
+            self.item[indexPath.item].status = .off
+        }
+        self.item[indexPath.item] = self.item[indexPath.item].isSelected()
+        collectionView.reloadData()
     }
 }
 
@@ -109,7 +112,7 @@ extension MainOptionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth: CGFloat
         let cell: MainOptionCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.optionLabel.text = item[indexPath.row].option
+        cell.optionLabel.text = item[indexPath.row].option.title
         cell.optionLabel.sizeToFit()
         switch indexPath.item {
         case 4:
