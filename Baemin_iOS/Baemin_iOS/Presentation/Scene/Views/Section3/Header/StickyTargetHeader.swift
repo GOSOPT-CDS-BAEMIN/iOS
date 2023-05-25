@@ -11,6 +11,11 @@ import SnapKit
 
 class StickyTargetHeader: UITableViewHeaderFooterView {
     
+    // 세그먼트 탭마다 나타날 VC
+    private let menuView = MenuVC()
+    private let infoView = InfoVC()
+    private let commentView = ReviewVC()
+    
     // 정보 + 스피커 아이콘
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
@@ -82,7 +87,7 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
             for: .selected
         )
         
-        contentView.addSubview(segmentControl)
+        contentView.addSubviews(segmentControl, menuView.view, infoView.view, commentView.view)
         
         segmentControl.selectedSegmentIndex = 0
         
@@ -92,4 +97,37 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
             $0.height.equalTo(40)
         }
     }
+    
+//    @objc func indexChanged(_ sender: UISegmentedControl) {
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            menuView.view.isHidden = false
+//            infoView.view.isHidden = true
+//            commentView.view.isHidden = true
+//        case 1:
+//            menuView.view.isHidden = true
+//            infoView.view.isHidden = false
+//            commentView.view.isHidden = true
+//        case 2:
+//            menuView.view.isHidden = true
+//            infoView.view.isHidden = true
+//            commentView.view.isHidden = false
+//        }
+//    }
 }
+
+//menuView.view.snp.makeConstraints {
+//    $0.edges.equalToSuperview()
+//}
+//
+//infoView.view.snp.makeConstraints {
+//    $0.edges.equalToSuperview()
+//}
+//
+//commentView.view.snp.makeConstraints {
+//    $0.edges.equalToSuperview()
+//}
+//
+//menuView.view.isHidden = false
+//infoView.view.isHidden = true
+//commentView.view.isHidden = true
