@@ -54,7 +54,8 @@ class StickyHeaderView: UIView {
         super.init(frame: frame)
         setStyle()
         setLayOut()
-        self.alpha = 1
+        
+        segmentControl.addTarget(self, action: #selector(segmentedTouched), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -93,5 +94,11 @@ class StickyHeaderView: UIView {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
         }
+    }
+    
+    @objc
+    func segmentedTouched(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name("categoryIndex"), object: segmentControl.selectedSegmentIndex)
     }
 }
