@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class StickyHeaderView: UIView {
+class StickyTargetHeader: UITableViewHeaderFooterView {
     
     // 정보 + 스피커 아이콘
     private lazy var infoLabel: UILabel = {
@@ -49,21 +49,19 @@ class StickyHeaderView: UIView {
         return control
     }()
     
-    // 0. init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    // init
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         setStyle()
         setLayOut()
-        self.alpha = 1
     }
-    
+
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
     }
     
     func setStyle() {
-        backgroundColor = .white
+        contentView.backgroundColor = .clear
     }
     
     func setLayOut() {
@@ -84,7 +82,7 @@ class StickyHeaderView: UIView {
             for: .selected
         )
         
-        addSubview(segmentControl)
+        contentView.addSubview(segmentControl)
         
         segmentControl.selectedSegmentIndex = 0
         
