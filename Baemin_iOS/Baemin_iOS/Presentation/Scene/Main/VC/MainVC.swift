@@ -21,6 +21,8 @@ class MainVC: UIViewController {
     
     private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
     
+    private let optionView = MainOptionView()
+
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -92,7 +94,7 @@ extension MainVC {
     }
     
     private func setLayout() {
-        view.addSubviews(naviView, tabBarcollectionView, pageCollectionView)
+        view.addSubviews(naviView, optionView, tabBarcollectionView, pageCollectionView)
         
         naviView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
@@ -100,8 +102,13 @@ extension MainVC {
             $0.height.equalTo(44)
         }
         
+        optionView.snp.makeConstraints {
+            $0.top.equalTo(naviView.snp.bottom).offset(10)
+            $0.directionalHorizontalEdges.equalToSuperview()
+            $0.height.equalTo(32)
+        }
         tabBarcollectionView.snp.makeConstraints {
-            $0.top.equalTo(naviView.snp.bottom)
+            $0.top.equalTo(naviView.snp.bottom).offset(60)
             $0.directionalHorizontalEdges.equalTo(safeArea)
             $0.height.equalTo(44)
         }
@@ -148,7 +155,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabBarcollectionView {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    
             let pageIndexPath = IndexPath(item: indexPath.item, section: 0)
             pageCollectionView.scrollToItem(at: pageIndexPath, at: .centeredHorizontally, animated: true)
             
