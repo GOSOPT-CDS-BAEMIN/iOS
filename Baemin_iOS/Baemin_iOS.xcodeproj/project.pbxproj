@@ -189,7 +189,6 @@
 			children = (
 				09C18F762A1E1BD900AA0F2F /* Model */,
 				0918E0102A1BEA79005B6542 /* Cell */,
-				0918E00D2A1BE9F2005B6542 /* Views */,
 				0918E00C2A1BE9ED005B6542 /* VC */,
 			);
 			path = Main;
@@ -201,13 +200,6 @@
 				0918E00E2A1BEA02005B6542 /* MainVC.swift */,
 			);
 			path = VC;
-			sourceTree = "<group>";
-		};
-		0918E00D2A1BE9F2005B6542 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		0918E0102A1BEA79005B6542 /* Cell */ = {
@@ -842,7 +834,6 @@
 				093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */,
 				09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */,
 				09B06DD62A1896B20062A6F7 /* UIImage+.swift in Sources */,
-				F4587D272A12B4AF00F56BCD /* Base.swift in Sources */,
 				09C18F752A1E0BC600AA0F2F /* MainPageCell.swift in Sources */,
 				8D702F2C2A1753C300CD7D64 /* CartPriceView.swift in Sources */,
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
