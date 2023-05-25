@@ -11,6 +11,14 @@ import SnapKit
 
 class StickyHeaderView: UIView {
     
+    var flag: Int = 0
+    
+    var selectedIndex: Int = 0 {
+        didSet {
+            flag = selectedIndex
+        }
+    }
+    
     // 정보 + 스피커 아이콘
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
@@ -52,10 +60,10 @@ class StickyHeaderView: UIView {
     // 0. init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        segmentControl.selectedSegmentIndex = 0
         setStyle()
         setLayOut()
-        
-        segmentControl.addTarget(self, action: #selector(segmentedTouched), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -87,18 +95,20 @@ class StickyHeaderView: UIView {
         
         addSubview(segmentControl)
         
-        segmentControl.selectedSegmentIndex = 0
-        
         segmentControl.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
         }
+        
+        self.segmentControl.addTarget(self, action: #selector(segmentedTouched), for: .valueChanged)
+        print(self.segmentControl.selectedSegmentIndex)
     }
     
     @objc
     func segmentedTouched(_ sender: Any) {
         
-        NotificationCenter.default.post(name: NSNotification.Name("categoryIndex"), object: segmentControl.selectedSegmentIndex)
+        selectedIndex = segmentControl.selectedSegmentIndex
+        NotificationCenter.default.post(name: NSNotification.Name("categoryIndex"), object: flag)
     }
 }

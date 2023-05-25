@@ -7,23 +7,24 @@
 
 import UIKit
 
+import SnapKit
+
 class InfoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
         // Do any additional setup after loading the view.
+        setStyle()
     }
+
+    let deliveryView = DeliveryView()
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setStyle() {
+        view.addSubview(deliveryView)
+        
+        deliveryView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
-    */
-
 }

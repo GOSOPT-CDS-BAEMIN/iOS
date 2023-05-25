@@ -63,6 +63,8 @@ class StoreDetailVC: UIViewController {
         tableView.register(OrderMethodSelectView.self, forHeaderFooterViewReuseIdentifier: OrderMethodSelectView.identifier)
         tableView.register(OrderInfoCell.self, forCellReuseIdentifier: OrderInfoCell.identifier)
         tableView.register(StickyTargetHeader.self, forHeaderFooterViewReuseIdentifier: StickyTargetHeader.identifier)
+        tableView.register(DetailInfoCell.self, forCellReuseIdentifier: DetailInfoCell.identifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -88,10 +90,14 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoCell.identifier, for: indexPath) as? StoreInfoCell else { return UITableViewCell() }
             cell.isCoupon(1)
             return cell
-        default:
+        case 1:
             guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell()
             }
             return deliverCell
+        default:
+            guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
+            }
+            return detailInfoCell 
         }
     }
     

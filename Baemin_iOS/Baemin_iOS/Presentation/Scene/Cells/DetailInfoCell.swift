@@ -16,48 +16,21 @@ class DetailInfoCell: UITableViewCell {
     private let infoView = InfoVC()
     private let commentView = ReviewVC()
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // 인덱스 변경시
-    @objc func indexChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            menuView.view.isHidden = false
-            infoView.view.isHidden = true
-            commentView.view.isHidden = true
-        case 1:
-            menuView.view.isHidden = true
-            infoView.view.isHidden = false
-            commentView.view.isHidden = true
-        case 2:
-            menuView.view.isHidden = true
-            infoView.view.isHidden = true
-            commentView.view.isHidden = false
-        }
+    // init
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setLayOut()
+        setStyle()
+        setNotificationCenter()
     }
-
-    //menuView.view, infoView.view, commentView.view
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setStyle() {
+        contentView.backgroundColor = .white
     }
     
     func setLayOut() {
@@ -79,6 +52,29 @@ class DetailInfoCell: UITableViewCell {
         menuView.view.isHidden = false
         infoView.view.isHidden = true
         commentView.view.isHidden = true
+    }
+    
+    func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("categoryIndex"), object: nil)
+    }
+    
+    @objc func dataReceived(_ notification: Notification) {
+        let tmp = notification.object as! Int
+        print(tmp)
+
+        if tmp == 0 {
+            menuView.view.isHidden = false
+            infoView.view.isHidden = true
+            commentView.view.isHidden = true
+        } else if tmp == 1 {
+            menuView.view.isHidden = true
+            infoView.view.isHidden = false
+            commentView.view.isHidden = true
+        } else {
+            menuView.view.isHidden = true
+            infoView.view.isHidden = true
+            commentView.view.isHidden = false
+        }
     }
 
 }
