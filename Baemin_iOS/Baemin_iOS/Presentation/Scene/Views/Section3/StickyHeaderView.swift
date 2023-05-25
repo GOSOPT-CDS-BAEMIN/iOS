@@ -11,4 +11,5 @@ import SnapKit
 
 class StickyHeaderView: UITableViewHeaderFooterView {
     
+    
 }

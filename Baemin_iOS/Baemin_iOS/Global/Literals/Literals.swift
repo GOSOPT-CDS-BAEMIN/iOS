@@ -41,4 +41,10 @@ struct I18N {
         static let delivery = "배달"
         static let packing = "포장가능"
     }
+    
+    struct StickyHeader {
+        static let menu = "메뉴"
+        static let info = "정보"
+        static let review = "리뷰"
+    }
 }
