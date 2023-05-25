@@ -7,6 +7,8 @@
 
 import Foundation
 
+import UIKit
+
 struct I18N {
     
     /// cart
@@ -44,7 +46,7 @@ struct I18N {
     
     struct StickyHeader {
         static let menu = "메뉴"
-        static let info = "정보"
         static let review = "리뷰"
+        static let info = "정보"
     }
 }
