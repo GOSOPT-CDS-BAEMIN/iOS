@@ -63,6 +63,7 @@ extension UIImage {
     static let radio_selected = UIImage(named: "radio_selected")!
     static let radio_delivery = UIImage(named: "radio-delivery")!
     static let radio_pickup = UIImage(named: "radio-pickup")!
+    static let madein = UIImage(named: "madein")!
     
     /// Option
     

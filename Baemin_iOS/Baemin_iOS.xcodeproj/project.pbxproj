@@ -97,6 +97,7 @@
 		F4FC4DE52A1FD3AE0001F9A6 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE42A1FD3AE0001F9A6 /* ReviewVC.swift */; };
 		F4FC4DE72A1FD6F00001F9A6 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE62A1FD6F00001F9A6 /* DetailInfoCell.swift */; };
 		F4FC4DEA2A1FE0930001F9A6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE92A1FE0930001F9A6 /* MenuView.swift */; };
+		F4FC4DEC2A1FE2170001F9A6 /* MenuDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DEB2A1FE2170001F9A6 /* MenuDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,7 @@
 		F4FC4DE42A1FD3AE0001F9A6 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		F4FC4DE62A1FD6F00001F9A6 /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
 		F4FC4DE92A1FE0930001F9A6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		F4FC4DEB2A1FE2170001F9A6 /* MenuDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -765,6 +767,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FC4DE92A1FE0930001F9A6 /* MenuView.swift */,
+				F4FC4DEB2A1FE2170001F9A6 /* MenuDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				09C29F592A1DA4A200BAE541 /* ReviewCell.swift in Sources */,
 				093DB0472A1749A300ECA5F6 /* UIView+.swift in Sources */,
 				F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */,
+				F4FC4DEC2A1FE2170001F9A6 /* MenuDescriptionView.swift in Sources */,
 				09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */,
 				0918E0142A1BEF8B005B6542 /* MainItem.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
