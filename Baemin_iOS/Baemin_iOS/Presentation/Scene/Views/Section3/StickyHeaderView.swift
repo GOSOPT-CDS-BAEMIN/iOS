@@ -5,4 +5,10 @@
 //  Created by 김응관 on 2023/05/23.
 //
 
-import Foundation
+import UIKit
+
+import SnapKit
+
+class StickyHeaderView: UITableViewHeaderFooterView {
+    
+}
