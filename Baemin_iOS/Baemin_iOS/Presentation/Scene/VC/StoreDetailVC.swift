@@ -53,6 +53,7 @@ class StoreDetailVC: UIViewController {
         tableView.register(StoreInfoCell.self, forCellReuseIdentifier: StoreInfoCell.identifier)
         tableView.register(OrderMethodSelectView.self, forHeaderFooterViewReuseIdentifier: OrderMethodSelectView.identifier)
         tableView.register(OrderInfoCell.self, forCellReuseIdentifier: OrderInfoCell.identifier)
+        tableView.register(StickyHeaderView.self, forHeaderFooterViewReuseIdentifier: StickyHeaderView.identifier)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,7 +65,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     // 각 섹션마다의 셀 개수 정의
@@ -91,8 +92,12 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0:
             return nil
-        default:
+        case 1:
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: OrderMethodSelectView.identifier) as! OrderMethodSelectView
+            return view
+        default:
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: StickyHeaderView.identifier) as!
+            StickyHeaderView
             return view
         }
     }

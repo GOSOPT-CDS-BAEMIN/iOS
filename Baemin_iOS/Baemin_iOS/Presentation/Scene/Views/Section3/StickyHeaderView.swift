@@ -12,15 +12,15 @@ import SnapKit
 class StickyHeaderView: UITableViewHeaderFooterView {
     
     private let menuLabel: UILabel = {
-        let label = UILabe()
+        let label = UILabel()
         label.text = I18N.StickyHeader.menu
         label.font = .AppleSDGothicNeo(.semiBold, size: 16)
         label.sizeToFit()
         return label
     }()
     
-    private let infoLabel: UILable = {
-        let label = UILabe()
+    private let infoLabel: UILabel = {
+        let label = UILabel()
         label.text = I18N.StickyHeader.info
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         label.textColor = .gray_5
@@ -46,8 +46,8 @@ class StickyHeaderView: UITableViewHeaderFooterView {
         return stackView
     }()
     
-    private let review: UILable = {
-        let label = UILabe()
+    private let review: UILabel = {
+        let label = UILabel()
         label.text = I18N.StickyHeader.review
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         label.textColor = .gray_5
@@ -56,25 +56,20 @@ class StickyHeaderView: UITableViewHeaderFooterView {
     }()
     
     private let segmentControl: UISegmentedControl = {
-        let control = SegmentControl(items: ["메뉴", "정보", "리뷰"])
-        control.translatesAutoresizingMaskIntoConstraints = false
+        let control = SegmentControl()
         control.sizeToFit()
         return control
-    }
+    }()
     
     // init
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setStyle()
-        setInfoStack()
+        setSegment()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setInfoStack() {
-        stackView.addArrangedSubviews(infoLabel, speaker)
     }
     
     func setStyle() {
@@ -82,9 +77,9 @@ class StickyHeaderView: UITableViewHeaderFooterView {
     }
     
     func setSegment() {
-        self.segmentControl.setTitleAttributes(
-            [
-        )
+        stackView.addArrangedSubviews(infoLabel, speaker)
+        segmentControl.addSubviews(menuLabel, stackView, review)
+        segmentControl.selectedSegmentIndex = 0
     }
     
 }
