@@ -15,7 +15,6 @@ class InfoVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .orange
         // Do any additional setup after loading the view.
-        setStyle()
     }
 
     let deliveryView = DeliveryView()

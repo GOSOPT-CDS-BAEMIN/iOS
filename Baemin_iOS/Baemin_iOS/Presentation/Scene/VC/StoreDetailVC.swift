@@ -11,8 +11,14 @@ import SnapKit
 
 class StoreDetailVC: UIViewController {
     
-    private let rowNum = [1, 1, 2, 5, 4]
-            
+    private let rowNum = [1, 1, 5, 5, 4]
+    
+    var tableViewData: [SubMainItem] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     // 0. 전체 TableView
     private let tableView: UITableView = {
         let table = UITableView()
@@ -24,6 +30,7 @@ class StoreDetailVC: UIViewController {
         table.sectionFooterHeight = UITableView.automaticDimension
         table.rowHeight = UITableView.automaticDimension
         table.contentInsetAdjustmentBehavior = .never
+        table.bounces = true
         return table
     }()
     
@@ -44,7 +51,7 @@ class StoreDetailVC: UIViewController {
     
     // 레이아웃 세팅
     private func setLayOut() {
-            
+
         view.addSubviews(tableView, stickyHead)
         
         tableView.snp.makeConstraints {
@@ -75,7 +82,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     // 각 섹션마다의 셀 개수 정의
