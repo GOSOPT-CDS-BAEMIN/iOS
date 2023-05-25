@@ -69,33 +69,8 @@ extension MainOptionCell {
             }
         }
     }
-    
-    func updateUI(_ item: OptionItem) {
-        if !isTapped {
-            var updatedItem: OptionItem
-            switch item.option {
-            case "초기화":
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: UIImage.refresh_white, rightIcon: item.rightIcon)
-            case "쿠폰":
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: UIImage.icon_coupon_white, rightIcon: item.rightIcon)
-            case "1인분":
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: UIImage.one_serving_white, rightIcon: item.rightIcon)
-            case "배민비":
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: item.leftIcon, rightIcon: UIImage.arrow_down_white)
-            case "별점":
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: UIImage.star_white, rightIcon: UIImage.arrow_down_white)
-            case "최소주문":
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: item.leftIcon, rightIcon: UIImage.arrow_down_white)
-            default:
-                updatedItem = OptionItem(option: item.option, status: item.status, leftIcon: UIImage.filter_white, rightIcon: item.rightIcon)
-            }
-            bind(updatedItem)
-        } else { bind(item) }
-        
-    }
 
-    func bind(_ item: OptionItem) {
-       
+    func bind(item: OptionItem, index: Int) {
             if item.leftIcon == nil {
                 hStackView.removeArrangedSubview(leftIcon)
                 leftIcon.removeFromSuperview()
@@ -106,10 +81,9 @@ extension MainOptionCell {
             
             rightIcon.image = item.rightIcon
             leftIcon.image = item.leftIcon
-            optionLabel.text = item.option
+            optionLabel.text = item.option.title
             
-            optionLabel.textColor = isTapped ? .black : .white
-            contentView.backgroundColor = isTapped ? .gray_2 : .black
- 
+            optionLabel.textColor = (item.status == .off) ? .black : .white
+            contentView.backgroundColor = (item.status == .off) ? .gray_2 : .black
     }
 }
