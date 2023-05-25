@@ -8,6 +8,8 @@
 import Foundation
 
 struct I18N {
+    
+    /// cart
     struct Cart {
         static let totalPrice = "총 주문금액"
         static let totalPay = "결제예정금액"
@@ -25,6 +27,14 @@ struct I18N {
         static let delivery = "배달주문"
         static let pickUp = "포장/방문주문"
     }
+    
+    /// review
+    struct Review {
+        static let refresh = "옵션 재설정"
+        static let showReview = "리뷰보기"
+        static let title = "음식을 선택해주세요"
+    }
+    
     
     struct Main {
         static let minimum = "최소주문"

@@ -31,7 +31,7 @@ final class ButtonStackView: UIStackView {
         return button
     }()
     
-    // MARK: - Life Cycle
+    // MARK: - initialization
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
