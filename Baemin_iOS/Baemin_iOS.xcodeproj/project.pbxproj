@@ -96,6 +96,7 @@
 		F4FC4DE32A1FD3A20001F9A6 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE22A1FD3A20001F9A6 /* InfoVC.swift */; };
 		F4FC4DE52A1FD3AE0001F9A6 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE42A1FD3AE0001F9A6 /* ReviewVC.swift */; };
 		F4FC4DE72A1FD6F00001F9A6 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE62A1FD6F00001F9A6 /* DetailInfoCell.swift */; };
+		F4FC4DEA2A1FE0930001F9A6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DE92A1FE0930001F9A6 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +194,7 @@
 		F4FC4DE22A1FD3A20001F9A6 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		F4FC4DE42A1FD3AE0001F9A6 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		F4FC4DE62A1FD6F00001F9A6 /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
+		F4FC4DE92A1FE0930001F9A6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,6 +726,7 @@
 			children = (
 				F4FC4DDE2A1FD34A0001F9A6 /* Header */,
 				F4FC4DDF2A1FD35B0001F9A6 /* VC */,
+				F4FC4DE82A1FDFDC0001F9A6 /* View */,
 			);
 			path = Section3;
 			sourceTree = "<group>";
@@ -756,6 +759,14 @@
 				F4FC4DE42A1FD3AE0001F9A6 /* ReviewVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		F4FC4DE82A1FDFDC0001F9A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4FC4DE92A1FE0930001F9A6 /* MenuView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -885,6 +896,7 @@
 				0918E0122A1BEA90005B6542 /* MainTabbarCell.swift in Sources */,
 				09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */,
 				F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */,
+				F4FC4DEA2A1FE0930001F9A6 /* MenuView.swift in Sources */,
 				F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */,
 				F4FC4DCA2A1E86C40001F9A6 /* Base.swift in Sources */,
 				09665C142A20C724007EB872 /* ImageCacher.swift in Sources */,

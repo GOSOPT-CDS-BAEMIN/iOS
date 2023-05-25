@@ -13,14 +13,17 @@ class MenuVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
         setStyle()
     }
 
     let deliveryView = DeliveryView()
     
     func setStyle() {
+        view.backgroundColor = .white
+    }
+    
+    func setLayOut() {
         view.addSubview(deliveryView)
         
         deliveryView.snp.makeConstraints {
