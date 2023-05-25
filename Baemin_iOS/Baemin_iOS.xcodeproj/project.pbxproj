@@ -83,7 +83,14 @@
 		F4FC4DC42A1E5BDF0001F9A6 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC32A1E5BDF0001F9A6 /* UITableViewCell+.swift */; };
 		F4FC4DC62A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */; };
 		F4FC4DCA2A1E86C40001F9A6 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DC92A1E86C40001F9A6 /* Base.swift */; };
-		F4FC4DD22A1EA6A20001F9A6 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */; };
+		F4FC4DD52A1FBBB50001F9A6 /* MainOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B7A532A1F9351007C4EF6 /* MainOptionView.swift */; };
+		F4FC4DD62A1FBBC20001F9A6 /* MainPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C18F742A1E0BC600AA0F2F /* MainPageCell.swift */; };
+		F4FC4DD72A1FBBC60001F9A6 /* MainFirstPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C18F832A1EC1DE00AA0F2F /* MainFirstPageCell.swift */; };
+		F4FC4DD82A1FBBCF0001F9A6 /* MenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C18F7C2A1E2D3100AA0F2F /* MenuDetailView.swift */; };
+		F4FC4DD92A1FBBD20001F9A6 /* MenuCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C18F802A1E31E900AA0F2F /* MenuCountView.swift */; };
+		F4FC4DDA2A1FBBD50001F9A6 /* MenuDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C18F7A2A1E280000AA0F2F /* MenuDetailVC.swift */; };
+		F4FC4DDB2A1FBBE80001F9A6 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */; };
+		F4FC4DDD2A1FC5430001F9A6 /* StickyTargetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DDC2A1FC5430001F9A6 /* StickyTargetHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +182,7 @@
 		F4FC4DC52A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+.swift"; sourceTree = "<group>"; };
 		F4FC4DC92A1E86C40001F9A6 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
+		F4FC4DDC2A1FC5430001F9A6 /* StickyTargetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyTargetHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -704,6 +712,7 @@
 			children = (
 				F4FC4DBD2A1D59380001F9A6 /* StickyHeaderView.swift */,
 				F4FC4DD12A1EA6A20001F9A6 /* SegmentControl.swift */,
+				F4FC4DDC2A1FC5430001F9A6 /* StickyTargetHeader.swift */,
 			);
 			path = Section3;
 			sourceTree = "<group>";
@@ -835,7 +844,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09B4B7DF2A1F94CC00071F7E /* MainOptionView.swift in Sources */,
 				09C29F312A1D16C000BAE541 /* AlamofireLogger.swift in Sources */,
 				093DB0412A17489B00ECA5F6 /* UiCollectionView+.swift in Sources */,
 				09B06DD52A1894ED0062A6F7 /* Navitype.swift in Sources */,
@@ -843,7 +851,6 @@
 				F4FC4DA92A1D56A20001F9A6 /* DeliveryInfoBaseView.swift in Sources */,
 				F4587D1D2A12B46E00F56BCD /* view.swift in Sources */,
 				0918E0122A1BEA90005B6542 /* MainTabbarCell.swift in Sources */,
-				F4587D232A12B49C00F56BCD /* CartService.swift in Sources */,
 				09B06DD32A1776120062A6F7 /* ButtonStackView.swift in Sources */,
 				F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */,
 				F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */,
@@ -856,12 +863,8 @@
 				F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */,
 				09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */,
 				0918E0142A1BEF8B005B6542 /* MainItem.swift in Sources */,
-				F4587D292A12B4B900F56BCD /* MainAPI.swift in Sources */,
-				09C29F392A1D1E1700BAE541 /* FoodAPI.swift in Sources */,
-				09C29F4B2A1D1F3100BAE541 /* MainService.swift in Sources */,
-				09C29F4D2A1D1F3800BAE541 /* StoreService.swift in Sources */,
 				F4FC4DBC2A1D59350001F9A6 /* OptionSelectView.swift in Sources */,
-				09C18F842A1EC1DE00AA0F2F /* MainFirstPageCell.swift in Sources */,
+				F4FC4DD72A1FBBC60001F9A6 /* MainFirstPageCell.swift in Sources */,
 				F4FC4DBA2A1D59330001F9A6 /* ReviewCommentView.swift in Sources */,
 				091B104A2A1EE2B100BF19E5 /* MainOptionCell.swift in Sources */,
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
@@ -871,18 +874,20 @@
 				F4FC4DBE2A1D59380001F9A6 /* StickyHeaderView.swift in Sources */,
 				8D5530C92A189B21005BC008 /* PaddingLabel.swift in Sources */,
 				09C29F2B2A1D0DB500BAE541 /* BaseTargetType.swift in Sources */,
-				09C18F7B2A1E280000AA0F2F /* MenuDetailVC.swift in Sources */,
 				F4587D1F2A12B48900F56BCD /* (null) in Sources */,
 				093DB0432A1748B400ECA5F6 /* NSObject+.swift in Sources */,
 				09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */,
 				09B06DD62A1896B20062A6F7 /* UIImage+.swift in Sources */,
-				09C18F752A1E0BC600AA0F2F /* MainPageCell.swift in Sources */,
+				F4FC4DD62A1FBBC20001F9A6 /* MainPageCell.swift in Sources */,
 				8D702F2C2A1753C300CD7D64 /* CartPriceView.swift in Sources */,
+				F4FC4DDA2A1FBBD50001F9A6 /* MenuDetailVC.swift in Sources */,
 				F4587CF82A0F609E00F56BCD /* SceneDelegate.swift in Sources */,
 				091B104C2A1EE58000BF19E5 /* OptionItem.swift in Sources */,
 				8D5530C72A188867005BC008 /* CartTableViewCell.swift in Sources */,
 				09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */,
+				F4FC4DDB2A1FBBE80001F9A6 /* SegmentControl.swift in Sources */,
 				F4FC4DB42A1D59290001F9A6 /* OrderMethodSelectView.swift in Sources */,
+				F4FC4DD92A1FBBD20001F9A6 /* MenuCountView.swift in Sources */,
 				F4FC4DAC2A1D58540001F9A6 /* OrderInfoCell.swift in Sources */,
 				09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */,
 				097BC9BA2A1ED2C400DFBAE2 /* CALayer+.swift in Sources */,
@@ -890,11 +895,11 @@
 				09C29F3B2A1D1E1C00BAE541 /* CartAPI.swift in Sources */,
 				09C29F5B2A1DABB600BAE541 /* CustomButton.swift in Sources */,
 				09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */,
-				09C18F812A1E31E900AA0F2F /* MenuCountView.swift in Sources */,
 				8D702F2A2A17530600CD7D64 /* CartViewController.swift in Sources */,
 				09C29F2F2A1D110900BAE541 /* NetworkBase.swift in Sources */,
+				F4FC4DD82A1FBBCF0001F9A6 /* MenuDetailView.swift in Sources */,
 				8D5530C52A187EF8005BC008 /* UIImage+.swift in Sources */,
-				09C18F7D2A1E2D3100AA0F2F /* MenuDetailView.swift in Sources */,
+				F4FC4DDD2A1FC5430001F9A6 /* StickyTargetHeader.swift in Sources */,
 				093DB0452A17497600ECA5F6 /* UIStackView+.swift in Sources */,
 				0918E00F2A1BEA02005B6542 /* MainVC.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
@@ -906,6 +911,7 @@
 				F4FC4DB62A1D592E0001F9A6 /* StoreRateView.swift in Sources */,
 				09C29F272A1D0AED00BAE541 /* APIContants.swift in Sources */,
 				F4FC4DC62A1E5FE10001F9A6 /* UITableViewHeaderFooterView+.swift in Sources */,
+				F4FC4DD52A1FBBB50001F9A6 /* MainOptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
