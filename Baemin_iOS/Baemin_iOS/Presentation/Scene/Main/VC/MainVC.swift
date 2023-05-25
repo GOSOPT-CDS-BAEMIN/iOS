@@ -20,7 +20,7 @@ class MainVC: UIViewController {
     // MARK: - UI Components
     
     private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
-    
+    private let lineView = UIView()
     private let optionView = MainOptionView()
 
     private let layout: UICollectionViewFlowLayout = {
@@ -92,10 +92,11 @@ extension MainVC {
     
     private func setStyle() {
         view.backgroundColor = .white
+        lineView.backgroundColor = .gray_4
     }
     
     private func setLayout() {
-        view.addSubviews(naviView, optionView, tabBarcollectionView, pageCollectionView)
+        view.addSubviews(naviView, optionView, tabBarcollectionView, lineView, pageCollectionView)
         
         naviView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
@@ -103,15 +104,21 @@ extension MainVC {
             $0.height.equalTo(44)
         }
         
-        optionView.snp.makeConstraints {
-            $0.top.equalTo(naviView.snp.bottom).offset(10)
-            $0.directionalHorizontalEdges.equalToSuperview()
-            $0.height.equalTo(32)
-        }
         tabBarcollectionView.snp.makeConstraints {
-            $0.top.equalTo(naviView.snp.bottom).offset(60)
+            $0.top.equalTo(naviView.snp.bottom)
             $0.directionalHorizontalEdges.equalTo(safeArea)
             $0.height.equalTo(44)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(-2)
+            $0.directionalHorizontalEdges.equalToSuperview()
+        }
+        optionView.snp.makeConstraints {
+            $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(10)
+            $0.directionalHorizontalEdges.equalToSuperview()
+            $0.height.equalTo(32)
         }
         
         pageCollectionView.snp.makeConstraints {
