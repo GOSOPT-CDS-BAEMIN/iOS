@@ -108,7 +108,7 @@ extension MainVC {
         }
         
         pageCollectionView.snp.makeConstraints {
-            $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(20)
+            $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(60)
             $0.directionalHorizontalEdges.bottom.equalToSuperview()
         }
     }
