@@ -49,6 +49,13 @@ extension UILabel {
     }
 }
 
+extension UILabel {
+    func basic(text: String, font: UIFont, color: UIColor) {
+        self.text = text
+        self.font = font
+        self.textColor = color
+    }
+}
 extension NSMutableAttributedString {
     func addImageInBetweenString(firstSentence: String, image: UIImage?, lastSentence: String) -> NSMutableAttributedString {
         
