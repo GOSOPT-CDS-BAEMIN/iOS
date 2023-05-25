@@ -10,24 +10,27 @@ import UIKit
 import SnapKit
 
 class MenuVC: UIViewController {
+    
+    let descriptionView = MenuDescriptionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setStyle()
+        setLayOut()
     }
-
-    let deliveryView = DeliveryView()
     
     func setStyle() {
         view.backgroundColor = .white
     }
     
     func setLayOut() {
-        view.addSubview(deliveryView)
+        view.addSubview(descriptionView)
         
-        deliveryView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        descriptionView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().inset(21)
+            $0.bottom.equalToSuperview()
         }
     }
 

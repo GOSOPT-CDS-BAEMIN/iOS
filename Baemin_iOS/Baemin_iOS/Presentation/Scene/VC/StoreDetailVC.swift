@@ -11,7 +11,7 @@ import SnapKit
 
 class StoreDetailVC: UIViewController {
     
-    private let rowNum = [1, 1, 10, 5, 4]
+    private let rowNum = [1, 1, 2, 5, 4]
             
     // 0. 전체 TableView
     private let tableView: UITableView = {

@@ -13,12 +13,15 @@ class MenuDescriptionView: UIView {
     
     private let madinBtn: UIButton = {
         let btn = UIButton()
-        
-    }
+        btn.setImage(UIImage.madein.resized(toWidth: 65), for: .normal)
+        btn.sizeToFit()
+        btn.contentMode = .scaleAspectFill
+        return btn
+    }()
     
-    private lazy var description: UILabel = {
+    private let article: UILabel = {
         let label = UILabel()
-        label.text = I18N.Description.descriptions
+        label.text = I18N.MenuView.introuduce
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         label.sizeToFit()
         return label
@@ -40,7 +43,17 @@ class MenuDescriptionView: UIView {
     }
     
     func setLayOut() {
+        addSubviews(madinBtn, article)
         
+        madinBtn.snp.makeConstraints {
+            $0.top.leading.equalToSuperview()
+        }
+        
+        article.snp.makeConstraints {
+            $0.top.equalTo(madinBtn.snp.bottom)
+            $0.leading.equalTo(madinBtn)
+            $0.bottom.equalToSuperview()
+        }
     }
 
 }

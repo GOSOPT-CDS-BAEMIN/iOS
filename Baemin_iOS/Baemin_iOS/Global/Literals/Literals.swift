@@ -49,10 +49,9 @@ struct I18N {
         static let info = "정보"
     }
     
-    struct Description {
-        static let descriptions = """
-        ★ 중국 전통 도삭면, 산시도삭면 홍대에 오픈\했습니다!!★
-        - 물가 상승으로 인한 홍대 인근 학생과 고객들의 부\담을 덜어드리기 위해 합리적인 가격으로…
+    struct MenuView {
+        static let introuduce = """
+        ★ 중국 전통 도삭면, 산시도삭면 홍대에 오픈했습니다!!★
         """
     }
 }
