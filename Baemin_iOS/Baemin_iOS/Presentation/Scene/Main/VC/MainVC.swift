@@ -12,7 +12,7 @@ import SnapKit
 class MainVC: UIViewController {
     
     // MARK: - Properties
-    
+
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
     var pageItems: [PagingItem] = PagingItem.titles
     private lazy var safeArea = self.view.safeAreaLayoutGuide
@@ -87,6 +87,7 @@ extension MainVC {
     private func register() {
         tabBarcollectionView.register(cell: MainTabbarCell.self)
         pageCollectionView.register(cell: MainPageCell.self)
+        pageCollectionView.register(cell: MainFirstPageCell.self)
     }
     
     private func setStyle() {
@@ -114,7 +115,7 @@ extension MainVC {
         }
         
         pageCollectionView.snp.makeConstraints {
-            $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(20)
+            $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(60)
             $0.directionalHorizontalEdges.bottom.equalToSuperview()
         }
     }
@@ -145,8 +146,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
-            let item = pageItems[indexPath.item]
-            cell.bind(item)
             return cell
         }
         return UICollectionViewCell()
