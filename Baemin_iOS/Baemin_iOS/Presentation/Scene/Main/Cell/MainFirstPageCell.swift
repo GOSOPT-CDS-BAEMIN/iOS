@@ -8,12 +8,13 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class MainFirstPageCell: UICollectionViewCell {
     
     // MARK: - Components
     var firstItems: [StoreInfo] = StoreInfo.item
-
+    
     // MARK: - UI Components
     
     private let hImageStackView: UIStackView = {
@@ -22,7 +23,7 @@ class MainFirstPageCell: UICollectionViewCell {
         stackView.spacing = 1
         stackView.makeCornerRound(radius: 4)
         stackView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-
+        
         return stackView
     }()
     
@@ -104,7 +105,7 @@ extension MainFirstPageCell {
         contentView.backgroundColor = .white
         contentView.makeCornerRound(radius: 12)
         contentView.clipsToBounds = true
-
+        
     }
     
     private func setLayout() {
@@ -153,13 +154,10 @@ extension MainFirstPageCell {
         }
     }
     
-    func bind(_ item: StoreInfo) {
-        mainImage.image = UIImage(named: item.firstImageURL)
-        subImage1.image = UIImage(named: item.secondImageURL)
-        subImage2.image = UIImage(named: item.thirdImageURL)
-//        [mainImage, subImage1, subImage2].forEach {
-//            $0.image = UIImage(named: item.firstImageURL.first!.rawValue)
-//        }
+    func bind(_ item: MainData) {
+        mainImage.getImageFromURL(item.firstImageURL)
+        subImage1.getImageFromURL(item.secondImageURL)
+        subImage2.getImageFromURL(item.thirdImageURL)
         storeName.attributedText = NSMutableAttributedString()
             .addImageInBetweenString(firstSentence: item.storeName, image: .yellow_star, lastSentence: "\(item.rate)")
             .withLineSpacing(3)

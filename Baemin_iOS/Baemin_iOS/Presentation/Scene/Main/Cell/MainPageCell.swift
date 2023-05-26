@@ -13,7 +13,8 @@ class MainPageCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    var firstItems: [StoreInfo] = StoreInfo.item
+    var items: [MainData] = []
+    var indexClosure: ((_ index: Int) -> Void)?
 
     // MARK: - UI Components
     
@@ -70,13 +71,16 @@ extension MainPageCell {
 extension MainPageCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return firstItems.count
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainFirstPageCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.bind(firstItems[indexPath.row])
+            cell.bind(items[indexPath.item ])
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.indexClosure?(indexPath.item)
     }
 }
 extension MainPageCell: UICollectionViewDelegateFlowLayout {

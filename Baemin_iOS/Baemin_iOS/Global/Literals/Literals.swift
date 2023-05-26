@@ -50,4 +50,10 @@ struct I18N {
         static let review = "리뷰"
         static let info = "정보"
     }
+    
+    struct MenuView {
+        static let introuduce = """
+        ★ 중국 전통 도삭면, 산시도삭면 홍대에 오픈했습니다!!★
+        """
+    }
 }

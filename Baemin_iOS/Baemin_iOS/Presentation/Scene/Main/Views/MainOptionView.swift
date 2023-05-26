@@ -14,6 +14,7 @@ class MainOptionView: UIView {
     // MARK: - Properties
     
     private var item: [OptionItem] = OptionItem.item
+    var oneServiceClosure: (()-> Void)?
     
     // MARK: - UI Components
     
@@ -96,6 +97,10 @@ extension MainOptionView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == 2 {
+            self.oneServiceClosure?()
+            print(indexPath.item)
+        }
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 
         if self.item[indexPath.item].status == .off {
