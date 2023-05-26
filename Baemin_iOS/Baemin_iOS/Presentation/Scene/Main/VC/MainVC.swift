@@ -14,6 +14,7 @@ class MainVC: UIViewController {
     // MARK: - Properties
     
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
+  //  var oneService: [MainData] = []
     var item: [MainData] = []
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
@@ -63,7 +64,7 @@ class MainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTabBarCollectioView()
-        requstMainAPI(index: 0)
+      //  requstMainAPI(index: 1)
     }
     
     override func viewDidLoad() {
@@ -79,11 +80,22 @@ class MainVC: UIViewController {
 
 extension MainVC {
     
+    func reloadData() {
+        for item in self.item {
+            let minumPrice = item.storeType
+            if minumPrice == "1인분" {
+                requstMainAPI(index: 1)
+               // self.pageCollectionView.reloadData()
+                
+            }
+        }
+    }
+    
     func setupTabBarCollectioView() {
-        requstMainAPI(index: 0)
         tabBarcollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: 0, section: 0)
         tabBarcollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        requstMainAPI(index: 1)
     }
     
     private func register() {
@@ -95,6 +107,9 @@ extension MainVC {
     private func setStyle() {
         view.backgroundColor = .white
         lineView.backgroundColor = .gray_4
+        optionView.oneServiceClosure = {
+            self.reloadData()
+        }
     }
     
     private func setLayout() {
@@ -208,10 +223,10 @@ extension MainVC {
                 guard let data = data as? MainResponseDTO else { return }
                 let dataArray = data.data
                 for item in dataArray {
-                      self.item.append(item)
+                    self.item.append(item)
                     print("💎\(self.item)")
                 }
-                self.pageCollectionView.reloadData()
+             //   self.pageCollectionView.reloadData()
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
