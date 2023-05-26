@@ -115,7 +115,6 @@ private extension CartTableSectionViewCell {
             $0.height.equalTo(32)
         }
     }
-    
     @objc
     func changeButton() {
         self.countClosure?(true)
