@@ -26,6 +26,7 @@ class MenuVC: UIViewController {
         view.backgroundColor = .white
         setStyle()
         setLayOut()
+        setNotificationCenter()
     }
     
     func setStyle() {
@@ -51,6 +52,20 @@ class MenuVC: UIViewController {
         menuView.snp.makeConstraints {
             $0.top.equalTo(famous.snp.bottom).offset(20)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("gotoMenuDetailVC"), object: nil)
+    }
+    
+    @objc func dataReceived(_ notification: Notification) {
+        let tmp = notification.object as! Int
+        print(tmp)
+
+        if tmp == 1 {
+            let vc = MenuDetailVC()
+            self.navigationController?.pushViewController(self, animated: true)
         }
     }
 }

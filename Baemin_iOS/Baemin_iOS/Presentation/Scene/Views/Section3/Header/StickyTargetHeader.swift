@@ -100,7 +100,6 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
         }
         
         self.segmentControl.addTarget(self, action: #selector(segmentedTouched), for: .valueChanged)
-        print(self.segmentControl.selectedSegmentIndex)
     }
     
     @objc

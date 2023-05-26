@@ -11,6 +11,14 @@ import SnapKit
 
 class MenuView: UIView {
     
+    var flag: Int = 0
+    
+    var selectedIndex: Int = 0 {
+        didSet {
+            flag = selectedIndex
+        }
+    }
+    
     // 더미데이터
     var menuItem: [MenuItem] = MenuItem.items
     
@@ -39,6 +47,8 @@ class MenuView: UIView {
     
     func setLayOut() {
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        
         addSubview(totalStack)
         
         menuItem.forEach {
@@ -47,10 +57,18 @@ class MenuView: UIView {
             baseView.price.text = $0.price
             
             totalStack.addArrangedSubview(baseView)
+            baseView.addGestureRecognizer(tapGesture)
         }
         
         totalStack.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    @objc
+    func handleTap(sender: UITapGestureRecognizer) {
+        selectedIndex = 1
+        NotificationCenter.default.post(name: NSNotification.Name("gotoMenuDetailVC"), object: flag)
+        print(flag)
     }
 }

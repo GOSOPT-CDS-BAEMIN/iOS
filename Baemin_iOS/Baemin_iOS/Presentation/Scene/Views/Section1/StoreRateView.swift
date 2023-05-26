@@ -21,6 +21,16 @@ class StoreRateView: UIView {
         return stack
     }()
     
+    // MARK: 2. 가게이름 - API 항목 storeName 추후 반영필요
+    private let storeName: UILabel = {
+        let name = UILabel()
+        name.textColor = .black
+        name.text = "산시 도삭면"
+        name.font = UIFont.AppleSDGothicNeo(.bold, size: 20.0)
+        name.sizeToFit()
+        return name
+    }()
+    
     // MARK: 1. 가게별점 이미지 - API 항목 storeRate에 따른 이미지 변화 필요
     private let storeRateImage: UIImageView = {
         let rate = UIImageView()
@@ -53,17 +63,24 @@ class StoreRateView: UIView {
     
     private func setLayOut() {
         
-        addSubviews(storeRateImage, storeRate)
+        addSubviews(storeName, storeRateImage, storeRate)
+        
+        storeName.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
         
         storeRateImage.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(102)
             $0.width.equalTo(137)
-            $0.top.equalToSuperview()
+            $0.top.equalTo(storeName.snp.bottom).offset(8)
+            $0.bottom.equalToSuperview()
         }
         
         storeRate.snp.makeConstraints {
             $0.centerY.equalTo(storeRateImage.snp.centerY)
             $0.leading.equalTo(storeRateImage.snp.trailing).offset(4)
+            $0.bottom.equalToSuperview()
         }
     }
 }

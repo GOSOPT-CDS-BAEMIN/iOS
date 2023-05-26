@@ -10,22 +10,23 @@ import UIKit
 import SnapKit
 
 class ReviewVC: UIViewController {
-
+    
+    private let reviewView = ReviewTab()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
         // Do any additional setup after loading the view.
         setStyle()
     }
-
-    let deliveryView = DeliveryView()
     
     func setStyle() {
-        view.addSubview(deliveryView)
+        view.addSubview(reviewView)
         
-        deliveryView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        reviewView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().inset(34)
+            $0.bottom.equalToSuperview()
         }
     }
-
 }

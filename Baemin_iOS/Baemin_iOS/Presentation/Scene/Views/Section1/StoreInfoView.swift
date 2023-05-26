@@ -28,7 +28,7 @@ class StoreInfoView: UIView {
     
     func configureContents() {
         
-        storeImage.contentMode = .scaleAspectFill
+        storeImage.contentMode = .scaleAspectFit
         storeImage.sizeToFit()
         storeImage.image = .dummy.resized(toWidth: UIScreen.main.bounds.width+5)
         storeImage.insetsLayoutMarginsFromSafeArea = false
@@ -37,7 +37,7 @@ class StoreInfoView: UIView {
         
         storeImage.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.top.equalToSuperview().inset(-28)
+            $0.top.equalToSuperview().inset(-30)
         }
     }
 }

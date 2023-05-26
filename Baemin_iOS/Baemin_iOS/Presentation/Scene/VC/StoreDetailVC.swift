@@ -13,11 +13,15 @@ class StoreDetailVC: UIViewController {
     
     private let rowNum = [1, 1, 1, 5, 4]
     
-    var tableViewData: [SubMainItem] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private let tabelViewHeaders = TableViewHeaders()
+        
+    private let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.backgroundColor = .clear
+        scroll.isScrollEnabled = true
+        scroll.insetsLayoutMarginsFromSafeArea = false
+        return scroll
+    }()
     
     // 0. 전체 TableView
     private let tableView: UITableView = {
@@ -42,6 +46,7 @@ class StoreDetailVC: UIViewController {
         setStyle()
         setLayOut()
         register()
+        setNotificationCenter()
     }
     
     private func setStyle() {
@@ -57,7 +62,7 @@ class StoreDetailVC: UIViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
+
         stickyHead.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(97)
@@ -75,21 +80,41 @@ class StoreDetailVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
+    @objc func dataReceived(_ notification: Notification) {
+        let tmp = notification.object as! Int
+        
+        if tmp == 1 {
+            let bottomSheet = ReviewBottomSheetVC()
+            
+            if let sheet = bottomSheet.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.selectedDetentIdentifier = .medium
+                sheet.largestUndimmedDetentIdentifier = .large
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 32.0
+            }
+            self.present(bottomSheet, animated: true)
+        }
+    }
+    
+    func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("popUp"), object: nil)
+    }
 }
 
 extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
-    
+
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    
+
     // 각 섹션마다의 셀 개수 정의
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowNum[section]
     }
-    
+
     // 각 섹션마다의 보여줄 셀 지정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -104,10 +129,10 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         default:
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
             }
-            return detailInfoCell 
+            return detailInfoCell
         }
     }
-    
+
     // 섹션 헤더뷰 보여주기
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
@@ -121,11 +146,11 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             return view
         }
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 200
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
