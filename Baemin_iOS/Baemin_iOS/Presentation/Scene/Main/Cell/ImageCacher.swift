@@ -48,7 +48,7 @@ class ImageCacheManager {
 
 extension UIImageView {
   func getImageFromURL(_ url: String) {
-      let imageURL = Config.baseURL + "/\(url)"
+      let imageURL =  url
       print(imageURL)
     ImageCacheManager.getImage(imageURL) { result in
       switch result {
