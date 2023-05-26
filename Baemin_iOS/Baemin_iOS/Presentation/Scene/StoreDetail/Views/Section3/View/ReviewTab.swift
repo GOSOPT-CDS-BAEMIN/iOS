@@ -11,6 +11,8 @@ import SnapKit
 
 class ReviewTab: UIView {
     
+    // MARK: - Properties
+
     var flag: Int = 0
     
     var selectedIndex: Int = 0 {
@@ -18,6 +20,9 @@ class ReviewTab: UIView {
             flag = selectedIndex
         }
     }
+    
+    // MARK: - UI Components
+
     private let totalReview: UILabel = {
         let label = UILabel()
         label.text = "최근 리뷰 1,619개"
@@ -58,6 +63,20 @@ class ReviewTab: UIView {
         return label
     }()
     
+    // MARK: - initalize func
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayOut()
+        setNotification()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods
+
     func setLayOut() {
         
         addSubviews(totalReview, ownerReview, cleanReview, filter, filterText)
@@ -91,22 +110,15 @@ class ReviewTab: UIView {
         }
     }
     
-    // 0. init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setLayOut()
-        filter.addTarget(self, action: #selector(filterTouched), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     @objc
     func filterTouched(_ sender: Any) {
         selectedIndex = 1
         
         NotificationCenter.default.post(name: NSNotification.Name("popUp"), object: flag)
+    }
+    
+    func setNotification() {
+        filter.addTarget(self, action: #selector(filterTouched), for: .touchUpInside)
     }
 }
 

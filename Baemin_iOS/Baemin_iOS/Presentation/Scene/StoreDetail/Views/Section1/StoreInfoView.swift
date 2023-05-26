@@ -11,10 +11,11 @@ import SnapKit
 
 class StoreInfoView: UIView {
     
-    // MARK: 1. 가게 대표 이미지 - API 항목 storeImage 추후 반영필요
+    // MARK: - Property
     let storeImage = UIImageView()
     
-    // 0. init
+    // MARK: - init func
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureContents()
@@ -25,6 +26,8 @@ class StoreInfoView: UIView {
         configureContents()
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     func configureContents() {
         

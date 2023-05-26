@@ -11,14 +11,11 @@ import SnapKit
 
 class MenuVC: UIViewController {
     
+    // MARK: - Property
+
     let descriptionView = MenuDescriptionView()
     
-    private let famous: UIImageView = {
-        let view = UIImageView()
-        view.image = .famous
-        view.sizeToFit()
-        return view
-    }()
+    var menuItem: [MenuItem] = MenuItem.items
     
     var firstView = MenuBaseView()
     var secondView = MenuBaseView()
@@ -40,10 +37,28 @@ class MenuVC: UIViewController {
         }
     }
     
-    // 더미데이터
-    var menuItem: [MenuItem] = MenuItem.items
+    // MARK: - UI Componenets
+
+    private let famous: UIImageView = {
+        let view = UIImageView()
+        view.image = .famous
+        view.sizeToFit()
+        return view
+    }()
     
-    func setViews() {
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setStyle()
+        setData()
+        setLayOut()
+    }
+    
+    // MARK: - Methods
+
+    func setData() {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
                         
@@ -74,21 +89,6 @@ class MenuVC: UIViewController {
             }
             idx += 1
         }
-    }
-    
-    @objc
-    func handleTap(sender: UITapGestureRecognizer) {
-        selectedIndex = 1
-        NotificationCenter.default.post(name: NSNotification.Name("gotoMenuDetailVC"), object: flag)
-        print(flag)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        setStyle()
-        setViews()
-        setLayOut()
     }
     
     func setStyle() {
@@ -171,5 +171,12 @@ class MenuVC: UIViewController {
         button5.snp.makeConstraints {
             $0.edges.equalTo(fifthView.snp.edges)
         }
+    }
+    
+    @objc
+    func handleTap(sender: UITapGestureRecognizer) {
+        selectedIndex = 1
+        NotificationCenter.default.post(name: NSNotification.Name("gotoMenuDetailVC"), object: flag)
+        print(flag)
     }
 }

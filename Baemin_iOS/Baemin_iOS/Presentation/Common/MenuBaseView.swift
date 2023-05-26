@@ -11,6 +11,8 @@ import SnapKit
 
 class MenuBaseView: UIView {
     
+    // MARK: - UI Components
+    
     var menuName: UILabel = {
         let label = UILabel()
         label.sizeToFit()
@@ -48,6 +50,21 @@ class MenuBaseView: UIView {
     
     private let cellView = UIView()
     
+    
+    // MARK: - init func
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Methods
+
     private func setView() {
         backgroundColor = .clear
         cellView.backgroundColor = .clear
@@ -87,14 +104,4 @@ class MenuBaseView: UIView {
             $0.height.equalTo(1.0)
         }
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

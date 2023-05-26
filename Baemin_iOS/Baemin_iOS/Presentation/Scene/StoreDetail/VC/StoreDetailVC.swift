@@ -11,10 +11,14 @@ import SnapKit
 
 class StoreDetailVC: UIViewController {
     
+    // MARK: - Properties
+
     private let rowNum = [1, 1, 1, 5, 4]
-    
     private let tabelViewHeaders = TableViewHeaders()
+    private let stickyHead: UIView = StickyHeaderView()
         
+    // MARK: - UI Components
+
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.backgroundColor = .clear
@@ -23,7 +27,6 @@ class StoreDetailVC: UIViewController {
         return scroll
     }()
     
-    // 0. 전체 TableView
     private let tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
@@ -38,9 +41,8 @@ class StoreDetailVC: UIViewController {
         return table
     }()
     
-    let stickyHead: UIView = StickyHeaderView()
     
-    // 2. viewDidLoad 함수
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
@@ -49,12 +51,13 @@ class StoreDetailVC: UIViewController {
         setNotificationCenter()
     }
     
+    // MARK: - Methods
+    
     private func setStyle() {
         view.backgroundColor = .white
         stickyHead.isHidden = true
     }
     
-    // 레이아웃 세팅
     private func setLayOut() {
 
         view.addSubviews(tableView, stickyHead)

@@ -11,7 +11,7 @@ import SnapKit
 
 class StoreRateView: UIView {
 
-    // 0. UI Component 전체를 담을 StackView 선언
+    // MARK: - UI Components
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.backgroundColor = .clear
@@ -49,6 +49,8 @@ class StoreRateView: UIView {
         return number
     }()
     
+    // MARK: - init func
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
@@ -61,6 +63,8 @@ class StoreRateView: UIView {
         setLayOut()
     }
     
+    // MARK: - Methods
+
     private func setLayOut() {
         
         addSubviews(storeName, storeRateImage, storeRate)

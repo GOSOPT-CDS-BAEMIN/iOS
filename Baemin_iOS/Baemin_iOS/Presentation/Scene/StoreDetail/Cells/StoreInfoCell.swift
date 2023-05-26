@@ -11,11 +11,14 @@ import SnapKit
 
 class StoreInfoCell: UITableViewCell {
     
+    // MARK: - Properties
+    
     private let storeInfoView = StoreInfoView()
     private let reiviewCommentView = ReviewCommentView()
     private let optionSelectView = OptionSelectView()
     
-    // MARK: 2. 가게이름 - API 항목 storeName 추후 반영필요
+    // MARK: - UI Components
+    
     private let storeName: UILabel = {
         let name = UILabel()
         name.textColor = .black
@@ -25,7 +28,6 @@ class StoreInfoCell: UITableViewCell {
         return name
     }()
     
-    // MARK: 3. 가게별점 이미지 - API 항목 storeRate에 따른 이미지 변화 필요
     private let storeRateImage: UIImageView = {
         let rate = UIImageView()
         rate.image = .five_star.resized(toWidth: 137)
@@ -34,7 +36,6 @@ class StoreInfoCell: UITableViewCell {
         return rate
     }()
 
-    // MARK: 4. 가게별점 - API 항목 storeRate 데이터 반영 필요
     private let storeRate: UILabel = {
         let number = UILabel()
         number.text = "4.7"
@@ -43,13 +44,14 @@ class StoreInfoCell: UITableViewCell {
         return number
     }()
     
-    // 5. 5000원 쿠폰 버튼
     private let couponBtn: UIButton = {
         let coupon = UIButton()
         coupon.setImage(UIImage.get_coupon.resized(toWidth: 342), for: .normal)
         coupon.sizeToFit()
         return coupon
     }()
+    
+    // MARK: - init func
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,6 +61,8 @@ class StoreInfoCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
 
     private func setLayOut() {
         

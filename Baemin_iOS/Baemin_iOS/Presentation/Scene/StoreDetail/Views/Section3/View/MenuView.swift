@@ -11,6 +11,8 @@ import SnapKit
 
 class MenuView: UIView {
     
+    // MARK: - Properties
+
     var firstView = MenuBaseView()
     var secondView = MenuBaseView()
     var thirdView = MenuBaseView()
@@ -24,19 +26,11 @@ class MenuView: UIView {
             flag = selectedIndex
         }
     }
-    
-    // 더미데이터
+
     var menuItem: [MenuItem] = MenuItem.items
     
-    private var totalStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.backgroundColor = .clear
-        stack.sizeToFit()
-        return stack
-    }()
-    
-    // 0. init
+    // MARK: - Initialize func
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
@@ -46,6 +40,8 @@ class MenuView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
 
     func setStyle() {
         backgroundColor = .clear

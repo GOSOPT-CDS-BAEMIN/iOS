@@ -11,6 +11,7 @@ import SnapKit
 
 class StickyHeaderView: UIView {
     
+    // MARK: - Properties
     var flag: Int = 0
     
     var selectedIndex: Int = 0 {
@@ -18,6 +19,8 @@ class StickyHeaderView: UIView {
             flag = selectedIndex
         }
     }
+    
+    // MARK: - UI Componenets
     
     // 정보 + 스피커 아이콘
     private lazy var infoLabel: UILabel = {
@@ -57,7 +60,8 @@ class StickyHeaderView: UIView {
         return control
     }()
     
-    // 0. init
+    // MARK: - Initialize func
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -71,6 +75,8 @@ class StickyHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+
     func setStyle() {
         backgroundColor = .white
     }

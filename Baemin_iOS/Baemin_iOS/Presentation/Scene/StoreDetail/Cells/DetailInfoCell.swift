@@ -11,12 +11,12 @@ import SnapKit
 
 class DetailInfoCell: UITableViewCell {
     
-    // 세그먼트 탭마다 나타날 VC
+    // MARK: - Properties
     private let menuView = MenuVC()
     private let infoView = InfoVC()
     private let commentView = ReviewVC()
     
-    // init
+    // MARK: - init func
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -28,6 +28,8 @@ class DetailInfoCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     func setStyle() {
         contentView.backgroundColor = .white

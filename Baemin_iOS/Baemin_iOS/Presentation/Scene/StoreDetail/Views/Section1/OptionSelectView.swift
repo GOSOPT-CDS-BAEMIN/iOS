@@ -11,7 +11,8 @@ import SnapKit
 
 class OptionSelectView: UIView {
     
-    // 1. 전화버튼
+    
+    // MARK: - UI Components
     private let callBtn: UIButton = {
         let call = UIButton()
         call.setImage(UIImage(systemName: "phone")?.resized(toWidth: 18), for: .normal)
@@ -104,7 +105,8 @@ class OptionSelectView: UIView {
         return with
     }()
     
-    // 0. init
+    // MARK: - init func
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayOut()
@@ -114,6 +116,8 @@ class OptionSelectView: UIView {
         super.init(coder: coder)
         setLayOut()
     }
+    
+    // MARK: - Methods
     
     private func setLayOut() {
         

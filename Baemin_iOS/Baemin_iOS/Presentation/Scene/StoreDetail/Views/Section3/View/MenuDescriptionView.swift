@@ -11,6 +11,8 @@ import SnapKit
 
 class MenuDescriptionView: UIView {
     
+    // MARK: - UI Components
+
     private let madinBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage.madein.resized(toWidth: 65), for: .normal)
@@ -27,7 +29,7 @@ class MenuDescriptionView: UIView {
         return label
     }()
     
-    // 0. init
+    // MARK: - initialize func
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
@@ -37,6 +39,8 @@ class MenuDescriptionView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     func setStyle() {
         backgroundColor = .clear

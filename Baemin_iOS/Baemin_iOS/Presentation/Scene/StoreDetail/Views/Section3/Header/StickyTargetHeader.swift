@@ -11,6 +11,8 @@ import SnapKit
 
 class StickyTargetHeader: UITableViewHeaderFooterView {
     
+    // MARK: - Properties
+
     var flag: Int = 0
     
     var selectedIndex: Int = 0 {
@@ -18,6 +20,8 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
             flag = selectedIndex
         }
     }
+    
+    // MARK: - UI Components
     
     // 정보 + 스피커 아이콘
     private lazy var infoLabel: UILabel = {
@@ -57,7 +61,9 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
         return control
     }()
     
-    // init
+    
+    // MARK: - Initialize func
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         segmentControl.selectedSegmentIndex = 0
@@ -68,6 +74,8 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     func setStyle() {
         contentView.backgroundColor = .clear

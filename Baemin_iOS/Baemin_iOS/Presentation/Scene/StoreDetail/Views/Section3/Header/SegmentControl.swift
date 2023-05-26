@@ -10,32 +10,8 @@ import UIKit
 import SnapKit
 
 class SegmentControl: UISegmentedControl {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.removeBackgroundAndDivider()
-    }
-    
-    override init(items: [Any]?) {
-        super.init(items: items)
-        self.removeBackgroundAndDivider()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.removeBackgroundAndDivider()
-    }
-    
-    private func removeBackgroundAndDivider() {
-        let empty = UIImage()
+    // MARK: - UI Componenets
 
-        self.setBackgroundImage(empty, for: .normal, barMetrics: .default)
-        self.setBackgroundImage(empty, for: .selected, barMetrics: .default)
-        self.setBackgroundImage(empty, for: .highlighted, barMetrics: .default)
-        
-        self.setDividerImage(empty, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
-    }
-    
     private lazy var overlineView: UIView = {
         let width = self.bounds.size.width / CGFloat(self.numberOfSegments)
         let height = 2.0
@@ -94,6 +70,35 @@ class SegmentControl: UISegmentedControl {
         return view
     }()
     
+    // MARK: - Initialize func
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.removeBackgroundAndDivider()
+    }
+    
+    override init(items: [Any]?) {
+        super.init(items: items)
+        self.removeBackgroundAndDivider()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.removeBackgroundAndDivider()
+    }
+    
+    // MARK: - Methods
+    
+    private func removeBackgroundAndDivider() {
+        let empty = UIImage()
+
+        self.setBackgroundImage(empty, for: .normal, barMetrics: .default)
+        self.setBackgroundImage(empty, for: .selected, barMetrics: .default)
+        self.setBackgroundImage(empty, for: .highlighted, barMetrics: .default)
+        
+        self.setDividerImage(empty, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
