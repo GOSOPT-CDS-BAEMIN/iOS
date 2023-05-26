@@ -28,7 +28,7 @@ class MenuCountView: UIView {
         return button
     }()
     
-    private var numberLabel: UILabel = {
+     var numberLabel: UILabel = {
         let label = UILabel()
         label.basic(text: "0개",
                     font: .AppleSDGothicNeo(.regular, size: 14),

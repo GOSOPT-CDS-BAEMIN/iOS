@@ -12,9 +12,9 @@ import SnapKit
 class CartViewController: UIViewController {
     
     // MARK: - UI Properties
-    
+
     private let cartNetworkManager = CartNetworkManager.shared
-    
+    private var buttonStates: [Bool] = []
     private let cartTabView = CartTabView()
     private let cartView = CartPriceView()
     private let payView = payButtonView()
@@ -23,6 +23,7 @@ class CartViewController: UIViewController {
     private var cartArray: [FoodsList] = []
     private var totalPrice: Int = 0
     private var totalCount: Int = 0
+    private var checkedCount: Int = 0
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -48,6 +49,7 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         setStyle()
         setLayout()
+        didTapButton()
         cartTableView.dataSource = self
         cartTableView.delegate = self
         
@@ -68,6 +70,11 @@ class CartViewController: UIViewController {
 // MARK: - Methods
 
 private extension CartViewController {
+    
+    func didTapButton() {
+        let newViewController = StoreDetailVC()
+        navigationController?.pushViewController(newViewController, animated: true)
+    }
     
     func setStyle() {
         view.backgroundColor = .white
@@ -111,7 +118,7 @@ private extension CartViewController {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(12)
             $0.height.equalTo(numberOfSections(in: cartTableView)*600)
-            //$0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
+            // $0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
         }
         cartView.snp.makeConstraints {
             $0.top.equalTo(cartTableView.snp.bottom)
@@ -134,7 +141,19 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     // section header 설정
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       
         let headerView = CartTableSectionHeaderView()
+        headerView.headerClosure = { [weak self] result in
+            if result {
+                for row in 0...2 { // 서버 연결하면 2를 cartArray.count 로 바꾸기
+                    if  let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? CartTableSectionViewCell {
+                        cell.menuCheckButton.isSelected.toggle()
+                    }
+                    headerView.storeCheckButton.isSelected.toggle()
+
+                }
+            }
+        }
         return headerView
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -145,6 +164,9 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = CartTableSectionFooterView()
+        let button = footerView.addMenuButton
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
         return footerView
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -160,9 +182,26 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartTableSectionViewCell.identifier, for: indexPath) as? CartTableSectionViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
+        cell.countClosure = { [weak self] result in
+            if result {
+                if !cell.menuCheckButton.isSelected {
+                    self?.checkedCount += 1
+                    print(self?.checkedCount)
+                    print(cell.menuCheckButton.isSelected)
+                } else {
+                    self?.checkedCount -= 1
+                }
+                cell.menuCheckButton.isSelected.toggle()
+            }
+            
+        }
         return cell
     }
     
+    @objc func buttonTapped() {
+        let newViewController = StoreDetailVC()
+        navigationController?.pushViewController(newViewController, animated: true)
+    }
 }
 
 extension CartViewController {

@@ -13,9 +13,12 @@ class CartTableSectionHeaderView: UIView {
     
     // MARK: - UI Properties
     
-    let storeCheckButton: UIButton = {
+    var headerClosure: ((_ result: Bool) -> Void)?
+    
+    lazy var storeCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
+        button.setImage(.checked, for: .selected)
         button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
         return button
     }()
@@ -77,12 +80,7 @@ extension CartTableSectionHeaderView {
     
     @objc
     func changeButton() {
-        if (storeCheckButton.currentImage == .circle_empty) {
-            storeCheckButton.setImage(.checked, for: .normal)
-        }
-        else {
-            storeCheckButton.setImage(.circle_empty, for: .normal)
-        }
+        self.headerClosure?(true)
     }
 
 }

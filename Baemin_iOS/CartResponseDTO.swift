@@ -2,7 +2,7 @@
 //  CartResponseDTO.swift
 //  Baemin_iOS
 //
-//  Created by JEONGEUN KIM on 2023/05/24.
+//  Created by 홍유정 on 2023/05/26.
 //
 
 import UIKit

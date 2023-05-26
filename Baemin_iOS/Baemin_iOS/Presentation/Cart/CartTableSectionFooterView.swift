@@ -15,6 +15,8 @@ class CartTableSectionFooterView: UIView {
     
     // 첫번째 부분
     
+    var buttonTapHandler: (() -> Void)?
+
     private let firstFooterStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -43,11 +45,12 @@ class CartTableSectionFooterView: UIView {
     
     // 두번째 부분
     
-    private let addMenuButton: UIButton = {
+    lazy var addMenuButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Cart.addMenu, for: .normal)
         button.setTitleColor(.primary_2, for: .normal)
         button.titleLabel?.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -181,4 +184,7 @@ extension CartTableSectionFooterView {
         }
     }
     
+    @objc func buttonTapped() {
+        buttonTapHandler?()
+    }
 }

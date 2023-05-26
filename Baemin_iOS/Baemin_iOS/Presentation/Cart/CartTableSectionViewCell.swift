@@ -15,6 +15,8 @@ class CartTableSectionViewCell: UITableViewCell {
 
     static let idf = NSObject.identifier
     
+    var countClosure: ((_ result:Bool)->Void)?
+    
     // 메뉴 Stackview 구성
     
     private let menuStackView: UIStackView = {
@@ -30,6 +32,7 @@ class CartTableSectionViewCell: UITableViewCell {
         let imageview = UIImageView()
         imageview.image = .dummy
         imageview.makeCornerRound(radius: 8)
+        imageview.clipsToBounds = true
         return imageview
     }()
     
@@ -47,46 +50,15 @@ class CartTableSectionViewCell: UITableViewCell {
         return label
     }()
         
-    private let menuCheckButton: UIButton = {
+     lazy var menuCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
+        button.setImage(.checked, for: .selected)
         button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
         return button
     }()
     
-    // 메뉴 StackView - 메뉴 수량 버튼
-    
-    private let menuCountView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    private let menuCountLabel: UILabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = .AppleSDGothicNeo(.medium, size: 14)
-        return label
-    }()
-
-    private let minusButton: UIButton = {
-        let button = UIButton()
-        button.setImage(.minus, for: .normal)
-        button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
-        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 8)
-        //button.addTarget(self, action: Selector(changeMinusButton), for: .touchUpInside)
-        return button
-    }()
-
-    private let plusButton: UIButton = {
-        let button = UIButton()
-        button.setImage(.plus, for: .normal)
-        button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
-        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 10)
-        return button
-    }()
+    private let menuCountView = MenuCountView()
     
     // MARK: - Initialization
     
@@ -113,7 +85,6 @@ private extension CartTableSectionViewCell {
     func setLayout() {
         contentView.addSubview(menuStackView)
         menuStackView.addSubviews(menuCheckButton, menuImageView, menuNameLabel, menuPriceLabel, menuCountView)
-        menuCountView.addSubviews(menuCountLabel, minusButton, plusButton)
         
         menuStackView.snp.makeConstraints {
             $0.width.equalTo(351)
@@ -140,42 +111,13 @@ private extension CartTableSectionViewCell {
         menuCountView.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(16)
             $0.bottom.equalToSuperview().inset(16)
-            $0.width.equalTo(96)
+            $0.width.equalTo(95)
             $0.height.equalTo(32)
-        }
-        
-        // 수량 버튼
-        
-        minusButton.snp.makeConstraints {
-            $0.width.equalTo(34)
-            $0.height.equalTo(32)
-            $0.top.leading.bottom.equalToSuperview()
-        }
-        plusButton.snp.makeConstraints {
-            $0.width.equalTo(34)
-            $0.height.equalTo(32)
-            $0.top.trailing.bottom.equalToSuperview()
-        }
-        menuCountLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
         }
     }
     
     @objc
     func changeButton() {
-        if (menuCheckButton.currentImage == .circle_empty) {
-            menuCheckButton.setImage(.checked, for: .normal)
-        }
-        else {
-            menuCheckButton.setImage(.circle_empty, for: .normal)
-        }
-    }
-    
-    @objc
-    func changeMinusButton() {
-        if (menuCountLabel.text == "2") {
-            minusButton.setImage(.trashbin, for: .normal)
-            menuCountLabel.text = "1"
-        }
+        self.countClosure?(true)
     }
 }
