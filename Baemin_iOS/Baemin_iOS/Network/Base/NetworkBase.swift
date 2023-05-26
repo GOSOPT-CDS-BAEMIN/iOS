@@ -62,7 +62,7 @@ class BaseAPI {
         }
     }
     
-    public func disposeNetwork<T: Codable>(_ result: AFDataResponse<Data>, dataModel: T.Type, completion: @escaping (NetworkResult<Any>) -> Void){
+    public func disposeNetwork<T: Codable>(_ result: AFDataResponse<Data>, dataModel: T.Type, completion: @escaping (NetworkResult<Any>) -> Void) {
         switch result.result {
         case .success:
             guard let statusCode = result.response?.statusCode else { return }
