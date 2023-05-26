@@ -24,6 +24,7 @@
 		093DB05B2A17516100ECA5F6 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */; };
 		093DB05E2A17516100ECA5F6 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */; };
 		093DB0602A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */; };
+		09665C142A20C724007EB872 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09665C132A20C724007EB872 /* ImageCacher.swift */; };
 		097BC9BA2A1ED2C400DFBAE2 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BC9B92A1ED2C400DFBAE2 /* CALayer+.swift */; };
 		09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DCC2A17570D0062A6F7 /* UIFont+.swift */; };
 		09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */; };
@@ -113,6 +114,7 @@
 		093DB0522A17516100ECA5F6 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
 		093DB0552A17516100ECA5F6 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
 		093DB05F2A17546800ECA5F6 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
+		09665C132A20C724007EB872 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		097BC9B92A1ED2C400DFBAE2 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		09B06DCC2A17570D0062A6F7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigaionView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				09C18F742A1E0BC600AA0F2F /* MainPageCell.swift */,
 				09C18F832A1EC1DE00AA0F2F /* MainFirstPageCell.swift */,
+				09665C132A20C724007EB872 /* ImageCacher.swift */,
 				0918E0112A1BEA90005B6542 /* MainTabbarCell.swift */,
 				091B10492A1EE2B100BF19E5 /* MainOptionCell.swift */,
 			);
@@ -855,6 +858,7 @@
 				F4FC4DAE2A1D58590001F9A6 /* StoreInfoCell.swift in Sources */,
 				F4FC4DB22A1D59260001F9A6 /* PickUpView.swift in Sources */,
 				F4FC4DCA2A1E86C40001F9A6 /* Base.swift in Sources */,
+				09665C142A20C724007EB872 /* ImageCacher.swift in Sources */,
 				F4587CFA2A0F609E00F56BCD /* ViewController.swift in Sources */,
 				093DB0492A1749D800ECA5F6 /* UILabel+.swift in Sources */,
 				F4587CF62A0F609E00F56BCD /* AppDelegate.swift in Sources */,
