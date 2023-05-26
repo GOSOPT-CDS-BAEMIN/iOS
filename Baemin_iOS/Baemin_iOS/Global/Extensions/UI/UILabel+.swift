@@ -49,6 +49,13 @@ extension UILabel {
     }
 }
 
+extension UILabel {
+    func basic(text: String, font: UIFont, color: UIColor) {
+        self.text = text
+        self.font = font
+        self.textColor = color
+    }
+}
 extension NSMutableAttributedString {
     func addImageInBetweenString(firstSentence: String, image: UIImage?, lastSentence: String) -> NSMutableAttributedString {
         
@@ -56,7 +63,7 @@ extension NSMutableAttributedString {
         
         let image1Attachment = NSTextAttachment()
         image1Attachment.image = image
-        image1Attachment.bounds = CGRect(x: 0, y: -2, width: 70, height: 15)
+        image1Attachment.bounds = CGRect(x: 0, y: 0, width: 11, height: 11)
         let image1String = NSAttributedString(attachment: image1Attachment)
         
         fullString.append(image1String)
