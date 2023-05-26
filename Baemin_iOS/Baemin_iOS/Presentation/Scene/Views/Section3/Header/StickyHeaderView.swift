@@ -102,7 +102,8 @@ class StickyHeaderView: UIView {
         }
         
         self.segmentControl.addTarget(self, action: #selector(segmentedTouched), for: .valueChanged)
-        print(self.segmentControl.selectedSegmentIndex)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("categoryIndex"), object: nil)
     }
     
     @objc
@@ -110,5 +111,11 @@ class StickyHeaderView: UIView {
         
         selectedIndex = segmentControl.selectedSegmentIndex
         NotificationCenter.default.post(name: NSNotification.Name("categoryIndex"), object: flag)
+    }
+    
+    @objc
+    func dataReceived(_ notification: Notification) {
+        let tmp = notification.object as! Int
+        self.segmentControl.selectedSegmentIndex = tmp
     }
 }
