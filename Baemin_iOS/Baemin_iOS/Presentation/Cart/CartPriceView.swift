@@ -20,6 +20,8 @@ class CartPriceView: UIView {
         stackView.distribution = .fill
         stackView.alignment = .fill
         stackView.backgroundColor = .white
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 14)
+        stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
 
@@ -34,6 +36,7 @@ class CartPriceView: UIView {
 
     var totalPriceValueLabel: UILabel = {
         let label = UILabel()
+        label.text = "test원"
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         return label
     }()
@@ -52,6 +55,8 @@ class CartPriceView: UIView {
         stackView.distribution = .fill
         stackView.alignment = .center
         stackView.backgroundColor = .white
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 14)
+        stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
 
@@ -66,6 +71,7 @@ class CartPriceView: UIView {
 
     var totalPayValueLabel: UILabel = {
         let label = UILabel()
+        label.text = "test원"
         label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
@@ -83,10 +89,11 @@ class CartPriceView: UIView {
     // 3. 주의사항 Label
     private let noticeLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
         label.text = I18N.Cart.notice
         label.font = .AppleSDGothicNeo(.regular, size: 12)
+        label.numberOfLines = 0
         label.textColor = .gray_5
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
 
@@ -130,7 +137,7 @@ private extension CartPriceView {
             $0.directionalVerticalEdges.equalToSuperview()
         }
         totalPriceValueLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(14)
+            $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
 
@@ -156,20 +163,15 @@ private extension CartPriceView {
             $0.centerY.equalToSuperview()
             $0.height.equalTo(20)
         }
-        emptyView_2.snp.makeConstraints {
-            $0.leading.equalTo(deliveryTipLabel.snp.trailing)
-            $0.trailing.equalTo(totalPayValueLabel.snp.leading)
-            $0.directionalVerticalEdges.equalToSuperview()
-        }
         totalPayValueLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(14)
+            $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
 
         // 주의사항 배치
         noticeLabel.snp.makeConstraints {
             $0.top.equalTo(totalPayStackView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(18)
             $0.height.equalTo(86)
         }
     }
