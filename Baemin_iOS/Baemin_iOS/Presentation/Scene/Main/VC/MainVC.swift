@@ -12,9 +12,9 @@ import SnapKit
 class MainVC: UIViewController {
     
     // MARK: - Properties
-
+    
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
-    var itemList: StoreInfo?
+    var item: [MainData] = []
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     // MARK: - UI Components
@@ -22,7 +22,7 @@ class MainVC: UIViewController {
     private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
     private let lineView = UIView()
     private let optionView = MainOptionView()
-
+    
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -71,7 +71,7 @@ class MainVC: UIViewController {
         setStyle()
         setLayout()
         register()
-                
+        
     }
 }
 
@@ -155,15 +155,11 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
-            if let itemList = self.itemList {
-                cell.items = itemList
-            }
-            cell.items = itemList
+            cell.items = item
             cell.indexClosure = { [weak self] index in
-                    let vc = StoreDetailVC()
+                let vc = StoreDetailVC()
                 self?.navigationController?.pushViewController(vc, animated: true)
-                }
-            
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -204,69 +200,23 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
 
 extension MainVC {
     func requstMainAPI(index: Int) {
-        MainAPI.shared.getStoreInfo(request: index + 1) { response in
+        MainAPI.shared.getStore(id: index + 1 ) {response in
             print("🍀🍀🍀 response 🍀🍀🍀")
             print(response)
             switch response {
             case .success(let data):
-                guard let data = data as? DailyMissionResponseDTO else { return }
-               // guard let itemList = data.data.storeInfo else { return }
-                self.itemList = data.data.storeInfo
-        self.pageCollectionView.reloadData()
-                print("✅\(self.itemList)")
+                guard let data = data as? MainResponseDTO else { return }
+                let dataArray = data.data
+                for item in dataArray {
+                      self.item.append(item)
+                    print("💎\(self.item)")
+                }
+                self.pageCollectionView.reloadData()
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
                 print(response)
             }
-        }
-    }
-}
-
-import Alamofire
-
-class MainAPI: BaseAPI {
-    static let shared = MainAPI()
-    
-    private(set) var getMainData: DailyMissionResponseDTO?
-    private override init() {}
-}
-
-extension MainAPI {
-    public func getStoreInfo(request: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-           AFManager.request(MainService.getStore(id: request)).responseData { response in
-               print("✅: \(response)")
-               self.disposeNetwork(response,
-                                   dataModel: DailyMissionResponseDTO.self,
-                                   completion: completion)
-           }
-       }
-}
-
-enum MainService {
-    case getStore(id: Int)
-}
-
-extension MainService: BaseTargetType {
-    
-    var method: Alamofire.HTTPMethod {
-        switch self {
-        case .getStore:
-            return .get
-        }
-    }
-    
-    var path: String {
-        switch self {
-        case .getStore(let id):
-            return "store"+"/\(id)"
-        }
-    }
-    
-    var parameters: RequestParams {
-        switch self {
-        case .getStore(let id):
-                return .query(id)
         }
     }
 }

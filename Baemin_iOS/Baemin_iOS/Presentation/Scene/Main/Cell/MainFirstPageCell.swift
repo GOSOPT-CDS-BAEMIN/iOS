@@ -154,7 +154,7 @@ extension MainFirstPageCell {
         }
     }
     
-    func bind(_ item: StoreInfo) {
+    func bind(_ item: MainData) {
         
         //if let imageURL = item.firstImageURL {
             mainImage.getImageFromURL(item.firstImageURL)
