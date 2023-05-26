@@ -39,7 +39,6 @@ struct I18N {
         static let title = "음식을 선택해주세요"
     }
     
-    
     struct Main {
         static let minimum = "최소주문"
         static let delivery = "배달"
