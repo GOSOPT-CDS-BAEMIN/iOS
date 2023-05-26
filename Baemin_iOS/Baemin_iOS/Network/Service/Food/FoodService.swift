@@ -6,3 +6,33 @@
 //
 
 import Foundation
+
+import Alamofire
+
+enum FoodService {
+    case getFoodDetail(id: Int)
+}
+
+extension FoodService: BaseTargetType {
+
+    var method: Alamofire.HTTPMethod {
+        switch self {
+        case .getFoodDetail:
+            return .get
+        }
+    }
+
+    var path: String {
+        switch self {
+        case .getFoodDetail(let id):
+            return "/\(id)"
+        }
+    }
+
+    var parameters: RequestParams {
+        switch self {
+        case .getFoodDetail(let id ):
+                return .query(id)
+        }
+    }
+}

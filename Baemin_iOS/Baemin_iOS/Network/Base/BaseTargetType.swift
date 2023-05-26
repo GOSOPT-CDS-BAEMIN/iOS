@@ -15,17 +15,22 @@ protocol BaseTargetType: URLRequestConvertible {
     var path: String { get }
     var parameters: RequestParams { get }
 }
+
 extension BaseTargetType {
 
     var baseURL: String {
-        return Config.baseURL
+        return Config.baseURL // --- 🍔
     }
     
+    // URLRequestConvertible 구현
     func asURLRequest() throws -> URLRequest {
+                // --- 🍗
         let url = try baseURL.asURL()
         var urlRequest = try URLRequest(url: url.appendingPathComponent(path), method: method)
+                // --- 🍕
         urlRequest.setValue(APIConstants.applicationJSON, forHTTPHeaderField: APIConstants.contentType)
 
+                // --- 🍪
         switch parameters {
         case .query(let request):
             let params = request?.toDictionary() ?? [:]
@@ -36,14 +41,25 @@ extension BaseTargetType {
         case .body(let request):
             let params = request?.toDictionary() ?? [:]
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+                case .both(let query, let body):
+            let params = query?.toDictionary() ?? [:]
+            let queryParams = params.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
+            var components = URLComponents(string: url.appendingPathComponent(path).absoluteString)
+            components?.queryItems = queryParams
+            urlRequest.url = components?.url
+            let body = body?.toDictionary() ?? [:]
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+        case .none:
+            break
         }
         return urlRequest
     }
 }
-
 enum RequestParams {
+    case both(_ parameter1: Encodable?,_ parameter2: Encodable? )
     case query(_ parameter: Encodable?)
     case body(_ parameter: Encodable?)
+    case none
 }
 
 extension Encodable {

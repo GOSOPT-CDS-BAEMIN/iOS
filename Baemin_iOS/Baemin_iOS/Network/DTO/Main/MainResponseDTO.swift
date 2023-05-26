@@ -7,36 +7,56 @@
 
 import Foundation
 
-// MARK: - MainResponseDTO
-struct MainResponseDTO {
+// MARK: - DailyMissionResponseDTO
+struct DailyMissionResponseDTO: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: DataClass
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
+    let storeInfo: StoreInfo
+    let foods: [Food]
+}
+
+// MARK: - Food
+struct Food: Codable {
+    let foodID: Int
+    let foodName: String
+    let price: Int
+    let foodDescription, foodImageURL: String
+    let best: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case foodID = "foodId"
+        case foodName, price, foodDescription
+        case foodImageURL = "foodImageUrl"
+        case best
+    }
+}
+
+// MARK: - StoreInfo
+struct StoreInfo: Codable {
     let storeID, storeTypeID: Int
-    let storeType: StoreType
-    let storeName, deliveryTime, description: String
+    let storeType, storeName, deliveryTime, description: String
     let minOrderPrice, deliveryFee: Int
     let rate: Double
-    let storeImages: [StoreImage]
+    let firstImageURL, secondImageURL, thirdImageURL: String
     let new, couponExist: Bool
 
     enum CodingKeys: String, CodingKey {
         case storeID = "storeId"
         case storeTypeID = "storeTypeId"
-        case storeType, storeName, deliveryTime, description, minOrderPrice, deliveryFee, rate, storeImages, new, couponExist
+        case storeType, storeName, deliveryTime, description, minOrderPrice, deliveryFee, rate
+        case firstImageURL = "firstImageUrl"
+        case secondImageURL = "secondImageUrl"
+        case thirdImageURL = "thirdImageUrl"
+        case new, couponExist
     }
 }
 
-enum StoreImage: String, Codable {
-    case url1 = "empty_1"
-    case url2 = "empty_2"
-    case url3 = "empty_3"
-}
-
-enum StoreType: String, Codable {
-    case 카페디저트 = "카페.디저트"
-}
-
-extension MainResponseDTO {
-    static var item: [MainResponseDTO] = [MainResponseDTO(storeID: 1, storeTypeID: 1, storeType: .카페디저트, storeName: "파스타 어때 신촌점", deliveryTime: "10분~30분", description: "룰루룰", minOrderPrice: 10000, deliveryFee: 2000, rate: 4.5, storeImages: [.url1, .url2, .url3], new: true, couponExist: true),
-                                          MainResponseDTO(storeID: 2, storeTypeID: 2, storeType: .카페디저트, storeName: "파스타 어때 신촌점", deliveryTime: "10분~30분", description: "룰루룰", minOrderPrice: 10000, deliveryFee: 2000, rate: 4.5, storeImages: [.url1, .url2, .url3], new: true, couponExist: true),
-                                          MainResponseDTO(storeID: 3, storeTypeID: 3, storeType: .카페디저트, storeName: "파스타 어때 신촌점", deliveryTime: "10분~30분", description: "룰루룰", minOrderPrice: 10000, deliveryFee: 2000, rate: 4.5, storeImages: [.url1, .url2, .url3], new: true, couponExist: true)
-    ]
+extension StoreInfo {
+    static var item: [StoreInfo] = [StoreInfo(storeID: 1, storeTypeID: 1, storeType: "1인분", storeName: "스토어1", deliveryTime: "10분~30분", description: "Store 1 description", minOrderPrice: 10000, deliveryFee: 2000, rate: 4.5, firstImageURL: "url1", secondImageURL: "url2", thirdImageURL: "url3", new: false, couponExist: true)]
 }
