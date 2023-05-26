@@ -14,8 +14,8 @@ class MainVC: UIViewController {
     // MARK: - Properties
     
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
-  //  var oneService: [MainData] = []
     var item: [MainData] = []
+    var OneItem: [MainData] = []
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     // MARK: - UI Components
@@ -79,15 +79,6 @@ class MainVC: UIViewController {
 
 extension MainVC {
     
-    func reloadData() {
-        for item in self.item {
-            let minumPrice = item.storeType
-            if minumPrice == "1인분" {
-                requstMainAPI(index: 1)
-            }
-        }
-    }
-    
     func setupTabBarCollectioView() {
         tabBarcollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: 0, section: 0)
@@ -104,8 +95,8 @@ extension MainVC {
     private func setStyle() {
         view.backgroundColor = .white
         lineView.backgroundColor = .gray_4
-        optionView.oneServiceClosure = {
-            self.reloadData()
+        optionView.oneServiceClosure = { [weak self ] index in
+            self?.requstMainOneServiceAPI(index: index)
         }
     }
     
@@ -154,7 +145,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let targetXContentOffset = targetContentOffset.pointee.x
         let itemAt = Int(targetXContentOffset / self.view.frame.width)
         let indexPath = IndexPath(item: itemAt, section: 0)
-        
+        requstMainAPI(index: itemAt)
         tabBarcollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         tabBarcollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
     }
@@ -168,7 +159,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
             cell.items = item
-           
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
                 self?.navigationController?.pushViewController(vc, animated: true)
@@ -184,6 +174,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let pageIndexPath = IndexPath(item: indexPath.item, section: 0)
             pageCollectionView.scrollToItem(at: pageIndexPath, at: .centeredHorizontally, animated: true)
             requstMainAPI(index: indexPath.item)
+            print("🧸\(indexPath.item)")
             
         } else if collectionView == pageCollectionView {
             let middleIndex = collectionView.bounds.width / 2
@@ -213,17 +204,46 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
 
 extension MainVC {
     func requstMainAPI(index: Int) {
-        MainAPI.shared.getStore(id: index + 1 ) {response in
+        MainAPI.shared.getStore(id: index  ) {response in
             print("🍀🍀🍀 response 🍀🍀🍀")
             print(response)
             switch response {
             case .success(let data):
                 guard let data = data as? MainResponseDTO else { return }
                 let dataArray = data.data
-                for item in dataArray {
-                    self.item.append(item)
-                    print("💎\(self.item)")
+                self.item = dataArray
+                self.pageCollectionView.reloadData()
+                print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
+                
+                let filterArray: [MainData]
+                let validNames: [String] = ["전체", "족발,보쌈", "찜,탕,찌개", "돈까스,회,일식", "고기,구이", "피자", "양식", "중식", "아시안", "치킨", "백반,죽,국수", "버거", "분식", "카페,디저트"]
+                if index == 0 { return }
+                else if index < validNames.count {
+                    let targetName = validNames[index]
+                    filterArray = self.item.filter { $0.storeType == targetName }
+                } else { filterArray = [] }
+                self.item = filterArray
+                print("✅\(self.item)")
+            default:
+                print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
+                print(response)
+            }
+        }
+    }
+    
+    func requstMainOneServiceAPI(index: Int) {
+        MainAPI.shared.getStore(id: index ) {response in
+            print("🍀🍀🍀 response 🍀🍀🍀")
+            print(response)
+            switch response {
+            case .success(let data):
+                guard let data = data as? MainResponseDTO else { return }
+                let dataArray = data.data
+               // self.item = dataArray
+                let filterArray = dataArray.filter { result in
+                    result.storeType == "중식"
                 }
+                self.item = filterArray
                self.pageCollectionView.reloadData()
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
