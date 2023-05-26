@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     // MARK: - Properties
 
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
-    var pageItems: [PagingItem] = PagingItem.titles
+    var itemList: StoreInfo?
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     // MARK: - UI Components
@@ -63,6 +63,7 @@ class MainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTabBarCollectioView()
+        requstMainAPI(index: 0)
     }
     
     override func viewDidLoad() {
@@ -70,7 +71,7 @@ class MainVC: UIViewController {
         setStyle()
         setLayout()
         register()
-        
+                
     }
 }
 
@@ -79,6 +80,7 @@ class MainVC: UIViewController {
 extension MainVC {
     
     func setupTabBarCollectioView() {
+        requstMainAPI(index: 0)
         tabBarcollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: 0, section: 0)
         tabBarcollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
@@ -157,12 +159,13 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return UICollectionViewCell()
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tabBarcollectionView {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             let pageIndexPath = IndexPath(item: indexPath.item, section: 0)
             pageCollectionView.scrollToItem(at: pageIndexPath, at: .centeredHorizontally, animated: true)
+            requstMainAPI(index: indexPath.item)
             
         } else if collectionView == pageCollectionView {
             let middleIndex = collectionView.bounds.width / 2
@@ -187,5 +190,72 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
             return CGSize(width: pageCollectionView.frame.width, height: pageCollectionView.frame.height)
         }
         return CGSize.zero
+    }
+}
+
+extension MainVC {
+    func requstMainAPI(index: Int) {
+        MainAPI.shared.getStoreInfo(request: index + 1) { response in
+            print("🍀🍀🍀 response 🍀🍀🍀")
+            print(response)
+            switch response {
+            case .success(let data):
+                guard let data = data as? DailyMissionResponseDTO else { return }
+                self.itemList = data.data.storeInfo
+                print("✅\(self.itemList)")
+                print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
+            default:
+                print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
+                print(response)
+            }
+        }
+    }
+}
+
+import Alamofire
+
+class MainAPI: BaseAPI {
+    static let shared = MainAPI()
+    
+    private(set) var getMainData: DailyMissionResponseDTO?
+    private override init() {}
+}
+
+extension MainAPI {
+    public func getStoreInfo(request: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+           AFManager.request(MainService.getStore(id: request)).responseData { response in
+               print("✅: \(response)")
+               self.disposeNetwork(response,
+                                   dataModel: DailyMissionResponseDTO.self,
+                                   completion: completion)
+           }
+       }
+}
+
+enum MainService {
+    case getStore(id: Int)
+}
+
+extension MainService: BaseTargetType {
+    
+    var method: Alamofire.HTTPMethod {
+        switch self {
+        case .getStore:
+            return .get
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .getStore(let id):
+            return "store"+"/\(id)"
+        }
+    }
+    
+    var parameters: RequestParams {
+        switch self {
+        case .getStore(let id):
+                return .query(id)
+        }
     }
 }

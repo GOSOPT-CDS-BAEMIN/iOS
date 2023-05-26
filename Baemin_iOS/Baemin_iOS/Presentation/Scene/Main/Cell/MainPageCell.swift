@@ -13,7 +13,7 @@ class MainPageCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    var firstItems: [MainResponseDTO] = MainResponseDTO.item
+    var firstItems: [StoreInfo] = StoreInfo.item
 
     // MARK: - UI Components
     

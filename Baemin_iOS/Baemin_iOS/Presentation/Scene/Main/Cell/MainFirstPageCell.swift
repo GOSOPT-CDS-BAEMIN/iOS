@@ -12,7 +12,7 @@ import SnapKit
 class MainFirstPageCell: UICollectionViewCell {
     
     // MARK: - Components
-    var firstItems: [ MainResponseDTO] = MainResponseDTO.item
+    var firstItems: [StoreInfo] = StoreInfo.item
 
     // MARK: - UI Components
     
@@ -153,10 +153,13 @@ extension MainFirstPageCell {
         }
     }
     
-    func bind(_ item: MainResponseDTO) {
-        [mainImage, subImage1, subImage2].forEach {
-            $0.image = UIImage(named: item.storeImages.first!.rawValue)
-        }
+    func bind(_ item: StoreInfo) {
+        mainImage.image = UIImage(named: item.firstImageURL)
+        subImage1.image = UIImage(named: item.secondImageURL)
+        subImage2.image = UIImage(named: item.thirdImageURL)
+//        [mainImage, subImage1, subImage2].forEach {
+//            $0.image = UIImage(named: item.firstImageURL.first!.rawValue)
+//        }
         storeName.attributedText = NSMutableAttributedString()
             .addImageInBetweenString(firstSentence: item.storeName, image: .yellow_star, lastSentence: "\(item.rate)")
             .withLineSpacing(3)
