@@ -96,5 +96,4 @@ private extension CartTabView {
             chooseStoreButton.setImage(.circle_empty, for: .normal)
         }
     }
-
 }

@@ -46,19 +46,18 @@ class CartViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        requestCartAPI (index: 0)
+        requestCartAPI(index: 0)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
         setLayout()
-        didTapButton()
+        //didTapButton()
         cartTableView.dataSource = self
         cartTableView.delegate = self
     }
 
-    
 }
 
 // MARK: - Methods
@@ -111,8 +110,7 @@ private extension CartViewController {
         cartTableView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(12)
-//            $0.height.equalTo(numberOfSections(in: cartTableView)*600)
-            $0.height.equalTo(cartArray.count*600)
+            $0.height.equalTo(700)
         // $0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
         }
         cartView.snp.makeConstraints {
@@ -131,8 +129,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         print("🤢\(cartArray.count)")
-        return cartArray.count //cartArray.count // 서버 연결하면 장바구니의 가게 수로 바꾸기
-    }
+        return cartArray.count    }
             
     // section header 설정
 
@@ -172,12 +169,8 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     // section 내부 cell 설정
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count: Int = 0
-        for item in 0..<cartArray[section].storeID {
-            count = item
-        }
-        print("🤤\(count)")
-        return  count  // 서버 연결하면 장바구니 가게의 메뉴 수로 바꾸기
+       print(cartArray[section].storeID)
+        return cartArray[section].foods.count  // 서버 연결하면 장바구니 가게의 메뉴 수로 바꾸기
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -185,7 +178,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
       // cell.(cartArray[indexPath.item], ind) //cell에 바인드함수 만들기
 //        for item in cartArray {
-        cell.dataBind(item:cartArray[indexPath.item] , index: indexPath.item)
+        cell.dataBind(item: cartArray[indexPath.section].foods[indexPath.item])
 //
 //        }
 //        cell.dataBind(item: cartArray[indexPath.row], index: indexPath.item)
@@ -241,8 +234,12 @@ extension CartViewController {
                 let dataArray = data.data
                 for item in dataArray {
                    self.cartArray.append(item)
+                    print("🤤\(self.cartArray)")
                 }
                 self.cartTableView.reloadData()
+                self.cartTableView.snp.updateConstraints {
+                    $0.height.equalTo(self.cartArray.count * 430)
+                }
                 print(data.data)
                 //print("✅\(self.itemList)")
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")

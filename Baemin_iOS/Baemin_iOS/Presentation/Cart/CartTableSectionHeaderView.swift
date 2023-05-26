@@ -57,10 +57,6 @@ class CartTableSectionHeaderView: UIView {
 
 extension CartTableSectionHeaderView {
     
-//    func dataBind(_storeName: FoodsList) {
-//        storeNameLabel.text = storeName
-//        }
-
     private func setLayout() {
         self.addSubviews(storeCheckButton, storeNameLabel, storeDeleteButton)
         self.backgroundColor = .white
