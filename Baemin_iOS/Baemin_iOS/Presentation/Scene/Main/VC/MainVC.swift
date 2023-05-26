@@ -155,6 +155,15 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
+            if let itemList = self.itemList {
+                cell.items = itemList
+            }
+            cell.items = itemList
+            cell.indexClosure = { [weak self] index in
+                    let vc = StoreDetailVC()
+                self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            
             return cell
         }
         return UICollectionViewCell()
@@ -201,7 +210,9 @@ extension MainVC {
             switch response {
             case .success(let data):
                 guard let data = data as? DailyMissionResponseDTO else { return }
+               // guard let itemList = data.data.storeInfo else { return }
                 self.itemList = data.data.storeInfo
+        self.pageCollectionView.reloadData()
                 print("✅\(self.itemList)")
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
