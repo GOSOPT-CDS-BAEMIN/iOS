@@ -13,9 +13,10 @@ class CartTableSectionHeaderView: UIView {
     
     // MARK: - UI Properties
     
-    private let storeCheckButton: UIButton = {
+    let storeCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
+        button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
         return button
     }()
     
@@ -39,6 +40,11 @@ class CartTableSectionHeaderView: UIView {
         setLayout()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        roundCorners(corners: [.topLeft, .topRight], radius: 8)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -51,7 +57,7 @@ extension CartTableSectionHeaderView {
     private func setLayout() {
         self.addSubviews(storeCheckButton, storeNameLabel, storeDeleteButton)
         self.backgroundColor = .white
-        
+
         storeCheckButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(18)
             $0.leading.equalToSuperview().offset(14)
@@ -69,4 +75,14 @@ extension CartTableSectionHeaderView {
         }
     }
     
+    @objc
+    func changeButton() {
+        if (storeCheckButton.currentImage == .circle_empty) {
+            storeCheckButton.setImage(.checked, for: .normal)
+        }
+        else {
+            storeCheckButton.setImage(.circle_empty, for: .normal)
+        }
+    }
+
 }

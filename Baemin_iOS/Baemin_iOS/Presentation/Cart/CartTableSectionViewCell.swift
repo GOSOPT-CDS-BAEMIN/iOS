@@ -50,6 +50,7 @@ class CartTableSectionViewCell: UITableViewCell {
     private let menuCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
+        button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
         return button
     }()
     
@@ -74,6 +75,7 @@ class CartTableSectionViewCell: UITableViewCell {
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
         button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 8)
+        //button.addTarget(self, action: Selector(changeMinusButton), for: .touchUpInside)
         return button
     }()
 
@@ -156,6 +158,24 @@ private extension CartTableSectionViewCell {
         }
         menuCountLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
+        }
+    }
+    
+    @objc
+    func changeButton() {
+        if (menuCheckButton.currentImage == .circle_empty) {
+            menuCheckButton.setImage(.checked, for: .normal)
+        }
+        else {
+            menuCheckButton.setImage(.circle_empty, for: .normal)
+        }
+    }
+    
+    @objc
+    func changeMinusButton() {
+        if (menuCountLabel.text == "2") {
+            minusButton.setImage(.trashbin, for: .normal)
+            menuCountLabel.text = "1"
         }
     }
 }
