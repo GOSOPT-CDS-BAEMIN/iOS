@@ -92,7 +92,7 @@ class StoreDetailVC: UIViewController {
                 sheet.selectedDetentIdentifier = .medium
                 sheet.largestUndimmedDetentIdentifier = .large
                 sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 32.0
+                sheet.preferredCornerRadius = 10.0
             }
             self.present(bottomSheet, animated: true)
         }
