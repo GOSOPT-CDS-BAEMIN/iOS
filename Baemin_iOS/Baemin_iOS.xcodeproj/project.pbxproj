@@ -745,7 +745,6 @@
 			isa = PBXGroup;
 			children = (
 				F4FC4DF32A2014BC0001F9A6 /* Model */,
-				F4FC4DED2A1FED9C0001F9A6 /* Cells */,
 				F4FC4DDE2A1FD34A0001F9A6 /* Header */,
 				F4FC4DDF2A1FD35B0001F9A6 /* VC */,
 				F4FC4DE82A1FDFDC0001F9A6 /* View */,
@@ -813,6 +812,7 @@
 		F4FC4DFC2A209E7A0001F9A6 /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				F4FC4DED2A1FED9C0001F9A6 /* Cells */,
 				F4FC4DF62A208B470001F9A6 /* TableViewHeaders.swift */,
 				F4FC4DF82A208BD50001F9A6 /* OrderMethodSelect.swift */,
 				F4FC4DFA2A208FE50001F9A6 /* OrderInfoView.swift */,

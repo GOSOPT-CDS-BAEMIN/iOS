@@ -11,6 +11,12 @@ import SnapKit
 
 class MenuView: UIView {
     
+    var firstView = MenuBaseView()
+    var secondView = MenuBaseView()
+    var thirdView = MenuBaseView()
+    var fourthView = MenuBaseView()
+    var fifthView = MenuBaseView()
+    
     var flag: Int = 0
     
     var selectedIndex: Int = 0 {
@@ -49,20 +55,61 @@ class MenuView: UIView {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         
-        addSubview(totalStack)
+        addSubviews(firstView, secondView, thirdView, fourthView, fifthView)
+                
+        var idx = 0
         
         menuItem.forEach {
-            let baseView = MenuBaseView()
-            baseView.menuName.text = $0.name
-            baseView.price.text = $0.price
-            
-            totalStack.addArrangedSubview(baseView)
-            baseView.addGestureRecognizer(tapGesture)
+            switch idx {
+            case 0:
+                firstView.menuName.text = $0.name
+                firstView.price.text = $0.price
+                firstView.addGestureRecognizer(tapGesture)
+            case 1:
+                secondView.menuName.text = $0.name
+                secondView.price.text = $0.price
+                secondView.addGestureRecognizer(tapGesture)
+            case 2:
+                thirdView.menuName.text = $0.name
+                thirdView.price.text = $0.price
+                thirdView.addGestureRecognizer(tapGesture)
+            case 3:
+                fourthView.menuName.text = $0.name
+                fourthView.price.text = $0.price
+                fourthView.addGestureRecognizer(tapGesture)
+            default:
+                fifthView.menuName.text = $0.name
+                fifthView.price.text = $0.price
+                fifthView.addGestureRecognizer(tapGesture)
+            }
+            idx += 1
         }
         
-        totalStack.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        firstView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
         }
+        
+        secondView.snp.makeConstraints {
+            $0.top.equalTo(firstView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        thirdView.snp.makeConstraints {
+            $0.top.equalTo(secondView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        fourthView.snp.makeConstraints {
+            $0.top.equalTo(thirdView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        fifthView.snp.makeConstraints {
+            $0.top.equalTo(fourthView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+        
     }
     
     @objc

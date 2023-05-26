@@ -98,8 +98,20 @@ class StoreDetailVC: UIViewController {
         }
     }
     
+    @objc func moveDataReceived(_ notification: Notification) {
+        let tmp = notification.object as! Int
+        print(tmp)
+
+        if tmp == 1 {
+            let vc = MenuDetailVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("popUp"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(moveDataReceived(_:)), name: NSNotification.Name("gotoMenuDetailVC"), object: nil)
     }
 }
 
