@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class MainFirstPageCell: UICollectionViewCell {
     
@@ -154,12 +155,15 @@ extension MainFirstPageCell {
     }
     
     func bind(_ item: StoreInfo) {
-        mainImage.image = UIImage(named: item.firstImageURL)
+        
+        //if let imageURL = item.firstImageURL {
+            mainImage.getImageFromURL(item.firstImageURL)
+     //   }
+        mainImage.kf.setImage(with: URL(string: item.firstImageURL ?? ""))
+      //  mainImage.image = UIImage(named: item.firstImageURL)
         subImage1.image = UIImage(named: item.secondImageURL)
         subImage2.image = UIImage(named: item.thirdImageURL)
-//        [mainImage, subImage1, subImage2].forEach {
-//            $0.image = UIImage(named: item.firstImageURL.first!.rawValue)
-//        }
+
         storeName.attributedText = NSMutableAttributedString()
             .addImageInBetweenString(firstSentence: item.storeName, image: .yellow_star, lastSentence: "\(item.rate)")
             .withLineSpacing(3)
