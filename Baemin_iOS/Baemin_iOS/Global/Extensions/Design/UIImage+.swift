@@ -63,6 +63,7 @@ extension UIImage {
     static let radio_selected = UIImage(named: "radio_selected")!
     static let radio_delivery = UIImage(named: "radio-delivery")!
     static let radio_pickup = UIImage(named: "radio-pickup")!
+    static let madein = UIImage(named: "madein")!
     
     /// Option
     
@@ -72,6 +73,7 @@ extension UIImage {
     static let recommend = UIImage(named: "recommend")!
     static let vertical_bar = UIImage(named: "vertical_bar")!
     static let review_bar = UIImage(named: "review_bar")!
+    static let famous = UIImage(named: "famous")!
     
     /// Tag
     

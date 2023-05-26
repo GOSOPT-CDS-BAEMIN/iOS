@@ -11,6 +11,8 @@ import SnapKit
 
 class ReviewCommentView: UIView {
      
+    // MARK: - UI Components
+
     // 1. 최근 리뷰 label
     private let recentReview: UILabel = {
         let review = UILabel()
@@ -67,7 +69,8 @@ class ReviewCommentView: UIView {
         return bar
     }()
     
-    // 0. init
+    // MARK: - init func
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayOut()
@@ -77,6 +80,8 @@ class ReviewCommentView: UIView {
         super.init(coder: coder)
         setLayOut()
     }
+    
+    // MARK: - Methods 
     
     private func setLayOut() {
         [recentReview, reviewNum, divider, recentComment, commentNum].forEach {

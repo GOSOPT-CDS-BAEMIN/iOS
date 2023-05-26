@@ -11,7 +11,32 @@ import SnapKit
 
 class DeliveryInfoBaseView: UIView {
     
-    // init
+    // MARK: - UI Components
+    
+    var leftView: UILabel = {
+        let label = UILabel()
+        label.sizeToFit()
+        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
+        return label
+    }()
+    
+    var rightView: UILabel = {
+        let label = UILabel()
+        label.sizeToFit()
+        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
+        return label
+    }()
+    
+    private let deliveryInfoStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.backgroundColor = .clear
+        stackView.sizeToFit()
+        return stackView
+    }()
+    
+    // MARK: - init func
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeStackView()
@@ -21,30 +46,7 @@ class DeliveryInfoBaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // 왼쪽에 쌓일 라벨
-    var leftView: UILabel = {
-        let label = UILabel()
-        label.sizeToFit()
-        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
-        return label
-    }()
-    
-    // 오른쪽에 쌓일 라벨
-    var rightView: UILabel = {
-        let label = UILabel()
-        label.sizeToFit()
-        label.font = UIFont.AppleSDGothicNeo(.regular, size: 16)
-        return label
-    }()
-    
-    // 1. horizontal stack view
-    private let deliveryInfoStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.backgroundColor = .clear
-        stackView.sizeToFit()
-        return stackView
-    }()
+    // MARK: - Methods
     
     private func makeStackView() {
         backgroundColor = .clear

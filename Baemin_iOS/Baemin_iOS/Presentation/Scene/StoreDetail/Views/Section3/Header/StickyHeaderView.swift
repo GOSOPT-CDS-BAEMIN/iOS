@@ -9,7 +9,18 @@ import UIKit
 
 import SnapKit
 
-class StickyTargetHeader: UITableViewHeaderFooterView {
+class StickyHeaderView: UIView {
+    
+    // MARK: - Properties
+    var flag: Int = 0
+    
+    var selectedIndex: Int = 0 {
+        didSet {
+            flag = selectedIndex
+        }
+    }
+    
+    // MARK: - UI Componenets
     
     // 정보 + 스피커 아이콘
     private lazy var infoLabel: UILabel = {
@@ -49,19 +60,25 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
         return control
     }()
     
-    // init
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    // MARK: - Initialize func
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        segmentControl.selectedSegmentIndex = 0
         setStyle()
         setLayOut()
     }
-
+    
     required init?(coder: NSCoder) {
+        super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+
     func setStyle() {
-        contentView.backgroundColor = .clear
+        backgroundColor = .white
     }
     
     func setLayOut() {
@@ -82,14 +99,29 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
             for: .selected
         )
         
-        contentView.addSubview(segmentControl)
-        
-        segmentControl.selectedSegmentIndex = 0
+        addSubview(segmentControl)
         
         segmentControl.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
         }
+        
+        self.segmentControl.addTarget(self, action: #selector(segmentedTouched), for: .valueChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReceived(_:)), name: NSNotification.Name("categoryIndex"), object: nil)
+    }
+    
+    @objc
+    func segmentedTouched(_ sender: Any) {
+        
+        selectedIndex = segmentControl.selectedSegmentIndex
+        NotificationCenter.default.post(name: NSNotification.Name("categoryIndex"), object: flag)
+    }
+    
+    @objc
+    func dataReceived(_ notification: Notification) {
+        let tmp = notification.object as! Int
+        self.segmentControl.selectedSegmentIndex = tmp
     }
 }

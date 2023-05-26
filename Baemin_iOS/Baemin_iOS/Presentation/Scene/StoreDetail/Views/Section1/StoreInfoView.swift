@@ -11,10 +11,11 @@ import SnapKit
 
 class StoreInfoView: UIView {
     
-    // MARK: 1. 가게 대표 이미지 - API 항목 storeImage 추후 반영필요
+    // MARK: - Property
     let storeImage = UIImageView()
     
-    // 0. init
+    // MARK: - init func
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureContents()
@@ -26,9 +27,11 @@ class StoreInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    
     func configureContents() {
         
-        storeImage.contentMode = .scaleAspectFill
+        storeImage.contentMode = .scaleAspectFit
         storeImage.sizeToFit()
         storeImage.image = .dummy.resized(toWidth: UIScreen.main.bounds.width+5)
         storeImage.insetsLayoutMarginsFromSafeArea = false
@@ -37,7 +40,7 @@ class StoreInfoView: UIView {
         
         storeImage.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.top.equalToSuperview().inset(-28)
+            $0.top.equalToSuperview().inset(-30)
         }
     }
 }
