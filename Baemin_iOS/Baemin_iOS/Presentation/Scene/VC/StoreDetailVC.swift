@@ -11,8 +11,8 @@ import SnapKit
 
 class StoreDetailVC: UIViewController {
     
-    private let rowNum = [1, 1, 1, 5, 4]
-    
+    private let rowNum = [1, 1, 10, 5, 4]
+            
     // 0. 전체 TableView
     private let tableView: UITableView = {
         let table = UITableView()
@@ -27,6 +27,8 @@ class StoreDetailVC: UIViewController {
         return table
     }()
     
+    let stickyHead: UIView = StickyHeaderView()
+    
     // 2. viewDidLoad 함수
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +39,22 @@ class StoreDetailVC: UIViewController {
     
     private func setStyle() {
         view.backgroundColor = .white
+        stickyHead.isHidden = true
     }
     
     // 레이아웃 세팅
     private func setLayOut() {
-        
-        view.addSubview(tableView)
+            
+        view.addSubviews(tableView, stickyHead)
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        stickyHead.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview().inset(97)
+            $0.height.equalTo(40)
         }
     }
     
@@ -53,7 +62,7 @@ class StoreDetailVC: UIViewController {
         tableView.register(StoreInfoCell.self, forCellReuseIdentifier: StoreInfoCell.identifier)
         tableView.register(OrderMethodSelectView.self, forHeaderFooterViewReuseIdentifier: OrderMethodSelectView.identifier)
         tableView.register(OrderInfoCell.self, forCellReuseIdentifier: OrderInfoCell.identifier)
-        
+        tableView.register(StickyTargetHeader.self, forHeaderFooterViewReuseIdentifier: StickyTargetHeader.identifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -64,7 +73,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     // 각 섹션마다의 셀 개수 정의
@@ -91,8 +100,11 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0:
             return nil
-        default:
+        case 1:
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: OrderMethodSelectView.identifier) as! OrderMethodSelectView
+            return view
+        default:
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: StickyTargetHeader.identifier) as! StickyTargetHeader
             return view
         }
     }
@@ -103,5 +115,12 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+}
+
+extension StoreDetailVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let shouldShowSticky = scrollView.contentOffset.y >= 650
+        stickyHead.isHidden = !shouldShowSticky
     }
 }

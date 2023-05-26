@@ -6,15 +6,15 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class PickUpView: UIView {
     
     private let emptyView: UIImageView = {
         let empty = UIImageView()
-        empty.image = UIImage.empty_1.resized(toWidth: UIScreen.main.bounds.width)
+        empty.image = UIImage.empty_1.resized(withPercentage: 1.3)
         empty.sizeToFit()
-        empty.contentMode = .scaleAspectFill
         return empty
     }()
     
@@ -23,7 +23,8 @@ class PickUpView: UIView {
         addSubview(emptyView)
         
         emptyView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalToSuperview()
         }
     }
     
