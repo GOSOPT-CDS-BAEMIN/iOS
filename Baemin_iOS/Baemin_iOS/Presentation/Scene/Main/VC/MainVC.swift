@@ -161,6 +161,8 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.items = item
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
+           //     guard let index = index else { return }
+                vc.index = index
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
@@ -174,7 +176,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let pageIndexPath = IndexPath(item: indexPath.item, section: 0)
             pageCollectionView.scrollToItem(at: pageIndexPath, at: .centeredHorizontally, animated: true)
             requstMainAPI(index: indexPath.item)
-            print("🧸\(indexPath.item)")
+           
             
         } else if collectionView == pageCollectionView {
             let middleIndex = collectionView.bounds.width / 2

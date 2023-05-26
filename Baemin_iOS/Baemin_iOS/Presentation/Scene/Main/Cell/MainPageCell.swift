@@ -85,7 +85,7 @@ extension MainPageCell: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.indexClosure?(indexPath.item)
+        self.indexClosure?(items[indexPath.item].storeID)
 
     }
 }

@@ -16,6 +16,7 @@ class StoreDetailVC: UIViewController {
     private let rowNum = [1, 1, 1, 5, 4]
     private let tabelViewHeaders = TableViewHeaders()
     private let stickyHead: UIView = StickyHeaderView()
+    var index: Int = 0
         
     // MARK: - UI Components
 
@@ -89,6 +90,7 @@ class StoreDetailVC: UIViewController {
         
         if tmp == 1 {
             let bottomSheet = ReviewBottomSheetVC()
+            bottomSheet.index = self.index
             
             if let sheet = bottomSheet.sheetPresentationController {
                 sheet.detents = [.medium()]

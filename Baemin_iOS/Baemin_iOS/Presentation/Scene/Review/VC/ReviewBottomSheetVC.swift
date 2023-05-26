@@ -13,6 +13,7 @@ class ReviewBottomSheetVC: UIViewController {
     
     // MARK: - Properties
     
+    var index: Int = 0
     private var items: [Food] = []
     private var selectedIndices: Set<Int> = []
     
@@ -53,7 +54,7 @@ class ReviewBottomSheetVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.requestReview(index: 1)
+        self.requestReview(index: self.index)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +126,7 @@ extension ReviewBottomSheetVC: UICollectionViewDelegate, UICollectionViewDataSou
         let cell: ReviewCell = collectionView.dequeueReusableCell(for: indexPath)
         if indexPath.item < items.count {
             cell.bind(item: items[indexPath.item])
-        }
+       }
         return cell
     }
     
@@ -152,7 +153,7 @@ extension ReviewBottomSheetVC: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension ReviewBottomSheetVC {
     func requestReview(index: Int) {
-        StoreAPI.shared.getStoreInfo(request: index){response in
+        StoreAPI.shared.getStoreInfo(request: index) {response in
             print("🍀🍀🍀 response 🍀🍀🍀")
             print(response)
             switch response {
