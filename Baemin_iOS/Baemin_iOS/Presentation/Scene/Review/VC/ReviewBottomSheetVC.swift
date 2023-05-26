@@ -13,7 +13,6 @@ class ReviewBottomSheetVC: UIViewController {
     
     // MARK: - Properties
     
-    private var item: [Item] = Item.dummy()
     private var items: [Food] = []
     private var selectedIndices: Set<Int> = []
     
@@ -119,15 +118,14 @@ extension ReviewBottomSheetVC {
 
 extension ReviewBottomSheetVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return item.count
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ReviewCell = collectionView.dequeueReusableCell(for: indexPath)
-//        if let items = self.items {
- //       cell.bind(item: items[indexPath.item])
-//        }
-//        cell.bind(item: items )
+        if indexPath.item < items.count {
+            cell.bind(item: items[indexPath.item])
+        }
         return cell
     }
     
@@ -160,12 +158,9 @@ extension ReviewBottomSheetVC {
             switch response {
             case .success(let data):
                 guard let data = data as? StoreResponseDTO else { return }
-//                for item in data.data.foods {
-//                    self.items.append(item)
-//                }
-                self.items = data.data.foods
+                let dataArray = data.data.foods
+                self.items = dataArray
                 self.collectionView.reloadData()
-                //   self.pageCollectionView.reloadData()
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
