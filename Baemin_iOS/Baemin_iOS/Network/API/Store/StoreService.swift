@@ -2,10 +2,12 @@
 //  StoreService.swift
 //  Baemin_iOS
 //
-//  Created by JEONGEUN KIM on 2023/05/24.
+//  Created by JEONGEUN KIM on 2023/05/26.
 //
 
 import Foundation
+
+import Alamofire
 
 enum StoreService {
     case getStore(id: Int)

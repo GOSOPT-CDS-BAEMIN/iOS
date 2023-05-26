@@ -42,6 +42,7 @@ class MainPageCell: UICollectionViewCell {
         super.init(frame: .zero)
         setStyle()
         setLayout()
+       
     }
     
     required init?(coder: NSCoder) {
@@ -81,6 +82,8 @@ extension MainPageCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.indexClosure?(indexPath.item)
+       // var itemClosure?(self.collectionView.reloadData())
+
     }
 }
 extension MainPageCell: UICollectionViewDelegateFlowLayout {
