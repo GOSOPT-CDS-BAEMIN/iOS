@@ -26,6 +26,16 @@ class MenuDetailVC: UIViewController {
         return image
     }()
     
+    private lazy var saveButon: UIButton = {
+        let button = UIButton()
+        button.setTitle("담기", for: .normal)
+        button.backgroundColor = .primary_2
+        button.makeCornerRound(radius: 2)
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -43,7 +53,7 @@ extension MenuDetailVC {
     }
     
     private func setLayout() {
-        view.addSubviews(menuImage, menuView, naviView)
+        view.addSubviews(menuImage, menuView, naviView, saveButon)
         
         naviView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
@@ -62,5 +72,16 @@ extension MenuDetailVC {
             $0.directionalHorizontalEdges.equalTo(safeArea)
             $0.height.equalTo(250)
         }
+        saveButon.snp.makeConstraints {
+            $0.bottom.equalTo(safeArea).inset(10)
+            $0.directionalHorizontalEdges.equalTo(safeArea).inset(11)
+            $0.height.equalTo(50)
+        }
+    }
+    
+    @objc
+    func saveButtonTapped() {
+        let vc = CartViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

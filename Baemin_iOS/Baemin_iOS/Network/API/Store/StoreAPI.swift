@@ -2,7 +2,7 @@
 //  StoreAPI.swift
 //  Baemin_iOS
 //
-//  Created by JEONGEUN KIM on 2023/05/24.
+//  Created by JEONGEUN KIM on 2023/05/26.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class StoreAPI: BaseAPI {
-    static let shared = MainAPI()
+    static let shared = StoreAPI()
     
     private(set) var getMainStoreData: StoreResponseDTO?
     private override init() {}

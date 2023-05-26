@@ -83,8 +83,10 @@ extension ReviewCell {
         iconImage.image = isTapped ? .checked : .circle_empty
     }
     
-    func bind(item: Item) {
-        menuLabel.text = item.menu
+    func bind(item: Food ) {
+        menuLabel.text = item.foodName
+        print("✅\(menuLabel.text)")
+
     }
 }
 

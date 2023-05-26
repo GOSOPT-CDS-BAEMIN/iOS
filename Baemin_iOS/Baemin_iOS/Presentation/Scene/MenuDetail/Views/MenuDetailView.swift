@@ -62,7 +62,7 @@ class MenuDetailView: UIView {
     }()
     
     private var menuCountButton =  MenuCountView()
-
+    
     init() {
         super.init(frame: .zero)
         setStyle()

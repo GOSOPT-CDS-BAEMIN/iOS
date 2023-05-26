@@ -226,7 +226,7 @@ extension MainVC {
                     self.item.append(item)
                     print("💎\(self.item)")
                 }
-             //   self.pageCollectionView.reloadData()
+               self.pageCollectionView.reloadData()
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
