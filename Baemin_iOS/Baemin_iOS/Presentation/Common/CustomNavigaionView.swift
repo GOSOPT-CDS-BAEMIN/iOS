@@ -15,7 +15,7 @@ final class CustomNavigaionView: UIView {
     
     // MARK: - UI Components
     
-    private lazy var backButton: ButtonStackView = {
+    lazy var backButton: ButtonStackView = {
         let back = ButtonStackView()
         return back
     }()

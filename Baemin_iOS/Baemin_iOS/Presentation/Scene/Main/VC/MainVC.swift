@@ -64,7 +64,6 @@ class MainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTabBarCollectioView()
-      //  requstMainAPI(index: 1)
     }
     
     override func viewDidLoad() {
@@ -85,8 +84,6 @@ extension MainVC {
             let minumPrice = item.storeType
             if minumPrice == "1인분" {
                 requstMainAPI(index: 1)
-               // self.pageCollectionView.reloadData()
-                
             }
         }
     }
@@ -95,7 +92,7 @@ extension MainVC {
         tabBarcollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: 0, section: 0)
         tabBarcollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-        requstMainAPI(index: 1)
+        requstMainAPI(index: 0)
     }
     
     private func register() {
@@ -171,6 +168,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
             cell.items = item
+           
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
                 self?.navigationController?.pushViewController(vc, animated: true)
