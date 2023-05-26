@@ -105,7 +105,6 @@
 		F4FC4DF92A208BD50001F9A6 /* OrderMethodSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DF82A208BD50001F9A6 /* OrderMethodSelect.swift */; };
 		F4FC4DFB2A208FE50001F9A6 /* OrderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DFA2A208FE50001F9A6 /* OrderInfoView.swift */; };
 		F4FC4E002A20A78A0001F9A6 /* ReviewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4DFF2A20A78A0001F9A6 /* ReviewTab.swift */; };
-		F4FC4E032A20AC0D0001F9A6 /* MoveToFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC4E022A20AC0D0001F9A6 /* MoveToFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,7 +211,6 @@
 		F4FC4DF82A208BD50001F9A6 /* OrderMethodSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMethodSelect.swift; sourceTree = "<group>"; };
 		F4FC4DFA2A208FE50001F9A6 /* OrderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoView.swift; sourceTree = "<group>"; };
 		F4FC4DFF2A20A78A0001F9A6 /* ReviewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTab.swift; sourceTree = "<group>"; };
-		F4FC4E022A20AC0D0001F9A6 /* MoveToFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToFilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,7 +821,6 @@
 		F4FC4E012A20ABF60001F9A6 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				F4FC4E022A20AC0D0001F9A6 /* MoveToFilterView.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -968,7 +965,6 @@
 				09C29F592A1DA4A200BAE541 /* ReviewCell.swift in Sources */,
 				093DB0472A1749A300ECA5F6 /* UIView+.swift in Sources */,
 				F4FC4DB82A1D59300001F9A6 /* StoreInfoView.swift in Sources */,
-				F4FC4E032A20AC0D0001F9A6 /* MoveToFilterView.swift in Sources */,
 				F4FC4DEC2A1FE2170001F9A6 /* MenuDescriptionView.swift in Sources */,
 				09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */,
 				0918E0142A1BEF8B005B6542 /* MainItem.swift in Sources */,
