@@ -73,6 +73,7 @@ extension UIImage {
     static let recommend = UIImage(named: "recommend")!
     static let vertical_bar = UIImage(named: "vertical_bar")!
     static let review_bar = UIImage(named: "review_bar")!
+    static let famous = UIImage(named: "famous")!
     
     /// Tag
     

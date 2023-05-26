@@ -14,6 +14,7 @@ class MenuBaseView: UIView {
     var menuName: UILabel = {
         let label = UILabel()
         label.sizeToFit()
+        label.clipsToBounds = true
         label.font = .AppleSDGothicNeo(.bold, size: 16.0)
         return label
     }()
@@ -21,13 +22,14 @@ class MenuBaseView: UIView {
     var price: UILabel = {
         let label = UILabel()
         label.sizeToFit()
+        label.clipsToBounds = true
         label.font = .AppleSDGothicNeo(.bold, size: 16.0)
         return label
     }()
     
     var foodImg: UIImageView = {
         let food = UIImageView()
-        food.makeCornerRound(radius: 3.81)
+        food.makeCornerRound(radius: 10)
         food.image = .dummy.resized(toWidth: 94)
         food.sizeToFit()
         return food
@@ -36,7 +38,7 @@ class MenuBaseView: UIView {
     lazy var gold_divider: UIView = {
         var width = UIScreen.main.bounds.width
         let xPosition = CGFloat(0.0)
-        let yPosition = self.bounds.size.height - 1.0
+        let yPosition = self.bounds.size.height
         let frame = CGRect(x: xPosition, y: yPosition, width: width, height: 1.0)
         let view = UIView(frame: frame)
         view.backgroundColor = UIColor.sub_8
@@ -44,80 +46,51 @@ class MenuBaseView: UIView {
         return view
     }()
     
-    private let infoStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.backgroundColor = .clear
-        stackView.sizeToFit()
-        return stackView
-    }()
+    private let cellView = UIView()
     
-    private let textStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.backgroundColor = .clear
-        stackView.sizeToFit()
-        return stackView
-    }()
-    
-    private func makeTextStack() {
+    private func setView() {
         backgroundColor = .clear
+        cellView.backgroundColor = .clear
         
-        textStack.addArrangedSubviews(menuName, price)
+        cellView.addSubviews(menuName, price, foodImg, gold_divider)
+        addSubview(cellView)
         
-        addSubview(textStack)
-        
-        textStack.setCustomSpacing(16.0, after: menuName)
+        cellView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
         menuName.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
-            $0.width.equalTo(86)
+            $0.top.equalToSuperview().inset(14)
+            $0.leading.equalToSuperview().inset(32)
+            $0.trailing.equalTo(foodImg.snp.leading)
+            $0.height.equalTo(25)
         }
         
         price.snp.makeConstraints {
-            $0.leading.equalTo(menuName.snp.leading)
-            $0.bottom.equalToSuperview()
-            $0.width.equalTo(64)
-        }
-    }
-    
-    private func makeTotalStack() {
-        backgroundColor = .clear
-        
-        infoStack.addArrangedSubviews(textStack, foodImg)
-        
-        addSubviews(infoStack, gold_divider)
-        
-        infoStack.setCustomSpacing(54.0, after: textStack)
-        
-        infoStack.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(32)
-            $0.bottom.equalToSuperview().inset(14)
-        }
-        
-        textStack.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
-            $0.height.equalTo(38)
-            $0.width.equalTo(162)
+            $0.top.equalTo(menuName.snp.bottom).offset(14)
+            $0.leading.equalToSuperview().inset(32)
+            $0.trailing.equalTo(foodImg.snp.leading)
+            $0.height.equalTo(25)
         }
         
         foodImg.snp.makeConstraints {
-            $0.trailing.top.bottom.equalToSuperview()
+            $0.top.equalToSuperview().inset(14)
+            $0.trailing.equalToSuperview().inset(32)
+            $0.height.equalTo(96)
+            $0.width.equalTo(96)
         }
         
         gold_divider.snp.makeConstraints {
-            $0.top.equalTo(infoStack.snp.bottom).offset(14.29)
-            $0.leading.trailing.equalToSuperview().inset(15.5)
+            $0.top.equalTo(foodImg.snp.bottom).offset(14.29)
+            $0.leading.trailing.equalToSuperview().inset(15)
             $0.bottom.equalToSuperview()
+            $0.height.equalTo(1.0)
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setLayOut()
-        makeTextStack()
-        makeTotalStack()
+        setView()
     }
     
     required init?(coder: NSCoder) {

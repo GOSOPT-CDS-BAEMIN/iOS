@@ -11,7 +11,7 @@ import SnapKit
 
 class StoreDetailVC: UIViewController {
     
-    private let rowNum = [1, 1, 5, 5, 4]
+    private let rowNum = [1, 1, 1, 5, 4]
     
     var tableViewData: [SubMainItem] = [] {
         didSet {
@@ -82,7 +82,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
     
     // 각 섹션마다의 셀 개수 정의

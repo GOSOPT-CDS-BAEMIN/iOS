@@ -12,7 +12,15 @@ import SnapKit
 class MenuVC: UIViewController {
     
     let descriptionView = MenuDescriptionView()
-
+    let menuView = MenuView()
+    
+    private let famous: UIImageView = {
+        let view = UIImageView()
+        view.image = .famous
+        view.sizeToFit()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -25,13 +33,24 @@ class MenuVC: UIViewController {
     }
     
     func setLayOut() {
-        view.addSubview(descriptionView)
+        
+        view.addSubviews(descriptionView, famous, menuView)
         
         descriptionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.top.equalToSuperview().inset(21)
-            $0.bottom.equalToSuperview()
+            $0.height.equalTo(108)
+        }
+        
+        famous.snp.makeConstraints {
+            $0.top.equalTo(descriptionView.snp.bottom).offset(72)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(22)
+        }
+        
+        menuView.snp.makeConstraints {
+            $0.top.equalTo(famous.snp.bottom).offset(20)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
-
 }
