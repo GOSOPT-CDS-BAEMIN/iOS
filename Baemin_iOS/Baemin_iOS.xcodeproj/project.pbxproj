@@ -593,9 +593,7 @@
 				0918E00B2A1BE9E2005B6542 /* Main */,
 				09C18F772A1E27E000AA0F2F /* MenuDetail */,
 				09C29F502A1D485E00BAE541 /* Review */,
-				F4FC4DAA2A1D58360001F9A6 /* Cells */,
-				F4587D182A12B2CB00F56BCD /* VC */,
-				F4587D192A12B2DB00F56BCD /* Views */,
+				F4FC4E042A20DC330001F9A6 /* StoreDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -702,8 +700,11 @@
 		F4587D192A12B2DB00F56BCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F4FC4DC22A1D5E740001F9A6 /* StoreDetail */,
+				F4FC4DC02A1D5E540001F9A6 /* Section1 */,
+				F4FC4DBF2A1D5E2E0001F9A6 /* Section2 */,
+				F4FC4DC12A1D5E5D0001F9A6 /* Section3 */,
 				F4587D1C2A12B46E00F56BCD /* view.swift */,
+				F4FC4DC22A1D5E740001F9A6 /* StoreDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -754,9 +755,6 @@
 		F4FC4DC22A1D5E740001F9A6 /* StoreDetail */ = {
 			isa = PBXGroup;
 			children = (
-				F4FC4DC02A1D5E540001F9A6 /* Section1 */,
-				F4FC4DBF2A1D5E2E0001F9A6 /* Section2 */,
-				F4FC4DC12A1D5E5D0001F9A6 /* Section3 */,
 			);
 			name = StoreDetail;
 			sourceTree = "<group>";
@@ -823,6 +821,16 @@
 			children = (
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F4FC4E042A20DC330001F9A6 /* StoreDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F4587D192A12B2DB00F56BCD /* Views */,
+				F4587D182A12B2CB00F56BCD /* VC */,
+				F4FC4DAA2A1D58360001F9A6 /* Cells */,
+			);
+			path = StoreDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
