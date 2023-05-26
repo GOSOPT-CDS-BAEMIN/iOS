@@ -114,7 +114,7 @@ class CartTableSectionFooterView: UIView {
 // MARK: - Methods
 
 extension CartTableSectionFooterView {
-    
+        
     private func setLayout() {
         self.addSubviews(firstFooterStackView, lineView_1, addMenuButton, lineView_2, thirdFooterStackView)
         firstFooterStackView.addSubviews(deliveryCheckButton, pickupCheckButton)

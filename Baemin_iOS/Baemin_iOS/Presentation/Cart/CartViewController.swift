@@ -11,15 +11,14 @@ import SnapKit
 
 class CartViewController: UIViewController {
     
-    // MARK: - UI Properties
+     // MARK: - UI Properties
 
-    private let cartNetworkManager = CartNetworkManager.shared
     private var buttonStates: [Bool] = []
     private let cartTabView = CartTabView()
     private let cartView = CartPriceView()
     private let payView = payButtonView()
     private let cartNavi = CustomNavigaionView(type1: .cart(.leftButton), type2: .cart(.rightButton))
-    
+ //   let count: [Int] = []
     private var cartArray: [FoodsList] = []
     private var totalPrice: Int = 0
     private var totalCount: Int = 0
@@ -45,6 +44,11 @@ class CartViewController: UIViewController {
         return tableview
     }()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestCartAPI (index: 0)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
@@ -52,19 +56,9 @@ class CartViewController: UIViewController {
         didTapButton()
         cartTableView.dataSource = self
         cartTableView.delegate = self
-        
-        getCartData {
-            self.cartTableView.reloadData()
-            self.cartArray.forEach { foodList in
-                let foods = foodList.foods
-                foods.forEach {
-                    self.totalCount += $0.foodCount
-                    let perPrice = $0.price * $0.foodCount
-                    self.totalPrice += perPrice
-                }
-            }
-        }
     }
+
+    
 }
 
 // MARK: - Methods
@@ -117,8 +111,9 @@ private extension CartViewController {
         cartTableView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(12)
-            $0.height.equalTo(numberOfSections(in: cartTableView)*600)
-            // $0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
+//            $0.height.equalTo(numberOfSections(in: cartTableView)*600)
+            $0.height.equalTo(cartArray.count*600)
+        // $0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
         }
         cartView.snp.makeConstraints {
             $0.top.equalTo(cartTableView.snp.bottom)
@@ -135,7 +130,8 @@ class ScrollableSectionHeaderView: UITableViewCell {
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2 //cartArray.count // 서버 연결하면 장바구니의 가게 수로 바꾸기
+        print("🤢\(cartArray.count)")
+        return cartArray.count //cartArray.count // 서버 연결하면 장바구니의 가게 수로 바꾸기
     }
             
     // section header 설정
@@ -176,12 +172,23 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     // section 내부 cell 설정
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2 //cartArray[section].foods.count  // 서버 연결하면 장바구니 가게의 메뉴 수로 바꾸기
+        var count: Int = 0
+        for item in 0..<cartArray[section].storeID {
+            count = item
+        }
+        print("🤤\(count)")
+        return  count  // 서버 연결하면 장바구니 가게의 메뉴 수로 바꾸기
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartTableSectionViewCell.identifier, for: indexPath) as? CartTableSectionViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
+      // cell.(cartArray[indexPath.item], ind) //cell에 바인드함수 만들기
+//        for item in cartArray {
+        cell.dataBind(item:cartArray[indexPath.item] , index: indexPath.item)
+//
+//        }
+//        cell.dataBind(item: cartArray[indexPath.row], index: indexPath.item)
         cell.countClosure = { [weak self] result in
             if result {
                 if !cell.menuCheckButton.isSelected {
@@ -204,18 +211,44 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+//extension CartViewController {
+//    func getCartData(completion: @escaping () -> Void) {
+//        cartNetworkManager.fetchCartList { response in
+//            switch response {
+//            case .success(let data):
+//                guard let data = data as? CartListModel else {
+//                    return }
+//                self.cartArray = data.data
+//                completion()
+//            default:
+//                print("NetworkFailed")
+//                completion()
+//            }
+//        }
+//    }
+//}
+
+
 extension CartViewController {
-    func getCartData(completion: @escaping () -> Void) {
-        cartNetworkManager.fetchCartList { response in
+    func requestCartAPI (index: Int) {
+        CartAPI.shared.getCart(id: index + 1) { response in
+            print("🍀🍀🍀 response 🍀🍀🍀")
+            print(response)
             switch response {
             case .success(let data):
-                guard let data = data as? CartListModel else {
-                    return }
-                self.cartArray = data.data
-                completion()
+                guard let data = data as? CartResponseDTO else { return }
+              //self.cartArray = data.data.storeInfo
+                let dataArray = data.data
+                for item in dataArray {
+                   self.cartArray.append(item)
+                }
+                self.cartTableView.reloadData()
+                print(data.data)
+                //print("✅\(self.itemList)")
+                print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
-                print("NetworkFailed")
-                completion()
+                print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
+                print(response)
             }
         }
     }

@@ -338,6 +338,7 @@
 		09C29F3C2A1D1E3F00BAE541 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				8DE8E0642A2091FB00F03A63 /* CartResponseDTO.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -480,7 +481,6 @@
 		F4587CE92A0F609E00F56BCD = {
 			isa = PBXGroup;
 			children = (
-				8DE8E0642A2091FB00F03A63 /* CartResponseDTO.swift */,
 				F4587D382A12BD1000F56BCD /* .swiftlint.yml */,
 				F4587CF42A0F609E00F56BCD /* Baemin_iOS */,
 				F4587CF32A0F609E00F56BCD /* Products */,

@@ -38,14 +38,14 @@ class CartTableSectionViewCell: UITableViewCell {
     
     private let menuNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "test 메뉴이름"
+        // label.text = "test 메뉴이름"
         label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
     
     private let menuPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "test 메뉴가격"
+        // label.text = "test 메뉴가격"
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         return label
     }()
@@ -76,8 +76,14 @@ class CartTableSectionViewCell: UITableViewCell {
 
 // MARK: - Methods
 
-private extension CartTableSectionViewCell {
+extension CartTableSectionViewCell {
     
+    func dataBind(item: FoodsList, index: Int) {
+        menuNameLabel.text = item.storeName
+        menuPriceLabel.text = "\(item.foods[index].price)원"
+        menuCountView.numberLabel.text = "\(item.foods[index].foodCount)"
+        }
+
     func setStyle() {
         self.backgroundColor = .white
     }
@@ -115,6 +121,7 @@ private extension CartTableSectionViewCell {
             $0.height.equalTo(32)
         }
     }
+    
     @objc
     func changeButton() {
         self.countClosure?(true)
