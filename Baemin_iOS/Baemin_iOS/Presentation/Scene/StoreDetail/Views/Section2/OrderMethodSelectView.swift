@@ -11,6 +11,8 @@ import SnapKit
 
 class OrderMethodSelectView: UITableViewHeaderFooterView {
     
+    // MARK: - Properties
+
     var flag: Int = 0
     
     var selectedIndex: Int = 0 {
@@ -19,6 +21,8 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         }
     }
     
+    // MARK: - UI Components
+
     private var delivery_stack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -101,6 +105,24 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         return stackView
     }()
     
+    // MARK: - initialize func
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        
+        configureContents()
+        setStyle()
+        
+        delivery.addTarget(self, action: #selector(deliveryTouched), for: .touchUpInside)
+        pickUp.addTarget(self, action: #selector(pickUpTouched), for: .touchUpInside)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods
+    
     func configureContents() {
     
         delivery_stack.addArrangedSubviews(delivery, delivery_line)
@@ -160,21 +182,6 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    // init
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        
-        configureContents()
-        setStyle()
-        
-        delivery.addTarget(self, action: #selector(deliveryTouched), for: .touchUpInside)
-        pickUp.addTarget(self, action: #selector(pickUpTouched), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setStyle() {

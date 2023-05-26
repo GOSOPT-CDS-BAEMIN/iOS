@@ -11,8 +11,12 @@ import SnapKit
 
 class OrderInfoCell: UITableViewCell {
     
+    // MARK: - Properties
+    
     let deliveryView = DeliveryView()
     let pickUpView = PickUpView()
+    
+    // MARK: - init func
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,6 +30,8 @@ class OrderInfoCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI Components
+    
     private var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -34,6 +40,8 @@ class OrderInfoCell: UITableViewCell {
         stack.sizeToFit()
         return stack
     }()
+    
+    // MARK: - Methods
     
     func setStyle() {
         contentView.backgroundColor = .white
