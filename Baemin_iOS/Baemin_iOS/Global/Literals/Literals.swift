@@ -56,4 +56,9 @@ struct I18N {
         ★ 중국 전통 도삭면, 산시도삭면 홍대에 오픈했습니다!!★
         """
     }
+    
+    struct MenuDetail {
+        static let minumumPrice = "배달최소주문금액"
+        static let save = "담기"
+    }
 }

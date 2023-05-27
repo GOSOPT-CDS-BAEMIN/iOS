@@ -29,6 +29,10 @@
 		09665C182A20D30D007EB872 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09665C172A20D30D007EB872 /* MainService.swift */; };
 		096F44002A20EBFD00C87CC0 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F43FF2A20EBFD00C87CC0 /* StoreAPI.swift */; };
 		096F44022A20EDCB00C87CC0 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F44012A20EDCB00C87CC0 /* StoreService.swift */; };
+		096F44052A21365600C87CC0 /* MenuDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F44042A21365600C87CC0 /* MenuDetailAPI.swift */; };
+		096F44082A21366B00C87CC0 /* MenuDetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F44072A21366B00C87CC0 /* MenuDetailResponseDTO.swift */; };
+		096F440B2A21369000C87CC0 /* MenuDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F440A2A21369000C87CC0 /* MenuDetailService.swift */; };
+		096F440D2A21433A00C87CC0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F440C2A21433A00C87CC0 /* Utils.swift */; };
 		097BC9BA2A1ED2C400DFBAE2 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BC9B92A1ED2C400DFBAE2 /* CALayer+.swift */; };
 		09B06DCE2A175B470062A6F7 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DCC2A17570D0062A6F7 /* UIFont+.swift */; };
 		09B06DD12A1775150062A6F7 /* CustomNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */; };
@@ -140,6 +144,10 @@
 		09665C172A20D30D007EB872 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		096F43FF2A20EBFD00C87CC0 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		096F44012A20EDCB00C87CC0 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
+		096F44042A21365600C87CC0 /* MenuDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailAPI.swift; sourceTree = "<group>"; };
+		096F44072A21366B00C87CC0 /* MenuDetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailResponseDTO.swift; sourceTree = "<group>"; };
+		096F440A2A21369000C87CC0 /* MenuDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailService.swift; sourceTree = "<group>"; };
+		096F440C2A21433A00C87CC0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		097BC9B92A1ED2C400DFBAE2 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		09B06DCC2A17570D0062A6F7 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigaionView.swift; sourceTree = "<group>"; };
@@ -288,6 +296,30 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		096F44032A21364800C87CC0 /* MenuDetail */ = {
+			isa = PBXGroup;
+			children = (
+				096F44042A21365600C87CC0 /* MenuDetailAPI.swift */,
+			);
+			path = MenuDetail;
+			sourceTree = "<group>";
+		};
+		096F44062A21365B00C87CC0 /* MenuDetail */ = {
+			isa = PBXGroup;
+			children = (
+				096F44072A21366B00C87CC0 /* MenuDetailResponseDTO.swift */,
+			);
+			path = MenuDetail;
+			sourceTree = "<group>";
+		};
+		096F44092A21368700C87CC0 /* MenuDetail */ = {
+			isa = PBXGroup;
+			children = (
+				096F440A2A21369000C87CC0 /* MenuDetailService.swift */,
+			);
+			path = MenuDetail;
+			sourceTree = "<group>";
+		};
 		09C18F762A1E1BD900AA0F2F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				096F43FF2A20EBFD00C87CC0 /* StoreAPI.swift */,
-				096F44012A20EDCB00C87CC0 /* StoreService.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -416,6 +447,7 @@
 		09C29F482A1D1ECF00BAE541 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				096F44012A20EDCB00C87CC0 /* StoreService.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -620,6 +652,7 @@
 				09B06DD02A1775150062A6F7 /* CustomNavigaionView.swift */,
 				09B06DD22A1776120062A6F7 /* ButtonStackView.swift */,
 				F4FC4DA82A1D56A20001F9A6 /* DeliveryInfoBaseView.swift */,
+				096F440C2A21433A00C87CC0 /* Utils.swift */,
 				F4FC4DF12A200B5C0001F9A6 /* MenuBaseView.swift */,
 			);
 			path = Common;
@@ -658,6 +691,7 @@
 		F4587D142A12B2A700F56BCD /* API */ = {
 			isa = PBXGroup;
 			children = (
+				096F44032A21364800C87CC0 /* MenuDetail */,
 				09C29F352A1D1DF100BAE541 /* Cart */,
 				09C29F342A1D1DE700BAE541 /* Food */,
 				09C29F332A1D1DD900BAE541 /* Store */,
@@ -683,6 +717,7 @@
 		F4587D162A12B2B500F56BCD /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				096F44062A21365B00C87CC0 /* MenuDetail */,
 				09C29F432A1D1E9000BAE541 /* Main */,
 				09C29F402A1D1E6F00BAE541 /* Store */,
 				09C29F3F2A1D1E4C00BAE541 /* Food */,
@@ -694,6 +729,7 @@
 		F4587D172A12B2BC00F56BCD /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				096F44092A21368700C87CC0 /* MenuDetail */,
 				09C29F492A1D1ED300BAE541 /* Main */,
 				09C29F482A1D1ECF00BAE541 /* Store */,
 				09C29F472A1D1ECB00BAE541 /* Food */,
@@ -987,6 +1023,7 @@
 				09665C182A20D30D007EB872 /* MainService.swift in Sources */,
 				091B104A2A1EE2B100BF19E5 /* MainOptionCell.swift in Sources */,
 				F4587D2D2A12B4CD00F56BCD /* Literals.swift in Sources */,
+				096F440B2A21369000C87CC0 /* MenuDetailService.swift in Sources */,
 				8D96F36A2A1DFC2C004034F9 /* payButtonView.swift in Sources */,
 				09C29F422A1D1E8500BAE541 /* StoreResponseDTO.swift in Sources */,
 				09C29F542A1D488D00BAE541 /* ReviewBottomSheetVC.swift in Sources */,
@@ -1008,6 +1045,7 @@
 				F4FC4DF52A2014D00001F9A6 /* MenuInfo.swift in Sources */,
 				8D5530C72A188867005BC008 /* CartTableSectionViewCell.swift in Sources */,
 				096F44022A20EDCB00C87CC0 /* StoreService.swift in Sources */,
+				096F440D2A21433A00C87CC0 /* Utils.swift in Sources */,
 				091B104C2A1EE58000BF19E5 /* OptionItem.swift in Sources */,
 				8D5530C72A188867005BC008 /* CartTableSectionViewCell.swift in Sources */,
 				09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */,
@@ -1018,9 +1056,11 @@
 				F4FC4DF72A208B470001F9A6 /* TableViewHeaders.swift in Sources */,
 				F4FC4DAC2A1D58540001F9A6 /* OrderInfoCell.swift in Sources */,
 				09C29F252A1D0AB100BAE541 /* NetworkResult.swift in Sources */,
+				096F44052A21365600C87CC0 /* MenuDetailAPI.swift in Sources */,
 				097BC9BA2A1ED2C400DFBAE2 /* CALayer+.swift in Sources */,
 				8D10FA4B2A13ED4100F40F2A /* UIColor+.swift in Sources */,
 				09C29F3B2A1D1E1C00BAE541 /* CartAPI.swift in Sources */,
+				096F44082A21366B00C87CC0 /* MenuDetailResponseDTO.swift in Sources */,
 				F4FC4E002A20A78A0001F9A6 /* ReviewTab.swift in Sources */,
 				09C29F5B2A1DABB600BAE541 /* CustomButton.swift in Sources */,
 				09C29F4F2A1D1F4A00BAE541 /* FoodService.swift in Sources */,

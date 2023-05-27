@@ -12,10 +12,15 @@ import SnapKit
 class MainVC: UIViewController {
     
     // MARK: - Properties
-    
+
+    var useOneItemIndex: Int = 0
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
-  //  var oneService: [MainData] = []
     var item: [MainData] = []
+    var oneItem: [MainData] = [] {
+        didSet {
+            pageCollectionView.reloadData()
+        }
+    }
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     // MARK: - UI Components
@@ -79,16 +84,8 @@ class MainVC: UIViewController {
 
 extension MainVC {
     
-    func reloadData() {
-        for item in self.item {
-            let minumPrice = item.storeType
-            if minumPrice == "1인분" {
-                requstMainAPI(index: 1)
-            }
-        }
-    }
-    
     func setupTabBarCollectioView() {
+        self.navigationController?.isNavigationBarHidden = true
         tabBarcollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: 0, section: 0)
         tabBarcollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
@@ -104,9 +101,15 @@ extension MainVC {
     private func setStyle() {
         view.backgroundColor = .white
         lineView.backgroundColor = .gray_4
-        optionView.oneServiceClosure = {
-            self.reloadData()
+        optionView.oneServiceClosure = { [weak self] index in
+            self?.useOneItemIndex = index
+            guard let oneItem = self?.item else { return }
+            let filteredItems = oneItem.filter { $0.storeType == "치킨" }
+            self?.oneItem = filteredItems
         }
+    
+        naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        naviView.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
     }
     
     private func setLayout() {
@@ -142,6 +145,19 @@ extension MainVC {
     }
 }
 
+extension MainVC {
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func cartButtonTapped() {
+        let vc = CartViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 // MARK: - Delegate, DataSource
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -154,9 +170,13 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let targetXContentOffset = targetContentOffset.pointee.x
         let itemAt = Int(targetXContentOffset / self.view.frame.width)
         let indexPath = IndexPath(item: itemAt, section: 0)
-        
+        requstMainAPI(index: itemAt)
         tabBarcollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         tabBarcollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        self.optionView.item[self.useOneItemIndex].status = .off
+        self.optionView.item[self.useOneItemIndex] = self.optionView.item[self.useOneItemIndex].isSelected()
+        self.optionView.collectionView.reloadData()
+        self.useOneItemIndex = 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -167,10 +187,10 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.items = item
-           
+            cell.items = self.useOneItemIndex == 2 ? oneItem : item
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
+                vc.index = index
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
@@ -184,12 +204,17 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let pageIndexPath = IndexPath(item: indexPath.item, section: 0)
             pageCollectionView.scrollToItem(at: pageIndexPath, at: .centeredHorizontally, animated: true)
             requstMainAPI(index: indexPath.item)
-            
+            self.optionView.item[self.useOneItemIndex].status = .off
+            self.optionView.item[self.useOneItemIndex] = self.optionView.item[self.useOneItemIndex].isSelected()
+            self.optionView.collectionView.reloadData()
+            self.useOneItemIndex = 0
+           
         } else if collectionView == pageCollectionView {
             let middleIndex = collectionView.bounds.width / 2
             let desiredOffsetX = CGFloat(indexPath.item) * collectionView.bounds.width - middleIndex
             let targetOffset = CGPoint(x: desiredOffsetX, y: 0)
             collectionView.setContentOffset(targetOffset, animated: true)
+            
         }
     }
 }
@@ -213,19 +238,26 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
 
 extension MainVC {
     func requstMainAPI(index: Int) {
-        MainAPI.shared.getStore(id: index + 1 ) {response in
+        MainAPI.shared.getStore(id: index  ) {response in
             print("🍀🍀🍀 response 🍀🍀🍀")
             print(response)
             switch response {
             case .success(let data):
                 guard let data = data as? MainResponseDTO else { return }
                 let dataArray = data.data
-                for item in dataArray {
-                    self.item.append(item)
-                    print("💎\(self.item)")
-                }
-               self.pageCollectionView.reloadData()
+                self.item = dataArray
+                self.pageCollectionView.reloadData()
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
+                
+                let filterArray: [MainData]
+                let validNames: [String] = ["전체", "족발,보쌈", "찜,탕,찌개", "돈까스,회,일식", "고기,구이", "피자", "양식", "중식", "아시안", "치킨", "백반,죽,국수", "버거", "분식", "카페,디저트"]
+                if index == 0 { return }
+                else if index < validNames.count {
+                    let targetName = validNames[index]
+                    filterArray = self.item.filter { $0.storeType == targetName }
+                } else { filterArray = [] }
+                self.item = filterArray
+                print("✅\(self.item)")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
                 print(response)

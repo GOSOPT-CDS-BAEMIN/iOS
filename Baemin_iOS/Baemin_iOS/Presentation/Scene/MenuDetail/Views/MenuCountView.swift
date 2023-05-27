@@ -12,7 +12,7 @@ import SnapKit
 class MenuCountView: UIView {
     
     var count: Int = 0
-    
+    var priceClosure: ((_ count: Int) -> Void)?
     private let horizontalStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.spacing = 0
@@ -89,9 +89,11 @@ extension MenuCountView {
         print("plus")
         count += 1
         numberLabel.text = "\(count)개"
+        self.priceClosure?(count)
         if count < 0 {
             count = 1
             numberLabel.text = "\(count)개"
+            self.priceClosure?(count)
         }
     }
     
@@ -101,6 +103,7 @@ extension MenuCountView {
         count -= 1
         if count >= 0 {
             numberLabel.text = "\(count)개"
+            self.priceClosure?(count)
         }
     }
 }

@@ -13,8 +13,9 @@ class MainOptionView: UIView {
     
     // MARK: - Properties
     
-    private var item: [OptionItem] = OptionItem.item
-    var oneServiceClosure: (()-> Void)?
+    var item: [OptionItem] = OptionItem.item
+    var oneServiceClosure: ((_ index: Int) -> Void)?
+//    var statusClosure: (() -> Void)?
     
     // MARK: - UI Components
     
@@ -32,7 +33,7 @@ class MainOptionView: UIView {
         return button
     }()
     
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 8
         layout.scrollDirection = .horizontal
@@ -97,12 +98,10 @@ extension MainOptionView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == 2 {
-            self.oneServiceClosure?()
+            self.oneServiceClosure?(indexPath.item)
             print(indexPath.item)
-        }
+    
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-
         if self.item[indexPath.item].status == .off {
             self.item[indexPath.item].status = .on
         } else {
