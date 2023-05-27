@@ -22,7 +22,7 @@ class MainPageCell: UICollectionViewCell {
 
     // MARK: - UI Components
     
-    private lazy var collectionView: UICollectionView = {
+     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 18
