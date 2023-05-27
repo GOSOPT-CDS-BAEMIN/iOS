@@ -80,6 +80,7 @@ class MainVC: UIViewController {
 extension MainVC {
     
     func setupTabBarCollectioView() {
+        self.navigationController?.isNavigationBarHidden = true
         tabBarcollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: 0, section: 0)
         tabBarcollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
@@ -98,6 +99,8 @@ extension MainVC {
         optionView.oneServiceClosure = { [weak self ] index in
             self?.requstMainOneServiceAPI(index: index)
         }
+        naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        naviView.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
     }
     
     private func setLayout() {
@@ -130,6 +133,20 @@ extension MainVC {
             $0.top.equalTo(tabBarcollectionView.snp.bottom).offset(60)
             $0.directionalHorizontalEdges.bottom.equalToSuperview()
         }
+    }
+}
+
+extension MainVC {
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func cartButtonTapped() {
+        print("tapped")
+        let vc = CartViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

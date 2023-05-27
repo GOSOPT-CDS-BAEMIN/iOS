@@ -72,6 +72,8 @@ private extension CartViewController {
     func setStyle() {
         view.backgroundColor = .white
         scrollView.backgroundColor = .background
+        cartNavi.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        cartNavi.iconButton.leftButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -201,6 +203,16 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     @objc func buttonTapped() {
         let newViewController = StoreDetailVC()
         navigationController?.pushViewController(newViewController, animated: true)
+    }
+    
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @objc
+    func homeButtonTapped() {
+        let vc = MainVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

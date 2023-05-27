@@ -74,6 +74,9 @@ extension MenuDetailVC {
     private func setStyle() {
         self.price = menuView.price
         view.backgroundColor = .gray_2
+        naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        naviView.iconButton.leftButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
+        naviView.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
     }
     
     private func setLayout() {
@@ -130,7 +133,24 @@ extension MenuDetailVC {
 extension MenuDetailVC {
     
     @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
     func saveButtonTapped() {
+        let vc = CartViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func homeButtonTapped() {
+       let vc = MainVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func cartButtonTapped() {
         let vc = CartViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

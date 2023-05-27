@@ -110,7 +110,7 @@ class StoreDetailVC: UIViewController {
         if tmp == 1 {
             let vc = MenuDetailVC()
             vc.index = self.index
-            self.navigationItem.backBarButtonItem?.tintColor = .yellow
+            self.navigationController?.isNavigationBarHidden = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
