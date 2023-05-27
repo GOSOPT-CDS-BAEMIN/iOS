@@ -175,6 +175,10 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         requstMainAPI(index: itemAt)
         tabBarcollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         tabBarcollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        self.optionView.item[self.useOneItemIndex].status = .off
+        self.optionView.item[self.useOneItemIndex] = self.optionView.item[self.useOneItemIndex].isSelected()
+        self.optionView.collectionView.reloadData()
+        self.useOneItemIndex = 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -212,6 +216,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let desiredOffsetX = CGFloat(indexPath.item) * collectionView.bounds.width - middleIndex
             let targetOffset = CGPoint(x: desiredOffsetX, y: 0)
             collectionView.setContentOffset(targetOffset, animated: true)
+            
         }
     }
 }
