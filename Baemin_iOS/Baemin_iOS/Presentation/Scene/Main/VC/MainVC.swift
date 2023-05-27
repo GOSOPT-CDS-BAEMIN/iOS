@@ -103,11 +103,9 @@ extension MainVC {
         lineView.backgroundColor = .gray_4
         optionView.oneServiceClosure = { [weak self] index in
             self?.useOneItemIndex = index
-            print("👍👍\(self?.useOneItemIndex)")
             guard let oneItem = self?.item else { return }
             let filteredItems = oneItem.filter { $0.storeType == "치킨" }
             self?.oneItem = filteredItems
-            print("✅✅✅\(self?.oneItem)✅✅✅")
         }
     
         naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
