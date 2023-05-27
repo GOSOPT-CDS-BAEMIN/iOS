@@ -42,7 +42,6 @@ class StoreDetailVC: UIViewController {
         return table
     }()
     
-    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()

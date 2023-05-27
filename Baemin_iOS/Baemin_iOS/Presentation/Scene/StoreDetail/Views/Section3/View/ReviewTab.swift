@@ -121,5 +121,3 @@ class ReviewTab: UIView {
         filter.addTarget(self, action: #selector(filterTouched), for: .touchUpInside)
     }
 }
-
-

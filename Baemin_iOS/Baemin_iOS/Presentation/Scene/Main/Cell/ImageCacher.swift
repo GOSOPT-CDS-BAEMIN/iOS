@@ -31,7 +31,7 @@ class ImageCacheManager {
       return
     }
       
-    URLSession.shared.dataTask(with: url) { data, response, error in
+    URLSession.shared.dataTask(with: url) { data, _, error in
       DispatchQueue.main.async {
         if let _ = error {
           completion(.failure(.default))
