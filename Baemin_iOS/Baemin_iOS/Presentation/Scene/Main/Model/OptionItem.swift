@@ -44,7 +44,7 @@ struct OptionItem {
                                      OptionItem(option: .COUPON, status: .off, leftIcon: UIImage.icon_coupon),
                                      OptionItem(option: .ONE, status: .off, leftIcon: UIImage.one_serving),
                                      OptionItem(option: .DELIVERY, status: .off, rightIcon: UIImage.arrow_down),
-                                     OptionItem(option: .RATE, status: .off, leftIcon: UIImage.star, rightIcon: UIImage.arrow_down),
+                                     OptionItem(option: .RATE, status: .off, leftIcon: UIImage.star, rightIcon: nil),
                                      OptionItem(option: .MINIMUM, status: .off, rightIcon: UIImage.arrow_down),
                                      OptionItem(option: .OTHER, status: .off, leftIcon: UIImage.filter)
         ]
@@ -62,7 +62,7 @@ struct OptionItem {
             case .DELIVERY:
                 return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down)
             case .RATE:
-                return OptionItem(option: option, status: status, leftIcon: .star, rightIcon: .arrow_down)
+                return OptionItem(option: option, status: status, leftIcon: .star, rightIcon: nil)
             case .MINIMUM:
                 return OptionItem(option: option, status: status, leftIcon: nil, rightIcon: .arrow_down)
             case .OTHER:
