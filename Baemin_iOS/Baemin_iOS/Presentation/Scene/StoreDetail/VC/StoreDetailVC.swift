@@ -14,8 +14,18 @@ class StoreDetailVC: UIViewController {
     // MARK: - Properties
 
     private let rowNum = [1, 1, 1, 5, 4]
+    
+    private let navigationBar = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
     private let tabelViewHeaders = TableViewHeaders()
     private let stickyHead: UIView = StickyHeaderView()
+    
+    // StoreInfo 값을 받으면 테이블뷰를 reload 해준다
+    var storeItem: [StoreInfo] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     var index: Int = 0
         
     // MARK: - UI Components

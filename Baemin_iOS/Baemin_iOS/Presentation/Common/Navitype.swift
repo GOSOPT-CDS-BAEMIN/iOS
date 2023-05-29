@@ -55,6 +55,28 @@ enum SubCartItem {
     }
 }
 
+enum SubStoreItem {
+    
+    case leftButton, rightButton
+    
+    var leftButton: UIImage? {
+        switch self {
+        case .leftButton: return UIImage.arrow_back
+        case .rightButton: return nil
+    }
+    
+    var leftRightButton: String {
+        return ""
+    }
+    
+    var rightButton: UIImage {
+        switch self {
+        case .leftButton: return UIImage.home
+        case .rightButton: return UIImage.cart
+        }
+    }
+}
+
 enum SubMenuItem {
     
     case leftButton, rightButton
