@@ -17,7 +17,8 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     private let stickyHead: UIView = StickyHeaderView()
-    private let storeInfoView: UIView = StoreInfoView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 270))
+    private let storeInfoView: UIView = StoreInfoView()
+    private let storeRateView: UIView = StoreRateView()
     
     // MARK: - Components
     
@@ -26,6 +27,7 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
         scroll.backgroundColor = .clear
         scroll.isScrollEnabled = true
         scroll.contentInsetAdjustmentBehavior = .never
+        scroll.sizeToFit()
         return scroll
     }()
     
@@ -48,9 +50,9 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
     
     private func setLayOut() {
 
-        view.addSubviews(scrollView, navigationBar, storeInfoView, stickyHead)
+        view.addSubviews(scrollView, navigationBar, stickyHead)
         
-        scrollView.addSubview(storeInfoView)
+        scrollView.addSubviews(storeInfoView, storeRateView)
         
         navigationBar.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
@@ -69,7 +71,15 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
         }
         
         storeInfoView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(270)
+        }
+        
+        storeRateView.snp.makeConstraints {
+            $0.top.equalTo(storeInfoView.snp.bottom).offset(30)
             $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(60)
         }
     }
 }
