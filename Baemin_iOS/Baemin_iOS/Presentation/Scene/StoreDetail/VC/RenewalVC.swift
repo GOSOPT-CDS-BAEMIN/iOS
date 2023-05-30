@@ -20,6 +20,7 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
     private let storeInfoView: UIView = StoreInfoView()
     private let storeRateView: UIView = StoreRateView()
     private let reviewCommentView: UIView = ReviewCommentView()
+    private let optionSelectView: UIView = OptionSelectView()
     
     // MARK: - Components
     
@@ -53,7 +54,7 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
 
         view.addSubviews(scrollView, navigationBar, stickyHead)
         
-        scrollView.addSubviews(storeInfoView, storeRateView, reviewCommentView)
+        scrollView.addSubviews(storeInfoView, storeRateView, reviewCommentView, optionSelectView)
         
         navigationBar.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
@@ -89,7 +90,12 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
             $0.height.equalTo(23)
         }
         
-        
+        optionSelectView.snp.makeConstraints {
+            $0.top.equalTo(reviewCommentView.snp.bottom).offset(18)
+            $0.height.equalTo(22)
+            $0.width.equalTo(302)
+            $0.leading.equalToSuperview().inset(37)
+        }
     }
 }
 

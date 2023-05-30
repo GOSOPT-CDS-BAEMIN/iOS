@@ -113,7 +113,6 @@ class OptionSelectView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setLayOut()
     }
     
     // MARK: - Methods
@@ -126,10 +125,11 @@ class OptionSelectView: UIView {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview().inset(1.5)
             $0.bottom.equalToSuperview().inset(1.5)
+            $0.width.equalTo(18)
         }
         
         callLabel.snp.makeConstraints {
-            $0.leading.equalTo(callBtn.snp.trailing).offset(6)
+            $0.leading.equalTo(callBtn.snp.trailing).inset(-4)
             $0.top.equalTo(callBtn.snp.top).inset(1.5)
             $0.bottom.equalTo(callBtn.snp.bottom).inset(3.0)
         }
@@ -145,6 +145,7 @@ class OptionSelectView: UIView {
             $0.leading.equalTo(divider.snp.trailing).offset(14)
             $0.top.equalToSuperview().inset(4)
             $0.bottom.equalToSuperview().inset(0.5)
+            $0.width.equalTo(18)
         }
     
         heartNum.snp.makeConstraints {
@@ -166,6 +167,7 @@ class OptionSelectView: UIView {
             $0.leading.equalTo(divider2.snp.trailing).offset(14)
             $0.top.bottom.equalToSuperview()
             $0.centerY.equalTo(callBtn.snp.centerY)
+            $0.width.equalTo(18)
         }
         
         shareLabel.snp.makeConstraints {
@@ -187,6 +189,7 @@ class OptionSelectView: UIView {
             $0.leading.equalTo(divider3.snp.trailing).offset(14)
             $0.top.bottom.equalToSuperview()
             $0.centerY.equalTo(callBtn.snp.centerY)
+            $0.width.equalTo(18)
         }
         
         withLabel.snp.makeConstraints {
