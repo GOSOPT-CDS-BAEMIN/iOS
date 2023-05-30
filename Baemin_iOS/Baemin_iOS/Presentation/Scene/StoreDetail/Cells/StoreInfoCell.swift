@@ -70,7 +70,7 @@ class StoreInfoCell: UITableViewCell {
         
         storeInfoView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(-22)
+            $0.top.equalToSuperview()
         }
 
         storeName.snp.makeConstraints {

@@ -33,14 +33,14 @@ class StoreInfoView: UIView {
         
         storeImage.contentMode = .scaleAspectFit
         storeImage.sizeToFit()
-        storeImage.image = .dummy.resized(toWidth: UIScreen.main.bounds.width+5)
+        storeImage.image = .dummy.resized(toWidth: UIScreen.main.bounds.width)
         storeImage.insetsLayoutMarginsFromSafeArea = false
         
         addSubview(storeImage)
         
         storeImage.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.top.equalToSuperview().inset(-30)
+            $0.top.equalToSuperview()
         }
     }
 }

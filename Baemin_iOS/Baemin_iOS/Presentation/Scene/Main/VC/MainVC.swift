@@ -189,7 +189,8 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
             cell.items = self.useOneItemIndex == 2 ? oneItem : item
             cell.indexClosure = { [weak self] index in
-                let vc = StoreDetailVC()
+                //let vc = StoreDetailVC()
+                let vc = RenewalVC()
                 vc.index = index
                 self?.navigationController?.pushViewController(vc, animated: true)
             }

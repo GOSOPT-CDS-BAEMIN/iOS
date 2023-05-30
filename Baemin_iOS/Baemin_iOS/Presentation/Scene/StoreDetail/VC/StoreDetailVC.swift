@@ -15,7 +15,10 @@ class StoreDetailVC: UIViewController {
 
     private let rowNum = [1, 1, 1, 5, 4]
     
-    private let navigationBar = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
+    private let navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton))
+    
+    private lazy var safeArea = self.view.safeAreaLayoutGuide
+    
     private let tabelViewHeaders = TableViewHeaders()
     private let stickyHead: UIView = StickyHeaderView()
     
@@ -47,7 +50,6 @@ class StoreDetailVC: UIViewController {
         table.sectionHeaderHeight = UITableView.automaticDimension
         table.sectionFooterHeight = UITableView.automaticDimension
         table.rowHeight = UITableView.automaticDimension
-        table.contentInsetAdjustmentBehavior = .never
         table.bounces = true
         return table
     }()
@@ -66,14 +68,27 @@ class StoreDetailVC: UIViewController {
     private func setStyle() {
         view.backgroundColor = .white
         stickyHead.isHidden = true
+        
+        navigationBar.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
+        navigationBar.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
+        
+        tableView.contentInsetAdjustmentBehavior = .never
     }
     
     private func setLayOut() {
 
-        view.addSubviews(tableView, stickyHead)
+        view.addSubviews(navigationBar, tableView, stickyHead)
+        
+        navigationBar.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(44)
+            $0.height.equalTo(44)
+            $0.directionalHorizontalEdges.equalToSuperview()
+        }
         
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(navigationBar.snp.bottom)
         }
 
         stickyHead.snp.makeConstraints {
@@ -114,7 +129,6 @@ class StoreDetailVC: UIViewController {
     
     @objc func moveDataReceived(_ notification: Notification) {
         let tmp = notification.object as! Int
-        print(tmp)
 
         if tmp == 1 {
             let vc = MenuDetailVC()
@@ -188,5 +202,19 @@ extension StoreDetailVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let shouldShowSticky = scrollView.contentOffset.y >= 650
         stickyHead.isHidden = !shouldShowSticky
+    }
+}
+
+extension StoreDetailVC {
+    @objc
+    func backButtonTapped() {
+        self.navigationController?
+            .popViewController(animated: true)
+    }
+    
+    @objc
+    func cartButtonTapped() {
+        let vc = CartViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

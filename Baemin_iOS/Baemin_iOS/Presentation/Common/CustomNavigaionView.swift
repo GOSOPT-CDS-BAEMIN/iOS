@@ -65,6 +65,11 @@ private extension CustomNavigaionView {
             backButton.rightButton.setImage(subItem1.rightIcon, for: .normal)
             iconButton.leftButton.setImage(subItem2.leftIcon, for: .normal)
             iconButton.rightButton.setImage(subItem2.rightIcon, for: .normal)
+        case (.store(let subItem1), .store(let subItem2)):
+            backButton.leftButton.setImage(subItem1.leftIcon, for: .normal)
+            backButton.rightButton.setImage(subItem1.rightIcon, for: .normal)
+            iconButton.leftButton.setImage(subItem2.leftIcon, for: .normal)
+            iconButton.rightButton.setImage(subItem2.rightIcon, for: .normal)
         case (_, _): break
         }
         
