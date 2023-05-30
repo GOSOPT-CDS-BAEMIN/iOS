@@ -14,6 +14,8 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
     private let navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton))
     
     var index: Int = 0
+    var isCoupon: Bool = true
+    
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     private let stickyHead: UIView = StickyHeaderView()
@@ -33,6 +35,21 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
         return scroll
     }()
     
+    private let couponBtn: UIButton = {
+        let coupon = UIButton()
+        coupon.setImage(UIImage.get_coupon.resized(toWidth: 342), for: .normal)
+        coupon.sizeToFit()
+        return coupon
+    }()
+    
+    private let couponStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 18
+        return stack
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
@@ -47,15 +64,17 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
         
         navigationBar.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
         
-        self.view.sendSubviewToBack(storeInfoView)
+        haveCoupon()
     }
     
     private func setLayOut() {
 
         view.addSubviews(scrollView, navigationBar, stickyHead)
         
-        scrollView.addSubviews(storeInfoView, storeRateView, reviewCommentView, optionSelectView)
+        scrollView.addSubviews(storeInfoView, storeRateView, reviewCommentView, couponStack)
         
+        couponStack.addArrangedSubviews(optionSelectView, couponBtn)
+            
         navigationBar.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
             $0.height.equalTo(44)
@@ -90,11 +109,26 @@ class RenewalVC: UIViewController, UIGestureRecognizerDelegate {
             $0.height.equalTo(23)
         }
         
-        optionSelectView.snp.makeConstraints {
+        couponStack.snp.makeConstraints {
             $0.top.equalTo(reviewCommentView.snp.bottom).offset(18)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
+        optionSelectView.snp.makeConstraints {
+            $0.top.equalToSuperview()
             $0.height.equalTo(22)
-            $0.width.equalTo(302)
-            $0.leading.equalToSuperview().inset(37)
+            $0.centerX.equalToSuperview()
+        }
+        
+        couponBtn.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview().inset(14)
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    private func haveCoupon() {
+        if !isCoupon {
+            couponBtn.isHidden = true
         }
     }
 }
