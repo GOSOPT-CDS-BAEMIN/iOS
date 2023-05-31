@@ -208,4 +208,3 @@ class OrderMethodSelect: UIView {
         NotificationCenter.default.post(name: NSNotification.Name("orderIndex"), object: flag)
     }
 }
-

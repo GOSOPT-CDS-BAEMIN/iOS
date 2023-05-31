@@ -18,7 +18,6 @@ struct TabBarItem {
                 TabBarItem(name: "돈까스∙회∙일식"),
                 TabBarItem(name: "고기∙구이"),
                 TabBarItem(name: "피자"),
-                TabBarItem(name: "찜∙탕∙찌개"),
                 TabBarItem(name: "양식"),
                 TabBarItem(name: "중식"),
                 TabBarItem(name: "아시안"),

@@ -61,7 +61,6 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
         return control
     }()
     
-    
     // MARK: - Initialize func
     
     override init(reuseIdentifier: String?) {

@@ -11,6 +11,7 @@ import SnapKit
 
 class MenuDetailView: UIView {
     
+    var price: Int = 0
     private let priceView =  UIView()
     private let numberView = UIView()
     
@@ -23,7 +24,7 @@ class MenuDetailView: UIView {
     
     private let menuNameLabel: UILabel = {
         let label = UILabel()
-        label.basic(text: "플레인 츄러스",
+        label.basic(text: "",
                     font: .AppleSDGothicNeo(.bold, size: 18),
                     color: .black)
         return label
@@ -31,7 +32,7 @@ class MenuDetailView: UIView {
     
     private let menuDetailLabel: UILabel = {
         let label = UILabel()
-        label.basic(text: "바삭하고 담백함을 추구하는 플레인 츄러스",
+        label.basic(text: "",
                     font: .AppleSDGothicNeo(.medium, size: 16),
                     color: .gray_5!)
         return label
@@ -47,7 +48,7 @@ class MenuDetailView: UIView {
     
     private let menuPrice: UILabel = {
         let label = UILabel()
-         label.basic(text: "0원",
+         label.basic(text: "",
                      font: .AppleSDGothicNeo(.bold, size: 18),
                      color: .black)
          return label
@@ -125,6 +126,16 @@ extension MenuDetailView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-15)
             $0.size.equalTo(CGSize(width: 140, height: 42))
+        }
+    }
+    
+    func bind(item: MenuDetail, button: UIButton) {
+        menuNameLabel.text = item.foodName
+        menuDetailLabel.text = item.foodDescription
+        menuPrice.text = "\(item.price)원"
+        menuCountButton.priceClosure = { count in
+            self.price = item.price*count
+            button.setTitle("\(Utils.convertToCurrencyFormat(price: self.price)) 원", for: .normal)
         }
     }
 }

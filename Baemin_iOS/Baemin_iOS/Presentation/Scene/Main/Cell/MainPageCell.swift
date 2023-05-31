@@ -13,12 +13,16 @@ class MainPageCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    var items: [MainData] = []
+    var items: [MainData] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     var indexClosure: ((_ index: Int) -> Void)?
 
     // MARK: - UI Components
     
-    private lazy var collectionView: UICollectionView = {
+     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 18
@@ -77,12 +81,11 @@ extension MainPageCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainFirstPageCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.bind(items[indexPath.item ])
+            cell.bind(items[indexPath.item])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.indexClosure?(indexPath.item)
-       // var itemClosure?(self.collectionView.reloadData())
+        self.indexClosure?(items[indexPath.item].storeID)
 
     }
 }

@@ -83,22 +83,8 @@ extension ReviewCell {
         iconImage.image = isTapped ? .checked : .circle_empty
     }
     
-    func bind(item: Food ) {
+    func bind(item: Food) {
         menuLabel.text = item.foodName
-        print("✅\(menuLabel.text)")
 
-    }
-}
-
-// dummy 값 API 연결 후 삭제하겠습니다
-struct Item {
-    var menu: String
-    
-    static func dummy() -> [Item] {
-        let items: [Item] = [Item(menu: "육회비빔밥"),
-                             Item(menu: "육회비빔밥"),
-                             Item(menu: "육회비빔밥")
-        ]
-        return items
     }
 }

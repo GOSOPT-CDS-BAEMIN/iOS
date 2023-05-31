@@ -31,7 +31,7 @@ class ImageCacheManager {
       return
     }
       
-    URLSession.shared.dataTask(with: url) { data, response, error in
+    URLSession.shared.dataTask(with: url) { data, _, error in
       DispatchQueue.main.async {
         if let _ = error {
           completion(.failure(.default))
@@ -48,7 +48,7 @@ class ImageCacheManager {
 
 extension UIImageView {
   func getImageFromURL(_ url: String) {
-      let imageURL = Config.baseURL + "/\(url)"
+      let imageURL =  url
       print(imageURL)
     ImageCacheManager.getImage(imageURL) { result in
       switch result {

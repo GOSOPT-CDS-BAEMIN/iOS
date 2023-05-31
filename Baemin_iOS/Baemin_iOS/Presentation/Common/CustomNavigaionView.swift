@@ -19,12 +19,14 @@ final class CustomNavigaionView: UIView {
         let back = ButtonStackView()
         return back
     }()
+    
     private let title: UILabel = {
         let title = UILabel()
         title.font = .AppleSDGothicNeo(.bold, size: 18)
         return title
     }()
-    private lazy var iconButton: ButtonStackView = {
+    
+    lazy var iconButton: ButtonStackView = {
         let icon =  ButtonStackView()
         return icon
     }()
