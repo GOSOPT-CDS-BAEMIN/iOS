@@ -102,6 +102,7 @@ class OrderMethodSelectView: UIView {
         stackView.alignment = .center
         stackView.backgroundColor = .clear
         stackView.sizeToFit()
+        stackView.spacing = 91
         return stackView
     }()
     
@@ -128,9 +129,9 @@ class OrderMethodSelectView: UIView {
         
         pickUp_stack.addArrangedSubviews(pickUp, pickUp_line)
         
-        totalStack.addArrangedSubview(delivery_stack)
+        totalStack.addArrangedSubviews(delivery_stack, pickUp_stack)
         
-        addSubviews(pickUp_stack, totalStack, gray_divider)
+        addSubviews(totalStack, gray_divider)
         
         totalStack.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -139,7 +140,6 @@ class OrderMethodSelectView: UIView {
         
         pickUp_stack.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(68.5)
         }
         
         pickUp.snp.makeConstraints {
@@ -152,6 +152,7 @@ class OrderMethodSelectView: UIView {
             $0.top.equalTo(pickUp.snp.bottom).offset(8)
             $0.height.equalTo(4)
             $0.width.equalTo(pickUp.snp.width)
+            $0.bottom.equalToSuperview()
         }
         
         delivery_stack.snp.makeConstraints {
