@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class OrderMethodSelectView: UITableViewHeaderFooterView {
+class OrderMethodSelectView: UIView {
     
     // MARK: - Properties
 
@@ -107,9 +107,8 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     // MARK: - initialize func
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         configureContents()
         setStyle()
         
@@ -131,7 +130,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         
         totalStack.addArrangedSubview(delivery_stack)
         
-        addSubviewsInHeaderFooterView(pickUp_stack, totalStack, gray_divider)
+        addSubviews(pickUp_stack, totalStack, gray_divider)
         
         totalStack.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -160,10 +159,6 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
             $0.width.equalTo(delivery.snp.width)
         }
         
-        delivery_stack.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
-        }
-        
         delivery.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview()
@@ -174,6 +169,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
             $0.top.equalTo(delivery.snp.bottom).offset(8)
             $0.height.equalTo(4)
             $0.width.equalTo(delivery.snp.width)
+            $0.bottom.equalToSuperview()
         }
         
         gray_divider.snp.makeConstraints {
@@ -186,7 +182,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     func setStyle() {
         pickUp_line.isHidden = true
-        contentView.backgroundColor = .white
+        backgroundColor = .white
     }
     
     @objc
