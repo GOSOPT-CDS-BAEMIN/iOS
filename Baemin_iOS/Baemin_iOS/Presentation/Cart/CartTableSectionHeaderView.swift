@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 
 class CartTableSectionHeaderView: UIView {
-    
+
     // MARK: - UI Properties
-    
+
     var headerClosure: ((_ result: Bool) -> Void)?
-    
+
     lazy var storeCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
@@ -22,32 +22,31 @@ class CartTableSectionHeaderView: UIView {
         button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
         return button
     }()
-    
+
     private let storeNameLabel: UILabel = {
         let label = UILabel()
-        // label.text = "test 가게이름"
         label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
-    
+
     private let storeDeleteButton: UIButton = {
         let button = UIButton()
         button.setImage(.x, for: .normal)
         return button
     }()
-    
+
     // MARK: - Initialization
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .topRight], radius: 8)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -56,7 +55,11 @@ class CartTableSectionHeaderView: UIView {
 // MARK: - Methods
 
 extension CartTableSectionHeaderView {
-    
+
+    func dataBind(item: FoodsList) {
+        storeNameLabel.text = item.storeName
+        }
+
     private func setLayout() {
         self.addSubviews(storeCheckButton, storeNameLabel, storeDeleteButton)
         self.backgroundColor = .white
@@ -77,7 +80,7 @@ extension CartTableSectionHeaderView {
             $0.width.height.equalTo(20)
         }
     }
-    
+
     @objc
     func changeButton() {
         self.headerClosure?(true)

@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 
 class CartTableSectionFooterView: UIView {
-    
+
     // MARK: - UI Properties
-    
+
     // 첫번째 부분
-    
+
     var buttonTapHandler: (() -> Void)?
 
     private let firstFooterStackView: UIStackView = {
@@ -24,19 +24,19 @@ class CartTableSectionFooterView: UIView {
         stackView.backgroundColor = .white
         return stackView
     }()
-    
+
     private let deliveryCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.radio_delivery, for: .normal)
         return button
     }()
-    
+
     private let pickupCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.radio_pickup, for: .normal)
         return button
     }()
-    
+
     private let lineView_1: UIView = {
         let view = UIView()
         view.backgroundColor = .gray_3
@@ -69,7 +69,7 @@ class CartTableSectionFooterView: UIView {
         stackView.backgroundColor = .white
         return stackView
     }()
-
+    
     private let menuTotalLabel: UILabel = {
         let label = UILabel()
         label.text = "총 n개"
@@ -114,7 +114,7 @@ class CartTableSectionFooterView: UIView {
 // MARK: - Methods
 
 extension CartTableSectionFooterView {
-        
+
     private func setLayout() {
         self.addSubviews(firstFooterStackView, lineView_1, addMenuButton, lineView_2, thirdFooterStackView)
         firstFooterStackView.addSubviews(deliveryCheckButton, pickupCheckButton)
@@ -127,11 +127,13 @@ extension CartTableSectionFooterView {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(94)
         }
+
         deliveryCheckButton.snp.makeConstraints {
             $0.top.leading.equalToSuperview().offset(18)
             $0.width.equalTo(76)
             $0.height.equalTo(24)
         }
+
         pickupCheckButton.snp.makeConstraints {
             $0.top.equalTo(deliveryCheckButton.snp.bottom).offset(10)
             $0.leading.equalToSuperview().offset(18)
@@ -187,4 +189,5 @@ extension CartTableSectionFooterView {
     @objc func buttonTapped() {
         buttonTapHandler?()
     }
+
 }
