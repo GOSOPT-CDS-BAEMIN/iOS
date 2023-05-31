@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class StickyTargetHeader: UITableViewHeaderFooterView {
+class StickyTargetHeader: UIView {
     
     // MARK: - Properties
 
@@ -63,13 +63,13 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
     
     // MARK: - Initialize func
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         segmentControl.selectedSegmentIndex = 0
         setStyle()
         setLayOut()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -77,7 +77,7 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
     // MARK: - Methods
     
     func setStyle() {
-        contentView.backgroundColor = .clear
+        backgroundColor = .clear
     }
     
     func setLayOut() {
@@ -98,7 +98,7 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
             for: .selected
         )
         
-        contentView.addSubviews(segmentControl)
+        addSubview(segmentControl)
         
         segmentControl.snp.makeConstraints {
             $0.top.equalToSuperview()

@@ -26,6 +26,7 @@ class RenewalVC: UIViewController {
     private let deliveryView: UIView = DeliveryView()
     private let pickUpView: UIView = PickUpView()
     private let orderMethodSelectView: UIView = OrderMethodSelectView()
+    private let stickyTargetView: UIView = StickyTargetHeader()
     
     // MARK: - Components
     
@@ -62,6 +63,8 @@ class RenewalVC: UIViewController {
         return stack
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
@@ -69,6 +72,8 @@ class RenewalVC: UIViewController {
         setNotificationCenter()
     }
     
+    // MARK: - Methods
+
     private func setStyle() {
         view.backgroundColor = .white
         stickyHead.isHidden = true
@@ -89,7 +94,7 @@ class RenewalVC: UIViewController {
 
         view.addSubviews(scrollView, navigationBar, stickyHead)
         
-        scrollView.addSubviews(storeInfoView, storeRateView, reviewCommentView, couponStack, orderMethodSelectView, orderMethodStack)
+        scrollView.addSubviews(storeInfoView, storeRateView, reviewCommentView, couponStack, orderMethodSelectView, orderMethodStack, stickyTargetView)
         
         couponStack.addArrangedSubviews(optionSelectView, couponBtn)
         orderMethodStack.addArrangedSubviews(deliveryView, pickUpView)
@@ -162,6 +167,12 @@ class RenewalVC: UIViewController {
             $0.top.equalTo(deliveryView.snp.bottom)
             $0.width.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+        
+        stickyTargetView.snp.makeConstraints {
+            $0.top.equalTo(orderMethodStack.snp.bottom).offset(40)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(42)
         }
     }
     
