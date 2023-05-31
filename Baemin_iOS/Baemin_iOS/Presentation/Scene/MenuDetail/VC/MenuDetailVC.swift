@@ -17,9 +17,11 @@ class MenuDetailVC: UIViewController {
     private var items: MenuDetail?
     var price: Int = 0
     var index: Int = 0
-    
+    var foodId: Int = 0
+    var clientId: Int = 0
     var foodIds: [Int]?
-    var foodCounts: [Int]?
+    var foodCount: Int = 0
+    var foodCounts: [Int] = []
 
     // MARK: - UI Components
     
@@ -59,7 +61,7 @@ class MenuDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestMenuDetail(id: self.index)
-        requestMenuPut(body: .init(clientId: 1, foodIds: [1], foodCounts: [1]))
+//        requestMenuPut(body: .init(clientId: 1, foodIds: [1], foodCounts: [1]))
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +76,7 @@ extension MenuDetailVC {
     private func setStyle() {
         self.price = menuView.price
         view.backgroundColor = .gray_2
+        
         naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         naviView.iconButton.leftButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
         naviView.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
@@ -139,6 +142,9 @@ extension MenuDetailVC {
     
     @objc
     func saveButtonTapped() {
+        self.foodCount = menuView.count
+        self.foodCounts.append(self.foodCount)
+        requestMenuPut(body: .init(clientId: 1, foodIds: [self.foodId], foodCounts: self.foodCounts))
         let vc = CartViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -167,6 +173,8 @@ extension MenuDetailVC {
                 self.bind(item: data.data)
                 self.menuView.bind(item: data.data, button: self.saveButon)
                 self.items = data.data
+                self.foodId = data.data.foodID
+                print("✅food Id:\(self.foodId)")
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
