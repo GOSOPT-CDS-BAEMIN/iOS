@@ -17,6 +17,7 @@ class DetailInfoCell: UITableViewCell {
     private let commentView = ReviewVC()
     
     // MARK: - init func
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -32,12 +33,12 @@ class DetailInfoCell: UITableViewCell {
     // MARK: - Methods
     
     func setStyle() {
-        contentView.backgroundColor = .white
+        backgroundColor = .white
     }
     
     func setLayOut() {
         
-        contentView.addSubviews(menuView.view, infoView.view, commentView.view)
+        addSubviews(menuView.view, infoView.view, commentView.view)
         
         menuView.view.snp.makeConstraints {
             $0.edges.equalToSuperview()

@@ -12,7 +12,7 @@ import SnapKit
 class StoreDetailVC: UIViewController {
     
     // MARK: - Properties
-
+    
     private let rowNum = [1, 1, 1, 5, 4]
     
     private let navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton))
@@ -21,7 +21,8 @@ class StoreDetailVC: UIViewController {
     
     private let tabelViewHeaders = TableViewHeaders()
     private let stickyHead: UIView = StickyHeaderView()
-    
+    private let contentView: UIView = UIView()
+
     // StoreInfo 값을 받으면 테이블뷰를 reload 해준다
     var storeItem: [StoreInfo] = [] {
         didSet {
@@ -30,9 +31,9 @@ class StoreDetailVC: UIViewController {
     }
     
     var index: Int = 0
-        
+    
     // MARK: - UI Components
-
+    
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.backgroundColor = .clear
@@ -74,23 +75,29 @@ class StoreDetailVC: UIViewController {
         navigationBar.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
         
         tableView.contentInsetAdjustmentBehavior = .never
+        contentView.insetsLayoutMarginsFromSafeArea = false
     }
     
     private func setLayOut() {
-
-        view.addSubviews(navigationBar, tableView, stickyHead)
+        
+        view.addSubviews(contentView, navigationBar, stickyHead)
+        contentView.addSubview(tableView)
+        
+        contentView.snp.makeConstraints {
+            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.top.equalToSuperview().inset(-50)
+        }
         
         navigationBar.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(44)
-            $0.height.equalTo(44)
-            $0.directionalHorizontalEdges.equalToSuperview()
+            $0.top.equalToSuperview().offset(40)
+            $0.height.equalTo(55)
+            $0.directionalHorizontalEdges.equalTo(safeArea)
         }
         
         tableView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.edges.equalToSuperview()
         }
-
+        
         stickyHead.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(97)
@@ -99,6 +106,7 @@ class StoreDetailVC: UIViewController {
     }
     
     private func register() {
+        tableView.register(FirstHeaderView.self, forHeaderFooterViewReuseIdentifier: FirstHeaderView.identifier)
         tableView.register(StoreInfoCell.self, forCellReuseIdentifier: StoreInfoCell.identifier)
         tableView.register(OrderMethodSelectView.self, forHeaderFooterViewReuseIdentifier: OrderMethodSelectView.identifier)
         tableView.register(OrderInfoCell.self, forCellReuseIdentifier: OrderInfoCell.identifier)
@@ -129,7 +137,7 @@ class StoreDetailVC: UIViewController {
     
     @objc func moveDataReceived(_ notification: Notification) {
         let tmp = notification.object as! Int
-
+        
         if tmp == 1 {
             let vc = MenuDetailVC()
             vc.index = self.index
@@ -146,17 +154,17 @@ class StoreDetailVC: UIViewController {
 }
 
 extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
-
+    
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-
+    
     // 각 섹션마다의 셀 개수 정의
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowNum[section]
     }
-
+    
     // 각 섹션마다의 보여줄 셀 지정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -174,12 +182,13 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             return detailInfoCell
         }
     }
-
+    
     // 섹션 헤더뷰 보여주기
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 0:
-            return nil
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: FirstHeaderView.identifier) as! FirstHeaderView
+            return view
         case 1:
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: OrderMethodSelectView.identifier) as! OrderMethodSelectView
             return view
@@ -188,11 +197,11 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             return view
         }
     }
-
+    
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 200
     }
-
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
@@ -200,8 +209,12 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 extension StoreDetailVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let shouldShowSticky = scrollView.contentOffset.y >= 650
+        let shouldShowSticky = scrollView.contentOffset.y >= 647
         stickyHead.isHidden = !shouldShowSticky
+        
+        let navigationBarWhite = scrollView.contentOffset.y >= 280
+        var backgroundColor: UIColor = navigationBarWhite ? UIColor.white : UIColor.clear
+        navigationBar.backgroundColor = backgroundColor
     }
 }
 

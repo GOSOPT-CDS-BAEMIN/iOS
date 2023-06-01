@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class StickyTargetHeader: UIView {
+class StickyTargetHeader: UITableViewHeaderFooterView {
     
     // MARK: - Properties
 
@@ -63,13 +63,13 @@ class StickyTargetHeader: UIView {
     
     // MARK: - Initialize func
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         segmentControl.selectedSegmentIndex = 0
         setStyle()
         setLayOut()
     }
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

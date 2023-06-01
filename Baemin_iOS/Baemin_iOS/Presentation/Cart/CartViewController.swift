@@ -66,6 +66,7 @@ private extension CartViewController {
     
     func didTapButton() {
         let newViewController = StoreDetailVC()
+        //let newViewController = RenewalVC()
         navigationController?.pushViewController(newViewController, animated: true)
     }
     
@@ -202,6 +203,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     @objc func buttonTapped() {
         let newViewController = StoreDetailVC()
+        //let newViewController = RenewalVC()
         navigationController?.pushViewController(newViewController, animated: true)
     }
     
@@ -216,7 +218,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//extension CartViewController {
+// extension CartViewController {
 //    func getCartData(completion: @escaping () -> Void) {
 //        cartNetworkManager.fetchCartList { response in
 //            switch response {

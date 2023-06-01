@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class OrderMethodSelectView: UIView {
+class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     // MARK: - Properties
 
@@ -108,15 +108,15 @@ class OrderMethodSelectView: UIView {
     
     // MARK: - initialize func
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         configureContents()
         setStyle()
         
         delivery.addTarget(self, action: #selector(deliveryTouched), for: .touchUpInside)
         pickUp.addTarget(self, action: #selector(pickUpTouched), for: .touchUpInside)
     }
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
