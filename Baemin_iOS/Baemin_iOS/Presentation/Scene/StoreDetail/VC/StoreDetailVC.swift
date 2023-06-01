@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 
+import SafeAreaBrush
+
 class StoreDetailVC: UIViewController {
     
     // MARK: - Properties
@@ -22,6 +24,7 @@ class StoreDetailVC: UIViewController {
     private let tabelViewHeaders = TableViewHeaders()
     private let stickyHead: UIView = StickyHeaderView()
     private let contentView: UIView = UIView()
+    let topSafeArea = UIView()
 
     // StoreInfo 값을 받으면 테이블뷰를 reload 해준다
     var storeItem: [StoreInfo] = [] {
@@ -80,7 +83,7 @@ class StoreDetailVC: UIViewController {
     
     private func setLayOut() {
         
-        view.addSubviews(contentView, navigationBar, stickyHead)
+        view.addSubviews(contentView, topSafeArea, navigationBar, stickyHead)
         contentView.addSubview(tableView)
         
         contentView.snp.makeConstraints {
@@ -88,9 +91,15 @@ class StoreDetailVC: UIViewController {
             $0.top.equalToSuperview().inset(-50)
         }
         
+        topSafeArea.snp.makeConstraints {
+            $0.directionalHorizontalEdges.equalTo(safeArea)
+            $0.top.equalTo(view.snp.top)
+            $0.height.equalTo(40)
+        }
+        
         navigationBar.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(40)
-            $0.height.equalTo(55)
+            $0.top.equalTo(topSafeArea.snp.bottom)
+            $0.height.equalTo(53)
             $0.directionalHorizontalEdges.equalTo(safeArea)
         }
         
@@ -100,7 +109,7 @@ class StoreDetailVC: UIViewController {
         
         stickyHead.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(97)
+            $0.top.equalToSuperview().inset(92)
             $0.height.equalTo(40)
         }
     }
@@ -212,9 +221,12 @@ extension StoreDetailVC: UIScrollViewDelegate {
         let shouldShowSticky = scrollView.contentOffset.y >= 647
         stickyHead.isHidden = !shouldShowSticky
         
+        print(scrollView.contentOffset.y)
         let navigationBarWhite = scrollView.contentOffset.y >= 280
         var backgroundColor: UIColor = navigationBarWhite ? UIColor.white : UIColor.clear
         navigationBar.backgroundColor = backgroundColor
+        topSafeArea.backgroundColor = backgroundColor
+        
     }
 }
 
