@@ -64,6 +64,7 @@
 		8DE8E0652A2091FB00F03A63 /* CartResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8E0642A2091FB00F03A63 /* CartResponseDTO.swift */; };
 		8DE8E0672A20923A00F03A63 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8E0662A20923A00F03A63 /* CartService.swift */; };
 		F40825872A28C5060022F879 /* FirstHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40825862A28C5060022F879 /* FirstHeaderView.swift */; };
+		F408258A2A28C7F80022F879 /* SafeAreaBrush in Frameworks */ = {isa = PBXBuildFile; productRef = F40825892A28C7F80022F879 /* SafeAreaBrush */; };
 		F413BD822A162B410084B2F9 /* Skeleton.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD812A162B410084B2F9 /* Skeleton.xcassets */; };
 		F413BD862A162B520084B2F9 /* Button.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD852A162B520084B2F9 /* Button.xcassets */; };
 		F413BD882A162B5C0084B2F9 /* Option.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F413BD872A162B5C0084B2F9 /* Option.xcassets */; };
@@ -241,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4587D362A12B8BC00F56BCD /* SnapKit in Frameworks */,
+				F408258A2A28C7F80022F879 /* SafeAreaBrush in Frameworks */,
 				F4587D302A12B89D00F56BCD /* Kingfisher in Frameworks */,
 				F4587D332A12B8AD00F56BCD /* Alamofire in Frameworks */,
 			);
@@ -900,6 +902,7 @@
 				F4587D2F2A12B89D00F56BCD /* Kingfisher */,
 				F4587D322A12B8AD00F56BCD /* Alamofire */,
 				F4587D352A12B8BC00F56BCD /* SnapKit */,
+				F40825892A28C7F80022F879 /* SafeAreaBrush */,
 			);
 			productName = Baemin_iOS;
 			productReference = F4587CF22A0F609E00F56BCD /* Baemin_iOS.app */;
@@ -933,6 +936,7 @@
 				F4587D2E2A12B89D00F56BCD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F4587D312A12B8AD00F56BCD /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F4587D342A12B8BC00F56BCD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F40825882A28C7F80022F879 /* XCRemoteSwiftPackageReference "SafeAreaBrush" */,
 			);
 			productRefGroup = F4587CF32A0F609E00F56BCD /* Products */;
 			projectDirPath = "";
@@ -1311,6 +1315,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F40825882A28C7F80022F879 /* XCRemoteSwiftPackageReference "SafeAreaBrush" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WallabyStuff/SafeAreaBrush.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F4587D2E2A12B89D00F56BCD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1338,6 +1350,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F40825892A28C7F80022F879 /* SafeAreaBrush */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40825882A28C7F80022F879 /* XCRemoteSwiftPackageReference "SafeAreaBrush" */;
+			productName = SafeAreaBrush;
+		};
 		F4587D2F2A12B89D00F56BCD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F4587D2E2A12B89D00F56BCD /* XCRemoteSwiftPackageReference "Kingfisher" */;
