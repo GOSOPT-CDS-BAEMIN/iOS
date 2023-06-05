@@ -21,7 +21,8 @@ class StoreDetailVC: UIViewController {
     
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
-    private let tabelViewHeaders = TableViewHeaders()
+    // private let tabelViewHeaders = TableViewHeaders()
+    private var tabelViewHeaders: TableViewHeaders?
     private let stickyHead: UIView = StickyHeaderView()
     private let contentView: UIView = UIView()
     let topSafeArea = UIView()
@@ -33,7 +34,7 @@ class StoreDetailVC: UIViewController {
         }
     }
     
-    var index: Int = 0
+    var index = 0
     
     // MARK: - UI Components
     
@@ -65,9 +66,15 @@ class StoreDetailVC: UIViewController {
         setLayOut()
         register()
         setNotificationCenter()
+        print("******Target*****")
+        print(storeItem)
     }
     
     // MARK: - Methods
+    
+    private func bind() {
+        self.tabelViewHeaders = TableViewHeaders()
+    }
     
     private func setStyle() {
         view.backgroundColor = .white
@@ -150,7 +157,6 @@ class StoreDetailVC: UIViewController {
         
         if tmp == 1 {
             let vc = MenuDetailVC()
-            vc.index = self.index
             self.navigationController?.isNavigationBarHidden = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -181,6 +187,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoCell.identifier, for: indexPath) as? StoreInfoCell else { return UITableViewCell() }
             cell.isCoupon(1)
+            cell.bind(storeItem[0])
             return cell
         case 1:
             guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell()

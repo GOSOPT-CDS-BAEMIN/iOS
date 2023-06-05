@@ -192,9 +192,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
                 // let vc = RenewalVC()
-                vc.index = index
-                vc.storeItem = cell.items
-                
+                vc.storeItem = [cell.items[index-1]]
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell

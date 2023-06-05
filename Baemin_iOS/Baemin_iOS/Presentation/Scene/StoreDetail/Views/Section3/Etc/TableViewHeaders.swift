@@ -10,8 +10,10 @@ import UIKit
 import SnapKit
 
 class TableViewHeaders: UIView {
+    
+    var foodImg: String?
 
-    let storeInfoView = StoreInfoView()
+    var storeInfoView = StoreInfoView(frame: .zero, imgURL: "")
     let storeRateView = StoreRateView()
     let reviewCommentView = ReviewCommentView()
     let optionSelectView = OptionSelectView()
@@ -37,6 +39,16 @@ class TableViewHeaders: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind() {
+        
+        guard let img = foodImg else {
+            storeInfoView = StoreInfoView(frame: .zero, imgURL: "")
+            return
+        }
+        
+        storeInfoView = StoreInfoView(frame: .zero, imgURL: img)
     }
     
     func setLayOut() {

@@ -13,11 +13,21 @@ class StoreInfoCell: UITableViewCell {
     
     // MARK: - Properties
     
-    private let storeInfoView = StoreInfoView()
+//    private var storeInfoView = StoreInfoView(frame: .zero, imgURL: "")
     private let reiviewCommentView = ReviewCommentView()
     private let optionSelectView = OptionSelectView()
     
     // MARK: - UI Components
+    
+    private var storeImage = UIImageView()
+    
+    private lazy var emptyImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage.empty_2.resized(toWidth: UIScreen.main.bounds.width)
+        img.contentMode = .scaleAspectFill
+        img.sizeToFit()
+        return img
+    }()
     
     private let storeName: UILabel = {
         let name = UILabel()
@@ -63,18 +73,27 @@ class StoreInfoCell: UITableViewCell {
     }
     
     // MARK: - Methods
+    
+    func bind(_ storeData: MainData) {
+        
+        if storeData.firstImageURL == "" {
+            storeImage = emptyImage
+        } else {
+            storeImage.getImageFromURL(storeData.firstImageURL)
+        }
+    }
 
     private func setLayOut() {
         
-        addSubviewsInContentView(storeInfoView, storeName, storeRateImage, storeRate, reiviewCommentView, optionSelectView, couponBtn)
+        addSubviewsInContentView(storeImage, storeName, storeRateImage, storeRate, reiviewCommentView, optionSelectView, couponBtn)
         
-        storeInfoView.snp.makeConstraints {
+        storeImage.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview()
         }
 
         storeName.snp.makeConstraints {
-            $0.top.equalTo(storeInfoView.snp.bottom).offset(30)
+            $0.top.equalTo(storeImage.snp.bottom).offset(30)
             $0.centerX.equalToSuperview()
         }
         
