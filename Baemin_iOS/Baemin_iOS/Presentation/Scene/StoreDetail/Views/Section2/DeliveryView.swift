@@ -13,6 +13,9 @@ class DeliveryView: UIView {
     private let thirdView = DeliveryInfoBaseView()
     private let fourthView = DeliveryInfoBaseView()
     
+    var minOrderPrice: Int = 0
+    var deliveryTime: String = ""
+    
     // MARK: - UI Component
 
     private let detailTag: UIButton = {
@@ -24,8 +27,10 @@ class DeliveryView: UIView {
     
     // MARK: - initialize func
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, price: Int, time: String) {
         super.init(frame: frame)
+        minOrderPrice = price
+        deliveryTime = time
         setting()
         setLayOut()
     }
@@ -38,11 +43,11 @@ class DeliveryView: UIView {
 
     private func setting() {
         firstView.leftView.text = first_label[0]
-        firstView.rightView.text = second_label[0]
+        firstView.rightView.text = String(describing: minOrderPrice)
         secondView.leftView.text = first_label[1]
         secondView.rightView.text = second_label[1]
         thirdView.leftView.text = first_label[2]
-        thirdView.rightView.text = second_label[2]
+        thirdView.rightView.text = String(describing: deliveryTime)
         fourthView.leftView.text = first_label[3]
         fourthView.rightView.text = second_label[3]
     }

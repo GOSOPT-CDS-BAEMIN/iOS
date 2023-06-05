@@ -12,7 +12,7 @@ import SnapKit
 import SafeAreaBrush
 
 class StoreDetailVC: UIViewController {
-    
+
     // MARK: - Properties
     
     private let rowNum = [1, 1, 1, 5, 4]
@@ -21,8 +21,6 @@ class StoreDetailVC: UIViewController {
     
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
-    // private let tabelViewHeaders = TableViewHeaders()
-    private var tabelViewHeaders: TableViewHeaders?
     private let stickyHead: UIView = StickyHeaderView()
     private let contentView: UIView = UIView()
     let topSafeArea = UIView()
@@ -68,16 +66,10 @@ class StoreDetailVC: UIViewController {
         setLayOut()
         register()
         setNotificationCenter()
-        print("******Target*****")
-        print(storeItem)
     }
     
     // MARK: - Methods
-    
-    private func bind() {
-        self.tabelViewHeaders = TableViewHeaders()
-    }
-    
+
     private func setStyle() {
         view.backgroundColor = .white
         stickyHead.isHidden = true
@@ -194,6 +186,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell()
             }
+            deliverCell.bind(storeItem[0])
             return deliverCell
         default:
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
@@ -251,4 +244,10 @@ extension StoreDetailVC {
         let vc = CartViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func setDeliveryView() -> DeliveryView {
+        let view = DeliveryView(frame: .zero, price: storeItem[0].minOrderPrice, time: "\(storeItem[0].deliveryTime)")
+        return view
+    }
+
 }
