@@ -188,7 +188,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoCell.identifier, for: indexPath) as? StoreInfoCell else { return UITableViewCell() }
-            cell.isCoupon(1)
+            cell.isCoupon(storeItem[0].couponExist)
             cell.bind(storeItem[0])
             return cell
         case 1:

@@ -126,8 +126,8 @@ class StoreInfoCell: UITableViewCell {
         }
     }
     
-    func isCoupon(_ have: Int) {
-        if have == 0 {
+    func isCoupon(_ have: Bool) {
+        if !have {
             couponBtn.isHidden = true
         }
     }
