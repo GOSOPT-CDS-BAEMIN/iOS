@@ -19,6 +19,10 @@ enum NaviType {
         case .main, .menu, .store: return ""
         }
     }
+    
+    var storeName: String {
+        return ""
+    }
 }
 
 enum SubMainItem {
@@ -50,10 +54,10 @@ enum SubStoreItem {
         }
     }
     
-    var rightIcon: UIImage? {
+    var rightIcon: Any {
         switch self {
         case .rightButton: return UIImage.cart
-        case .leftButton: return nil
+        case .leftButton: return ""
         }
     }
 }

@@ -16,6 +16,7 @@ class MainVC: UIViewController {
     var useOneItemIndex: Int = 0
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
     var item: [MainData] = []
+    
     var oneItem: [MainData] = [] {
         didSet {
             pageCollectionView.reloadData()
@@ -25,7 +26,7 @@ class MainVC: UIViewController {
     
     // MARK: - UI Components
     
-    private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
+    private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton), storeName: "")
     private let lineView = UIView()
     private let optionView = MainOptionView()
     
@@ -190,8 +191,10 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.items = self.useOneItemIndex == 2 ? oneItem : item
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
-                //let vc = RenewalVC()
+                // let vc = RenewalVC()
                 vc.index = index
+                vc.storeItem = cell.items
+                
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell

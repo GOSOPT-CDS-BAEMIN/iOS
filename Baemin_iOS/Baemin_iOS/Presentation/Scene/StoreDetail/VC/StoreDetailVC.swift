@@ -17,7 +17,7 @@ class StoreDetailVC: UIViewController {
     
     private let rowNum = [1, 1, 1, 5, 4]
     
-    private let navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton))
+    private let navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton), storeName: "산시도삭면")
     
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
@@ -25,9 +25,9 @@ class StoreDetailVC: UIViewController {
     private let stickyHead: UIView = StickyHeaderView()
     private let contentView: UIView = UIView()
     let topSafeArea = UIView()
-
+    
     // StoreInfo 값을 받으면 테이블뷰를 reload 해준다
-    var storeItem: [StoreInfo] = [] {
+    var storeItem: [MainData] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -72,6 +72,7 @@ class StoreDetailVC: UIViewController {
     private func setStyle() {
         view.backgroundColor = .white
         stickyHead.isHidden = true
+        navigationBar.storeName.isHidden = true
         
         navigationBar.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
@@ -221,12 +222,11 @@ extension StoreDetailVC: UIScrollViewDelegate {
         let shouldShowSticky = scrollView.contentOffset.y >= 647
         stickyHead.isHidden = !shouldShowSticky
         
-        print(scrollView.contentOffset.y)
         let navigationBarWhite = scrollView.contentOffset.y >= 280
         var backgroundColor: UIColor = navigationBarWhite ? UIColor.white : UIColor.clear
         navigationBar.backgroundColor = backgroundColor
         topSafeArea.backgroundColor = backgroundColor
-        
+        navigationBar.storeName.isHidden = !navigationBarWhite
     }
 }
 

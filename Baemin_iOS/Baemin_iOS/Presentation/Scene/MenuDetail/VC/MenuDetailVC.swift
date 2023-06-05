@@ -25,7 +25,7 @@ class MenuDetailVC: UIViewController {
     
     private let menuView =  MenuDetailView()
     private let bottomView =  UIView()
-    private let naviView = CustomNavigaionView(type1: .menu(.leftButton), type2: .menu(.rightButton))
+    private let naviView = CustomNavigaionView(type1: .menu(.leftButton), type2: .menu(.rightButton), storeName: "")
     private let menuImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
