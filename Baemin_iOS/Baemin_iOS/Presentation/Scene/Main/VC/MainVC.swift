@@ -16,6 +16,7 @@ class MainVC: UIViewController {
     var useOneItemIndex: Int = 0
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
     var item: [MainData] = []
+    var totalInfo: [MainData] = []
     
     var oneItem: [MainData] = [] {
         didSet {
@@ -107,6 +108,7 @@ extension MainVC {
             guard let oneItem = self?.item else { return }
             let filteredItems = oneItem.filter { $0.storeType == "치킨" }
             self?.oneItem = filteredItems
+            print(self?.oneItem)
         }
     
         naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
@@ -188,11 +190,21 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
+            // 수정
             cell.items = self.useOneItemIndex == 2 ? oneItem : item
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
                 // let vc = RenewalVC()
-                vc.storeItem = [cell.items[index-1]]
+                
+                guard let target = self?.totalInfo else { return }
+                
+                print("*****")
+                print(index)
+                print(cell.items[index])
+                
+                vc.storeItem = [cell.items[index]]
+                vc.dataIndex = index
+                
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell

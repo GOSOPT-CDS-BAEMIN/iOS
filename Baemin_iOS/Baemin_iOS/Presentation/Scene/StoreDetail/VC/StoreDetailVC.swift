@@ -28,6 +28,7 @@ class StoreDetailVC: UIViewController {
     let topSafeArea = UIView()
     
     // StoreInfo 값을 받으면 테이블뷰를 reload 해준다
+    
     var storeItem: [MainData] = [] {
         didSet {
             tableView.reloadData()
@@ -35,6 +36,7 @@ class StoreDetailVC: UIViewController {
     }
     
     var index = 0
+    var dataIndex = 0
     
     // MARK: - UI Components
     

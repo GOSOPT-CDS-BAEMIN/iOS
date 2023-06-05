@@ -13,7 +13,6 @@ class StoreInfoCell: UITableViewCell {
     
     // MARK: - Properties
     
-//    private var storeInfoView = StoreInfoView(frame: .zero, imgURL: "")
     private let reiviewCommentView = ReviewCommentView()
     private let optionSelectView = OptionSelectView()
     
@@ -29,7 +28,7 @@ class StoreInfoCell: UITableViewCell {
         return img
     }()
     
-    private let storeName: UILabel = {
+    private var storeName: UILabel = {
         let name = UILabel()
         name.textColor = .black
         name.text = "산시 도삭면"
@@ -81,6 +80,9 @@ class StoreInfoCell: UITableViewCell {
         } else {
             storeImage.getImageFromURL(storeData.firstImageURL)
         }
+        
+        storeName.text = storeData.storeName
+        storeRate.text = "\(storeData.rate)"
     }
 
     private func setLayOut() {
