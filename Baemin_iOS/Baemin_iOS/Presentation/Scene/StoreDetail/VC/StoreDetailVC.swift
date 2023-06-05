@@ -182,6 +182,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoCell.identifier, for: indexPath) as? StoreInfoCell else { return UITableViewCell() }
             cell.isCoupon(storeItem[0].couponExist)
             cell.bind(storeItem[0])
+            cell.ratingStarImg(storeItem[0].rate)
             return cell
         case 1:
             guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell()

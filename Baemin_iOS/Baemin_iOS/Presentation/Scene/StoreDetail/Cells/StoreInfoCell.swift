@@ -131,4 +131,30 @@ class StoreInfoCell: UITableViewCell {
             couponBtn.isHidden = true
         }
     }
+    
+    func ratingStarImg(_ rating: Double) {
+        if rating == 5.0 {
+            storeRateImage.image = .five_zero.resized(toWidth: 137)
+        } else if rating < 5.0 && rating >= 4.5 {
+            storeRateImage.image = .five_star.resized(toWidth: 137)
+        } else if rating < 4.5 && rating >= 4.0 {
+            storeRateImage.image = .four_zero.resized(toWidth: 137)
+        } else if rating < 4.0 && rating >= 3.5 {
+            storeRateImage.image = .three_five.resized(toWidth: 137)
+        } else if rating < 3.5 && rating >= 3.0 {
+            storeRateImage.image = .three_zero.resized(toWidth: 137)
+        } else if rating < 3.0 && rating >= 2.5 {
+            storeRateImage.image = .two_five.resized(toWidth: 137)
+        } else if rating < 2.5 && rating >= 2.0 {
+            storeRateImage.image = .two_zero.resized(toWidth: 137)
+        } else if rating < 2.0 && rating >= 1.5 {
+            storeRateImage.image = .one_five.resized(toWidth: 137)
+        } else if rating < 1.5 && rating >= 1.0 {
+            storeRateImage.image = .one_zero.resized(toWidth: 137)
+        } else if rating < 1.0 && rating >= 0.5 {
+            storeRateImage.image = .zero_five.resized(toWidth: 137)
+        } else if rating < 0.5 && rating >= 0.0 {
+            storeRateImage.image = .zero_zero.resized(toWidth: 137)
+        }
+    }
 }
