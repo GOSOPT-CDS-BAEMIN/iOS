@@ -45,6 +45,21 @@ extension UIImage {
     static let yellow_star = UIImage(named: "yellow_star")!
     static let full_star = UIImage(named: "full_star")!
     static let five_star = UIImage(named: "five_star")!
+    static let five_zero = UIImage(named:"RatingStar/5.0")!
+    static let four_zero = UIImage(named:"RatingStar/4.0")!
+    static let three_five = UIImage(named:"RatingStar/3.5")!
+    static let three_zero = UIImage(named:"RatingStar/3.0")!
+    static let two_five = UIImage(named:"RatingStar/2.5")!
+    static let two_zero = UIImage(named:"RatingStar/2.0")!
+    static let one_five = UIImage(named:"RatingStar/1.5")!
+    static let one_zero = UIImage(named:"RatingStar/1.0")!
+    static let zero_five = UIImage(named:"RatingStar/0.5")!
+    static let zero_zero = UIImage(named:"RatingStar/0.0")!
+
+
+
+
+    
     static let like_heart = UIImage(named: "like_heart")!
     
     static let icon_coupon = UIImage(named: "icon_coupon")!
