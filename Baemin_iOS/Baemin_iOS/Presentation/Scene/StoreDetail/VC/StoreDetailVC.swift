@@ -203,6 +203,8 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         default:
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
             }
+            
+            detailInfoCell.bind(foodItem)
             return detailInfoCell
         }
     }

@@ -12,9 +12,9 @@ import SnapKit
 class DetailInfoCell: UITableViewCell {
     
     // MARK: - Properties
-    private let menuView = MenuVC()
-    private let infoView = InfoVC()
-    private let commentView = ReviewVC()
+    var menuView = MenuVC()
+    var infoView = InfoVC()
+    var commentView = ReviewVC()
     
     // MARK: - init func
     
@@ -31,6 +31,16 @@ class DetailInfoCell: UITableViewCell {
     }
     
     // MARK: - Methods
+    
+    func bind(_ foodData: [Food]) {
+        
+        foodData.forEach {
+            menuView.firstView.menuName.text = $0.foodName
+            menuView.firstView.foodImg.getImageFromURL($0.foodImageURL)
+            menuView.firstView.price.text = "\($0.price)원"
+            menuView.descriptionView.article.text = $0.foodDescription
+        }
+    }
     
     func setStyle() {
         backgroundColor = .white
