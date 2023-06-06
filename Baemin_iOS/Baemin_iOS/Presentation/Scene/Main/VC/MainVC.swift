@@ -15,14 +15,15 @@ class MainVC: UIViewController {
 
     var useOneItemIndex: Int = 0
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
+    
     var item: [MainData] = []
-    var totalInfo: [MainData] = []
     
     var oneItem: [MainData] = [] {
         didSet {
             pageCollectionView.reloadData()
         }
     }
+    
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     // MARK: - UI Components
@@ -78,7 +79,6 @@ class MainVC: UIViewController {
         setStyle()
         setLayout()
         register()
-        
     }
 }
 
@@ -108,7 +108,6 @@ extension MainVC {
             guard let oneItem = self?.item else { return }
             let filteredItems = oneItem.filter { $0.storeType == "치킨" }
             self?.oneItem = filteredItems
-            print(self?.oneItem)
         }
     
         naviView.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
@@ -190,21 +189,12 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         } else if collectionView == pageCollectionView {
             let cell: MainPageCell = collectionView.dequeueReusableCell(for: indexPath)
-            // 수정
+            
             cell.items = self.useOneItemIndex == 2 ? oneItem : item
+
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
-                // let vc = RenewalVC()
-                
-                guard let target = self?.totalInfo else { return }
-                
-                print("*****")
-                print(index)
-                print(cell.items[index])
-                
-                vc.storeItem = [cell.items[index]]
-                vc.dataIndex = index
-                
+                vc.dataIndex = cell.items[index].storeID
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
@@ -228,7 +218,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let desiredOffsetX = CGFloat(indexPath.item) * collectionView.bounds.width - middleIndex
             let targetOffset = CGPoint(x: desiredOffsetX, y: 0)
             collectionView.setContentOffset(targetOffset, animated: true)
-            
         }
     }
 }
@@ -264,7 +253,9 @@ extension MainVC {
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
                 
                 let filterArray: [MainData]
-                let validNames: [String] = ["전체", "족발,보쌈", "찜,탕,찌개", "돈까스,회,일식", "고기,구이", "피자", "양식", "중식", "아시안", "치킨", "백반,죽,국수", "버거", "분식", "카페,디저트"]
+                let validNames: [String] = [
+                    "전체", "족발,보쌈", "찜,탕,찌개", "돈까스,회,일식", "고기,구이", "피자", "양식", "중식", "아시안", "치킨", "백반,죽,국수", "버거", "분식", "카페,디저트"
+                ]
                 if index == 0 { return }
                 else if index < validNames.count {
                     let targetName = validNames[index]

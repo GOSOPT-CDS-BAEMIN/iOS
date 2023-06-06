@@ -25,11 +25,15 @@ class StoreDetailVC: UIViewController {
     private let contentView: UIView = UIView()
     let topSafeArea = UIView()
     
-    // StoreInfo 값을 받으면 테이블뷰를 reload 해준다
-    
-    var storeItem: [MainData] = [] {
+    var storeItem: [StoreInfo] = [] {
         didSet {
-            tableView.reloadData()
+            self.tableView.reloadData()
+        }
+    }
+    
+    var foodItem: [Food] = [] {
+        didSet {
+            self.tableView.reloadData()
         }
     }
     
@@ -60,8 +64,10 @@ class StoreDetailVC: UIViewController {
     }()
     
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestStoreAPI(idx: dataIndex)
         setStyle()
         setLayOut()
         register()
@@ -180,14 +186,19 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoCell.identifier, for: indexPath) as? StoreInfoCell else { return UITableViewCell() }
-            cell.isCoupon(storeItem[0].couponExist)
-            cell.bind(storeItem[0])
-            cell.ratingStarImg(storeItem[0].rate)
+            
+            if let target = storeItem.first {
+                cell.bind(target)
+            }
+            
             return cell
         case 1:
-            guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell()
+            guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell() }
+            
+            if let target = storeItem.first {
+                deliverCell.bind(target)
             }
-            deliverCell.bind(storeItem[0])
+    
             return deliverCell
         default:
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
@@ -246,9 +257,40 @@ extension StoreDetailVC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func setDeliveryView() -> DeliveryView {
-        let view = DeliveryView(frame: .zero, price: storeItem[0].minOrderPrice, time: "\(storeItem[0].deliveryTime)")
-        return view
+    func requestStoreAPI(idx: Int) {
+        StoreAPI.shared.getStoreInfo(request: idx) { response in
+            switch response {
+            case .success(let data):
+                guard let data = data as? StoreResponseDTO else { return }
+                
+                let targetData = data.data
+                let storeData = targetData.storeInfo
+                let foodData = targetData.foods
+                self.storeItem = self.storeModeling(storeData)
+                self.foodItem = self.foodModeling(foodData)
+                
+                print("\(self.storeItem)")
+                print("\(self.foodItem)")
+                print("🍀🍀🍀  ARRAY 제바아라바  🍀🍀🍀")
+            default:
+                print("🍀🍀🍀 실패염  🍀🍀🍀")
+                print(response)
+            }
+        }
     }
-
+    
+    func storeModeling(_ data: StoreInfo) -> [StoreInfo] {
+        return [StoreInfo(storeID: data.storeID, storeTypeID: data.storeTypeID, storeType: data.storeType, storeName: data.storeName, deliveryTime: data.deliveryTime, description: data.description, minOrderPrice: data.minOrderPrice, deliveryFee: data.deliveryFee, rate: data.rate, firstImageURL: data.firstImageURL, secondImageURL: data.secondImageURL, thirdImageURL: data.thirdImageURL, new: data.new, couponExist: data.couponExist)]
+    }
+    
+    func foodModeling(_ data: [Food]) -> [Food] {
+        
+        var foodList: [Food] = []
+        
+        for i in 0...data.count-1 {
+            let food = Food(foodID: data[i].foodID, foodName: data[i].foodName, price: data[i].price, foodDescription: data[i].foodDescription, foodImageURL: data[i].foodImageURL, best: data[i].best)
+            foodList.append(food)
+        }
+        return foodList
+    }
 }

@@ -69,7 +69,7 @@ class OrderInfoCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func bind(_ data: MainData) {
+    func bind(_ data: StoreInfo) {
         firstView.rightView.text = "\(data.minOrderPrice)원"
         thirdView.rightView.text = data.deliveryTime
     }

@@ -63,7 +63,6 @@ class DetailInfoCell: UITableViewCell {
     
     @objc func dataReceived(_ notification: Notification) {
         let tmp = notification.object as! Int
-        print(tmp)
 
         if tmp == 0 {
             menuView.view.isHidden = false

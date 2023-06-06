@@ -18,6 +18,7 @@ class MainPageCell: UICollectionViewCell {
             self.collectionView.reloadData()
         }
     }
+    
     var indexClosure: ((_ index: Int) -> Void)?
 
     // MARK: - UI Components

@@ -73,16 +73,18 @@ class StoreInfoCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func bind(_ storeData: MainData) {
-        
+    func bind(_ storeData: StoreInfo) {
+
         if storeData.firstImageURL == "" {
             storeImage = emptyImage
         } else {
             storeImage.getImageFromURL(storeData.firstImageURL)
         }
-        
+
         storeName.text = storeData.storeName
         storeRate.text = "\(storeData.rate)"
+        isCoupon(storeData.couponExist)
+        ratingStarImg(storeData.rate)
     }
 
     private func setLayOut() {
