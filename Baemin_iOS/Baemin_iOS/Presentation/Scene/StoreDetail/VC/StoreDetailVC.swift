@@ -17,7 +17,7 @@ class StoreDetailVC: UIViewController {
     
     private let rowNum = [1, 1, 1, 5, 4]
     
-    private let navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton), storeName: "산시도삭면")
+    private var navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton), storeName: "")
     
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
@@ -39,6 +39,11 @@ class StoreDetailVC: UIViewController {
     
     var index = 0
     var dataIndex = 0
+    var storeName = "" {
+        didSet {
+            navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton), storeName: self.storeName)
+        }
+    }
     
     // MARK: - UI Components
     
@@ -64,10 +69,14 @@ class StoreDetailVC: UIViewController {
     }()
     
     // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestStoreAPI(idx: dataIndex)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestStoreAPI(idx: dataIndex)
         setStyle()
         setLayOut()
         register()
@@ -84,9 +93,10 @@ class StoreDetailVC: UIViewController {
         navigationBar.backButton.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
         navigationBar.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
-        
+                
         tableView.contentInsetAdjustmentBehavior = .never
         contentView.insetsLayoutMarginsFromSafeArea = false
+        
     }
     
     private func setLayOut() {

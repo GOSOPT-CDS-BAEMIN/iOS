@@ -84,6 +84,7 @@ private extension CustomNavigaionView {
     }
     
     func setLayout() {
+        
         addSubviews(backButton, storeName, title, iconButton)
         
         backButton.snp.makeConstraints {
@@ -92,10 +93,18 @@ private extension CustomNavigaionView {
             $0.size.equalTo(CGSize(width: 55, height: 20))
         }
         
-        storeName.snp.makeConstraints { 
-            $0.leading.equalTo(backButton.snp.trailing)
-            $0.top.equalTo(backButton.snp.top)
-            $0.height.equalTo(backButton.snp.height)
+        if storeName.text == "" {
+            storeName.snp.makeConstraints {
+                $0.leading.equalTo(backButton.snp.trailing)
+                $0.top.equalTo(backButton.snp.top)
+                $0.height.equalTo(backButton.snp.height)
+            }
+        } else {
+            storeName.snp.makeConstraints {
+                $0.leading.equalTo(backButton.snp.trailing).offset(-25)
+                $0.top.equalTo(backButton.snp.top)
+                $0.height.equalTo(backButton.snp.height)
+            }
         }
         
         title.snp.makeConstraints {

@@ -195,6 +195,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
                 vc.dataIndex = cell.items[index].storeID
+                vc.storeName = cell.items[index].storeName
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
