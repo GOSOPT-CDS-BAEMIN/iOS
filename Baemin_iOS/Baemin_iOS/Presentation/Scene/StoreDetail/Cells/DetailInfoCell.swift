@@ -34,6 +34,8 @@ class DetailInfoCell: UITableViewCell {
     
     func bind(_ foodData: [Food]) {
         
+        menuView.numberOfCell = foodData.count
+        
         foodData.forEach {
             menuView.firstView.menuName.text = $0.foodName
             menuView.firstView.foodImg.getImageFromURL($0.foodImageURL)
