@@ -137,7 +137,8 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         let headerView = CartTableSectionHeaderView()
         headerView.headerClosure = { [weak self] result in
             if result {
-                for row in 0...(self?.cartArray.count)! {
+                guard let numberOfRows = self?.cartTableView.numberOfRows(inSection: section) else { return }
+                for row in 0..<numberOfRows {
                     if  let cell = tableView.cellForRow(at: IndexPath(row: row, section: section)) as? CartTableSectionViewCell {
                         cell.menuCheckButton.isSelected.toggle()
                     }
