@@ -46,4 +46,3 @@ struct FoodItem: Codable {
 struct DeleteModel: Codable {
     let foodIds: [Int]
 }
-

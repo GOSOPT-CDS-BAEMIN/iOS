@@ -113,6 +113,10 @@ class CartPriceView: UIView {
 // MARK: - Methods
 
 private extension CartPriceView {
+    
+    func dataBind(item: FoodItem) {
+        totalPriceValueLabel.text = "\(item.price * item.foodCount)"
+    }
 
     func setStyle() {
         addSubviews(totalPriceStackView, middleLineView, totalPayStackView, noticeLabel)

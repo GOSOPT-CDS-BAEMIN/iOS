@@ -69,6 +69,7 @@ private extension CartTabView {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
         }
+        
         chooseStoreButton.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
@@ -86,6 +87,7 @@ private extension CartTabView {
             $0.leading.equalTo(chooseAllLabel.snp.trailing).offset(191)
             $0.centerY.equalToSuperview()
         }
+         
     }
 
     @objc
