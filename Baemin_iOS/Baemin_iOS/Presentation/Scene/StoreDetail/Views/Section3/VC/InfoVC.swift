@@ -17,7 +17,7 @@ class InfoVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    let deliveryView = DeliveryView()
+    let deliveryView = DeliveryView(frame: .zero, price: 0, time: "")
     
     func setStyle() {
         view.addSubview(deliveryView)

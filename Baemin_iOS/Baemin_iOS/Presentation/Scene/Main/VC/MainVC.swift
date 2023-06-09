@@ -15,17 +15,20 @@ class MainVC: UIViewController {
 
     var useOneItemIndex: Int = 0
     var tabBarItems: [TabBarItem] = TabBarItem.tabBar()
+    
     var item: [MainData] = []
+    
     var oneItem: [MainData] = [] {
         didSet {
             pageCollectionView.reloadData()
         }
     }
+    
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     // MARK: - UI Components
     
-    private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton))
+    private let naviView = CustomNavigaionView(type1: .main(.leftButton), type2: .main(.rightButton), storeName: "")
     private let lineView = UIView()
     private let optionView = MainOptionView()
     
@@ -216,7 +219,8 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
                    
             cell.indexClosure = { [weak self] index in
                 let vc = StoreDetailVC()
-                vc.index = index
+                vc.dataIndex = cell.items[index].storeID
+                vc.storeName = cell.items[index].storeName
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
@@ -237,7 +241,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let desiredOffsetX = CGFloat(indexPath.item) * collectionView.bounds.width - middleIndex
             let targetOffset = CGPoint(x: desiredOffsetX, y: 0)
             collectionView.setContentOffset(targetOffset, animated: true)
-            
         }
     }
 }
@@ -271,6 +274,7 @@ extension MainVC {
                 self.item = dataArray
                 self.pageCollectionView.reloadData()
                 let filterArray: [MainData]
+
                 let validNames: [String] = ["전체", "족발,보쌈", "찜,탕,찌개", "돈까스,회,일식", "고기,구이", "피자", "양식", "중식", "아시안", "치킨", "백반,죽,국수", "버거", "분식", "카페,디저트"]
                 if index == 0 {
                     return }

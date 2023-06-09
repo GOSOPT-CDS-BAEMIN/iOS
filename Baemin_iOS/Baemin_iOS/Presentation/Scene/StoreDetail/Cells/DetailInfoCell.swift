@@ -12,11 +12,12 @@ import SnapKit
 class DetailInfoCell: UITableViewCell {
     
     // MARK: - Properties
-    private let menuView = MenuVC()
-    private let infoView = InfoVC()
-    private let commentView = ReviewVC()
+    var infoView = InfoVC()
+    var commentView = ReviewVC()
+    var renewalView = RenewalVC()
     
     // MARK: - init func
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -30,16 +31,22 @@ class DetailInfoCell: UITableViewCell {
     }
     
     // MARK: - Methods
+
+    func renewalBind(_ foodData: [Food]) {
+        renewalView.descriptionView.article.text = foodData.first?.foodDescription
+        renewalView.cellCount = foodData.count
+        renewalView.foodList = foodData
+    }
     
     func setStyle() {
-        contentView.backgroundColor = .white
+        backgroundColor = .white
     }
     
     func setLayOut() {
         
-        contentView.addSubviews(menuView.view, infoView.view, commentView.view)
-        
-        menuView.view.snp.makeConstraints {
+        contentView.addSubviews(infoView.view, commentView.view, renewalView.view)
+    
+        renewalView.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
@@ -51,7 +58,7 @@ class DetailInfoCell: UITableViewCell {
             $0.edges.equalToSuperview()
         }
         
-        menuView.view.isHidden = false
+        renewalView.view.isHidden = false
         infoView.view.isHidden = true
         commentView.view.isHidden = true
     }
@@ -62,21 +69,20 @@ class DetailInfoCell: UITableViewCell {
     
     @objc func dataReceived(_ notification: Notification) {
         let tmp = notification.object as! Int
-        print(tmp)
 
         if tmp == 0 {
-            menuView.view.isHidden = false
+            renewalView.view.isHidden = false
             infoView.view.isHidden = true
             commentView.view.isHidden = true
         } else if tmp == 1 {
-            menuView.view.isHidden = true
+            renewalView.view.isHidden = true
             infoView.view.isHidden = false
             commentView.view.isHidden = true
         } else {
-            menuView.view.isHidden = true
+            renewalView.view.isHidden = true
             infoView.view.isHidden = true
             commentView.view.isHidden = false
         }
     }
-
+    
 }

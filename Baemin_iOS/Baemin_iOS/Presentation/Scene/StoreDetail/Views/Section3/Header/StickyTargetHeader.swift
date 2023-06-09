@@ -69,7 +69,7 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
         setStyle()
         setLayOut()
     }
-
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -77,7 +77,7 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
     // MARK: - Methods
     
     func setStyle() {
-        contentView.backgroundColor = .clear
+        backgroundColor = .clear
     }
     
     func setLayOut() {
@@ -98,7 +98,7 @@ class StickyTargetHeader: UITableViewHeaderFooterView {
             for: .selected
         )
         
-        contentView.addSubviews(segmentControl)
+        addSubview(segmentControl)
         
         segmentControl.snp.makeConstraints {
             $0.top.equalToSuperview()

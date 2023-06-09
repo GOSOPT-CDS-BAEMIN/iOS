@@ -13,13 +13,22 @@ class StoreInfoCell: UITableViewCell {
     
     // MARK: - Properties
     
-    private let storeInfoView = StoreInfoView()
     private let reiviewCommentView = ReviewCommentView()
     private let optionSelectView = OptionSelectView()
     
     // MARK: - UI Components
     
-    private let storeName: UILabel = {
+    private var storeImage = UIImageView()
+    
+    private lazy var emptyImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage.empty_2.resized(toWidth: UIScreen.main.bounds.width)
+        img.contentMode = .scaleAspectFill
+        img.sizeToFit()
+        return img
+    }()
+    
+    private var storeName: UILabel = {
         let name = UILabel()
         name.textColor = .black
         name.text = "산시 도삭면"
@@ -63,18 +72,32 @@ class StoreInfoCell: UITableViewCell {
     }
     
     // MARK: - Methods
+    
+    func bind(_ storeData: StoreInfo) {
+
+        if storeData.firstImageURL == "" {
+            storeImage = emptyImage
+        } else {
+            storeImage.getImageFromURL(storeData.firstImageURL)
+        }
+
+        storeName.text = storeData.storeName
+        storeRate.text = "\(storeData.rate)"
+        isCoupon(storeData.couponExist)
+        ratingStarImg(storeData.rate)
+    }
 
     private func setLayOut() {
         
-        addSubviewsInContentView(storeInfoView, storeName, storeRateImage, storeRate, reiviewCommentView, optionSelectView, couponBtn)
+        addSubviewsInContentView(storeImage, storeName, storeRateImage, storeRate, reiviewCommentView, optionSelectView, couponBtn)
         
-        storeInfoView.snp.makeConstraints {
+        storeImage.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(-22)
+            $0.top.equalToSuperview()
         }
 
         storeName.snp.makeConstraints {
-            $0.top.equalTo(storeInfoView.snp.bottom).offset(30)
+            $0.top.equalTo(storeImage.snp.bottom).offset(30)
             $0.centerX.equalToSuperview()
         }
         
@@ -105,9 +128,35 @@ class StoreInfoCell: UITableViewCell {
         }
     }
     
-    func isCoupon(_ have: Int) {
-        if have == 0 {
+    func isCoupon(_ have: Bool) {
+        if !have {
             couponBtn.isHidden = true
+        }
+    }
+    
+    func ratingStarImg(_ rating: Double) {
+        if rating == 5.0 {
+            storeRateImage.image = .five_zero.resized(toWidth: 137)
+        } else if rating < 5.0 && rating >= 4.5 {
+            storeRateImage.image = .five_star.resized(toWidth: 137)
+        } else if rating < 4.5 && rating >= 4.0 {
+            storeRateImage.image = .four_zero.resized(toWidth: 137)
+        } else if rating < 4.0 && rating >= 3.5 {
+            storeRateImage.image = .three_five.resized(toWidth: 137)
+        } else if rating < 3.5 && rating >= 3.0 {
+            storeRateImage.image = .three_zero.resized(toWidth: 137)
+        } else if rating < 3.0 && rating >= 2.5 {
+            storeRateImage.image = .two_five.resized(toWidth: 137)
+        } else if rating < 2.5 && rating >= 2.0 {
+            storeRateImage.image = .two_zero.resized(toWidth: 137)
+        } else if rating < 2.0 && rating >= 1.5 {
+            storeRateImage.image = .one_five.resized(toWidth: 137)
+        } else if rating < 1.5 && rating >= 1.0 {
+            storeRateImage.image = .one_zero.resized(toWidth: 137)
+        } else if rating < 1.0 && rating >= 0.5 {
+            storeRateImage.image = .zero_five.resized(toWidth: 137)
+        } else if rating < 0.5 && rating >= 0.0 {
+            storeRateImage.image = .zero_zero.resized(toWidth: 137)
         }
     }
 }

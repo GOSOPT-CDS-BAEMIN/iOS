@@ -18,6 +18,7 @@ class MainPageCell: UICollectionViewCell {
             self.collectionView.reloadData()
         }
     }
+    
     var indexClosure: ((_ index: Int) -> Void)?
 
     // MARK: - UI Components
@@ -85,8 +86,7 @@ extension MainPageCell: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.indexClosure?(items[indexPath.item].storeID)
-
+        self.indexClosure?(indexPath.item)
     }
 }
 extension MainPageCell: UICollectionViewDelegateFlowLayout {

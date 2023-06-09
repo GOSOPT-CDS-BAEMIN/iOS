@@ -102,6 +102,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         stackView.alignment = .center
         stackView.backgroundColor = .clear
         stackView.sizeToFit()
+        stackView.spacing = 91
         return stackView
     }()
     
@@ -109,14 +110,13 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        
         configureContents()
         setStyle()
         
         delivery.addTarget(self, action: #selector(deliveryTouched), for: .touchUpInside)
         pickUp.addTarget(self, action: #selector(pickUpTouched), for: .touchUpInside)
     }
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -129,9 +129,9 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         
         pickUp_stack.addArrangedSubviews(pickUp, pickUp_line)
         
-        totalStack.addArrangedSubview(delivery_stack)
+        totalStack.addArrangedSubviews(delivery_stack, pickUp_stack)
         
-        addSubviewsInHeaderFooterView(pickUp_stack, totalStack, gray_divider)
+        addSubviews(totalStack, gray_divider)
         
         totalStack.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -140,7 +140,6 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
         
         pickUp_stack.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(68.5)
         }
         
         pickUp.snp.makeConstraints {
@@ -153,15 +152,12 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
             $0.top.equalTo(pickUp.snp.bottom).offset(8)
             $0.height.equalTo(4)
             $0.width.equalTo(pickUp.snp.width)
+            $0.bottom.equalToSuperview()
         }
         
         delivery_stack.snp.makeConstraints {
             $0.leading.top.equalToSuperview()
             $0.width.equalTo(delivery.snp.width)
-        }
-        
-        delivery_stack.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
         }
         
         delivery.snp.makeConstraints {
@@ -174,6 +170,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
             $0.top.equalTo(delivery.snp.bottom).offset(8)
             $0.height.equalTo(4)
             $0.width.equalTo(delivery.snp.width)
+            $0.bottom.equalToSuperview()
         }
         
         gray_divider.snp.makeConstraints {
@@ -186,7 +183,7 @@ class OrderMethodSelectView: UITableViewHeaderFooterView {
     
     func setStyle() {
         pickUp_line.isHidden = true
-        contentView.backgroundColor = .white
+        backgroundColor = .white
     }
     
     @objc

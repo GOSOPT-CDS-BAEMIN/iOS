@@ -10,15 +10,15 @@ import UIKit
 import SnapKit
 
 class CartTableSectionViewCell: UITableViewCell {
-    
+
     // MARK: - UI Properties
 
     static let idf = NSObject.identifier
-    
-    var countClosure: ((_ result:Bool)->Void)?
-    
+
+    var countClosure: ((_ result: Bool) -> Void)?
+
     // 메뉴 Stackview 구성
-    
+
     private let menuStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -30,7 +30,6 @@ class CartTableSectionViewCell: UITableViewCell {
     
     private let menuImageView: UIImageView = {
         let imageview = UIImageView()
-        imageview.image = .dummy
         imageview.makeCornerRound(radius: 8)
         imageview.clipsToBounds = true
         return imageview
@@ -75,11 +74,12 @@ class CartTableSectionViewCell: UITableViewCell {
 // MARK: - Methods
 
 extension CartTableSectionViewCell {
-    
+
     func dataBind(item: FoodItem) {
         menuNameLabel.text = item.foodName
         menuPriceLabel.text = "\(item.price)원"
         menuCountView.numberLabel.text = "\(item.foodCount)"
+        menuImageView.getImageFromURL(item.foodImageURL)
         }
 
     func setStyle() {
@@ -87,9 +87,10 @@ extension CartTableSectionViewCell {
     }
     
     func setLayout() {
+
         contentView.addSubview(menuStackView)
         menuStackView.addSubviews(menuCheckButton, menuImageView, menuNameLabel, menuPriceLabel, menuCountView)
-        
+    
         menuStackView.snp.makeConstraints {
             $0.width.equalTo(351)
             $0.height.equalTo(156)
@@ -119,9 +120,14 @@ extension CartTableSectionViewCell {
             $0.height.equalTo(32)
         }
     }
-    
+
     @objc
     func changeButton() {
         self.countClosure?(true)
     }
+    
+    func updateButtonSelection(selected: Bool) {
+        menuCheckButton.isSelected = selected
+    }
+
 }
