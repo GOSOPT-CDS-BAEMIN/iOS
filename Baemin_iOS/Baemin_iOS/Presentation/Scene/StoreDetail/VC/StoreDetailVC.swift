@@ -9,13 +9,17 @@ import UIKit
 
 import SnapKit
 
-import SafeAreaBrush
+protocol gotoMenuDetail: AnyObject {
+    func changeView()
+}
+
+// weak var delegate: gotoMenuDetail?
 
 class StoreDetailVC: UIViewController {
 
     // MARK: - Properties
     
-    private let rowNum = [1, 1, 1, 5, 4]
+    private let rowNum = [1, 1, 1]
     
     private var navigationBar = CustomNavigaionView(type1: .store(.leftButton), type2: .store(.rightButton), storeName: "")
     
@@ -24,6 +28,8 @@ class StoreDetailVC: UIViewController {
     private let stickyHead: UIView = StickyHeaderView()
     private let contentView: UIView = UIView()
     let topSafeArea = UIView()
+    
+    private var totalView: UIView = UIView()
     
     var storeItem: [StoreInfo] = [] {
         didSet {
@@ -47,7 +53,7 @@ class StoreDetailVC: UIViewController {
     
     // MARK: - UI Components
     
-    private let scrollView: UIScrollView = {
+    private var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.backgroundColor = .clear
         scroll.isScrollEnabled = true
@@ -65,6 +71,7 @@ class StoreDetailVC: UIViewController {
         table.sectionFooterHeight = UITableView.automaticDimension
         table.rowHeight = UITableView.automaticDimension
         table.bounces = true
+        table.allowsSelection = false
         return table
     }()
     
@@ -84,7 +91,7 @@ class StoreDetailVC: UIViewController {
     }
     
     // MARK: - Methods
-
+    
     private func setStyle() {
         view.backgroundColor = .white
         stickyHead.isHidden = true
@@ -96,17 +103,24 @@ class StoreDetailVC: UIViewController {
                 
         tableView.contentInsetAdjustmentBehavior = .never
         contentView.insetsLayoutMarginsFromSafeArea = false
-        
+        scrollView.insetsLayoutMarginsFromSafeArea = false
     }
     
     private func setLayOut() {
         
-        view.addSubviews(contentView, topSafeArea, navigationBar, stickyHead)
+        view.addSubview(scrollView)
+        scrollView.addSubviews(contentView, topSafeArea, navigationBar, stickyHead)
         contentView.addSubview(tableView)
+                
+        scrollView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
         
         contentView.snp.makeConstraints {
-            $0.horizontalEdges.bottom.equalToSuperview()
-            $0.top.equalToSuperview().inset(-50)
+            $0.height.equalTo(scrollView.snp.height)
+            $0.top.equalTo(view.snp.top).inset(-50)
+            $0.width.equalToSuperview()
         }
         
         topSafeArea.snp.makeConstraints {
@@ -122,13 +136,14 @@ class StoreDetailVC: UIViewController {
         }
         
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(contentView.snp.edges)
         }
         
         stickyHead.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(92)
+            $0.top.equalToSuperview().inset(35)
             $0.height.equalTo(40)
+            $0.width.equalToSuperview()
         }
     }
     
@@ -214,7 +229,11 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
             }
             
-            detailInfoCell.bind(foodItem)
+            detailInfoCell.renewalBind(foodItem)
+            detailInfoCell.renewalView.bringClosure = { [weak self] _ in
+                let vc = MenuDetailVC()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
             return detailInfoCell
         }
     }
@@ -245,14 +264,23 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 extension StoreDetailVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        let maxScrollHeight = scrollView.frame.size.height + 650
+
+        if bottomEdge >= scrollView.contentSize.height {
+            scrollView.contentSize.height = maxScrollHeight
+        }
+
         let shouldShowSticky = scrollView.contentOffset.y >= 647
         stickyHead.isHidden = !shouldShowSticky
         
         let navigationBarWhite = scrollView.contentOffset.y >= 280
-        var backgroundColor: UIColor = navigationBarWhite ? UIColor.white : UIColor.clear
+        let backgroundColor: UIColor = navigationBarWhite ? UIColor.white : UIColor.clear
         navigationBar.backgroundColor = backgroundColor
         topSafeArea.backgroundColor = backgroundColor
         navigationBar.storeName.isHidden = !navigationBarWhite
+        
     }
 }
 
@@ -304,5 +332,12 @@ extension StoreDetailVC {
             foodList.append(food)
         }
         return foodList
+    }
+}
+
+extension StoreDetailVC: gotoMenuDetail {
+    func changeView() {
+        let vc = MenuDetailVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

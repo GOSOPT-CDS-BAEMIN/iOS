@@ -37,7 +37,7 @@ class OrderInfoCell: UITableViewCell {
     private var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.backgroundColor = .white
+        stack.backgroundColor = .clear
         stack.alignment = .center
         stack.sizeToFit()
         return stack
