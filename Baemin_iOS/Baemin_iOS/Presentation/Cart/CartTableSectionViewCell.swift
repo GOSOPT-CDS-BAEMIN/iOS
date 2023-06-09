@@ -15,7 +15,7 @@ class CartTableSectionViewCell: UITableViewCell {
 
     static let idf = NSObject.identifier
 
-    var countClosure: ((_ result:Bool)->Void)?
+    var countClosure: ((_ result : Bool) -> Void)?
 
     // 메뉴 Stackview 구성
 
@@ -124,6 +124,10 @@ extension CartTableSectionViewCell {
     @objc
     func changeButton() {
         self.countClosure?(true)
+    }
+    
+    func updateButtonSelection(selected: Bool) {
+        menuCheckButton.isSelected = selected
     }
 
 }

@@ -14,17 +14,20 @@ class CartTableSectionHeaderView: UIView {
     // MARK: - UI Properties
 
     var headerClosure: ((_ result: Bool) -> Void)?
+    weak var delegate: TableSectionHeaderDelegate?
+    var section: Int = 0
 
     lazy var storeCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
         button.setImage(.checked, for: .selected)
-        button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(headerButtonTapped), for: .touchUpInside)
         return button
     }()
 
     private let storeNameLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
@@ -80,10 +83,15 @@ extension CartTableSectionHeaderView {
             $0.width.height.equalTo(20)
         }
     }
-
+    
     @objc
-    func changeButton() {
-        self.headerClosure?(true)
+    func headerButtonTapped(_ sender: UIButton) {
+        let selected = !sender.isSelected
+        sender.isSelected = selected
+        delegate?.didSelectHeaderButton(section: section, selected: selected)
     }
+}
 
+protocol TableSectionHeaderDelegate: AnyObject {
+    func didSelectHeaderButton(section: Int, selected: Bool)
 }

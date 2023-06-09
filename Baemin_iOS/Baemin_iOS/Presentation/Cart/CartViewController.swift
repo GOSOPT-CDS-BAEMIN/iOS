@@ -12,13 +12,14 @@ import SnapKit
 class CartViewController: UIViewController {
     
      // MARK: - UI Properties
-
+    
     private var buttonStates: [Bool] = []
     private let cartTabView = CartTabView()
     private let cartView = CartPriceView()
     private let payView = payButtonView()
     private let cartNavi = CustomNavigaionView(type1: .cart(.leftButton), type2: .cart(.rightButton))
     private var cartArray: [FoodsList] = []
+    private var foodArray: [FoodItem] = []
     private var totalPrice: Int = 0
     private var totalCount: Int = 0
     private var checkedCount: Int = 0
@@ -120,11 +121,11 @@ private extension CartViewController {
     }
 }
 
-class ScrollableSectionHeaderView: UITableViewCell {
-    var headerView: UIView?
-}
+//class ScrollableSectionHeaderView: UITableViewCell {
+//    var headerView: UIView?
+//}
 
-extension CartViewController: UITableViewDataSource, UITableViewDelegate {
+extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableSectionHeaderDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return cartArray.count
@@ -135,17 +136,10 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
         let headerView = CartTableSectionHeaderView()
-        headerView.headerClosure = { [weak self] result in
-            if result {
-                guard let numberOfRows = self?.cartTableView.numberOfRows(inSection: section) else { return }
-                for row in 0..<numberOfRows {
-                    if  let cell = tableView.cellForRow(at: IndexPath(row: row, section: section)) as? CartTableSectionViewCell {
-                        cell.menuCheckButton.isSelected.toggle()
-                    }
-                    headerView.storeCheckButton.isSelected.toggle()
-                }
-            }
-        }
+        headerView.dataBind(item: cartArray[section])
+        headerView.delegate = self
+        headerView.section = section
+
         return headerView
     }
 
@@ -157,11 +151,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = CartTableSectionFooterView()
+        footerView.dataBind(item: foodArray[section])
+        
         let button = footerView.addMenuButton
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         return footerView
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 194.0 // Example: Set the height of the section header
     }
@@ -177,6 +174,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartTableSectionViewCell.identifier, for: indexPath) as? CartTableSectionViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.dataBind(item: cartArray[indexPath.section].foods[indexPath.item])
+        
         cell.countClosure = { [weak self] result in
             if result {
                 if !cell.menuCheckButton.isSelected {
@@ -206,6 +204,17 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = MainVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func didSelectHeaderButton(section: Int, selected: Bool) {
+            // Update the button selection state for cells in the specified section
+        let indexPaths = (0..<self.cartTableView.numberOfRows(inSection: section)).map { IndexPath(row: $0, section: section) }
+            for indexPath in indexPaths {
+                if let cell = self.cartTableView.cellForRow(at: indexPath) as? CartTableSectionViewCell {
+                    cell.updateButtonSelection(selected: selected)
+                }
+            }
+        }
+    
 }
 
 extension CartViewController {
@@ -218,10 +227,13 @@ extension CartViewController {
                 guard let data = data as? CartResponseDTO else { return }
                 let dataArray = data.data
                 for item in dataArray {
-                   self.cartArray.append(item)
+                    self.foodArray.append(item.foods[0])
+                    self.cartArray.append(item)
                     print("🤤\(self.cartArray)")
                 }
+
                 self.cartTableView.reloadData()
+                
                 self.cartTableView.snp.updateConstraints {
                     $0.height.equalTo(self.cartArray.count * 430)
                 }
