@@ -17,7 +17,9 @@ class CartViewController: UIViewController {
     private let cartTabView = CartTabView()
     private let cartView = CartPriceView()
     private let payView = payButtonView()
-    private let cartNavi = CustomNavigaionView(type1: .cart(.leftButton), type2: .cart(.rightButton))
+
+    private let cartNavi = CustomNavigaionView(type1: .cart(.leftButton), type2: .cart(.rightButton), storeName: "")
+ //   let count: [Int] = []
     private var cartArray: [FoodsList] = []
     private var foodArray: [FoodItem] = []
     private var totalPrice: Int = 0
@@ -68,6 +70,7 @@ private extension CartViewController {
     
     func didTapButton() {
         let newViewController = StoreDetailVC()
+        //let newViewController = RenewalVC()
         navigationController?.pushViewController(newViewController, animated: true)
     }
     
@@ -230,6 +233,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableS
     
     @objc func buttonTapped() {
         let newViewController = StoreDetailVC()
+        //let newViewController = RenewalVC()
         navigationController?.pushViewController(newViewController, animated: true)
     }
     

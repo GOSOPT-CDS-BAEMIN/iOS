@@ -21,7 +21,7 @@ class MenuDescriptionView: UIView {
         return btn
     }()
     
-    private let article: UILabel = {
+    var article: UILabel = {
         let label = UILabel()
         label.text = I18N.MenuView.introuduce
         label.font = .AppleSDGothicNeo(.regular, size: 16)

@@ -89,11 +89,12 @@ class ReviewCommentView: UIView {
         }
         
         recentReview.snp.makeConstraints {
-            $0.leading.top.bottom.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().inset(77)
         }
         
         reviewNum.snp.makeConstraints {
-            $0.leading.equalTo(recentReview.snp.trailing)
+            $0.leading.equalTo(recentReview.snp.trailing).offset(4)
             $0.top.bottom.equalToSuperview()
         }
         
@@ -110,9 +111,9 @@ class ReviewCommentView: UIView {
         }
         
         commentNum.snp.makeConstraints {
-            $0.leading.equalTo(recentComment.snp.trailing)
+            $0.leading.equalTo(recentComment.snp.trailing).offset(4)
             $0.top.bottom.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(77)
         }
     }
 }

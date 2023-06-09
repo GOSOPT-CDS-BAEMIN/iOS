@@ -8,13 +8,20 @@
 import UIKit
 
 enum NaviType {
-    case main(SubMainItem), cart(SubCartItem), menu(SubMenuItem)
+    case main(SubMainItem)
+    case cart(SubCartItem)
+    case menu(SubMenuItem)
+    case store(SubStoreItem)
     
     var title: String {
         switch self {
         case .cart: return "장바구니"
-        case .main, .menu: return ""
+        case .main, .menu, .store: return ""
         }
+    }
+    
+    var storeName: String {
+        return ""
     }
 }
 
@@ -36,6 +43,25 @@ enum SubMainItem {
     }
 }
 
+enum SubStoreItem {
+    
+    case leftButton, rightButton
+    
+    var leftIcon: UIImage {
+        switch self {
+        case .leftButton: return UIImage.arrow_back
+        case .rightButton: return UIImage.home
+        }
+    }
+    
+    var rightIcon: Any {
+        switch self {
+        case .rightButton: return UIImage.cart
+        case .leftButton: return ""
+        }
+    }
+}
+
 enum SubCartItem {
     
     case leftButton, rightButton
@@ -50,7 +76,7 @@ enum SubCartItem {
     var rightIcon: UIImage? {
         switch self {
         case .rightButton: return UIImage.people
-        case .leftButton: return nil
+        case .leftButton: return UIImage.cart
         }
     }
 }

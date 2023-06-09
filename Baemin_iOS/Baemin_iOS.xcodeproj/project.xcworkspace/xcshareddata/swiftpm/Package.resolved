@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "safeareabrush",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WallabyStuff/SafeAreaBrush.git",
+      "state" : {
+        "revision" : "4943d253687368afbea7ea09c19530a0361ed613",
+        "version" : "1.0.4"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",

@@ -12,35 +12,46 @@ import SnapKit
 class StoreInfoView: UIView {
     
     // MARK: - Property
-    let storeImage = UIImageView()
+    var storeImage = UIImageView()
+    
+    private lazy var emptyImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage.empty_2.resized(toWidth: UIScreen.main.bounds.width)
+        img.sizeToFit()
+        return img
+    }()
     
     // MARK: - init func
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, imgURL: String) {
         super.init(frame: frame)
+        bind(imgURL)
         configureContents()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        configureContents()
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Methods
     
+    func bind(_ url: String) {
+        if url == "" {
+            storeImage = emptyImage
+        } else {
+            storeImage.getImageFromURL(url)
+        }
+    }
+    
     func configureContents() {
         
-        storeImage.contentMode = .scaleAspectFit
+        storeImage.contentMode = .scaleAspectFill
         storeImage.sizeToFit()
-        storeImage.image = .dummy.resized(toWidth: UIScreen.main.bounds.width+5)
-        storeImage.insetsLayoutMarginsFromSafeArea = false
         
         addSubview(storeImage)
         
         storeImage.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
-            $0.top.equalToSuperview().inset(-30)
+            $0.edges.equalToSuperview()
         }
     }
 }
