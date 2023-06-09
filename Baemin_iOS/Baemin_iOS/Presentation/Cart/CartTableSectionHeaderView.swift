@@ -10,44 +10,48 @@ import UIKit
 import SnapKit
 
 class CartTableSectionHeaderView: UIView {
-    
+
     // MARK: - UI Properties
-    
+
     var headerClosure: ((_ result: Bool) -> Void)?
-    
+    weak var delegate: TableSectionHeaderDelegate?
+    var section: Int = 0
+
     lazy var storeCheckButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
         button.setImage(.checked, for: .selected)
-        button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(headerButtonTapped), for: .touchUpInside)
         return button
     }()
-    
+
     private let storeNameLabel: UILabel = {
         let label = UILabel()
-        // label.text = "test 가게이름"
+        label.textAlignment = .center
         label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
-    
-    private let storeDeleteButton: UIButton = {
+
+    lazy var storeDeleteButton: UIButton = {
         let button = UIButton()
         button.setImage(.x, for: .normal)
+        button.isEnabled = true
+        button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         return button
     }()
-    
+
     // MARK: - Initialization
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .topRight], radius: 8)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -56,7 +60,11 @@ class CartTableSectionHeaderView: UIView {
 // MARK: - Methods
 
 extension CartTableSectionHeaderView {
-    
+
+    func dataBind(item: FoodsList) {
+        storeNameLabel.text = item.storeName
+        }
+
     private func setLayout() {
         self.addSubviews(storeCheckButton, storeNameLabel, storeDeleteButton)
         self.backgroundColor = .white
@@ -79,8 +87,21 @@ extension CartTableSectionHeaderView {
     }
     
     @objc
-    func changeButton() {
-        self.headerClosure?(true)
+    private func headerButtonTapped(_ sender: UIButton) {
+        let selected = !sender.isSelected
+        sender.isSelected = selected
+        delegate?.didSelectHeaderButton(section: section, selected: selected)
     }
+    
+    @objc
+    private func deleteButtonTapped(_ sender: UIButton) {
+        let selected = !sender.isSelected
+        sender.isSelected = selected
+        delegate?.passSelectedSection(section: section)
+    }
+}
 
+protocol TableSectionHeaderDelegate: AnyObject {
+    func didSelectHeaderButton(section: Int, selected: Bool)
+    func passSelectedSection(section: Int)
 }
