@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class CartTabView: UIView {
-    
+
     private let cartTabView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -20,8 +20,8 @@ class CartTabView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
-    
-    private let chooseStoreButton: UIButton = {
+
+    lazy var chooseStoreButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
         button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
@@ -42,24 +42,26 @@ class CartTabView: UIView {
         button.titleLabel?.font = UIFont.AppleSDGothicNeo(.medium, size: 14)
         return button
     }()
-    
+
     private let emptyView = UIView()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 private extension CartTabView {
+
     func setStyle() {
         addSubview(cartTabView)
     }
+
     func setLayout() {
         cartTabView.addArrangedSubviews(chooseStoreButton, emptyView, chooseAllLabel, deleteMenuButton)
         
@@ -67,12 +69,12 @@ private extension CartTabView {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
         }
+        
         chooseStoreButton.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
             $0.size.equalTo(24)
         }
-        
         emptyView.snp.makeConstraints {
             $0.leading.equalTo(chooseStoreButton.snp.trailing)
             $0.width.equalTo(6)
@@ -86,13 +88,12 @@ private extension CartTabView {
             $0.centerY.equalToSuperview()
         }
     }
-    
+
     @objc
     func changeButton() {
-        if (chooseStoreButton.currentImage == .circle_empty) {
+        if chooseStoreButton.currentImage == .circle_empty {
             chooseStoreButton.setImage(.checked, for: .normal)
-        }
-        else {
+        } else {
             chooseStoreButton.setImage(.circle_empty, for: .normal)
         }
     }

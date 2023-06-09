@@ -12,17 +12,21 @@ import SnapKit
 class CartViewController: UIViewController {
     
      // MARK: - UI Properties
-
+    
     private var buttonStates: [Bool] = []
     private let cartTabView = CartTabView()
     private let cartView = CartPriceView()
     private let payView = payButtonView()
     private let cartNavi = CustomNavigaionView(type1: .cart(.leftButton), type2: .cart(.rightButton))
- //   let count: [Int] = []
     private var cartArray: [FoodsList] = []
+    private var foodArray: [FoodItem] = []
     private var totalPrice: Int = 0
     private var totalCount: Int = 0
     private var checkedCount: Int = 0
+    private var totalPayWithDeliveryTips: Int = 0
+    private var tableviewHeight: Int = 0
+    
+    private var willDeleteSectionIndex: Int = -1
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -53,11 +57,9 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         setStyle()
         setLayout()
-        //didTapButton()
         cartTableView.dataSource = self
         cartTableView.delegate = self
     }
-
 }
 
 // MARK: - Methods
@@ -113,7 +115,6 @@ private extension CartViewController {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(12)
             $0.height.equalTo(700)
-        // $0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
         }
         cartView.snp.makeConstraints {
             $0.top.equalTo(cartTableView.snp.bottom)
@@ -123,34 +124,64 @@ private extension CartViewController {
     }
 }
 
-class ScrollableSectionHeaderView: UITableViewCell {
-    var headerView: UIView?
-}
-
-extension CartViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        print("🤢\(cartArray.count)")
-        return cartArray.count    }
+extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableSectionHeaderDelegate {
+    func passSelectedSection(section: Int) {
+        UIView.setAnimationsEnabled(false)
+        cartTableView.beginUpdates()
+        cartTableView.deleteSections(IndexSet([section]), with: .middle)
+        foodArray.remove(at: section)
+        cartArray.remove(at: section)
+        
+        cartTableView.reloadData()
+        cartTableView.endUpdates()
+        
+        self.totalPrice = 0
+        self.totalCount = 0
+        self.totalPayWithDeliveryTips = 0
+        
+        foodArray.forEach { item in
+            totalPrice += item.foodCount * item.price
+            totalCount += item.foodCount
+            totalPayWithDeliveryTips += item.foodCount * item.price
             
+        }
+        
+        cartArray.forEach { item in
+            totalPayWithDeliveryTips += item.deliveryFee
+        }
+        
+        let totalPriceString = addCommaToPrice(totalPrice)
+        let totalPayString = addCommaToPrice(totalPayWithDeliveryTips)
+        
+        cartView.passTotalPrice(price: totalPriceString)
+        cartView.passTotalPay(pay: totalPayString)
+        
+        payView.passCount(count: totalCount)
+        payView.passPay(pay: totalPayString)
+        
+        self.tableviewHeight -= 430
+        
+        self.cartTableView.snp.updateConstraints {
+            $0.height.equalTo(tableviewHeight)
+        }
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return cartArray.count
+    }
+
+//    table
     // section header 설정
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
         let headerView = CartTableSectionHeaderView()
-        headerView.headerClosure = { [weak self] result in
-            if result {
-                for row in 0...2 { // 서버 연결하면 2를 cartArray.count 로 바꾸기
-                    if  let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? CartTableSectionViewCell {
-                        cell.menuCheckButton.isSelected.toggle()
-                    }
-                    headerView.storeCheckButton.isSelected.toggle()
-
-                }
-            }
-        }
+        headerView.dataBind(item: cartArray[section])
+        headerView.delegate = self
+        headerView.section = section
         return headerView
     }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60.0 // Example: Set the height of the section header
     }
@@ -159,15 +190,18 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = CartTableSectionFooterView()
+        footerView.dataBind(item: foodArray[section])
+        
         let button = footerView.addMenuButton
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         return footerView
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 194.0 // Example: Set the height of the section header
-    }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 194.0
+    }
+
     // section 내부 cell 설정
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -178,24 +212,18 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartTableSectionViewCell.identifier, for: indexPath) as? CartTableSectionViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-      // cell.(cartArray[indexPath.item], ind) //cell에 바인드함수 만들기
-//        for item in cartArray {
         cell.dataBind(item: cartArray[indexPath.section].foods[indexPath.item])
-//
-//        }
-//        cell.dataBind(item: cartArray[indexPath.row], index: indexPath.item)
+        
         cell.countClosure = { [weak self] result in
             if result {
                 if !cell.menuCheckButton.isSelected {
                     self?.checkedCount += 1
-                    print(self?.checkedCount)
                     print(cell.menuCheckButton.isSelected)
                 } else {
                     self?.checkedCount -= 1
                 }
                 cell.menuCheckButton.isSelected.toggle()
             }
-            
         }
         return cell
     }
@@ -214,46 +242,67 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = MainVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func didSelectHeaderButton(section: Int, selected: Bool) {
+        let indexPaths = (0..<self.cartTableView.numberOfRows(inSection: section)).map { IndexPath(row: $0, section: section) }
+            for indexPath in indexPaths {
+                if let cell = self.cartTableView.cellForRow(at: indexPath) as? CartTableSectionViewCell {
+                    cell.updateButtonSelection(selected: selected)
+                }
+            }
+        }
 }
 
-//extension CartViewController {
-//    func getCartData(completion: @escaping () -> Void) {
-//        cartNetworkManager.fetchCartList { response in
-//            switch response {
-//            case .success(let data):
-//                guard let data = data as? CartListModel else {
-//                    return }
-//                self.cartArray = data.data
-//                completion()
-//            default:
-//                print("NetworkFailed")
-//                completion()
-//            }
-//        }
-//    }
-//}
-
-
 extension CartViewController {
-    func requestCartAPI (index: Int) {
+    private func addCommaToPrice(_ price: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let result = numberFormatter.string(from: NSNumber(value: price)) else { return "" }
+        
+        return result
+    }
+    
+    private func requestCartAPI (index: Int) {
         CartAPI.shared.getCart(id: index + 1) { response in
             print("🍀🍀🍀 response 🍀🍀🍀")
             print(response)
             switch response {
             case .success(let data):
                 guard let data = data as? CartResponseDTO else { return }
-              //self.cartArray = data.data.storeInfo
                 let dataArray = data.data
+                var totalPrice: Int = 0
+                var totalCount: Int = 0
+                                
                 for item in dataArray {
-                   self.cartArray.append(item)
+                    self.foodArray.append(item.foods[0])
+                    self.cartArray.append(item)
+                    totalPrice += item.foods[0].foodCount * item.foods[0].price
+                    totalCount += item.foods[0].foodCount
+                    self.totalPayWithDeliveryTips += item.foods[0].foodCount * item.foods[0].price + item.deliveryFee
+
                     print("🤤\(self.cartArray)")
                 }
+                
+                let priceString = self.addCommaToPrice(totalPrice)
+                let payString = self.addCommaToPrice(self.totalPayWithDeliveryTips)
+                
+                self.payView.passPay(pay: payString)
+                self.payView.passCount(count: totalCount)
+                self.cartView.passTotalPrice(price: priceString)
+                self.cartView.passTotalPay(pay: payString)
+                
                 self.cartTableView.reloadData()
+                
+                let modifiedHeight = self.cartArray.count * 430
+                
                 self.cartTableView.snp.updateConstraints {
-                    $0.height.equalTo(self.cartArray.count * 430)
+                    $0.height.equalTo(modifiedHeight)
                 }
+                
+                self.tableviewHeight = modifiedHeight
+                
                 print(data.data)
-                //print("✅\(self.itemList)")
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:
                 print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")

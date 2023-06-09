@@ -36,7 +36,6 @@ class CartPriceView: UIView {
 
     var totalPriceValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "test원"
         label.font = .AppleSDGothicNeo(.regular, size: 16)
         return label
     }()
@@ -71,7 +70,6 @@ class CartPriceView: UIView {
 
     var totalPayValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "test원"
         label.font = .AppleSDGothicNeo(.bold, size: 16)
         return label
     }()
@@ -113,6 +111,10 @@ class CartPriceView: UIView {
 // MARK: - Methods
 
 private extension CartPriceView {
+    
+    func dataBind(item: FoodItem) {
+        totalPriceValueLabel.text = "\(item.price * item.foodCount)"
+    }
 
     func setStyle() {
         addSubviews(totalPriceStackView, middleLineView, totalPayStackView, noticeLabel)
@@ -174,5 +176,18 @@ private extension CartPriceView {
             $0.leading.trailing.equalToSuperview().inset(18)
             $0.height.equalTo(86)
         }
+    }
+}
+
+extension CartPriceView {
+    
+    func passTotalPrice(price: String) {
+        let totalPriceText = "\(price)원"
+        self.totalPriceValueLabel.text = totalPriceText
+    }
+    
+    func passTotalPay(pay: String) {
+        let totalPayText = "\(pay)원"
+        self.totalPayValueLabel.text = totalPayText
     }
 }
