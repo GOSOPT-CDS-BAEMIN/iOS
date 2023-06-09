@@ -21,7 +21,7 @@ class CartTabView: UIView {
         return stackView
     }()
 
-    private let chooseStoreButton: UIButton = {
+    lazy var chooseStoreButton: UIButton = {
         let button = UIButton()
         button.setImage(.circle_empty, for: .normal)
         button.addTarget(self, action: #selector(changeButton), for: .touchUpInside)
@@ -87,15 +87,13 @@ private extension CartTabView {
             $0.leading.equalTo(chooseAllLabel.snp.trailing).offset(191)
             $0.centerY.equalToSuperview()
         }
-         
     }
 
     @objc
     func changeButton() {
-        if (chooseStoreButton.currentImage == .circle_empty) {
+        if chooseStoreButton.currentImage == .circle_empty {
             chooseStoreButton.setImage(.checked, for: .normal)
-        }
-        else {
+        } else {
             chooseStoreButton.setImage(.circle_empty, for: .normal)
         }
     }

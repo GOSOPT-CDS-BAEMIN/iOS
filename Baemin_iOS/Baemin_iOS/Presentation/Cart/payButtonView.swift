@@ -71,8 +71,8 @@ extension payButtonView {
 
 extension payButtonView {
 
-    func passPrice(price: Int) {
-        let priceText = "배달주문 \(price)원 결제하기"
+    func passPay(pay: String) {
+        let priceText = "배달주문 \(pay)원 결제하기"
         self.payButton.setTitle(priceText, for: .normal)
     }
 

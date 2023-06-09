@@ -192,5 +192,4 @@ extension CartTableSectionFooterView {
     @objc func buttonTapped() {
         buttonTapHandler?()
     }
-
 }

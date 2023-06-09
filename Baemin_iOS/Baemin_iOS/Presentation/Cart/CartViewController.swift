@@ -23,6 +23,10 @@ class CartViewController: UIViewController {
     private var totalPrice: Int = 0
     private var totalCount: Int = 0
     private var checkedCount: Int = 0
+    private var totalPayWithDeliveryTips: Int = 0
+    private var tableviewHeight: Int = 0
+    
+    private var willDeleteSectionIndex: Int = -1
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -111,7 +115,6 @@ private extension CartViewController {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(12)
             $0.height.equalTo(700)
-        // $0.height.equalTo(cartArray.count * 156 + numberOfSections(in: cartTableView) * 255)
         }
         cartView.snp.makeConstraints {
             $0.top.equalTo(cartTableView.snp.bottom)
@@ -121,16 +124,53 @@ private extension CartViewController {
     }
 }
 
-//class ScrollableSectionHeaderView: UITableViewCell {
-//    var headerView: UIView?
-//}
-
 extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableSectionHeaderDelegate {
-    
+    func passSelectedSection(section: Int) {
+        UIView.setAnimationsEnabled(false)
+        cartTableView.beginUpdates()
+        cartTableView.deleteSections(IndexSet([section]), with: .middle)
+        foodArray.remove(at: section)
+        cartArray.remove(at: section)
+        
+        cartTableView.reloadData()
+        cartTableView.endUpdates()
+        
+        self.totalPrice = 0
+        self.totalCount = 0
+        self.totalPayWithDeliveryTips = 0
+        
+        foodArray.forEach { item in
+            totalPrice += item.foodCount * item.price
+            totalCount += item.foodCount
+            totalPayWithDeliveryTips += item.foodCount * item.price
+            
+        }
+        
+        cartArray.forEach { item in
+            totalPayWithDeliveryTips += item.deliveryFee
+        }
+        
+        let totalPriceString = addCommaToPrice(totalPrice)
+        let totalPayString = addCommaToPrice(totalPayWithDeliveryTips)
+        
+        cartView.passTotalPrice(price: totalPriceString)
+        cartView.passTotalPay(pay: totalPayString)
+        
+        payView.passCount(count: totalCount)
+        payView.passPay(pay: totalPayString)
+        
+        self.tableviewHeight -= 430
+        
+        self.cartTableView.snp.updateConstraints {
+            $0.height.equalTo(tableviewHeight)
+        }
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return cartArray.count
     }
 
+//    table
     // section header 설정
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -139,7 +179,6 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableS
         headerView.dataBind(item: cartArray[section])
         headerView.delegate = self
         headerView.section = section
-
         return headerView
     }
 
@@ -160,7 +199,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableS
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 194.0 // Example: Set the height of the section header
+        return 194.0
     }
 
     // section 내부 cell 설정
@@ -179,7 +218,6 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableS
             if result {
                 if !cell.menuCheckButton.isSelected {
                     self?.checkedCount += 1
-                    print(self?.checkedCount)
                     print(cell.menuCheckButton.isSelected)
                 } else {
                     self?.checkedCount -= 1
@@ -206,7 +244,6 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableS
     }
     
     func didSelectHeaderButton(section: Int, selected: Bool) {
-            // Update the button selection state for cells in the specified section
         let indexPaths = (0..<self.cartTableView.numberOfRows(inSection: section)).map { IndexPath(row: $0, section: section) }
             for indexPath in indexPaths {
                 if let cell = self.cartTableView.cellForRow(at: indexPath) as? CartTableSectionViewCell {
@@ -214,11 +251,19 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, TableS
                 }
             }
         }
-    
 }
 
 extension CartViewController {
-    func requestCartAPI (index: Int) {
+    private func addCommaToPrice(_ price: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let result = numberFormatter.string(from: NSNumber(value: price)) else { return "" }
+        
+        return result
+    }
+    
+    private func requestCartAPI (index: Int) {
         CartAPI.shared.getCart(id: index + 1) { response in
             print("🍀🍀🍀 response 🍀🍀🍀")
             print(response)
@@ -226,17 +271,37 @@ extension CartViewController {
             case .success(let data):
                 guard let data = data as? CartResponseDTO else { return }
                 let dataArray = data.data
+                var totalPrice: Int = 0
+                var totalCount: Int = 0
+                                
                 for item in dataArray {
                     self.foodArray.append(item.foods[0])
                     self.cartArray.append(item)
+                    totalPrice += item.foods[0].foodCount * item.foods[0].price
+                    totalCount += item.foods[0].foodCount
+                    self.totalPayWithDeliveryTips += item.foods[0].foodCount * item.foods[0].price + item.deliveryFee
+
                     print("🤤\(self.cartArray)")
                 }
-
+                
+                let priceString = self.addCommaToPrice(totalPrice)
+                let payString = self.addCommaToPrice(self.totalPayWithDeliveryTips)
+                
+                self.payView.passPay(pay: payString)
+                self.payView.passCount(count: totalCount)
+                self.cartView.passTotalPrice(price: priceString)
+                self.cartView.passTotalPay(pay: payString)
+                
                 self.cartTableView.reloadData()
                 
+                let modifiedHeight = self.cartArray.count * 430
+                
                 self.cartTableView.snp.updateConstraints {
-                    $0.height.equalTo(self.cartArray.count * 430)
+                    $0.height.equalTo(modifiedHeight)
                 }
+                
+                self.tableviewHeight = modifiedHeight
+                
                 print(data.data)
                 print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
             default:

@@ -32,9 +32,11 @@ class CartTableSectionHeaderView: UIView {
         return label
     }()
 
-    private let storeDeleteButton: UIButton = {
+    lazy var storeDeleteButton: UIButton = {
         let button = UIButton()
         button.setImage(.x, for: .normal)
+        button.isEnabled = true
+        button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -85,13 +87,21 @@ extension CartTableSectionHeaderView {
     }
     
     @objc
-    func headerButtonTapped(_ sender: UIButton) {
+    private func headerButtonTapped(_ sender: UIButton) {
         let selected = !sender.isSelected
         sender.isSelected = selected
         delegate?.didSelectHeaderButton(section: section, selected: selected)
+    }
+    
+    @objc
+    private func deleteButtonTapped(_ sender: UIButton) {
+        let selected = !sender.isSelected
+        sender.isSelected = selected
+        delegate?.passSelectedSection(section: section)
     }
 }
 
 protocol TableSectionHeaderDelegate: AnyObject {
     func didSelectHeaderButton(section: Int, selected: Bool)
+    func passSelectedSection(section: Int)
 }
