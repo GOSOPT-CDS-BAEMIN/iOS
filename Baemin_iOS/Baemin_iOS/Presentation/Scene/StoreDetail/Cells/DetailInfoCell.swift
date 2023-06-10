@@ -131,7 +131,7 @@ extension DetailInfoCell: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RenewalTableViewCell.identifier, for: indexPath) as? RenewalTableViewCell else { return UITableViewCell() }
-        
+            cell.selectionStyle = .none
             cell.bind(foodList[indexPath.item])
                    
             return cell
