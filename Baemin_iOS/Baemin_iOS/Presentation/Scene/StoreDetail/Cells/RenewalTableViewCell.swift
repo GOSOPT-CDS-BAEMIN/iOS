@@ -52,10 +52,3 @@ class RenewalTableViewCell: UITableViewCell {
         }
     }
 }
-
-extension RenewalTableViewCell {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.indexClosure?(indexPath.item)
-    }
-}
