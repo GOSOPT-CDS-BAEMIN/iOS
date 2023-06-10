@@ -14,7 +14,11 @@ class ReviewBottomSheetVC: UIViewController {
     // MARK: - Properties
     
     var index: Int = 0
-    private var items: [Food] = []
+    var items: [Food] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     private var selectedIndices: Set<Int> = []
     
     private var isTapped: Bool = false
@@ -54,7 +58,6 @@ class ReviewBottomSheetVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.requestReview(index: self.index)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,25 +151,5 @@ extension ReviewBottomSheetVC: UICollectionViewDelegate, UICollectionViewDataSou
         }
         selectedIndices.remove(indexPath.item)
         updateButtonState()
-    }
-}
-
-extension ReviewBottomSheetVC {
-    func requestReview(index: Int) {
-        StoreAPI.shared.getStoreInfo(request: index) {response in
-            print("🍀🍀🍀 response 🍀🍀🍀")
-            print(response)
-            switch response {
-            case .success(let data):
-                guard let data = data as? StoreResponseDTO else { return }
-                let dataArray = data.data.foods
-                self.items = dataArray
-                self.collectionView.reloadData()
-                print("🍀🍀🍀  ARRAY에 담긴 데이터들  🍀🍀🍀")
-            default:
-                print("🍀🍀🍀  왜 안 오ㅏ  🍀🍀🍀")
-                print(response)
-            }
-        }
     }
 }

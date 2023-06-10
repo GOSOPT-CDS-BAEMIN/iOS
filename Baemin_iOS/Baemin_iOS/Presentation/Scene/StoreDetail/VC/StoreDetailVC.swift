@@ -141,7 +141,7 @@ class StoreDetailVC: UIViewController {
         
         if tmp == 1 {
             let bottomSheet = ReviewBottomSheetVC()
-            bottomSheet.index = self.index
+            bottomSheet.items = foodItem
             
             if let sheet = bottomSheet.sheetPresentationController {
                 sheet.detents = [.medium()]
@@ -206,14 +206,15 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
             }
             
-            detailInfoCell.selectionStyle = .none
             detailInfoCell.foodList = foodItem
             detailInfoCell.indexClosure = { id in
+                self.index = id
                 let vc = MenuDetailVC()
                 vc.index = id
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            
+            detailInfoCell.selectionStyle = .none
+
             return detailInfoCell
         }
     }

@@ -12,6 +12,7 @@ import SnapKit
 class MenuDetailView: UIView {
     
     var price: Int = 0
+    var count: Int = 0
     private let priceView =  UIView()
     private let numberView = UIView()
     
@@ -135,6 +136,7 @@ extension MenuDetailView {
         menuPrice.text = "\(item.price)원"
         menuCountButton.priceClosure = { count in
             self.price = item.price*count
+            self.count = count
             button.setTitle("\(Utils.convertToCurrencyFormat(price: self.price)) 원", for: .normal)
         }
     }

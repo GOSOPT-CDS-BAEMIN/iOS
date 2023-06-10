@@ -613,7 +613,6 @@
 		F4587D0E2A12B1A600F56BCD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				8DA1B9742A17B86100B1D8C9 /* Cart */,
 				F4587D0F2A12B1FC00F56BCD /* Scene */,
 				F4587D102A12B21F00F56BCD /* Common */,
 				F4587D112A12B22400F56BCD /* TabBar */,
@@ -624,6 +623,7 @@
 		F4587D0F2A12B1FC00F56BCD /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				8DA1B9742A17B86100B1D8C9 /* Cart */,
 				0918E00B2A1BE9E2005B6542 /* Main */,
 				09C18F772A1E27E000AA0F2F /* MenuDetail */,
 				09C29F502A1D485E00BAE541 /* Review */,
