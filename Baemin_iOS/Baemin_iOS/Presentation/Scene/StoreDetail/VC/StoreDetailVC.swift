@@ -9,12 +9,6 @@ import UIKit
 
 import SnapKit
 
-protocol gotoMenuDetail: AnyObject {
-    func changeView()
-}
-
-// weak var delegate: gotoMenuDetail?
-
 class StoreDetailVC: UIViewController {
 
     // MARK: - Properties
@@ -26,7 +20,7 @@ class StoreDetailVC: UIViewController {
     private lazy var safeArea = self.view.safeAreaLayoutGuide
     
     private let stickyHead: UIView = StickyHeaderView()
-    private let contentView: UIView = UIView()
+
     let topSafeArea = UIView()
     
     private var totalView: UIView = UIView()
@@ -67,11 +61,7 @@ class StoreDetailVC: UIViewController {
         table.backgroundColor = .clear
         table.showsHorizontalScrollIndicator = false
         table.showsVerticalScrollIndicator = false
-        table.sectionHeaderHeight = UITableView.automaticDimension
-        table.sectionFooterHeight = UITableView.automaticDimension
-        table.rowHeight = UITableView.automaticDimension
         table.bounces = true
-        table.allowsSelection = false
         return table
     }()
     
@@ -102,25 +92,17 @@ class StoreDetailVC: UIViewController {
         navigationBar.iconButton.rightButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
                 
         tableView.contentInsetAdjustmentBehavior = .never
-        contentView.insetsLayoutMarginsFromSafeArea = false
         scrollView.insetsLayoutMarginsFromSafeArea = false
     }
     
     private func setLayOut() {
         
-        view.addSubview(scrollView)
-        scrollView.addSubviews(contentView, topSafeArea, navigationBar, stickyHead)
-        contentView.addSubview(tableView)
-                
-        scrollView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
-            $0.width.equalToSuperview()
-        }
+        view.addSubviews(tableView, topSafeArea, navigationBar, stickyHead)
         
-        contentView.snp.makeConstraints {
-            $0.height.equalTo(scrollView.snp.height)
-            $0.top.equalTo(view.snp.top).inset(-50)
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(view.snp.top).inset(-65)
             $0.width.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         topSafeArea.snp.makeConstraints {
@@ -135,13 +117,8 @@ class StoreDetailVC: UIViewController {
             $0.directionalHorizontalEdges.equalTo(safeArea)
         }
         
-        tableView.snp.makeConstraints {
-            $0.edges.equalTo(contentView.snp.edges)
-        }
-        
         stickyHead.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(35)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.height.equalTo(40)
             $0.width.equalToSuperview()
         }
@@ -198,7 +175,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 개수 정의
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return rowNum.count
     }
     
     // 각 섹션마다의 셀 개수 정의
@@ -215,7 +192,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             if let target = storeItem.first {
                 cell.bind(target)
             }
-            
+            cell.selectionStyle = .none
             return cell
         case 1:
             guard let deliverCell = tableView.dequeueReusableCell(withIdentifier: OrderInfoCell.identifier, for: indexPath) as? OrderInfoCell else { return UITableViewCell() }
@@ -223,17 +200,20 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             if let target = storeItem.first {
                 deliverCell.bind(target)
             }
-    
+            deliverCell.selectionStyle = .none
             return deliverCell
         default:
             guard let detailInfoCell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else { return UITableViewCell()
             }
             
-            detailInfoCell.renewalBind(foodItem)
-            detailInfoCell.renewalView.bringClosure = { [weak self] _ in
+            detailInfoCell.selectionStyle = .none
+            detailInfoCell.foodList = foodItem
+            detailInfoCell.indexClosure = { id in
                 let vc = MenuDetailVC()
-                self?.navigationController?.pushViewController(vc, animated: true)
+                vc.index = id
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            
             return detailInfoCell
         }
     }
@@ -253,12 +233,14 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 2 {
+            return CGFloat(foodItem.count*135 + 165)
+        }
+        return UITableView.automaticDimension
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 }
 
@@ -332,12 +314,5 @@ extension StoreDetailVC {
             foodList.append(food)
         }
         return foodList
-    }
-}
-
-extension StoreDetailVC: gotoMenuDetail {
-    func changeView() {
-        let vc = MenuDetailVC()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
