@@ -42,11 +42,9 @@ class DeliveryView: UIView {
 
     private func setting() {
         firstView.leftView.text = first_label[0]
-        firstView.rightView.text = String(describing: minOrderPrice)
         secondView.leftView.text = first_label[1]
         secondView.rightView.text = second_label[1]
         thirdView.leftView.text = first_label[2]
-        thirdView.rightView.text = String(describing: deliveryTime)
         fourthView.leftView.text = first_label[3]
         fourthView.rightView.text = second_label[3]
     }

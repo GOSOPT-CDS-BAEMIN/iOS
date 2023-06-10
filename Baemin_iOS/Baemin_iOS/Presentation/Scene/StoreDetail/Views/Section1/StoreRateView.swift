@@ -21,7 +21,6 @@ class StoreRateView: UIView {
         return stack
     }()
     
-    // MARK: 2. 가게이름 - API 항목 storeName 추후 반영필요
     private let storeName: UILabel = {
         let name = UILabel()
         name.textColor = .black
@@ -31,7 +30,6 @@ class StoreRateView: UIView {
         return name
     }()
     
-    // MARK: 1. 가게별점 이미지 - API 항목 storeRate에 따른 이미지 변화 필요
     private let storeRateImage: UIImageView = {
         let rate = UIImageView()
         rate.image = .five_star.resized(toWidth: 137)
@@ -40,7 +38,6 @@ class StoreRateView: UIView {
         return rate
     }()
 
-    // MARK: 2. 가게별점 - API 항목 storeRate 데이터 반영 필요
     private let storeRate: UILabel = {
         let number = UILabel()
         number.text = "4.7"

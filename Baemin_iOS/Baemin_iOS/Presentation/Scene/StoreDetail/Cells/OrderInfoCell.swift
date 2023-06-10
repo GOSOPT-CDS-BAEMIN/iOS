@@ -20,12 +20,9 @@ class OrderInfoCell: UITableViewCell {
     private let secondView = DeliveryInfoBaseView()
     private let thirdView = DeliveryInfoBaseView()
     private let fourthView = DeliveryInfoBaseView()
-    var pickUpView = PickUpView()
+    private let pickUpView = PickUpView()
     
-    var minOrderPrice: Int = 0
-    var deliveryTime: String = ""
-    
-    // MARK: - UI Component
+    // MARK: - UI Components
     
     private let detailTag: UIButton = {
         let tag = UIButton()
@@ -97,11 +94,9 @@ class OrderInfoCell: UITableViewCell {
     
     private func setting() {
         firstView.leftView.text = first_label[0]
-        firstView.rightView.text = String(describing: minOrderPrice)
         secondView.leftView.text = first_label[1]
         secondView.rightView.text = second_label[1]
         thirdView.leftView.text = first_label[2]
-        thirdView.rightView.text = String(describing: deliveryTime)
         fourthView.leftView.text = first_label[3]
         fourthView.rightView.text = second_label[3]
     }

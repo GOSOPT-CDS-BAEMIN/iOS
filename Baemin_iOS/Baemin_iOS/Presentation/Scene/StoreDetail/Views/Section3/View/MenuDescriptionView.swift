@@ -9,9 +9,11 @@ import UIKit
 
 import SnapKit
 
-class MenuDescriptionView: UIView {
+class MenuDescriptionView: UITableViewHeaderFooterView {
     
     // MARK: - UI Components
+    
+    var indexClosure: ((_ index: CGFloat) -> Void)?
 
     private let madinBtn: UIButton = {
         let btn = UIButton()
@@ -29,9 +31,17 @@ class MenuDescriptionView: UIView {
         return label
     }()
     
+    private let famous: UIImageView = {
+        let view = UIImageView()
+        view.image = .famous
+        view.sizeToFit()
+        return view
+    }()
+    
     // MARK: - initialize func
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         setStyle()
         setLayOut()
     }
@@ -43,11 +53,12 @@ class MenuDescriptionView: UIView {
     // MARK: - Methods
     
     func setStyle() {
-        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        self.indexClosure?(contentView.bounds.height)
     }
     
     func setLayOut() {
-        addSubviews(madinBtn, article)
+        contentView.addSubviews(madinBtn, article, famous)
         
         madinBtn.snp.makeConstraints {
             $0.top.leading.equalToSuperview()
@@ -56,8 +67,12 @@ class MenuDescriptionView: UIView {
         article.snp.makeConstraints {
             $0.top.equalTo(madinBtn.snp.bottom)
             $0.leading.equalTo(madinBtn)
+        }
+        
+        famous.snp.makeConstraints {
+            $0.top.equalTo(article.snp.bottom).offset(72)
+            $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
     }
-
 }
